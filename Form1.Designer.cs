@@ -242,6 +242,7 @@
             this.cb1Teams.Name = "cb1Teams";
             this.cb1Teams.Size = new System.Drawing.Size(197, 21);
             this.cb1Teams.TabIndex = 0;
+            this.cb1Teams.TextChanged += new System.EventHandler(this.UpdateTeams);
             // 
             // cb2Teams
             // 
@@ -250,6 +251,7 @@
             this.cb2Teams.Name = "cb2Teams";
             this.cb2Teams.Size = new System.Drawing.Size(197, 21);
             this.cb2Teams.TabIndex = 1;
+            this.cb2Teams.TextChanged += new System.EventHandler(this.UpdateTeams);
             // 
             // groupBox2
             // 
@@ -345,7 +347,7 @@
             this.btnTeam2AddScore.TabIndex = 3;
             this.btnTeam2AddScore.Text = "+";
             this.btnTeam2AddScore.UseVisualStyleBackColor = false;
-            this.btnTeam2AddScore.Click += new System.EventHandler(this.btnTeam2AddScore_Click);
+            this.btnTeam2AddScore.Click += new System.EventHandler(this.BtnTeam2AddScore_Click);
             // 
             // btnTeam2MinusScore
             // 
@@ -356,7 +358,7 @@
             this.btnTeam2MinusScore.TabIndex = 2;
             this.btnTeam2MinusScore.Text = "-";
             this.btnTeam2MinusScore.UseVisualStyleBackColor = false;
-            this.btnTeam2MinusScore.Click += new System.EventHandler(this.btnTeam2MinusScore_Click);
+            this.btnTeam2MinusScore.Click += new System.EventHandler(this.BtnTeam2MinusScore_Click);
             // 
             // btnTeam1AddScore
             // 
@@ -367,7 +369,7 @@
             this.btnTeam1AddScore.TabIndex = 1;
             this.btnTeam1AddScore.Text = "+";
             this.btnTeam1AddScore.UseVisualStyleBackColor = false;
-            this.btnTeam1AddScore.Click += new System.EventHandler(this.btnTeam1AddScore_Click);
+            this.btnTeam1AddScore.Click += new System.EventHandler(this.BtnTeam1AddScore_Click);
             // 
             // btnTeam1MinusScore
             // 
@@ -378,7 +380,7 @@
             this.btnTeam1MinusScore.TabIndex = 0;
             this.btnTeam1MinusScore.Text = "-";
             this.btnTeam1MinusScore.UseVisualStyleBackColor = false;
-            this.btnTeam1MinusScore.Click += new System.EventHandler(this.btnTeam1MinusScore_Click);
+            this.btnTeam1MinusScore.Click += new System.EventHandler(this.BtnTeam1MinusScore_Click);
             // 
             // tBScoreTeam2
             // 
@@ -390,6 +392,7 @@
             this.tBScoreTeam2.TabStop = false;
             this.tBScoreTeam2.Text = "0";
             this.tBScoreTeam2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBScoreTeam2.TextChanged += new System.EventHandler(this.UpdateResults);
             // 
             // tBScoreTeam1
             // 
@@ -401,6 +404,7 @@
             this.tBScoreTeam1.TabStop = false;
             this.tBScoreTeam1.Text = "0";
             this.tBScoreTeam1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBScoreTeam1.TextChanged += new System.EventHandler(this.UpdateResults);
             // 
             // groupBox4
             // 
@@ -424,6 +428,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "Start/Stop F3";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.BtnTimeStartStop_Click);
             // 
             // button5
             // 
@@ -433,6 +438,7 @@
             this.button5.TabIndex = 2;
             this.button5.Text = "Set";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.BtnSetGameTime_Click);
             // 
             // label8
             // 
