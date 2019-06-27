@@ -41,9 +41,17 @@ namespace FNL
             _caspar_.Disconnected += new EventHandler<NetworkEventArgs>(Caspar__Disconnected);
 
             this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
+
+            // Disable controls to click on button. There are not connection yet on start program.
+            DisableControls();
         }
 
-        //caspar event - connected
+        #region Connection CasparCG
+        /// <summary>
+        /// Method that call for caspar cg when it connected.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Caspar__Connected(object sender, NetworkEventArgs e)
         {
             if (InvokeRequired)
@@ -65,18 +73,11 @@ namespace FNL
 
             EnableControls();
         }
-
-        private void DisableControls()
-        {
-            tabControl1.Enabled = false;
-        }
-
-        private void EnableControls()
-        {
-            tabControl1.Enabled = true;
-        }
-
-        //caspar event - failed connect
+        /// <summary>
+        /// Caspar event - failed connect.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Caspar__FailedConnected(object sender, NetworkEventArgs e)
         {
             if (InvokeRequired)
@@ -96,7 +97,11 @@ namespace FNL
             DisableControls();
         }
 
-        //caspar event - disconnected
+        /// <summary>
+        /// Caspar event - disconnected.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Caspar__Disconnected(object sender, NetworkEventArgs e)
         {
             if (InvokeRequired)
@@ -115,67 +120,8 @@ namespace FNL
 
             DisableControls();
         }
-
-        // update text on button
-        private void UpdateConnectButtonText()
-        {
-            if (!_caspar_.IsConnected)
-            {
-                buttonConnect.Text = "Connect";// to " + Properties.Settings.Default.Hostname;
-            }
-            else
-            {
-                buttonConnect.Text = "Disconnect"; // from " + Properties.Settings.Default.Hostname;
-            }
-        }
-
-        private void BtnClearGraphics_Click(object sender, EventArgs e)
-        {
-            //System.Diagnostics.Debug.WriteLine("Clear on: " + Properties.Settings.Default.CasparChannel);
-            try
-            {
-                this._caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Clear();
-                this._caspar_.Channels[Properties.Settings.Default.CasparChannel].Clear();
-            }
-            catch (Exception ex)
-            {
-                //System.Diagnostics.Debug.WriteLine(ex.ToString());
-                throw;
-            }
-        }
-
-        private void ButtonConnect_Click(object sender, EventArgs e)
-        {
-            buttonConnect.Enabled = false;
-
-            if (!_caspar_.IsConnected)
-            {
-                _caspar_.Settings.Hostname = this.tbCasparServer.Text; // Properties.Settings.Default.Hostname;
-                _caspar_.Settings.Port = 5250;
-                _caspar_.Connect();
-            }
-            else
-            {
-                _caspar_.Disconnect();
-            }
-        }
-
-        private void BtnLockTeams_Click(object sender, EventArgs e)
-        {
-            this.cb1Teams.Enabled = !this.cb1Teams.Enabled;
-            this.cb2Teams.Enabled = !this.cb2Teams.Enabled;
-
-            if (this.cb1Teams.Enabled)
-            {
-                this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
-            }
-            else
-            {
-                this.btnLockTeams.Image = FNL.Properties.Resources.lock_lock;
-            }
-
-        }
-
+        #endregion
+        #region Datatable
         private void InitDatatable()
         {
             if (_teamsDt.Columns.Count == 0)
@@ -211,17 +157,37 @@ namespace FNL
                     _teamsDt.Rows.Add(relation);
                 }
             }
-
         }
 
-        private void BtnStartGraphics_Click(object sender, EventArgs e)
+        #endregion
+        #region Methods.
+        /// <summary>
+        /// Disable controls in tub of form.
+        /// </summary>
+        private void DisableControls()
         {
-            this.StartClock();
+            tabControl1.Enabled = false;
         }
-
-        private void BtnStopGraphics_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Enable controls in tub of form.
+        /// </summary>
+        private void EnableControls()
         {
-            this.StopClock();
+            tabControl1.Enabled = true;
+        }
+        /// <summary>
+        /// Update the text status connection of button that control connection.
+        /// </summary>
+        private void UpdateConnectButtonText()
+        {
+            if (!_caspar_.IsConnected)
+            {
+                buttonConnect.Text = "Connect";// to " + Properties.Settings.Default.Hostname;
+            }
+            else
+            {
+                buttonConnect.Text = "Disconnect"; // from " + Properties.Settings.Default.Hostname;
+            }
         }
 
         /// <summary>
@@ -260,11 +226,30 @@ namespace FNL
                 }
             }
         }
-
-        private void BtnTimeStartStop_Click(object sender, EventArgs e)
+        private void ShowHideTimer()
         {
-            this.GameTimeStartStop();
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "clockShowHideTimer");
+                }
+            }
         }
+        #endregion
+
+
+
+
+
         /// <summary>
         /// Start the timer.
         /// </summary>
@@ -494,6 +479,139 @@ namespace FNL
                     _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "clockShowHide");
                 }
             }
+        }
+        
+        /// <summary>
+        /// Button to show additional minutes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonShowAddMinutes(object sender, EventArgs e)
+        {
+            this.ShowHideAddMinutes();
+        }
+
+        /// <summary>
+        /// Show additional minutes on screen.
+        /// </summary>
+        private void ShowHideAddMinutes()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "clockShowHideAddMinutes");
+                }
+            }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            this.ShowHideChange();
+        }
+
+        private void ShowHideChange()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "changeShowHide");
+                }
+            }
+        }
+
+        private void ButtonShowHideTimer_Click(object sender, EventArgs e)
+        {
+            this.ShowHideTimer();
+        }
+        /// <summary>
+        /// Connect/disconnect to caspar device.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonConnect_Click(object sender, EventArgs e)
+        {
+            buttonConnect.Enabled = false;
+
+            if (!_caspar_.IsConnected)
+            {
+                _caspar_.Settings.Hostname = this.tbCasparServer.Text; // Properties.Settings.Default.Hostname;
+                _caspar_.Settings.Port = 5250;
+                _caspar_.Connect();
+            }
+            else
+            {
+                _caspar_.Disconnect();
+            }
+        }
+        /// <summary>
+        /// Clear graphic in caspar device.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnClearGraphics_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this._caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Clear();
+                this._caspar_.Channels[Properties.Settings.Default.CasparChannel].Clear();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        /// <summary>
+        /// Lock teams that was chosed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnLockTeams_Click(object sender, EventArgs e)
+        {
+            this.cb1Teams.Enabled = !this.cb1Teams.Enabled;
+            this.cb2Teams.Enabled = !this.cb2Teams.Enabled;
+
+            if (this.cb1Teams.Enabled)
+            {
+                this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
+            }
+            else
+            {
+                this.btnLockTeams.Image = FNL.Properties.Resources.lock_lock;
+            }
+        }
+
+        private void BtnStartGraphics_Click(object sender, EventArgs e)
+        {
+            this.StartClock();
+        }
+
+        private void BtnStopGraphics_Click(object sender, EventArgs e)
+        {
+            this.StopClock();
+        }
+
+
+        private void BtnTimeStartStop_Click(object sender, EventArgs e)
+        {
+            this.GameTimeStartStop();
         }
     }
 

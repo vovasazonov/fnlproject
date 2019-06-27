@@ -58,6 +58,7 @@
             this.tBScoreTeam2 = new System.Windows.Forms.TextBox();
             this.tBScoreTeam1 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnShowHideTimer = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -117,7 +118,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 491);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 487);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(694, 22);
             this.statusStrip1.TabIndex = 17;
@@ -136,7 +137,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 40);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(690, 448);
+            this.tabControl1.Size = new System.Drawing.Size(690, 460);
             this.tabControl1.TabIndex = 18;
             // 
             // tabPage1
@@ -152,7 +153,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(682, 422);
+            this.tabPage1.Size = new System.Drawing.Size(682, 434);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Верхний титр";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -161,7 +162,7 @@
             // 
             this.gpStartStopTemplate.Controls.Add(this.btnStartGraphics);
             this.gpStartStopTemplate.Controls.Add(this.btnStopGraphics);
-            this.gpStartStopTemplate.Location = new System.Drawing.Point(173, 350);
+            this.gpStartStopTemplate.Location = new System.Drawing.Point(173, 367);
             this.gpStartStopTemplate.Name = "gpStartStopTemplate";
             this.gpStartStopTemplate.Size = new System.Drawing.Size(326, 56);
             this.gpStartStopTemplate.TabIndex = 21;
@@ -257,7 +258,7 @@
             // 
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.tbBottomFlarp);
-            this.groupBox2.Location = new System.Drawing.Point(163, 259);
+            this.groupBox2.Location = new System.Drawing.Point(163, 276);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(162, 76);
             this.groupBox2.TabIndex = 18;
@@ -272,6 +273,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Show/Hide F5";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // tbBottomFlarp
             // 
@@ -287,7 +289,7 @@
             this.groupBox6.Controls.Add(this.numHalfNum);
             this.groupBox6.Location = new System.Drawing.Point(163, 168);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(74, 75);
+            this.groupBox6.Size = new System.Drawing.Size(74, 102);
             this.groupBox6.TabIndex = 20;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Half";
@@ -296,7 +298,7 @@
             // 
             this.button10.Location = new System.Drawing.Point(7, 41);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(54, 23);
+            this.button10.Size = new System.Drawing.Size(54, 51);
             this.button10.TabIndex = 1;
             this.button10.Text = "Spara";
             this.button10.UseVisualStyleBackColor = true;
@@ -408,6 +410,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnShowHideTimer);
             this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Controls.Add(this.button5);
             this.groupBox4.Controls.Add(this.label8);
@@ -415,10 +418,20 @@
             this.groupBox4.Controls.Add(this.tbTimeMin);
             this.groupBox4.Location = new System.Drawing.Point(251, 168);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(136, 76);
+            this.groupBox4.Size = new System.Drawing.Size(136, 102);
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Time";
+            // 
+            // btnShowHideTimer
+            // 
+            this.btnShowHideTimer.Location = new System.Drawing.Point(9, 74);
+            this.btnShowHideTimer.Name = "btnShowHideTimer";
+            this.btnShowHideTimer.Size = new System.Drawing.Size(120, 24);
+            this.btnShowHideTimer.TabIndex = 14;
+            this.btnShowHideTimer.Text = "Show/hide timer";
+            this.btnShowHideTimer.UseVisualStyleBackColor = true;
+            this.btnShowHideTimer.Click += new System.EventHandler(this.ButtonShowHideTimer_Click);
             // 
             // button4
             // 
@@ -472,7 +485,7 @@
             // 
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.numOvertime);
-            this.groupBox3.Location = new System.Drawing.Point(338, 259);
+            this.groupBox3.Location = new System.Drawing.Point(338, 276);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(173, 76);
             this.groupBox3.TabIndex = 19;
@@ -487,6 +500,7 @@
             this.button3.TabIndex = 1;
             this.button3.Text = "Show/hide F6";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.ButtonShowAddMinutes);
             // 
             // numOvertime
             // 
@@ -500,7 +514,7 @@
             this.groupBox1.Controls.Add(this.btnShowMain);
             this.groupBox1.Location = new System.Drawing.Point(399, 169);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(112, 75);
+            this.groupBox1.Size = new System.Drawing.Size(112, 101);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clock";
@@ -512,7 +526,7 @@
             this.btnShowMain.ForeColor = System.Drawing.Color.Black;
             this.btnShowMain.Location = new System.Drawing.Point(16, 18);
             this.btnShowMain.Name = "btnShowMain";
-            this.btnShowMain.Size = new System.Drawing.Size(76, 49);
+            this.btnShowMain.Size = new System.Drawing.Size(76, 73);
             this.btnShowMain.TabIndex = 0;
             this.btnShowMain.Text = "Show/hide clock F4";
             this.btnShowMain.UseVisualStyleBackColor = false;
@@ -532,7 +546,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 513);
+            this.ClientSize = new System.Drawing.Size(694, 509);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnClearGraphics);
@@ -606,6 +620,7 @@
         private System.Windows.Forms.Button btnStopGraphics;
         private System.Windows.Forms.ComboBox cb1Teams;
         private System.Windows.Forms.ComboBox cb2Teams;
+        private System.Windows.Forms.Button btnShowHideTimer;
     }
 }
 

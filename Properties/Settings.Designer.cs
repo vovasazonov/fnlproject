@@ -43,7 +43,7 @@ namespace FNL.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("FNL/clock")]
+        [global::System.Configuration.DefaultSettingValueAttribute("FNL/up_title")]
         public string TemplateNameClock {
             get {
                 return ((string)(this["TemplateNameClock"]));
