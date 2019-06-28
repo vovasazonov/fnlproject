@@ -46,7 +46,7 @@ namespace FNL
             DisableControls();
         }
 
-        #region Connection CasparCG
+        #region Connection CasparCG methods
         /// <summary>
         /// Method that call for caspar cg when it connected.
         /// </summary>
@@ -121,7 +121,7 @@ namespace FNL
             DisableControls();
         }
         #endregion
-        #region Datatable
+        #region Datatable mathods
         private void InitDatatable()
         {
             if (_teamsDt.Columns.Count == 0)
@@ -160,7 +160,7 @@ namespace FNL
         }
 
         #endregion
-        #region Methods.
+        #region Other methods.
         /// <summary>
         /// Disable controls in tub of form.
         /// </summary>
@@ -244,11 +244,6 @@ namespace FNL
                 }
             }
         }
-        #endregion
-
-
-
-
 
         /// <summary>
         /// Start the timer.
@@ -271,10 +266,7 @@ namespace FNL
                 }
             }
         }
-        private void BtnSetGameTime_Click(object sender, EventArgs e)
-        {
-            this.UpdateGameTime();
-        }
+
         private void UpdateGameTime()
         {
             /*
@@ -395,7 +387,7 @@ namespace FNL
             finally
             {
                 if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                 {
+                {
                     _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Add(Properties.Settings.Default.GraphicsLayerClock, Properties.Settings.Default.TemplateNameClock, true, _cgData);
                 }
             }
@@ -406,6 +398,74 @@ namespace FNL
             return tbTimeMin.Text + ":" + tbTimeSec.Text;
         }
 
+        /// <summary>
+        /// Show or hide the table with information of game.
+        /// </summary>
+        private void ShowHideClock()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "clockShowHide");
+                }
+            }
+        }
+        /// <summary>
+        /// Show additional minutes on screen.
+        /// </summary>
+        private void ShowHideAddMin()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "ltimerShowHide");
+                }
+            }
+        }
+
+        private void ShowHideChange()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "changeShowHide");
+                }
+            }
+        }
+
+        #endregion
+        #region Methods invoke by events from form.
+        private void BtnSetGameTime_Click(object sender, EventArgs e)
+        {
+            this.UpdateGameTime();
+        }
         private void BtnTeam1MinusScore_Click(object sender, EventArgs e)
         {
             /// get score
@@ -459,28 +519,7 @@ namespace FNL
             this.ShowHideClock();
         }
 
-        /// <summary>
-        /// Show or hide the table with information of game.
-        /// </summary>
-        private void ShowHideClock()
-        {
-            try
-            {
 
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "clockShowHide");
-                }
-            }
-        }
-        
         /// <summary>
         /// Button to show additional minutes.
         /// </summary>
@@ -488,53 +527,12 @@ namespace FNL
         /// <param name="e"></param>
         private void ButtonShowAddMinutes(object sender, EventArgs e)
         {
-            this.ShowHideAddMinutes();
-        }
-
-        /// <summary>
-        /// Show additional minutes on screen.
-        /// </summary>
-        private void ShowHideAddMinutes()
-        {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "clockShowHideAddMinutes");
-                }
-            }
+            this.ShowHideAddMin();
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
             this.ShowHideChange();
-        }
-
-        private void ShowHideChange()
-        {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "changeShowHide");
-                }
-            }
         }
 
         private void ButtonShowHideTimer_Click(object sender, EventArgs e)
@@ -613,6 +611,8 @@ namespace FNL
         {
             this.GameTimeStartStop();
         }
+        #endregion
+
     }
 
 }
