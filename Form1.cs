@@ -366,7 +366,6 @@ namespace FNL
                 return;
             }
 
-
             try
             {
                 // Clear old data
