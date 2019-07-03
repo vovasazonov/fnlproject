@@ -332,7 +332,7 @@ namespace FNL
             }
         }
 
-        private void StopClock()
+        private void StopGraphic()
         {
             try
             {
@@ -356,7 +356,10 @@ namespace FNL
             return true;
         }
 
-        private void StartClock()
+        /// <summary>
+        /// Start graphic
+        /// </summary>
+        private void StartGraphic()
         {
             /*
              Check for valid field values
@@ -376,8 +379,12 @@ namespace FNL
                 _cgData.SetData("team2Name", cb2Teams.SelectedValue.ToString());
                 _cgData.SetData("team1Score", tBScoreTeam1.Text);
                 _cgData.SetData("team2Score", tBScoreTeam2.Text);
+                _cgData.SetData("team1Color", buttonColorTeam1.BackColor.ToArgb().ToString());
+                _cgData.SetData("team2Color", buttonColorTeam2.BackColor.ToArgb().ToString());
                 _cgData.SetData("halfNum", Convert.ToString(numHalfNum.Value));
                 _cgData.SetData("gameTime", this.GetGameTimeCGData());
+                _cgData.SetData("overtime", Convert.ToString(numOvertime.Value));
+
             }
             catch
             {
@@ -459,6 +466,90 @@ namespace FNL
             }
         }
 
+        private void SaveHalfNum()
+        {
+            // spara halvtid
+            /*
+             TODO: Check for valid field values
+             */
+
+            try
+            {
+                // Clear old data
+                _cgData.Clear();
+
+                // build data
+                _cgData.SetData("halfNum", Convert.ToString(numHalfNum.Value));
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
+                }
+            }
+        }
+
+        private void UpdateColorTeams()
+        {
+            // spara halvtid
+            /*
+             TODO: Check for valid field values
+             */
+
+            try
+            {
+                // Clear old data
+                _cgData.Clear();
+
+                // build data
+                _cgData.SetData("team1Color", buttonColorTeam1.BackColor.ToArgb().ToString());
+                _cgData.SetData("team2Color", buttonColorTeam2.BackColor.ToArgb().ToString());
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
+                }
+            }
+        }
+
+        private void SaveAdditionalTime()
+        {
+            // spara halvtid
+            /*
+             TODO: Check for valid field values
+             */
+
+            try
+            {
+                // Clear old data
+                _cgData.Clear();
+
+                // build data
+                _cgData.SetData("overtime", Convert.ToString(numOvertime.Value));
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
+                }
+            }
+        }
         #endregion
         #region Methods invoke by events from form.
         private void BtnSetGameTime_Click(object sender, EventArgs e)
@@ -597,21 +688,66 @@ namespace FNL
 
         private void BtnStartGraphics_Click(object sender, EventArgs e)
         {
-            this.StartClock();
+            this.StartGraphic();
         }
 
         private void BtnStopGraphics_Click(object sender, EventArgs e)
         {
-            this.StopClock();
+            this.StopGraphic();
         }
 
 
         private void BtnTimeStartStop_Click(object sender, EventArgs e)
         {
-            this.GameTimeStartStop();
+            this.GameTimeStartStop(); 
         }
         #endregion
 
+        private void BtnHalfSet(object sender, EventArgs e)
+        {
+            this.SaveHalfNum();
+        }
+
+        private void btnAdditionalTime(object sender, EventArgs e)
+        {
+            this.SaveAdditionalTime();
+        }
+
+        private void ButtonColorTeam1_Click(object sender, EventArgs e)
+        {
+            ColorDialog MyDialog = new ColorDialog();
+            // Keeps the user from selecting a custom color.
+            MyDialog.AllowFullOpen = true;
+            // Allows the user to get help. (The default is false.)
+            MyDialog.ShowHelp = true;
+            // Sets the initial color select to the current text color.
+            MyDialog.Color = buttonColorTeam1.BackColor;
+
+            // Update the text box color if the user clicks OK 
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+            {
+                buttonColorTeam1.BackColor = MyDialog.Color;
+                UpdateColorTeams();
+            }
+        }
+
+        private void ButtonColorTeam2_Click(object sender, EventArgs e)
+        {
+            ColorDialog MyDialog = new ColorDialog();
+            // Keeps the user from selecting a custom color.
+            MyDialog.AllowFullOpen = true;
+            // Allows the user to get help. (The default is false.)
+            MyDialog.ShowHelp = true;
+            // Sets the initial color select to the current text color.
+            MyDialog.Color = buttonColorTeam2.BackColor;
+
+            // Update the text box color if the user clicks OK 
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+            {
+                buttonColorTeam2.BackColor = MyDialog.Color;
+                this.UpdateColorTeams();
+            }
+        }
     }
 
 }

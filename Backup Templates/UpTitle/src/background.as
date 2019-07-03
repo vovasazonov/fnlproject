@@ -9,7 +9,6 @@
 	import flash.geom.ColorTransform;
 	import fl.motion.Color;
 	
-	
 	public class background extends MovieClip {
 		
 		public var scoreTeam1:MovieClip;
@@ -23,8 +22,8 @@
 		private var _team2Name:String;
 		private var _team1Score:String;
 		private var _team2Score:String;
-		
-		private var _clockIsHidden:Boolean = true;
+		private var _team1Color:String;
+		private var _team2Color:String;
 		
 		public function background() {
 			// constructor code
@@ -33,20 +32,12 @@
 		
 		public function clockShow():void
 		{
-			_clockIsHidden = false;
 			this.gotoAndPlay("in");
-			
 		}
 		
 		public function clockHide():void
 		{
-			_clockIsHidden = true;
 			this.gotoAndPlay("out");
-			
-			// ******** for test color changing ******** delete after test
-			//team1Color();
-			//team2Color();
-			// ******** for test color changing ******** delete after test
 		}
 		
 		public function set team1Name(value:String):void 
@@ -73,31 +64,28 @@
 			scoreTeam2.xtf.text = value;
 		}
 		
-		// ******** work function but needs to modify like in example to change colors by value ********
-		//public function set team1Color(value:ColorTransform):void
-		public function team1Color():void 
+		public function set team1Color(value:String):void 
 		{
 			// new ColorTransform object
 			var obj_color:ColorTransform = new ColorTransform();
-
-			// setting the new color we want (in this case, red)
-			obj_color.color = 0xFF4669;
-
+			
+			// set the new color
+			_team1Color = value;
+			obj_color.color = parseInt(value,10);
 			colorTeam1.transform.colorTransform = obj_color;
+			
 		}
-		
-		//public function set team2Color(value:ColorTransform):void 		
-		public function team2Color():void 
+				
+		public function set team2Color(value:String):void 
 		{
 			// new ColorTransform object
 			var obj_color:ColorTransform = new ColorTransform();
-
-			// setting the new color we want (in this case, blue)
-			obj_color.color = 0x0000ff;
-
+			
+			// set the new color
+			_team2Color = value;
+			obj_color.color = parseInt(value,10);
 			colorTeam2.transform.colorTransform = obj_color;
 		}
-		// ******** work function but needs to modify like in example to change colors by value ********
 		
 	}
 	

@@ -1,5 +1,6 @@
 ﻿package src {
 	
+	import caurina.transitions.Equations;
 	import flash.display.MovieClip;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
@@ -20,17 +21,17 @@
 		private var _extratimeSeconds:int = 1;
 		private var _gameTime:String;
 		private var _overTime:int;
-		private var _overTimeVisible:Boolean = false;
-		private var _overTimeLeftVisible:Boolean = false;
 		private var _halfNum:uint = 1;
 		
+		public var _clockIsShown:Boolean = false;
 		// Minutes that judje gives to game.
-		private var _clockAddIsHidden:Boolean = true;
-		
+		public var _clockAddIsHidden:Boolean = true;
 		// Timer classic.
-		private var _clockTimerIsHidden:Boolean = true;
+		public var _clockTimerIsHidden:Boolean = true;
 		// Extra timer that go after 45 min and after 90 min.
-		//private var _clockTimerExtraIsHidden:Boolean = true;
+		public var _clockTimerExtraIsHidden:Boolean = true;
+		
+		
 		
 		public function AddTimeMin() {
 			// constructor code
@@ -54,6 +55,25 @@
 			_timer.stop();
 		}
 		
+		public function set halfNum(value:uint):void 
+		{
+			_halfNum = value;
+		}
+		
+		public function set overTime(value:int):void 
+		{
+			_overTime = value;
+			if (value == 0)
+			{
+				extraTimeLeft.xtf.text = " ";
+			
+			}
+			else
+			{
+				extraTimeLeft.xtf.text = "+ " + value.toString();
+			}
+		}
+		
 		private function updateTime():void
 		{
 			if ((_timeMinutes == 45 && _halfNum == 1) || (_timeMinutes == 90 && _halfNum == 2) || (_timeMinutes == 105 && _halfNum == 3) || (_timeMinutes == 120 && _halfNum == 4))
@@ -75,6 +95,13 @@
 				
 				extraTime.xtf.text = eminutes + ":" + eseconds;
 				_extratimeSeconds++;
+				
+				// Show extra timer if it is not showing yet
+				if(_clockTimerExtraIsHidden && _clockIsShown)
+				{
+					clockShowExtraTimer();
+				}
+				
 			}
 			else
 			{
@@ -92,8 +119,8 @@
 					_timeMinutes++;
 					
 					
-					//Tweener.addTween(extraTime, { time: .4, alpha: 1, transition: Equations.easeOutCirc } );
-					extraTime.xtf.text = "0.00";
+					Tweener.addTween(extraTime, { time: .4, alpha: 1, transition: Equations.easeOutCirc } );
+					extraTime.xtf.text = "00:00";
 				}
 				else
 				{
@@ -111,7 +138,13 @@
 				if (_timeMinutes < 10) minutes = "0" + _timeMinutes.toString();
 				
 				
-				time.xtf.text = minutes + "." + seconds;
+				time.xtf.text = minutes + ":" + seconds;
+				
+				// Hide extra timer if it showing
+				if(!_clockTimerExtraIsHidden)
+				{
+					clockHideExtraTimer();
+				}
 			}
 		}
 		
@@ -175,28 +208,61 @@
 			updateTime();
 		}
 		
+		// Show additional minutes.
 		public function clockShowAddMinutes():void
 		{
-			_clockAddIsHidden = false;
-			this.gotoAndPlay("in3");
+			// Show additional minutus only if extra time are showing.
+			if(!_clockTimerExtraIsHidden)
+			{
+				_clockAddIsHidden = false;			
+				_clockTimerIsHidden = false;
+				_clockTimerExtraIsHidden = false;
+				
+				this.gotoAndPlay("in3");
+			}
 		}
-		
+		// Hide additional minutes.
 		public function clockHideAddMinutes():void
 		{
 			_clockAddIsHidden = true;
-			this.gotoAndPlay("out");
+			
+			this.gotoAndStop("in3");
 		}
-		
+		// Hide timer.
 		public function clockHideTimer():void
 		{
-			_clockTimerIsHidden = false;
-			this.gotoAndPlay("out");
+			hideAllTimers();
 		}
-		
+		// Show timer.
 		public function clockShowTimer():void
 		{
 			_clockTimerIsHidden = true;
 			this.gotoAndPlay("in1");
+		}
+		// Show extra timer.
+		public function clockShowExtraTimer():void
+		{
+			_clockTimerExtraIsHidden = false;
+			_clockTimerIsHidden = false;
+			
+			this.gotoAndPlay("in2");
+		}
+		// Hide extra timer.
+		public function clockHideExtraTimer():void
+		{
+			_clockTimerExtraIsHidden = true;
+			_clockAddIsHidden = true;
+			
+			this.gotoAndStop("in2");
+		}
+		// Hide all timers.
+		public function hideAllTimers():void
+		{
+			_clockAddIsHidden = true;
+			_clockTimerIsHidden = true;
+			_clockTimerExtraIsHidden = true;
+			
+			this.gotoAndPlay("out");
 		}
 		
 		

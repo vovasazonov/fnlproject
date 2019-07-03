@@ -70,6 +70,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnShowMain = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.colorDialog2 = new System.Windows.Forms.ColorDialog();
+            this.colorDialog3 = new System.Windows.Forms.ColorDialog();
+            this.buttonColorTeam1 = new System.Windows.Forms.Button();
+            this.buttonColorTeam2 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -118,7 +123,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 487);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 550);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(694, 22);
             this.statusStrip1.TabIndex = 17;
@@ -137,7 +142,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 40);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(690, 460);
+            this.tabControl1.Size = new System.Drawing.Size(690, 520);
             this.tabControl1.TabIndex = 18;
             // 
             // tabPage1
@@ -153,7 +158,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(682, 434);
+            this.tabPage1.Size = new System.Drawing.Size(682, 494);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Верхний титр";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -162,7 +167,7 @@
             // 
             this.gpStartStopTemplate.Controls.Add(this.btnStartGraphics);
             this.gpStartStopTemplate.Controls.Add(this.btnStopGraphics);
-            this.gpStartStopTemplate.Location = new System.Drawing.Point(173, 367);
+            this.gpStartStopTemplate.Location = new System.Drawing.Point(183, 395);
             this.gpStartStopTemplate.Name = "gpStartStopTemplate";
             this.gpStartStopTemplate.Size = new System.Drawing.Size(326, 56);
             this.gpStartStopTemplate.TabIndex = 21;
@@ -197,6 +202,8 @@
             // 
             // gpTeams
             // 
+            this.gpTeams.Controls.Add(this.buttonColorTeam2);
+            this.gpTeams.Controls.Add(this.buttonColorTeam1);
             this.gpTeams.Controls.Add(this.btnLockTeams);
             this.gpTeams.Controls.Add(this.label3);
             this.gpTeams.Controls.Add(this.label2);
@@ -204,7 +211,7 @@
             this.gpTeams.Controls.Add(this.cb2Teams);
             this.gpTeams.Location = new System.Drawing.Point(16, 21);
             this.gpTeams.Name = "gpTeams";
-            this.gpTeams.Size = new System.Drawing.Size(644, 63);
+            this.gpTeams.Size = new System.Drawing.Size(644, 94);
             this.gpTeams.TabIndex = 14;
             this.gpTeams.TabStop = false;
             this.gpTeams.Text = "Команды";
@@ -258,7 +265,7 @@
             // 
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.tbBottomFlarp);
-            this.groupBox2.Location = new System.Drawing.Point(163, 276);
+            this.groupBox2.Location = new System.Drawing.Point(173, 304);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(162, 76);
             this.groupBox2.TabIndex = 18;
@@ -287,7 +294,7 @@
             // 
             this.groupBox6.Controls.Add(this.button10);
             this.groupBox6.Controls.Add(this.numHalfNum);
-            this.groupBox6.Location = new System.Drawing.Point(163, 168);
+            this.groupBox6.Location = new System.Drawing.Point(173, 196);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(74, 102);
             this.groupBox6.TabIndex = 20;
@@ -302,6 +309,7 @@
             this.button10.TabIndex = 1;
             this.button10.Text = "Spara";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.BtnHalfSet);
             // 
             // numHalfNum
             // 
@@ -333,7 +341,7 @@
             this.groupBox5.Controls.Add(this.btnTeam1MinusScore);
             this.groupBox5.Controls.Add(this.tBScoreTeam2);
             this.groupBox5.Controls.Add(this.tBScoreTeam1);
-            this.groupBox5.Location = new System.Drawing.Point(16, 90);
+            this.groupBox5.Location = new System.Drawing.Point(16, 121);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(644, 69);
             this.groupBox5.TabIndex = 15;
@@ -416,7 +424,7 @@
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.tbTimeSec);
             this.groupBox4.Controls.Add(this.tbTimeMin);
-            this.groupBox4.Location = new System.Drawing.Point(251, 168);
+            this.groupBox4.Location = new System.Drawing.Point(261, 196);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(136, 102);
             this.groupBox4.TabIndex = 16;
@@ -485,7 +493,7 @@
             // 
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.numOvertime);
-            this.groupBox3.Location = new System.Drawing.Point(338, 276);
+            this.groupBox3.Location = new System.Drawing.Point(348, 304);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(173, 76);
             this.groupBox3.TabIndex = 19;
@@ -508,11 +516,12 @@
             this.numOvertime.Name = "numOvertime";
             this.numOvertime.Size = new System.Drawing.Size(43, 20);
             this.numOvertime.TabIndex = 0;
+            this.numOvertime.ValueChanged += new System.EventHandler(this.btnAdditionalTime);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnShowMain);
-            this.groupBox1.Location = new System.Drawing.Point(399, 169);
+            this.groupBox1.Location = new System.Drawing.Point(409, 197);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(112, 101);
             this.groupBox1.TabIndex = 17;
@@ -537,16 +546,36 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(682, 422);
+            this.tabPage2.Size = new System.Drawing.Size(682, 494);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "players";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // buttonColorTeam1
+            // 
+            this.buttonColorTeam1.BackColor = System.Drawing.Color.Maroon;
+            this.buttonColorTeam1.Location = new System.Drawing.Point(172, 62);
+            this.buttonColorTeam1.Name = "buttonColorTeam1";
+            this.buttonColorTeam1.Size = new System.Drawing.Size(75, 23);
+            this.buttonColorTeam1.TabIndex = 5;
+            this.buttonColorTeam1.UseVisualStyleBackColor = false;
+            this.buttonColorTeam1.Click += new System.EventHandler(this.ButtonColorTeam1_Click);
+            // 
+            // buttonColorTeam2
+            // 
+            this.buttonColorTeam2.BackColor = System.Drawing.Color.Gold;
+            this.buttonColorTeam2.Location = new System.Drawing.Point(381, 62);
+            this.buttonColorTeam2.Name = "buttonColorTeam2";
+            this.buttonColorTeam2.Size = new System.Drawing.Size(75, 23);
+            this.buttonColorTeam2.TabIndex = 6;
+            this.buttonColorTeam2.UseVisualStyleBackColor = false;
+            this.buttonColorTeam2.Click += new System.EventHandler(this.ButtonColorTeam2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 509);
+            this.ClientSize = new System.Drawing.Size(694, 572);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnClearGraphics);
@@ -621,6 +650,11 @@
         private System.Windows.Forms.ComboBox cb1Teams;
         private System.Windows.Forms.ComboBox cb2Teams;
         private System.Windows.Forms.Button btnShowHideTimer;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ColorDialog colorDialog2;
+        private System.Windows.Forms.ColorDialog colorDialog3;
+        private System.Windows.Forms.Button buttonColorTeam2;
+        private System.Windows.Forms.Button buttonColorTeam1;
     }
 }
 
