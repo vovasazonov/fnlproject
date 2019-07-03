@@ -97,7 +97,7 @@
 				_extratimeSeconds++;
 				
 				// Show extra timer if it is not showing yet
-				if(_clockTimerExtraIsHidden && _clockIsShown)
+				if(_clockTimerExtraIsHidden && _clockIsShown && !_clockTimerIsHidden)
 				{
 					clockShowExtraTimer();
 				}
@@ -119,7 +119,7 @@
 					_timeMinutes++;
 					
 					
-					Tweener.addTween(extraTime, { time: .4, alpha: 1, transition: Equations.easeOutCirc } );
+					//Tweener.addTween(extraTime, { time: .4, alpha: 1, transition: Equations.easeOutCirc } );
 					extraTime.xtf.text = "00:00";
 				}
 				else
@@ -202,7 +202,7 @@
 			}
 			else
 			{
-				extraTime.alpha = 0;
+				//extraTime.alpha = 0;
 				
 			}
 			updateTime();
@@ -262,7 +262,7 @@
 			_clockTimerIsHidden = true;
 			_clockTimerExtraIsHidden = true;
 			
-			this.gotoAndPlay("out");
+			this.gotoAndStop("in1");
 		}
 		
 		

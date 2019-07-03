@@ -7,6 +7,7 @@
 	import caurina.transitions.Tweener;
 	import fl.motion.easing.Back;
 	import flash.geom.ColorTransform;
+	import flash.geom.Transform;
 	import fl.motion.Color;
 	
 	public class background extends MovieClip {
@@ -72,7 +73,7 @@
 			// set the new color
 			_team1Color = value;
 			obj_color.color = parseInt(value,10);
-			colorTeam1.transform.colorTransform = obj_color;
+			colorTeam1.theColor.transform.colorTransform = obj_color;
 			
 		}
 				
@@ -82,9 +83,11 @@
 			var obj_color:ColorTransform = new ColorTransform();
 			
 			// set the new color
-			_team2Color = value;
+			_team1Color = value;
 			obj_color.color = parseInt(value,10);
-			colorTeam2.transform.colorTransform = obj_color;
+			colorTeam2.theColor.transform.colorTransform = obj_color;
+
+		
 		}
 		
 	}

@@ -80,11 +80,16 @@
 		// Show or hide the main title.
 		public function clockShowHide():void
 		{
+			// Hide clock
 			if (_clockIsVisible)
 			{
 				up_title.clockHide();
 				_clockIsVisible = false;
+				
+				// Hide all timer
+				up_ltimer.hideAllTimers();
 			}
+			// Show clock.
 			else
 			{
 				up_title.clockShow();
@@ -109,7 +114,7 @@
 				if(_clockIsVisible)
 				{
 					up_ltimer.clockShowAddMinutes();
-					up_ltimer._clockAddIsHidden = false;
+					//up_ltimer._clockAddIsHidden = false;
 				}
 			}
 		}
