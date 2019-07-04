@@ -121,243 +121,10 @@ namespace FNL
             DisableControls();
         }
         #endregion
-        #region Datatable mathods
-        private void InitDatatable()
-        {
-            if (_teamsDt.Columns.Count == 0)
-            {
-                _teamsDt.Columns.Add("TeamNameAbbrevation");
-                _teamsDt.Columns[0].DataType = System.Type.GetType("System.String");
-                _teamsDt.Columns.Add("TeamNameFull");
-                _teamsDt.Columns[0].DataType = System.Type.GetType("System.String");
-            }
 
-            cb1Teams.ValueMember = "TeamNameAbbrevation";
-            cb1Teams.DisplayMember = "TeamNameFull";
-
-            cb2Teams.ValueMember = "TeamNameAbbrevation";
-            cb2Teams.DisplayMember = "TeamNameFull";
-        }
-
-        private void FillDatatable()
-        {
-            DataRow relation;
-            // Declare the array variable.
-            object[] rowArray = new object[2];
-            // Create 10 new rows and add to DataRowCollection.
-            for (int i = 0; i < Properties.Settings.Default.Teams.Count; i++)
-            {
-                String[] teamDescription = Properties.Settings.Default.Teams[i].Split((new Char[] { '#', ',' }));
-                if (teamDescription.Length == 2)
-                {
-                    rowArray[0] = teamDescription[0];
-                    rowArray[1] = teamDescription[1];
-                    relation = _teamsDt.NewRow();
-                    relation.ItemArray = rowArray;
-                    _teamsDt.Rows.Add(relation);
-                }
-            }
-        }
-
-        #endregion
-        #region Other methods.
+        #region Graphic
         /// <summary>
-        /// Disable controls in tub of form.
-        /// </summary>
-        private void DisableControls()
-        {
-            tabControl1.Enabled = false;
-        }
-        /// <summary>
-        /// Enable controls in tub of form.
-        /// </summary>
-        private void EnableControls()
-        {
-            tabControl1.Enabled = true;
-        }
-        /// <summary>
-        /// Update the text status connection of button that control connection.
-        /// </summary>
-        private void UpdateConnectButtonText()
-        {
-            if (!_caspar_.IsConnected)
-            {
-                buttonConnect.Text = "Connect";// to " + Properties.Settings.Default.Hostname;
-            }
-            else
-            {
-                buttonConnect.Text = "Disconnect"; // from " + Properties.Settings.Default.Hostname;
-            }
-        }
-
-        /// <summary>
-        /// Update names of teams when it changing.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UpdateTeams(object sender, EventArgs e)
-        {
-            /*
-             Check for valid field values
-             */
-            if (!this.HasValidClockData())
-            {
-                return;
-            }
-
-            try
-            {
-                // Clear old data
-                _cgData.Clear();
-
-                // build data
-                _cgData.SetData("team1Name", cb1Teams.SelectedValue.ToString());
-                _cgData.SetData("team2Name", cb2Teams.SelectedValue.ToString());
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
-                }
-            }
-        }
-        private void ShowHideTimer()
-        {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "clockShowHideTimer");
-                }
-            }
-        }
-
-        /// <summary>
-        /// Start the timer.
-        /// </summary>
-        private void GameTimeStartStop()
-        {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "gameTimeStartStop");
-                }
-            }
-        }
-
-        private void UpdateGameTime()
-        {
-            /*
-             TODO: Check for valid field values
-             */
-
-
-            try
-            {
-                // Clear old data
-                _cgData.Clear();
-
-                // build data
-                _cgData.SetData("gameTime", this.GetGameTimeCGData());
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Update results of score in template animation.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UpdateResults(object sender, EventArgs e)
-        {
-            /*
-             Check for valid field values
-             */
-            if (!this.HasValidClockData())
-            {
-                return;
-            }
-
-            try
-            {
-                // Clear old data
-                _cgData.Clear();
-
-                // build data
-                _cgData.SetData("team1Score", tBScoreTeam1.Text);
-                _cgData.SetData("team2Score", tBScoreTeam2.Text);
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
-                }
-            }
-        }
-
-        private void StopGraphic()
-        {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Stop(Properties.Settings.Default.GraphicsLayerClock);
-                }
-            }
-        }
-
-        private bool HasValidClockData()
-        {
-            return true;
-        }
-
-        /// <summary>
-        /// Start graphic
+        /// Start graphic and set data to cgData.
         /// </summary>
         private void StartGraphic()
         {
@@ -398,14 +165,256 @@ namespace FNL
                 }
             }
         }
+        /// <summary>
+        /// Stop graphic.
+        /// </summary>
+        private void StopGraphic()
+        {
+            try
+            {
 
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Stop(Properties.Settings.Default.GraphicsLayerClock);
+                }
+            }
+        }
+        #endregion
+
+        #region Datatable mathods
+        private void InitDatatable()
+        {
+            if (_teamsDt.Columns.Count == 0)
+            {
+                _teamsDt.Columns.Add("TeamNameAbbrevation");
+                _teamsDt.Columns[0].DataType = System.Type.GetType("System.String");
+                _teamsDt.Columns.Add("TeamNameFull");
+                _teamsDt.Columns[0].DataType = System.Type.GetType("System.String");
+            }
+
+            cb1Teams.ValueMember = "TeamNameAbbrevation";
+            cb1Teams.DisplayMember = "TeamNameFull";
+
+            cb2Teams.ValueMember = "TeamNameAbbrevation";
+            cb2Teams.DisplayMember = "TeamNameFull";
+        }
+
+        private void FillDatatable()
+        {
+            DataRow relation;
+            // Declare the array variable.
+            object[] rowArray = new object[2];
+            // Create 10 new rows and add to DataRowCollection.
+            for (int i = 0; i < Properties.Settings.Default.Teams.Count; i++)
+            {
+                String[] teamDescription = Properties.Settings.Default.Teams[i].Split((new Char[] { '#', ',' }));
+                if (teamDescription.Length == 2)
+                {
+                    rowArray[0] = teamDescription[0];
+                    rowArray[1] = teamDescription[1];
+                    relation = _teamsDt.NewRow();
+                    relation.ItemArray = rowArray;
+                    _teamsDt.Rows.Add(relation);
+                }
+            }
+        }
+
+        #endregion
+
+        #region Other methods.
+        /// <summary>
+        /// Disable controls in tub of form.
+        /// </summary>
+        private void DisableControls()
+        {
+            tabControl1.Enabled = false;
+        }
+        /// <summary>
+        /// Enable controls in tub of form.
+        /// </summary>
+        private void EnableControls()
+        {
+            tabControl1.Enabled = true;
+        }
+        /// <summary>
+        /// Update the text status connection of button that control connection.
+        /// </summary>
+        private void UpdateConnectButtonText()
+        {
+            if (!_caspar_.IsConnected)
+            {
+                buttonConnect.Text = "Connect";// to " + Properties.Settings.Default.Hostname;
+            }
+            else
+            {
+                buttonConnect.Text = "Disconnect"; // from " + Properties.Settings.Default.Hostname;
+            }
+        }
+        /// <summary>
+        /// Update names of teams when it changing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateTeams(object sender, EventArgs e)
+        {
+            /*
+             Check for valid field values
+             */
+            if (!this.HasValidClockData())
+            {
+                return;
+            }
+
+            try
+            {
+                // Clear old data
+                _cgData.Clear();
+
+                // build data
+                _cgData.SetData("team1Name", cb1Teams.SelectedValue.ToString());
+                _cgData.SetData("team2Name", cb2Teams.SelectedValue.ToString());
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
+                }
+            }
+        }
+        /// <summary>
+        /// Hide or show timer of game.
+        /// </summary>
+        private void ShowHideTimer()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "clockShowHideTimer");
+                }
+            }
+        }
+        /// <summary>
+        /// Start or stop the timer.
+        /// </summary>
+        private void GameTimeStartStop()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "gameTimeStartStop");
+                }
+            }
+        }
+        /// <summary>
+        /// Update game time that was setted with user.
+        /// </summary>
+        private void UpdateGameTime()
+        {
+            /*
+             TODO: Check for valid field values
+             */
+
+
+            try
+            {
+                // Clear old data
+                _cgData.Clear();
+
+                // build data
+                _cgData.SetData("gameTime", this.GetGameTimeCGData());
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
+                }
+            }
+        }
+        /// <summary>
+        /// Update results of score in template animation.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateScores(object sender, EventArgs e)
+        {
+            /*
+             Check for valid field values
+             */
+            if (!this.HasValidClockData())
+            {
+                return;
+            }
+
+            try
+            {
+                // Clear old data
+                _cgData.Clear();
+
+                // build data
+                _cgData.SetData("team1Score", tBScoreTeam1.Text);
+                _cgData.SetData("team2Score", tBScoreTeam2.Text);
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
+                }
+            }
+        }
+        private bool HasValidClockData()
+        {
+            return true;
+        }
+        /// <summary>
+        /// Get the time that was settes by user in form.
+        /// </summary>
+        /// <returns></returns>
         private string GetGameTimeCGData()
         {
             return tbTimeMin.Text + ":" + tbTimeSec.Text;
         }
-
         /// <summary>
-        /// Show or hide the table with information of game.
+        /// Show or hide the clock with timers and main information about teams like score and their names.
         /// </summary>
         private void ShowHideClock()
         {
@@ -426,7 +435,7 @@ namespace FNL
             }
         }
         /// <summary>
-        /// Show additional minutes on screen.
+        /// Show or hide additional minutes on screen.
         /// </summary>
         private void ShowHideAddMin()
         {
@@ -446,7 +455,6 @@ namespace FNL
                 }
             }
         }
-
         private void ShowHideChange()
         {
             try
@@ -465,7 +473,9 @@ namespace FNL
                 }
             }
         }
-
+        /// <summary>
+        /// Save to cgData and set to template information about the half of game.
+        /// </summary>
         private void SaveHalfNum()
         {
             // spara halvtid
@@ -493,7 +503,9 @@ namespace FNL
                 }
             }
         }
-
+        /// <summary>
+        /// Update the color teams in template.
+        /// </summary>
         private void UpdateColorTeams()
         {
             // spara halvtid
@@ -522,7 +534,9 @@ namespace FNL
                 }
             }
         }
-
+        /// <summary>
+        /// Save the additional time that was setted by user in form.
+        /// </summary>
         private void SaveAdditionalTime()
         {
             // spara halvtid
@@ -551,7 +565,7 @@ namespace FNL
             }
         }
         #endregion
-        #region Methods invoke by events from form.
+
         private void BtnSetGameTime_Click(object sender, EventArgs e)
         {
             this.UpdateGameTime();
@@ -701,7 +715,7 @@ namespace FNL
         {
             this.GameTimeStartStop(); 
         }
-        #endregion
+        
 
         private void BtnHalfSet(object sender, EventArgs e)
         {
@@ -748,6 +762,9 @@ namespace FNL
                 this.UpdateColorTeams();
             }
         }
+
+
+
     }
 
 }

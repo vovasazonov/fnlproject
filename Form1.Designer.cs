@@ -402,7 +402,7 @@
             this.tBScoreTeam2.TabStop = false;
             this.tBScoreTeam2.Text = "0";
             this.tBScoreTeam2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tBScoreTeam2.TextChanged += new System.EventHandler(this.UpdateResults);
+            this.tBScoreTeam2.TextChanged += new System.EventHandler(this.UpdateScores);
             // 
             // tBScoreTeam1
             // 
@@ -414,7 +414,7 @@
             this.tBScoreTeam1.TabStop = false;
             this.tBScoreTeam1.Text = "0";
             this.tBScoreTeam1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tBScoreTeam1.TextChanged += new System.EventHandler(this.UpdateResults);
+            this.tBScoreTeam1.TextChanged += new System.EventHandler(this.UpdateScores);
             // 
             // groupBox4
             // 
