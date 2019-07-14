@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Football.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="FootballTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Football" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="FootballContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TeamsSet" EntityType="Football.Teams" />
+          <EntitySet Name="PlayersSet" EntityType="Football.Players" />
+          <EntitySet Name="TeamPlayersSet" EntityType="Football.TeamPlayers" />
+          <EntitySet Name="AmpluasSet" EntityType="Football.Ampluas" />
+          <EntitySet Name="MatchesSet" EntityType="Football.Matches" />
+          <EntitySet Name="StatisticsSet" EntityType="Football.Statistics" />
+          <EntitySet Name="EventsSet" EntityType="Football.Events" />
+          <EntitySet Name="StatisticEventsSet" EntityType="Football.StatisticEvents" />
+          <EntitySet Name="StudiumsSet" EntityType="Football.Studiums" />
+          <EntitySet Name="CommentatorsSet" EntityType="Football.Commentators" />
+          <EntitySet Name="MatchCommentatorsSet" EntityType="Football.MatchCommentators" />
+          <EntitySet Name="TeamMatchesSet" EntityType="Football.TeamMatches" />
+          <EntitySet Name="SeasonsSet" EntityType="Football.Seasons" />
+          <AssociationSet Name="TeamMatchesTeams" Association="Football.TeamMatchesTeams">
+            <End Role="TeamMatches" EntitySet="TeamMatchesSet" />
+            <End Role="Teams" EntitySet="TeamsSet" />
+          </AssociationSet>
+          <AssociationSet Name="TeamsTeamPlayers" Association="Football.TeamsTeamPlayers">
+            <End Role="Teams" EntitySet="TeamsSet" />
+            <End Role="TeamPlayers" EntitySet="TeamPlayersSet" />
+          </AssociationSet>
+          <AssociationSet Name="PlayersTeamPlayers" Association="Football.PlayersTeamPlayers">
+            <End Role="Players" EntitySet="PlayersSet" />
+            <End Role="TeamPlayers" EntitySet="TeamPlayersSet" />
+          </AssociationSet>
+          <AssociationSet Name="PlayersAmpluas" Association="Football.PlayersAmpluas">
+            <End Role="Players" EntitySet="PlayersSet" />
+            <End Role="Ampluas" EntitySet="AmpluasSet" />
+          </AssociationSet>
+          <AssociationSet Name="MatchesTeamMatches" Association="Football.MatchesTeamMatches">
+            <End Role="Matches" EntitySet="MatchesSet" />
+            <End Role="TeamMatches" EntitySet="TeamMatchesSet" />
+          </AssociationSet>
+          <AssociationSet Name="MatchesMatchCommentators" Association="Football.MatchesMatchCommentators">
+            <End Role="Matches" EntitySet="MatchesSet" />
+            <End Role="MatchCommentators" EntitySet="MatchCommentatorsSet" />
+          </AssociationSet>
+          <AssociationSet Name="CommentatorsMatchCommentators" Association="Football.CommentatorsMatchCommentators">
+            <End Role="Commentators" EntitySet="CommentatorsSet" />
+            <End Role="MatchCommentators" EntitySet="MatchCommentatorsSet" />
+          </AssociationSet>
+          <AssociationSet Name="MatchesStudiums" Association="Football.MatchesStudiums">
+            <End Role="Matches" EntitySet="MatchesSet" />
+            <End Role="Studiums" EntitySet="StudiumsSet" />
+          </AssociationSet>
+          <AssociationSet Name="MatchesStatistics" Association="Football.MatchesStatistics">
+            <End Role="Matches" EntitySet="MatchesSet" />
+            <End Role="Statistics" EntitySet="StatisticsSet" />
+          </AssociationSet>
+          <AssociationSet Name="PlayersStatistics" Association="Football.PlayersStatistics">
+            <End Role="Players" EntitySet="PlayersSet" />
+            <End Role="Statistics" EntitySet="StatisticsSet" />
+          </AssociationSet>
+          <AssociationSet Name="StatisticsStatisticEvents" Association="Football.StatisticsStatisticEvents">
+            <End Role="Statistics" EntitySet="StatisticsSet" />
+            <End Role="StatisticEvents" EntitySet="StatisticEventsSet" />
+          </AssociationSet>
+          <AssociationSet Name="EventsStatisticEvents" Association="Football.EventsStatisticEvents">
+            <End Role="Events" EntitySet="EventsSet" />
+            <End Role="StatisticEvents" EntitySet="StatisticEventsSet" />
+          </AssociationSet>
+          <AssociationSet Name="SeasonsMatches" Association="Football.SeasonsMatches">
+            <End Role="Seasons" EntitySet="SeasonsSet" />
+            <End Role="Matches" EntitySet="MatchesSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Teams">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameFull" Type="String" Nullable="false" />
+          <Property Name="NameShort" Type="String" Nullable="false" />
+          <Property Name="Logo" Type="String" Nullable="false" />
+          <Property Name="ColorTeam" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TeamMatches" Relationship="Football.TeamMatchesTeams" FromRole="Teams" ToRole="TeamMatches" />
+          <NavigationProperty Name="TeamPlayers" Relationship="Football.TeamsTeamPlayers" FromRole="Teams" ToRole="TeamPlayers" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AmpluaId" Type="String" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="MiddleName" Type="String" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Photo" Type="String" Nullable="false" />
+          <NavigationProperty Name="TeamPlayers" Relationship="Football.PlayersTeamPlayers" FromRole="Players" ToRole="TeamPlayers" />
+          <NavigationProperty Name="Ampluas" Relationship="Football.PlayersAmpluas" FromRole="Players" ToRole="Ampluas" />
+          <NavigationProperty Name="Statistics" Relationship="Football.PlayersStatistics" FromRole="Players" ToRole="Statistics" />
+        </EntityType>
+        <EntityType Name="TeamPlayers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamId" Type="String" Nullable="false" />
+          <Property Name="PlayerId" Type="String" Nullable="false" />
+          <NavigationProperty Name="Teams" Relationship="Football.TeamsTeamPlayers" FromRole="TeamPlayers" ToRole="Teams" />
+          <NavigationProperty Name="Players" Relationship="Football.PlayersTeamPlayers" FromRole="TeamPlayers" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="Ampluas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Players" Relationship="Football.PlayersAmpluas" FromRole="Ampluas" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="Matches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StadiumId" Type="String" Nullable="false" />
+          <Property Name="SeasonId" Type="String" Nullable="false" />
+          <Property Name="Date" Type="String" Nullable="false" />
+          <NavigationProperty Name="TeamMatches" Relationship="Football.MatchesTeamMatches" FromRole="Matches" ToRole="TeamMatches" />
+          <NavigationProperty Name="MatchCommentators" Relationship="Football.MatchesMatchCommentators" FromRole="Matches" ToRole="MatchCommentators" />
+          <NavigationProperty Name="Studiums" Relationship="Football.MatchesStudiums" FromRole="Matches" ToRole="Studiums" />
+          <NavigationProperty Name="Statistics" Relationship="Football.MatchesStatistics" FromRole="Matches" ToRole="Statistics" />
+          <NavigationProperty Name="Seasons" Relationship="Football.SeasonsMatches" FromRole="Matches" ToRole="Seasons" />
+        </EntityType>
+        <EntityType Name="Statistics">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchId" Type="String" Nullable="false" />
+          <Property Name="PlayerId" Type="String" Nullable="false" />
+          <NavigationProperty Name="Matches" Relationship="Football.MatchesStatistics" FromRole="Statistics" ToRole="Matches" />
+          <NavigationProperty Name="Players" Relationship="Football.PlayersStatistics" FromRole="Statistics" ToRole="Players" />
+          <NavigationProperty Name="StatisticEvents" Relationship="Football.StatisticsStatisticEvents" FromRole="Statistics" ToRole="StatisticEvents" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="StatisticEvents" Relationship="Football.EventsStatisticEvents" FromRole="Events" ToRole="StatisticEvents" />
+        </EntityType>
+        <EntityType Name="StatisticEvents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatisticId" Type="String" Nullable="false" />
+          <Property Name="EventId" Type="String" Nullable="false" />
+          <Property Name="Time" Type="String" Nullable="false" />
+          <Property Name="HalfMatch" Type="String" Nullable="false" />
+          <NavigationProperty Name="Statistics" Relationship="Football.StatisticsStatisticEvents" FromRole="StatisticEvents" ToRole="Statistics" />
+          <NavigationProperty Name="Events" Relationship="Football.EventsStatisticEvents" FromRole="StatisticEvents" ToRole="Events" />
+        </EntityType>
+        <EntityType Name="Studiums">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" />
+          <Property Name="Country" Type="String" Nullable="false" />
+          <NavigationProperty Name="Matches" Relationship="Football.MatchesStudiums" FromRole="Studiums" ToRole="Matches" />
+        </EntityType>
+        <EntityType Name="Commentators">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="MiddleName" Type="String" Nullable="false" />
+          <NavigationProperty Name="MatchCommentators" Relationship="Football.CommentatorsMatchCommentators" FromRole="Commentators" ToRole="MatchCommentators" />
+        </EntityType>
+        <EntityType Name="MatchCommentators">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchId" Type="String" Nullable="false" />
+          <Property Name="CommentatorId" Type="String" Nullable="false" />
+          <NavigationProperty Name="Matches" Relationship="Football.MatchesMatchCommentators" FromRole="MatchCommentators" ToRole="Matches" />
+          <NavigationProperty Name="Commentators" Relationship="Football.CommentatorsMatchCommentators" FromRole="MatchCommentators" ToRole="Commentators" />
+        </EntityType>
+        <EntityType Name="TeamMatches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OwnerTeamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="GuestTeamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="MatchId" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="Teams" Relationship="Football.TeamMatchesTeams" FromRole="TeamMatches" ToRole="Teams" />
+          <NavigationProperty Name="Matches" Relationship="Football.MatchesTeamMatches" FromRole="TeamMatches" ToRole="Matches" />
+        </EntityType>
+        <EntityType Name="Seasons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Matches" Relationship="Football.SeasonsMatches" FromRole="Seasons" ToRole="Matches" />
+        </EntityType>
+        <Association Name="TeamMatchesTeams">
+          <End Type="Football.TeamMatches" Role="TeamMatches" Multiplicity="*" />
+          <End Type="Football.Teams" Role="Teams" Multiplicity="1" />
+        </Association>
+        <Association Name="TeamsTeamPlayers">
+          <End Type="Football.Teams" Role="Teams" Multiplicity="1" />
+          <End Type="Football.TeamPlayers" Role="TeamPlayers" Multiplicity="*" />
+        </Association>
+        <Association Name="PlayersTeamPlayers">
+          <End Type="Football.Players" Role="Players" Multiplicity="1" />
+          <End Type="Football.TeamPlayers" Role="TeamPlayers" Multiplicity="*" />
+        </Association>
+        <Association Name="PlayersAmpluas">
+          <End Type="Football.Players" Role="Players" Multiplicity="1" />
+          <End Type="Football.Ampluas" Role="Ampluas" Multiplicity="1" />
+        </Association>
+        <Association Name="MatchesTeamMatches">
+          <End Type="Football.Matches" Role="Matches" Multiplicity="1" />
+          <End Type="Football.TeamMatches" Role="TeamMatches" Multiplicity="*" />
+        </Association>
+        <Association Name="MatchesMatchCommentators">
+          <End Type="Football.Matches" Role="Matches" Multiplicity="1" />
+          <End Type="Football.MatchCommentators" Role="MatchCommentators" Multiplicity="*" />
+        </Association>
+        <Association Name="CommentatorsMatchCommentators">
+          <End Type="Football.Commentators" Role="Commentators" Multiplicity="1" />
+          <End Type="Football.MatchCommentators" Role="MatchCommentators" Multiplicity="*" />
+        </Association>
+        <Association Name="MatchesStudiums">
+          <End Type="Football.Matches" Role="Matches" Multiplicity="1" />
+          <End Type="Football.Studiums" Role="Studiums" Multiplicity="*" />
+        </Association>
+        <Association Name="MatchesStatistics">
+          <End Type="Football.Matches" Role="Matches" Multiplicity="1" />
+          <End Type="Football.Statistics" Role="Statistics" Multiplicity="*" />
+        </Association>
+        <Association Name="PlayersStatistics">
+          <End Type="Football.Players" Role="Players" Multiplicity="1" />
+          <End Type="Football.Statistics" Role="Statistics" Multiplicity="*" />
+        </Association>
+        <Association Name="StatisticsStatisticEvents">
+          <End Type="Football.Statistics" Role="Statistics" Multiplicity="1" />
+          <End Type="Football.StatisticEvents" Role="StatisticEvents" Multiplicity="*" />
+        </Association>
+        <Association Name="EventsStatisticEvents">
+          <End Type="Football.Events" Role="Events" Multiplicity="1" />
+          <End Type="Football.StatisticEvents" Role="StatisticEvents" Multiplicity="*" />
+        </Association>
+        <Association Name="SeasonsMatches">
+          <End Type="Football.Seasons" Role="Seasons" Multiplicity="1" />
+          <End Type="Football.Matches" Role="Matches" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Football" />
+        <Alias Key="Target" Value="Football.Store" />
+        <EntityContainerMapping CdmEntityContainer="FootballContainer" StorageEntityContainer="FootballTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

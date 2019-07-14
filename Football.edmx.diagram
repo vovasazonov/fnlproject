@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1829d5acf6604dc5b23c88f82ac21b75" Name="Diagram1" ZoomLevel="88" >
+        <EntityTypeShape EntityType="Football.Teams" Width="1.5" PointX="6.625" PointY="1.625" />
+        <EntityTypeShape EntityType="Football.Players" Width="1.5" PointX="11.25" PointY="1.625" />
+        <EntityTypeShape EntityType="Football.TeamPlayers" Width="1.5" PointX="9" PointY="1.75" />
+        <EntityTypeShape EntityType="Football.Ampluas" Width="1.5" PointX="13.5" PointY="1.625" />
+        <EntityTypeShape EntityType="Football.Matches" Width="1.5" PointX="7.5" PointY="4.875" />
+        <EntityTypeShape EntityType="Football.Statistics" Width="1.5" PointX="10" PointY="4.875" />
+        <EntityTypeShape EntityType="Football.Events" Width="1.5" PointX="14.625" PointY="5.125" />
+        <EntityTypeShape EntityType="Football.StatisticEvents" Width="1.5" PointX="12.25" PointY="5.5" />
+        <EntityTypeShape EntityType="Football.Studiums" Width="1.5" PointX="6" PointY="7.875" />
+        <EntityTypeShape EntityType="Football.Commentators" Width="1.5" PointX="2.875" PointY="6.625" />
+        <EntityTypeShape EntityType="Football.MatchCommentators" Width="1.5" PointX="4.875" PointY="5.5" />
+        <EntityTypeShape EntityType="Football.TeamMatches" Width="1.5" PointX="3.5" PointY="3" />
+        <EntityTypeShape EntityType="Football.Seasons" Width="1.5" PointX="10.875" PointY="8" />
+        <AssociationConnector Association="Football.TeamMatchesTeams" />
+        <AssociationConnector Association="Football.TeamsTeamPlayers" />
+        <AssociationConnector Association="Football.PlayersTeamPlayers" />
+        <AssociationConnector Association="Football.PlayersAmpluas" />
+        <AssociationConnector Association="Football.MatchesTeamMatches" />
+        <AssociationConnector Association="Football.MatchesMatchCommentators" />
+        <AssociationConnector Association="Football.CommentatorsMatchCommentators" />
+        <AssociationConnector Association="Football.MatchesStudiums" />
+        <AssociationConnector Association="Football.MatchesStatistics" />
+        <AssociationConnector Association="Football.PlayersStatistics" />
+        <AssociationConnector Association="Football.StatisticsStatisticEvents" />
+        <AssociationConnector Association="Football.EventsStatisticEvents" />
+        <AssociationConnector Association="Football.SeasonsMatches" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
