@@ -1,0 +1,1 @@
+Here are templates from animate studio and its scripts.
