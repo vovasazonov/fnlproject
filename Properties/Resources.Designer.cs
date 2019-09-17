@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FNL.Properties {
+namespace UI.Properties {
     using System;
     
     

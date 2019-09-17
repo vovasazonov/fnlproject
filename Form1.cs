@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Svt.Caspar;
 using Svt.Network;
 
-namespace FNL
+namespace UI
 {
     public partial class Form1 : Form
     {
@@ -40,7 +40,7 @@ namespace FNL
             _caspar_.FailedConnect += new EventHandler<NetworkEventArgs>(Caspar__FailedConnected);
             _caspar_.Disconnected += new EventHandler<NetworkEventArgs>(Caspar__Disconnected);
 
-            this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
+            this.btnLockTeams.Image = UI.Properties.Resources.lock_unlock;
 
             // Disable controls to click on button. There are not connection yet on start program.
             DisableControls();
@@ -692,11 +692,11 @@ namespace FNL
 
             if (this.cb1Teams.Enabled)
             {
-                this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
+                this.btnLockTeams.Image = UI.Properties.Resources.lock_unlock;
             }
             else
             {
-                this.btnLockTeams.Image = FNL.Properties.Resources.lock_lock;
+                this.btnLockTeams.Image = UI.Properties.Resources.lock_lock;
             }
         }
 

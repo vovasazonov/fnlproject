@@ -129,5 +129,8 @@
   <ItemGroup>
     <None Include="Resources\lock_lock1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
