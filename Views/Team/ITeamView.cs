@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
-namespace Presentation.Presenters
+namespace FNL.Views
 {
-	class Class1
+	public interface ITeamView
 	{
+		Color ColorTeam { get; set; }
 	}
 }

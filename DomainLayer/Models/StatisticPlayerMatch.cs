@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 
-namespace DomainLayer.Models
+namespace ModelLayer.Models
 {
 	/// <summary>
 	/// Statistic of player in current match

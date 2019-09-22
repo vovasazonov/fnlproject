@@ -75,16 +75,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Football.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MatchesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MatchesForm.Designer.cs">
+      <DependentUpon>MatchesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingMatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingMatch.Designer.cs">
+      <DependentUpon>SettingMatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presenters\TeamPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Views\Team\ITeamView.cs" />
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MatchesForm.resx">
+      <DependentUpon>MatchesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingMatch.resx">
+      <DependentUpon>SettingMatch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -129,8 +149,12 @@
   <ItemGroup>
     <None Include="Resources\lock_lock1.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Views\" />
+    <ProjectReference Include="DomainLayer\ModelLayer.csproj">
+      <Project>{9bf59132-e389-4a7f-880f-dd82e929081b}</Project>
+      <Name>ModelLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

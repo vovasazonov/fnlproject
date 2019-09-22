@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace DomainLayer.Models
+namespace ModelLayer.Models
 {
 	/// <summary>
 	/// Say what is the role of person in position value.
@@ -22,7 +22,7 @@ namespace DomainLayer.Models
 
 		// Relation 1
 		[Required]
-		public Position Position { get; set; }
+		public Role Position { get; set; }
 		// Relation 0..1
 		public TeamPlayer TeamPlayer { get; set; }
 		// Relation 0..1

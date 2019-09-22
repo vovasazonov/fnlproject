@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 
-namespace DomainLayer.Models
+namespace ModelLayer.Models
 {
-	public class Position
+	public class Amplua
 	{
-		public int PositionId { get; set; }
-		[Required]
+		public int AmpluaId { get; set; }
 		public string Name { get; set; }
 
 		// Relation 0..*
-		public List<Person> People { get; set; }
+		public List<TeamPlayer> Players { get; set; }
 	}
 }

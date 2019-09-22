@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI.csproj", "{D2B97688-B845-4230-8126-18901ACD7A00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FNL", "FNL.csproj", "{D2B97688-B845-4230-8126-18901ACD7A00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer", "DomainLayer\DomainLayer.csproj", "{9BF59132-E389-4A7F-880F-DD82E929081B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{06914932-B47C-4D4E-9279-49DF3EF3767D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelLayer", "DomainLayer\ModelLayer.csproj", "{9BF59132-E389-4A7F-880F-DD82E929081B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{9BF59132-E389-4A7F-880F-DD82E929081B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BF59132-E389-4A7F-880F-DD82E929081B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BF59132-E389-4A7F-880F-DD82E929081B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06914932-B47C-4D4E-9279-49DF3EF3767D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06914932-B47C-4D4E-9279-49DF3EF3767D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06914932-B47C-4D4E-9279-49DF3EF3767D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06914932-B47C-4D4E-9279-49DF3EF3767D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

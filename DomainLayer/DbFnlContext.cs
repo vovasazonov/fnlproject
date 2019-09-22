@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using DomainLayer.Models;
+using ModelLayer.Models;
 
-namespace DomainLayer
+namespace ModelLayer
 {
     public class DbFnlContext:DbContext
     {
@@ -15,7 +15,7 @@ namespace DomainLayer
 		{ }
 
 		public DbSet<Person> People { get; set; }
-		public DbSet<Position> Positions { get; set; }
+		public DbSet<Role> Positions { get; set; }
 		public DbSet<Team> Teams { get; set; }
 		public DbSet<Match> Matches { get; set; }
 		public DbSet<Stadium> Stadiums { get; set; }

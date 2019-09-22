@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06914932-B47C-4D4E-9279-49DF3EF3767D}</ProjectGuid>
+    <ProjectGuid>{9BF59132-E389-4A7F-880F-DD82E929081B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Presentation</RootNamespace>
-    <AssemblyName>Presentation</AssemblyName>
+    <RootNamespace>DomainLayer</RootNamespace>
+    <AssemblyName>DomainLayer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,7 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,18 +48,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presenters\Class1.cs" />
+    <Compile Include="DbFnlContext.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Amplua.cs" />
+    <Compile Include="Models\CommentatorMatch.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventStatistic.cs" />
+    <Compile Include="Models\Match.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\PlayerMatch.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Season.cs" />
+    <Compile Include="Models\Stadium.cs" />
+    <Compile Include="Models\StatisticPlayerMatch.cs" />
+    <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\TeamPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
-      <Project>{9bf59132-e389-4a7f-880f-dd82e929081b}</Project>
-      <Name>DomainLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UI.csproj">
-      <Project>{d2b97688-b845-4230-8126-18901acd7a00}</Project>
-      <Name>UI</Name>
-    </ProjectReference>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

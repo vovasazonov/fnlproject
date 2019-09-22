@@ -8,13 +8,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ModelLayer.Models
 {
-	public class Stadium
+	public class Role
 	{
-		public int StadiumId { get; set; }
+		public int RoleId { get; set; }
+		[Required]
 		public string Name { get; set; }
-		public Address Address { get; set; }
 
 		// Relation 0..*
-		public List<Match> Matches { get; set; }
+		public List<Person> People { get; set; }
 	}
 }

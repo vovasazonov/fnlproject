@@ -7,27 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using Svt.Caspar;
 using Svt.Network;
+using FNL.Views;
+using FNL.Presenters;
 
-namespace UI
+namespace FNL
 {
-    public partial class Form1 : Form
+	public partial class MainForm : Form
     {
         private delegate void UpdateGUI(object parameter);
 
         private CasparDevice _caspar_ = new CasparDevice();
         private CasparCGDataCollection _cgData = new CasparCGDataCollection();
 
-        private DataSet _teamsDs = new DataSet();
+        //private DataSet _teamsDs = new DataSet();
         private DataTable _teamsDt = new DataTable("TEAMS");
         private DataView _team1Dv = new DataView();
         private DataView _team2Dv = new DataView();
 
-        public Form1()
+		/// <summary>
+		/// Help class. Realise interface ITeamView.
+		/// </summary>
+		public class TeamGuest : MainForm, ITeamView
+		{
+			public Color ColorTeam { get => buttonColorTeamGuest.BackColor; set => buttonColorTeamGuest.BackColor=value; }
+		}
+		/// <summary>
+		/// Help class. Realise interface ITeamView.
+		/// </summary>
+		public class TeamHome : MainForm, ITeamView
+		{
+			public Color ColorTeam { get => buttonColorTeamHome.BackColor; set => buttonColorTeamHome.BackColor = value; }
+		}
+
+		public MainForm()
         {
             InitializeComponent();
-
+			
             _team1Dv.Table = _teamsDt;
             _team2Dv.Table = _teamsDt;
             cb1Teams.DataSource = _team1Dv;
@@ -40,7 +58,7 @@ namespace UI
             _caspar_.FailedConnect += new EventHandler<NetworkEventArgs>(Caspar__FailedConnected);
             _caspar_.Disconnected += new EventHandler<NetworkEventArgs>(Caspar__Disconnected);
 
-            this.btnLockTeams.Image = UI.Properties.Resources.lock_unlock;
+            this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
 
             // Disable controls to click on button. There are not connection yet on start program.
             DisableControls();
@@ -146,8 +164,8 @@ namespace UI
                 _cgData.SetData("team2Name", cb2Teams.SelectedValue.ToString());
                 _cgData.SetData("team1Score", tBScoreTeam1.Text);
                 _cgData.SetData("team2Score", tBScoreTeam2.Text);
-                _cgData.SetData("team1Color", buttonColorTeam1.BackColor.ToArgb().ToString());
-                _cgData.SetData("team2Color", buttonColorTeam2.BackColor.ToArgb().ToString());
+                _cgData.SetData("team1Color", buttonColorTeamGuest.BackColor.ToArgb().ToString());
+                _cgData.SetData("team2Color", buttonColorTeamHome.BackColor.ToArgb().ToString());
                 _cgData.SetData("halfNum", Convert.ToString(numHalfNum.Value));
                 _cgData.SetData("gameTime", this.GetGameTimeCGData());
                 _cgData.SetData("overtime", Convert.ToString(numOvertime.Value));
@@ -503,37 +521,37 @@ namespace UI
                 }
             }
         }
-        /// <summary>
-        /// Update the color teams in template.
-        /// </summary>
-        private void UpdateColorTeams()
-        {
-            // spara halvtid
-            /*
-             TODO: Check for valid field values
-             */
+        ///// <summary>
+        ///// Update the color teams in template.
+        ///// </summary>
+        //private void UpdateColorTeams()
+        //{
+        //    // spara halvtid
+        //    /*
+        //     TODO: Check for valid field values
+        //     */
 
-            try
-            {
-                // Clear old data
-                _cgData.Clear();
+        //    try
+        //    {
+        //        // Clear old data
+        //        _cgData.Clear();
 
-                // build data
-                _cgData.SetData("team1Color", buttonColorTeam1.BackColor.ToArgb().ToString());
-                _cgData.SetData("team2Color", buttonColorTeam2.BackColor.ToArgb().ToString());
-            }
-            catch
-            {
+        //        // build data
+        //        _cgData.SetData("team1Color", buttonColorTeamGuest.BackColor.ToArgb().ToString());
+        //        _cgData.SetData("team2Color", buttonColorTeamHome.BackColor.ToArgb().ToString());
+        //    }
+        //    catch
+        //    {
 
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
-                }
-            }
-        }
+        //    }
+        //    finally
+        //    {
+        //        if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+        //        {
+        //            _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
+        //        }
+        //    }
+        //}
         /// <summary>
         /// Save the additional time that was setted by user in form.
         /// </summary>
@@ -652,7 +670,7 @@ namespace UI
         {
             buttonConnect.Enabled = false;
 
-            if (!_caspar_.IsConnected)
+			if (!_caspar_.IsConnected)
             {
                 _caspar_.Settings.Hostname = this.tbCasparServer.Text; // Properties.Settings.Default.Hostname;
                 _caspar_.Settings.Port = 5250;
@@ -692,11 +710,11 @@ namespace UI
 
             if (this.cb1Teams.Enabled)
             {
-                this.btnLockTeams.Image = UI.Properties.Resources.lock_unlock;
+                this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
             }
             else
             {
-                this.btnLockTeams.Image = UI.Properties.Resources.lock_lock;
+                this.btnLockTeams.Image = FNL.Properties.Resources.lock_lock;
             }
         }
 
@@ -722,49 +740,30 @@ namespace UI
             this.SaveHalfNum();
         }
 
-        private void btnAdditionalTime(object sender, EventArgs e)
+        private void BtnAdditionalTime(object sender, EventArgs e)
         {
             this.SaveAdditionalTime();
         }
 
-        private void ButtonColorTeam1_Click(object sender, EventArgs e)
+		#region Done
+		private void ClickButtonColorTeamGuest(object sender, EventArgs e)
         {
-            ColorDialog MyDialog = new ColorDialog();
-            // Keeps the user from selecting a custom color.
-            MyDialog.AllowFullOpen = true;
-            // Allows the user to get help. (The default is false.)
-            MyDialog.ShowHelp = true;
-            // Sets the initial color select to the current text color.
-            MyDialog.Color = buttonColorTeam1.BackColor;
+			TeamPresenter teamPresenter = new TeamPresenter(new TeamGuest());
+			if (teamPresenter.ChoseNewColor())
+			{
+				teamPresenter.UpdateColor(_cgData,_caspar_);
+			}
+		}
 
-            // Update the text box color if the user clicks OK 
-            if (MyDialog.ShowDialog() == DialogResult.OK)
-            {
-                buttonColorTeam1.BackColor = MyDialog.Color;
-                UpdateColorTeams();
-            }
-        }
-
-        private void ButtonColorTeam2_Click(object sender, EventArgs e)
+        private void ClickButtonColorTeamHome(object sender, EventArgs e)
         {
-            ColorDialog MyDialog = new ColorDialog();
-            // Keeps the user from selecting a custom color.
-            MyDialog.AllowFullOpen = true;
-            // Allows the user to get help. (The default is false.)
-            MyDialog.ShowHelp = true;
-            // Sets the initial color select to the current text color.
-            MyDialog.Color = buttonColorTeam2.BackColor;
-
-            // Update the text box color if the user clicks OK 
-            if (MyDialog.ShowDialog() == DialogResult.OK)
-            {
-                buttonColorTeam2.BackColor = MyDialog.Color;
-                this.UpdateColorTeams();
-            }
-        }
-
-
-
-    }
+			TeamPresenter teamPresenter = new TeamPresenter(new TeamHome());
+			if (teamPresenter.ChoseNewColor())
+			{
+				teamPresenter.UpdateColor(_cgData, _caspar_);
+			}
+		}
+		#endregion
+	}
 
 }
