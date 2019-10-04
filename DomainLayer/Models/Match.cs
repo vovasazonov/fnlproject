@@ -11,8 +11,8 @@ namespace ModelLayer.Models
 	public class Match
 	{
 		public int MatchId { get; set; }
+        public string Name { get; set; }
 		public DateTime Date { get; set; }
-
 		// Relation 1
 		[Required]
 		public Stadium Stadium { get; set; }

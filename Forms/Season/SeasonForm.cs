@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace FNL.Forms
 {
-	public partial class MatchesForm : Form
-	{
-		public MatchesForm()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class SeasonForm : Form
+    {
+        public SeasonForm()
+        {
+            InitializeComponent();
+        }
+    }
 }

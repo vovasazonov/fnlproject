@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FNL.Forms;
 
 using Svt.Caspar;
 using Svt.Network;
@@ -252,7 +253,7 @@ namespace FNL
         /// </summary>
         private void DisableControls()
         {
-            tabControl1.Enabled = false;
+            //tabControl1.Enabled = false; // Убрать комментраий после теста!!!!!!!!!!!!!!!!!!!!!!!! базы данных
         }
         /// <summary>
         /// Enable controls in tub of form.
@@ -763,7 +764,13 @@ namespace FNL
 				teamPresenter.UpdateColor(_cgData, _caspar_);
 			}
 		}
-		#endregion
-	}
+        #endregion
+
+        private void buttonMatch_Click(object sender, EventArgs e)
+        {
+            MatchesForm matchesForm = new MatchesForm();
+            matchesForm.Show();
+        }
+    }
 
 }

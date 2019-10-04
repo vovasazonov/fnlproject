@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FNL.Forms
 {
-    public partial class InsertInfluencersPeopleMatch : Form
+    public partial class SettingPerson : Form
     {
-        public InsertInfluencersPeopleMatch()
+        public SettingPerson()
         {
             InitializeComponent();
         }

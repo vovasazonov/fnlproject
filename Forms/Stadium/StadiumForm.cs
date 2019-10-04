@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FNL.Forms
 {
-    public partial class InsertInfluencers : Form
+    public partial class StadiumForm : Form
     {
-        public InsertInfluencers()
+        public StadiumForm()
         {
             InitializeComponent();
         }

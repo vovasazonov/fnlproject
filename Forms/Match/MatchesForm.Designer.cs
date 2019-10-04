@@ -34,20 +34,9 @@
             this.buttonChangeMatch = new System.Windows.Forms.Button();
             this.buttonDeleteMatch = new System.Windows.Forms.Button();
             this.buttonInsertMatch = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MatchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateMatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stadium = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Season = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeamGuest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GoalGuest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeamHome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GoalHome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Commentator1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Commentator2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewMatch = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMatch)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -57,7 +46,7 @@
             this.panel1.Controls.Add(this.buttonChangeMatch);
             this.panel1.Controls.Add(this.buttonDeleteMatch);
             this.panel1.Controls.Add(this.buttonInsertMatch);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dataGridViewMatch);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1017, 425);
@@ -71,6 +60,7 @@
             this.buttonCancle.TabIndex = 5;
             this.buttonCancle.Text = "Отмена";
             this.buttonCancle.UseVisualStyleBackColor = true;
+            this.buttonCancle.Click += new System.EventHandler(this.buttonCancle_Click);
             // 
             // buttonOk
             // 
@@ -89,6 +79,7 @@
             this.buttonChangeMatch.TabIndex = 3;
             this.buttonChangeMatch.Text = "Изменить";
             this.buttonChangeMatch.UseVisualStyleBackColor = true;
+            this.buttonChangeMatch.Click += new System.EventHandler(this.buttonChangeMatch_Click);
             // 
             // buttonDeleteMatch
             // 
@@ -98,6 +89,7 @@
             this.buttonDeleteMatch.TabIndex = 2;
             this.buttonDeleteMatch.Text = "Удалить";
             this.buttonDeleteMatch.UseVisualStyleBackColor = true;
+            this.buttonDeleteMatch.Click += new System.EventHandler(this.buttonDeleteMatch_Click);
             // 
             // buttonInsertMatch
             // 
@@ -107,83 +99,15 @@
             this.buttonInsertMatch.TabIndex = 1;
             this.buttonInsertMatch.Text = "Добавить";
             this.buttonInsertMatch.UseVisualStyleBackColor = true;
+            this.buttonInsertMatch.Click += new System.EventHandler(this.buttonInsertMatch_Click);
             // 
-            // dataGridView1
+            // dataGridViewMatch
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.MatchName,
-            this.DateMatch,
-            this.Stadium,
-            this.Season,
-            this.TeamGuest,
-            this.GoalGuest,
-            this.TeamHome,
-            this.GoalHome,
-            this.Commentator1,
-            this.Commentator2});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 35);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1011, 387);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Идентификатор";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // MatchName
-            // 
-            this.MatchName.HeaderText = "Матч";
-            this.MatchName.Name = "MatchName";
-            // 
-            // DateMatch
-            // 
-            this.DateMatch.HeaderText = "Дата";
-            this.DateMatch.Name = "DateMatch";
-            // 
-            // Stadium
-            // 
-            this.Stadium.HeaderText = "Стадион";
-            this.Stadium.Name = "Stadium";
-            // 
-            // Season
-            // 
-            this.Season.HeaderText = "Сезон";
-            this.Season.Name = "Season";
-            // 
-            // TeamGuest
-            // 
-            this.TeamGuest.HeaderText = "Комадна гостей";
-            this.TeamGuest.Name = "TeamGuest";
-            // 
-            // GoalGuest
-            // 
-            this.GoalGuest.HeaderText = "Голы гостей";
-            this.GoalGuest.Name = "GoalGuest";
-            // 
-            // TeamHome
-            // 
-            this.TeamHome.HeaderText = "Команда дома";
-            this.TeamHome.Name = "TeamHome";
-            // 
-            // GoalHome
-            // 
-            this.GoalHome.HeaderText = "Голы дом";
-            this.GoalHome.Name = "GoalHome";
-            // 
-            // Commentator1
-            // 
-            this.Commentator1.HeaderText = "Комментатор1";
-            this.Commentator1.Name = "Commentator1";
-            // 
-            // Commentator2
-            // 
-            this.Commentator2.HeaderText = "Комментатор2";
-            this.Commentator2.Name = "Commentator2";
+            this.dataGridViewMatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMatch.Location = new System.Drawing.Point(3, 35);
+            this.dataGridViewMatch.Name = "dataGridViewMatch";
+            this.dataGridViewMatch.Size = new System.Drawing.Size(1011, 387);
+            this.dataGridViewMatch.TabIndex = 0;
             // 
             // MatchesForm
             // 
@@ -194,7 +118,7 @@
             this.Name = "MatchesForm";
             this.Text = "MatchesForm";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMatch)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -202,21 +126,10 @@
 		#endregion
 
 		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dataGridViewMatch;
 		private System.Windows.Forms.Button buttonChangeMatch;
 		private System.Windows.Forms.Button buttonDeleteMatch;
 		private System.Windows.Forms.Button buttonInsertMatch;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-		private System.Windows.Forms.DataGridViewTextBoxColumn MatchName;
-		private System.Windows.Forms.DataGridViewTextBoxColumn DateMatch;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Stadium;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Season;
-		private System.Windows.Forms.DataGridViewTextBoxColumn TeamGuest;
-		private System.Windows.Forms.DataGridViewTextBoxColumn GoalGuest;
-		private System.Windows.Forms.DataGridViewTextBoxColumn TeamHome;
-		private System.Windows.Forms.DataGridViewTextBoxColumn GoalHome;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Commentator1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Commentator2;
 		private System.Windows.Forms.Button buttonCancle;
 		private System.Windows.Forms.Button buttonOk;
 	}

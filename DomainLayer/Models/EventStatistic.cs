@@ -19,7 +19,7 @@ namespace ModelLayer.Models
 		[Required]
 		public int HalfMatch { get; set; }
 
-		[Required]
+		//[Required]
 		public StatisticPlayerMatch StatisticPlayerMatch { get; set; }
 		[Required]
 		public Event Event { get; set; }

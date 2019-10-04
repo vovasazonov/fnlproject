@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace FNL.Forms
 {
-	public partial class SettingMatch : Form
-	{
-		public SettingMatch()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class SettingTeam : Form
+    {
+        public SettingTeam()
+        {
+            InitializeComponent();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

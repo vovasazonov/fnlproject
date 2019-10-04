@@ -14,15 +14,18 @@ namespace ModelLayer
 		public DbFnlContext() : base("DbFnl")
 		{ }
 
-		public DbSet<Person> People { get; set; }
-		public DbSet<Role> Positions { get; set; }
-		public DbSet<Team> Teams { get; set; }
-		public DbSet<Match> Matches { get; set; }
-		public DbSet<Stadium> Stadiums { get; set; }
+        public DbSet<Amplua> Ampluas { get; set; }
 		public DbSet<CommentatorMatch> CommentatorsMatches { get; set; }
-		public DbSet<TeamPlayer> TeamPlayers { get; set; }
-		public DbSet<StatisticPlayerMatch> StatisticsPlayersMatches { get; set; }
-		public DbSet<EventStatistic> EventsStatistics { get; set; }
 		public DbSet<Event> Events { get; set; }
+		public DbSet<EventStatistic> EventsStatistics { get; set; }
+		public DbSet<Match> Matches { get; set; }
+		public DbSet<Person> People { get; set; }
+        public DbSet<PlayerMatch> PlayersMatches { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Season> Seasons { get; set; }
+		public DbSet<Stadium> Stadiums { get; set; }
+		public DbSet<StatisticPlayerMatch> StatisticsPlayersMatches { get; set; }
+		public DbSet<Team> Teams { get; set; }
+		public DbSet<TeamPlayer> TeamPlayers { get; set; }
 	}
 }

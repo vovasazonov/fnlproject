@@ -24,7 +24,7 @@ namespace ModelLayer.Models
 		[Required]
 		public Role Position { get; set; }
 		// Relation 0..1
-		public TeamPlayer TeamPlayer { get; set; }
+		//public TeamPlayer TeamPlayer { get; set; }
 		// Relation 0..1
 		public CommentatorMatch CommentatorMatch { get; set; }
 		// Relation 0..*
