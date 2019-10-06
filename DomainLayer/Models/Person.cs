@@ -19,16 +19,13 @@ namespace ModelLayer.Models
 		public string MiddleName { get; set; }
 		public string PhotoPath { get; set; } 
 		public Address Address { get; set; }
+        public int RoleId { get; set; }
 
-		// Relation 1
-		[Required]
 		public Role Position { get; set; }
-		// Relation 0..1
-		//public TeamPlayer TeamPlayer { get; set; }
-		// Relation 0..1
-		public CommentatorMatch CommentatorMatch { get; set; }
-		// Relation 0..*
+		public List<TeamPlayer> TeamPlayers { get; set; }
+		public List<CommentatorMatch> CommentatorMatches { get; set; }
 		public List<StatisticPlayerMatch> Statistics { get; set; }
+        public List<PlayerMatch> PlayerMatches { get; set; }
 
 	}
 }

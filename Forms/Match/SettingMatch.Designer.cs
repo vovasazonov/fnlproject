@@ -122,6 +122,7 @@
             this.comboOwner.Name = "comboOwner";
             this.comboOwner.Size = new System.Drawing.Size(145, 21);
             this.comboOwner.TabIndex = 11;
+            this.comboOwner.Click += new System.EventHandler(this.comboOwner_Click);
             // 
             // comboGuest
             // 
@@ -130,6 +131,7 @@
             this.comboGuest.Name = "comboGuest";
             this.comboGuest.Size = new System.Drawing.Size(145, 21);
             this.comboGuest.TabIndex = 10;
+            this.comboGuest.Click += new System.EventHandler(this.comboGuest_Click);
             // 
             // comboStadium
             // 

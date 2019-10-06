@@ -34,14 +34,22 @@ namespace FNL
 		public class TeamGuest : MainForm, ITeamView
 		{
 			public Color ColorTeam { get => buttonColorTeamGuest.BackColor; set => buttonColorTeamGuest.BackColor=value; }
-		}
+            public string NameTeamFull { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public string NameTeamShort { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public string PathTeamLogo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public int IdTeam { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        }
 		/// <summary>
 		/// Help class. Realise interface ITeamView.
 		/// </summary>
 		public class TeamHome : MainForm, ITeamView
 		{
 			public Color ColorTeam { get => buttonColorTeamHome.BackColor; set => buttonColorTeamHome.BackColor = value; }
-		}
+            public string NameTeamFull { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public string NameTeamShort { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public string PathTeamLogo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public int IdTeam { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        }
 
 		public MainForm()
         {

@@ -10,13 +10,17 @@ namespace ModelLayer.Models
 	public class PlayerMatch
 	{
 		public int PlayerMatchId { get; set; }
+        [Required]
 		public bool IsSpare { get; set; }
+        [Required]
+        public int MatchId { get; set; }
+        [Required]
+        public int TeamId { get; set; }
+        [Required]
+        public int PersonId { get; set; }
 
-		// Relation 1
 		public Match Match { get; set; }
-		// Relation 1
 		public Team Team { get; set; }
-		// Relation 1
-		public Person Player { get; set; }
+		public Person Person { get; set; }
 	}
 }

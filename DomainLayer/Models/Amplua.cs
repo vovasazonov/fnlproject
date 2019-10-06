@@ -10,9 +10,9 @@ namespace ModelLayer.Models
 	public class Amplua
 	{
 		public int AmpluaId { get; set; }
+        [Required]
 		public string Name { get; set; }
 
-		// Relation 0..*
 		public List<TeamPlayer> Players { get; set; }
 	}
 }

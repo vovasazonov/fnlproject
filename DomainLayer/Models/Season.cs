@@ -11,9 +11,9 @@ namespace ModelLayer.Models
 	public class Season
 	{
 		public int SeasonId { get; set; }
+        [Required]
 		public string Name { get; set; }
 
-		// Relation 0..1
 		public List<Match> Matches { get; set; }
 	}
 }

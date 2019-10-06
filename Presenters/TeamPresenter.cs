@@ -7,8 +7,9 @@ using System.Windows.Forms;
 
 using Svt.Caspar;
 using FNL.Views;
-//using ModelLayer;
-//using ModelLayer.Models;
+using ModelLayer;
+using ModelLayer.Models;
+using System.Drawing;
 
 namespace FNL.Presenters
 {
@@ -19,14 +20,16 @@ namespace FNL.Presenters
 		public TeamPresenter(ITeamView teamView)
 		{
 			this.teamView = teamView;
+
+            
 		}
 
-		/// <summary>
-		/// Update color in database and in server caspar. ??????????? Need to update data in database
-		/// </summary>
-		/// <param name="_cgData">Data caspar</param>
-		/// <param name="_caspar_">Device</param>
-		public void UpdateColor(CasparCGDataCollection _cgData, CasparDevice _caspar_)
+        /// <summary>
+        /// Update color in database and in server caspar. ??????????? Need to update data in database
+        /// </summary>
+        /// <param name="_cgData">Data caspar</param>
+        /// <param name="_caspar_">Device</param>
+        public void UpdateColor(CasparCGDataCollection _cgData, CasparDevice _caspar_)
 		{
 			try
 			{
@@ -75,5 +78,60 @@ namespace FNL.Presenters
 
 			return false;
 		}
-	}
+
+        /// <summary>
+        /// Return data from database.
+        /// </summary>
+        /// <returns>matches.</returns>
+        public List<ITeamView> GetTeams()
+        {
+            List<ITeamView> matchesView = new List<ITeamView>();
+
+            using (DbFnlContext db = new DbFnlContext())
+            {
+                var teams = db.Teams;
+
+                // Get data drom database.
+                foreach (var team in teams)
+                {
+                    HelperTeamView teamView = new HelperTeamView();
+
+                    teamView.IdTeam = team.TeamId;
+                    teamView.ColorTeam = Color.FromArgb(team.Color);
+                    teamView.NameTeamFull = team.NameFull != null ? team.NameFull : "";
+                    teamView.NameTeamShort = team.NameShort != null ? team.NameShort : "";
+                    teamView.PathTeamLogo = team.LogotypePath != null ? team.LogotypePath : "";
+
+                    matchesView.Add(teamView);
+                }
+            }
+
+            return matchesView;
+        }
+
+        public void DeleteTeamFromDatabase(int idTeam)
+        {
+            using (DbFnlContext db = new DbFnlContext())
+            {
+                var query = from t in db.Teams
+                            where t.TeamId == idTeam
+                            select t;
+
+                db.Teams.Remove(query.FirstOrDefault());
+
+                db.SaveChanges();
+            }
+        }
+
+        class HelperTeamView : ITeamView
+        {
+            public Color ColorTeam { get; set; }
+            public string NameTeamFull {get;set;}
+            public string NameTeamShort {get;set;}
+            public string PathTeamLogo {get;set;}
+            public int IdTeam {get;set;}
+        }
+
+
+    }
 }

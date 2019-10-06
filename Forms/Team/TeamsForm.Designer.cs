@@ -29,28 +29,25 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonTeamCancle = new System.Windows.Forms.Button();
+            this.buttonTeamOk = new System.Windows.Forms.Button();
+            this.dataGridViewTeams = new System.Windows.Forms.DataGridView();
             this.buttonCancle = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonChangeTeam = new System.Windows.Forms.Button();
             this.buttonDeleteTeam = new System.Windows.Forms.Button();
             this.buttonInsertTeam = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ShortName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeams)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.buttonTeamCancle);
+            this.panel1.Controls.Add(this.buttonTeamOk);
+            this.panel1.Controls.Add(this.dataGridViewTeams);
             this.panel1.Controls.Add(this.buttonCancle);
             this.panel1.Controls.Add(this.buttonOk);
             this.panel1.Controls.Add(this.buttonChangeTeam);
@@ -61,6 +58,43 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(758, 293);
             this.panel1.TabIndex = 1;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(6, 232);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(743, 55);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Логотип";
+            // 
+            // buttonTeamCancle
+            // 
+            this.buttonTeamCancle.Location = new System.Drawing.Point(674, 6);
+            this.buttonTeamCancle.Name = "buttonTeamCancle";
+            this.buttonTeamCancle.Size = new System.Drawing.Size(75, 23);
+            this.buttonTeamCancle.TabIndex = 8;
+            this.buttonTeamCancle.Text = "Отмена";
+            this.buttonTeamCancle.UseVisualStyleBackColor = true;
+            this.buttonTeamCancle.Click += new System.EventHandler(this.buttonTeamCancle_Click);
+            // 
+            // buttonTeamOk
+            // 
+            this.buttonTeamOk.Location = new System.Drawing.Point(596, 6);
+            this.buttonTeamOk.Name = "buttonTeamOk";
+            this.buttonTeamOk.Size = new System.Drawing.Size(75, 23);
+            this.buttonTeamOk.TabIndex = 7;
+            this.buttonTeamOk.Text = "Ок";
+            this.buttonTeamOk.UseVisualStyleBackColor = true;
+            this.buttonTeamOk.Click += new System.EventHandler(this.buttonTeamOk_Click);
+            // 
+            // dataGridViewTeams
+            // 
+            this.dataGridViewTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTeams.Location = new System.Drawing.Point(6, 35);
+            this.dataGridViewTeams.Name = "dataGridViewTeams";
+            this.dataGridViewTeams.Size = new System.Drawing.Size(743, 191);
+            this.dataGridViewTeams.TabIndex = 6;
             // 
             // buttonCancle
             // 
@@ -82,6 +116,7 @@
             // 
             // buttonChangeTeam
             // 
+            this.buttonChangeTeam.Enabled = false;
             this.buttonChangeTeam.Location = new System.Drawing.Point(87, 6);
             this.buttonChangeTeam.Name = "buttonChangeTeam";
             this.buttonChangeTeam.Size = new System.Drawing.Size(75, 23);
@@ -97,6 +132,7 @@
             this.buttonDeleteTeam.TabIndex = 2;
             this.buttonDeleteTeam.Text = "Удалить";
             this.buttonDeleteTeam.UseVisualStyleBackColor = true;
+            this.buttonDeleteTeam.Click += new System.EventHandler(this.buttonDeleteTeam_Click);
             // 
             // buttonInsertTeam
             // 
@@ -106,61 +142,7 @@
             this.buttonInsertTeam.TabIndex = 1;
             this.buttonInsertTeam.Text = "Добавить";
             this.buttonInsertTeam.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.FullName,
-            this.ShortName});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 35);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(743, 191);
-            this.dataGridView1.TabIndex = 6;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Идентификатор";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            // 
-            // FullName
-            // 
-            this.FullName.HeaderText = "Полное название";
-            this.FullName.Name = "FullName";
-            // 
-            // ShortName
-            // 
-            this.ShortName.HeaderText = "Короткое";
-            this.ShortName.Name = "ShortName";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(674, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Отмена";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(596, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Ок";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(6, 232);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(743, 55);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Логотип";
+            this.buttonInsertTeam.Click += new System.EventHandler(this.buttonInsertTeam_Click);
             // 
             // TeamsForm
             // 
@@ -171,7 +153,7 @@
             this.Name = "TeamsForm";
             this.Text = "TeamsForm";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeams)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,17 +161,14 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ShortName;
+        private System.Windows.Forms.DataGridView dataGridViewTeams;
         private System.Windows.Forms.Button buttonCancle;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonChangeTeam;
         private System.Windows.Forms.Button buttonDeleteTeam;
         private System.Windows.Forms.Button buttonInsertTeam;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonTeamCancle;
+        private System.Windows.Forms.Button buttonTeamOk;
     }
 }

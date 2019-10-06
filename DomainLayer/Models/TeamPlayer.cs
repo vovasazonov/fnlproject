@@ -11,13 +11,13 @@ namespace ModelLayer.Models
 	public class TeamPlayer
 	{
 		public int TeamPlayerId { get; set; }
-		public int NumberPlayer { get; set; }
+		public int? NumberPlayer { get; set; }
+        public int TeamId { get; set; }
+        public int PersonId { get; set; }
+        public int? AmpluaId { get; set; }
 
-		// Relation 1
 		public Team Team { get; set; }
-		// Relation 1
-		public Person Player { get; set; }
-		// Relation 1
+		public Person Person { get; set; }
 		public Amplua Amplua { get; set; }
 	}
 }

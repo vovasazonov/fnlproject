@@ -14,18 +14,11 @@ namespace ModelLayer.Models
 	public class StatisticPlayerMatch
 	{
 		public int StatisticPlayerMatchId { get; set; }
-		
-		// Relation 1
-		[Required]
+		public int MatchId { get; set; }
+		public int PersonId { get; set; }
+
 		public Match Match { get; set; }
-		// Relation 1
-		[Required]
 		public Person Person { get; set; }
-		// Relation 1..*
-		[Required]
 		public List<EventStatistic> EventStatistics { get; set; }
-		// Relation 1
-		[Required]
-		public Event Event { get; set; }
 	}
 }

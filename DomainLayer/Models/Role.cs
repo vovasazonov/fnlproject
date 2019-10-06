@@ -14,7 +14,6 @@ namespace ModelLayer.Models
 		[Required]
 		public string Name { get; set; }
 
-		// Relation 0..*
 		public List<Person> People { get; set; }
 	}
 }

@@ -11,10 +11,10 @@ namespace ModelLayer.Models
 	public class Stadium
 	{
 		public int StadiumId { get; set; }
+        [Required]
 		public string Name { get; set; }
 		public Address Address { get; set; }
 
-		// Relation 0..*
 		public List<Match> Matches { get; set; }
 	}
 }

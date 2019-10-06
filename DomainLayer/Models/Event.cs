@@ -11,9 +11,9 @@ namespace ModelLayer.Models
 	public class Event
 	{
 		public int EventId { get; set; }
+        [Required]
 		public string Name { get; set; }
 
-		// Relation 0..*
 		public List<EventStatistic> EventStatistics { get; set; }
 	}
 }

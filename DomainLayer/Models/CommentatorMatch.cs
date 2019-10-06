@@ -11,11 +11,10 @@ namespace ModelLayer.Models
 	public class CommentatorMatch
 	{
 		public int CommentatorMatchId { get; set; }
+        public int PersonId { get; set; }
+        public int? MatchId { get; set; }
 
-		// Relation 1
-		[Required]
 		public Person Person { get; set; }
-		// Relation 0..*
 		public List<Match> Matches { get; set; }
 	}
 }

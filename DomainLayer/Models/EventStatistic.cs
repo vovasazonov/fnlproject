@@ -18,10 +18,10 @@ namespace ModelLayer.Models
 		public DateTime Time { get; set; }
 		[Required]
 		public int HalfMatch { get; set; }
+        public int StatisticPlayerMatchId { get; set; }
+        public int EventId { get; set; }
 
-		//[Required]
-		public StatisticPlayerMatch StatisticPlayerMatch { get; set; }
-		[Required]
+        public StatisticPlayerMatch StatisticPlayerMatch { get; set; }
 		public Event Event { get; set; }
 	}
 }

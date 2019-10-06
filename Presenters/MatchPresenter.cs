@@ -21,7 +21,7 @@ namespace FNL.Presenters
         /// Return data from database.
         /// </summary>
         /// <returns>matches.</returns>
-        public List<IMatchView> GetMatchesFromDatabase()
+        public List<IMatchView> GetMatches()
         {
             List<IMatchView> matchesView = new List<IMatchView>();
 
@@ -34,20 +34,23 @@ namespace FNL.Presenters
                 {
                     HelperMatchView matchView = new HelperMatchView();
 
-                    if (match.CommentatorsMatch.Count > 0)
+                    if (match.CommentatorsMatch != null)
                     {
-                        matchView.CommentatorsMatch1 = string.Format("{0} {1} {2}",
-                            match.CommentatorsMatch[0].Person.LastName,
-                            match.CommentatorsMatch[0].Person.FirstName,
-                            match.CommentatorsMatch[0].Person.MiddleName);
-                    }
+                        if (match.CommentatorsMatch.Count > 0)
+                        {
+                            matchView.CommentatorsMatch1 = string.Format("{0} {1} {2}",
+                                match.CommentatorsMatch[0].Person.LastName,
+                                match.CommentatorsMatch[0].Person.FirstName,
+                                match.CommentatorsMatch[0].Person.MiddleName);
+                        }
 
-                    if (match.CommentatorsMatch.Count > 1)
-                    {
-                        matchView.CommentatorsMatch2 = string.Format("{0} {1} {2}",
-                            match.CommentatorsMatch[1].Person.LastName,
-                            match.CommentatorsMatch[1].Person.FirstName,
-                            match.CommentatorsMatch[1].Person.MiddleName);
+                        if (match.CommentatorsMatch.Count > 1)
+                        {
+                            matchView.CommentatorsMatch2 = string.Format("{0} {1} {2}",
+                                match.CommentatorsMatch[1].Person.LastName,
+                                match.CommentatorsMatch[1].Person.FirstName,
+                                match.CommentatorsMatch[1].Person.MiddleName);
+                        }
                     }
 
                     matchView.Date = match.Date;
@@ -59,19 +62,33 @@ namespace FNL.Presenters
 
                     matchView.NameMatch = match.Name;
 
-                    matchView.NameSeason = match.Season.Name;
+                    matchView.NameSeason = match.SeasonId != null ? db.Seasons.Where(i=>i.SeasonId == match.SeasonId).FirstOrDefault().Name : "";
 
-                    matchView.NameStadium = match.Stadium.Name;
+                    matchView.NameStadium = match.StadiumId != null ? db.Stadiums.Where(i => i.StadiumId == match.StadiumId).FirstOrDefault().Name : "";
 
-                    matchView.NameTeamGuest = string.Format("{0} ({1})", match.TeamGuest.NameFull, match.TeamGuest.NameShort);
+                    matchView.NameTeamGuest = match.TeamGuestId != null ? db.Teams.Where(i => i.TeamId == match.TeamGuestId).FirstOrDefault().NameFull : "";
 
-                    matchView.NameTeamOwner = string.Format("{0} ({1})", match.TeamOwner.NameFull, match.TeamOwner.NameShort);
+                    matchView.NameTeamOwner = match.TeamOwner != null ? db.Teams.Where(i => i.TeamId == match.TeamOwnerId).FirstOrDefault().NameFull : "";
 
                     matchesView.Add(matchView);
                 }
             }
 
             return matchesView;
+        }
+
+        public void DeleteMatchFromDatabase(int idMatch)
+        {
+            using (DbFnlContext db = new DbFnlContext())
+            {
+                var query = from m in db.Matches
+                            where m.MatchId == idMatch
+                            select m;
+
+                db.Matches.Remove(query.FirstOrDefault());
+
+                db.SaveChanges();
+            }
         }
 
         class HelperMatchView : IMatchView

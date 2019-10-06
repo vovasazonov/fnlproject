@@ -70,9 +70,11 @@
             this.buttonOk.TabIndex = 4;
             this.buttonOk.Text = "Ок";
             this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonChangeMatch
             // 
+            this.buttonChangeMatch.Enabled = false;
             this.buttonChangeMatch.Location = new System.Drawing.Point(87, 6);
             this.buttonChangeMatch.Name = "buttonChangeMatch";
             this.buttonChangeMatch.Size = new System.Drawing.Size(75, 23);
