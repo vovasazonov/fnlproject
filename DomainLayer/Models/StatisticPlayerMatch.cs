@@ -17,8 +17,8 @@ namespace ModelLayer.Models
 		public int MatchId { get; set; }
 		public int PersonId { get; set; }
 
-		public Match Match { get; set; }
-		public Person Person { get; set; }
-		public List<EventStatistic> EventStatistics { get; set; }
+		public virtual Match Match { get; set; }
+		public virtual Person Person { get; set; }
+		public virtual List<EventStatistic> EventStatistics { get; set; }
 	}
 }

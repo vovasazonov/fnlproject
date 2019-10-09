@@ -15,7 +15,12 @@ namespace FNL.Forms
 {
     public partial class TeamsForm : Form, ITeamView
     {
-        
+        public int IdTeam { get => ((List<ITeamView>)(dataGridViewTeams.DataSource))[dataGridViewTeams.CurrentRow.Index].IdTeam; set => throw new NotImplementedException(); }
+        public Color ColorTeam { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string NameTeamFull { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string NameTeamShort { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string PathTeamLogo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public TeamsForm()
         {
             InitializeComponent();
@@ -25,23 +30,21 @@ namespace FNL.Forms
         {
             InitializeComponent();
             UpdateTable();
-            this._settingMatch = settingMatch;
+            this._settingMatchForm = settingMatch;
             this._isGuestSender = isGuestSender;
         }
 
-        private SettingMatch _settingMatch;
+        private SettingMatch _settingMatchForm;
         private bool _isGuestSender;
 
-        public Color ColorTeam { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string NameTeamFull { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string NameTeamShort { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string PathTeamLogo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int IdTeam { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void UpdateTable()
         {
             TeamPresenter newTeam = new TeamPresenter(this);
+            // Set table with data from database.
             dataGridViewTeams.DataSource = newTeam.GetTeams();
+            // Hide colum with ids.
+            dataGridViewTeams.Columns[0].Visible = false;
         }
 
         private void buttonInsertTeam_Click(object sender, EventArgs e)
@@ -52,40 +55,26 @@ namespace FNL.Forms
 
         private void buttonDeleteTeam_Click(object sender, EventArgs e)
         {
-            int id = 0;
-            try
-            {
-                id = Convert.ToInt32(dataGridViewTeams.CurrentRow.Cells[0].Value);
+            TeamPresenter teamPresenter = new TeamPresenter(this);
+            teamPresenter.DeleteTeamFromDatabase(IdTeam);
 
-                TeamPresenter team = new TeamPresenter(this);
-                team.DeleteTeamFromDatabase(id);
-                dataGridViewTeams.DataSource = team.GetTeams();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            UpdateTable();
         }
 
         private void buttonTeamOk_Click(object sender, EventArgs e)
         {
-            int id = 0;
-
-            id = Convert.ToInt32(dataGridViewTeams.CurrentRow.Cells[0].Value);
-
             TeamPresenter team = new TeamPresenter(this);
-            string nameTeam = (from t in team.GetTeams()
-                                where t.IdTeam == id
-                                select t).
-                                FirstOrDefault().NameTeamFull;
+            string nameTeam = team.GetTeams().Where(t => t.IdTeam == IdTeam).FirstOrDefault().NameTeamFull;
+
             if (_isGuestSender)
             {
-                _settingMatch.NameGuestTeam = nameTeam;
+                _settingMatchForm.NameGuestTeam = nameTeam;
+                _settingMatchForm.GuestTeamId = IdTeam;
             }
             else
             {
-                _settingMatch.NameOwnerTeam = nameTeam;
+                _settingMatchForm.NameOwnerTeam = nameTeam;
+                _settingMatchForm.OwnerTeamId = IdTeam;
             }
 
             this.Close();
@@ -94,6 +83,11 @@ namespace FNL.Forms
         private void buttonTeamCancle_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonChangeTeam_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -17,8 +17,8 @@ namespace ModelLayer.Models
         public string LogotypePath { get; set; }
         public int Color { get; set; }
 
-        public List<TeamPlayer> TeamPlayers { get; set; }
-        public List<Match> Matches { get; set; }
-        public List<PlayerMatch> PlayersMatches {get;set;}
+        public virtual List<TeamPlayer> TeamPlayers { get; set; }
+        public virtual List<Match> Matches { get; set; }
+        public virtual List<PlayerMatch> PlayersMatches {get;set;}
 	}
 }

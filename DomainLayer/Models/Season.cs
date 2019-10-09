@@ -14,6 +14,6 @@ namespace ModelLayer.Models
         [Required]
 		public string Name { get; set; }
 
-		public List<Match> Matches { get; set; }
+		public virtual List<Match> Matches { get; set; }
 	}
 }

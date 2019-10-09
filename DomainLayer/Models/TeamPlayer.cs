@@ -16,8 +16,8 @@ namespace ModelLayer.Models
         public int PersonId { get; set; }
         public int? AmpluaId { get; set; }
 
-		public Team Team { get; set; }
-		public Person Person { get; set; }
-		public Amplua Amplua { get; set; }
+		public virtual Team Team { get; set; }
+		public virtual Person Person { get; set; }
+		public virtual Amplua Amplua { get; set; }
 	}
 }

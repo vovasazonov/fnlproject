@@ -21,7 +21,7 @@ namespace ModelLayer.Models
         public int StatisticPlayerMatchId { get; set; }
         public int EventId { get; set; }
 
-        public StatisticPlayerMatch StatisticPlayerMatch { get; set; }
-		public Event Event { get; set; }
+        public virtual StatisticPlayerMatch StatisticPlayerMatch { get; set; }
+		public virtual Event Event { get; set; }
 	}
 }

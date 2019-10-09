@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FNL.Views
 {
+
     public interface IMatchView
     {
         int MatchId { get; set; }
@@ -20,4 +21,23 @@ namespace FNL.Views
         string CommentatorsMatch1 { get; set; }
         string CommentatorsMatch2 { get; set; }
     }
+
+    /// <summary>
+    /// Helper class for to create exemplar of interface via class.
+    /// </summary>
+    public class ClassMatchView : IMatchView
+    {
+        int IMatchView.MatchId { get; set; }
+        string IMatchView.NameMatch         {get;set;}
+        DateTime IMatchView.Date            {get;set;}
+        string IMatchView.NameStadium       {get;set;}
+        string IMatchView.NameSeason        {get;set;}
+        string IMatchView.NameTeamGuest     {get;set;}
+        int IMatchView.GoalsGuest           {get;set;}
+        string IMatchView.NameTeamOwner     {get;set;}
+        int IMatchView.GoalsOwner           {get;set;}
+        string IMatchView.CommentatorsMatch1{get;set;}
+        string IMatchView.CommentatorsMatch2{get;set;}
+    }
+
 }

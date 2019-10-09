@@ -13,6 +13,6 @@ namespace ModelLayer.Models
         [Required]
 		public string Name { get; set; }
 
-		public List<TeamPlayer> Players { get; set; }
+		public virtual List<TeamPlayer> Players { get; set; }
 	}
 }

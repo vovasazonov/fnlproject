@@ -15,6 +15,6 @@ namespace ModelLayer.Models
 		public string Name { get; set; }
 		public Address Address { get; set; }
 
-		public List<Match> Matches { get; set; }
+		public virtual List<Match> Matches { get; set; }
 	}
 }

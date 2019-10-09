@@ -14,7 +14,7 @@ namespace FNL.Forms
 {
 	public partial class MatchesForm : Form, IMatchView
 	{
-        public int MatchId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int MatchId { get => ((List<IMatchView>)(dataGridViewMatch.DataSource))[dataGridViewMatch.CurrentRow.Index].MatchId; set => throw new NotImplementedException(); }
         public string NameMatch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public DateTime Date { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string NameStadium { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -31,13 +31,15 @@ namespace FNL.Forms
 			InitializeComponent();
 
             UpdateTable();
-
         }
 
         public void UpdateTable()
         {
-            MatchPresenter newMatch = new MatchPresenter(this);
-            dataGridViewMatch.DataSource = newMatch.GetMatches();
+            MatchPresenter matchPresenter = new MatchPresenter(this);
+            // Set table with data from database.
+            dataGridViewMatch.DataSource = matchPresenter.GetMatches();
+            // Hide colum with ids.
+            dataGridViewMatch.Columns[0].Visible = false;
         }
         private void buttonCancle_Click(object sender, EventArgs e)
         {
@@ -46,43 +48,26 @@ namespace FNL.Forms
         private void buttonInsertMatch_Click(object sender, EventArgs e)
         {
             SettingMatch settingMatchForm = new SettingMatch(this);
-            settingMatchForm.Show();
-            
+            settingMatchForm.Show();           
         }
 
         private void buttonChangeMatch_Click(object sender, EventArgs e)
-        {
-            List<IMatchView> md = (List<IMatchView>)dataGridViewMatch.DataSource;
-            var query = from m in md
-                        where m.MatchId == Convert.ToInt32(dataGridViewMatch.CurrentRow.Cells[0].Value)
-                        select m;
-            int idMatch = query.FirstOrDefault().MatchId;
-            
-            SettingMatch settingMatchForm = new SettingMatch(this,true,idMatch);
+        {           
+            SettingMatch settingMatchForm = new SettingMatch(this,true);
             settingMatchForm.Show();
         }
 
         private void buttonDeleteMatch_Click(object sender, EventArgs e)
         {
-            int idMatch = 0;
-            try
-            {
-                idMatch = Convert.ToInt32(dataGridViewMatch.CurrentRow.Cells[0].Value);             
+            MatchPresenter match = new MatchPresenter(this);
+            match.DeleteMatchFromDatabase(MatchId);
 
-                MatchPresenter match = new MatchPresenter(this);
-                match.DeleteMatchFromDatabase(idMatch);
-                dataGridViewMatch.DataSource = match.GetMatches();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            UpdateTable();
         }
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

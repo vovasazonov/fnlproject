@@ -123,6 +123,7 @@
             this.buttonChangeTeam.TabIndex = 3;
             this.buttonChangeTeam.Text = "Изменить";
             this.buttonChangeTeam.UseVisualStyleBackColor = true;
+            this.buttonChangeTeam.Click += new System.EventHandler(this.buttonChangeTeam_Click);
             // 
             // buttonDeleteTeam
             // 

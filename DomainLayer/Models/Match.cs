@@ -23,12 +23,12 @@ namespace ModelLayer.Models
         [ForeignKey("TeamOwner")]
         public int? TeamOwnerId { get; set; }
 
-		public Stadium Stadium { get; set; }
-		public Season Season { get; set; }
-		public Team TeamOwner { get; set; }
-		public Team TeamGuest { get; set; }
-		public List<CommentatorMatch> CommentatorsMatch { get; set; }
-		public List<StatisticPlayerMatch> Statistics { get; set; }
-        public List<PlayerMatch> PlayersMatch { get; set; }
+		public virtual Stadium Stadium { get; set; }
+		public virtual Season Season { get; set; }
+		public virtual Team TeamOwner { get; set; }
+		public virtual Team TeamGuest { get; set; }
+		public virtual List<CommentatorMatch> CommentatorsMatch { get; set; }
+		public virtual List<StatisticPlayerMatch> Statistics { get; set; }
+        public virtual List<PlayerMatch> PlayersMatch { get; set; }
 	}
 }

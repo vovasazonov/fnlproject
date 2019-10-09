@@ -17,5 +17,13 @@ namespace FNL.Views
         string NameCommentator1 { get; set; }
         string NameCommentator2 { get; set; }
 
+        int ?MatchId { get; set; }
+        int ?StadiumId { get; set; }
+        int ?GuestTeamId { get; set; }
+        int ?OwnerTeamId { get; set; }
+        int ?SeasonId { get; set; }
+        int ?CommentatorPerson1Id { get; set; }
+        int ?CommentatorPerson2Id { get; set; }
+
     }
 }

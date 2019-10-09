@@ -41,6 +41,7 @@
             this.dataGridViewPlayersTeam = new System.Windows.Forms.DataGridView();
             this.buttonAddPlayer = new System.Windows.Forms.Button();
             this.buttonDeletePlayer = new System.Windows.Forms.Button();
+            this.buttonChangePlayer = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlayersTeam)).BeginInit();
@@ -152,21 +153,34 @@
             this.buttonAddPlayer.TabIndex = 8;
             this.buttonAddPlayer.Text = "Добавить игрока";
             this.buttonAddPlayer.UseVisualStyleBackColor = true;
+            this.buttonAddPlayer.Click += new System.EventHandler(this.buttonAddPlayer_Click);
             // 
             // buttonDeletePlayer
             // 
-            this.buttonDeletePlayer.Location = new System.Drawing.Point(128, 157);
+            this.buttonDeletePlayer.Location = new System.Drawing.Point(244, 157);
             this.buttonDeletePlayer.Name = "buttonDeletePlayer";
             this.buttonDeletePlayer.Size = new System.Drawing.Size(110, 23);
             this.buttonDeletePlayer.TabIndex = 9;
             this.buttonDeletePlayer.Text = "Удалить игрока";
             this.buttonDeletePlayer.UseVisualStyleBackColor = true;
+            this.buttonDeletePlayer.Click += new System.EventHandler(this.buttonDeletePlayer_Click);
+            // 
+            // buttonChangePlayer
+            // 
+            this.buttonChangePlayer.Location = new System.Drawing.Point(128, 157);
+            this.buttonChangePlayer.Name = "buttonChangePlayer";
+            this.buttonChangePlayer.Size = new System.Drawing.Size(110, 23);
+            this.buttonChangePlayer.TabIndex = 10;
+            this.buttonChangePlayer.Text = "Изменить игрока";
+            this.buttonChangePlayer.UseVisualStyleBackColor = true;
+            this.buttonChangePlayer.Click += new System.EventHandler(this.buttonChangePlayer_Click);
             // 
             // SettingTeam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 402);
+            this.Controls.Add(this.buttonChangePlayer);
             this.Controls.Add(this.buttonDeletePlayer);
             this.Controls.Add(this.buttonAddPlayer);
             this.Controls.Add(this.dataGridViewPlayersTeam);
@@ -197,5 +211,6 @@
         private System.Windows.Forms.DataGridView dataGridViewPlayersTeam;
         private System.Windows.Forms.Button buttonAddPlayer;
         private System.Windows.Forms.Button buttonDeletePlayer;
+        private System.Windows.Forms.Button buttonChangePlayer;
     }
 }

@@ -19,8 +19,8 @@ namespace ModelLayer.Models
         [Required]
         public int PersonId { get; set; }
 
-		public Match Match { get; set; }
-		public Team Team { get; set; }
-		public Person Person { get; set; }
+		public virtual Match Match { get; set; }
+		public virtual Team Team { get; set; }
+		public virtual Person Person { get; set; }
 	}
 }

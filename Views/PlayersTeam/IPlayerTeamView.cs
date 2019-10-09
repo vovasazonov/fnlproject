@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace FNL.Views
 {
-    public interface ISettingTeamView : ITeamView
+    public interface IPlayerTeamView
     {
-        List <int> IdsPlayers { get; set; }
     }
 }

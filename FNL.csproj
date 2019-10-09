@@ -82,11 +82,11 @@
     <Compile Include="Forms\Match\InsertMatchPlayers.Designer.cs">
       <DependentUpon>InsertMatchPlayers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TeamPlayer\InsertPlayers.cs">
+    <Compile Include="Forms\Team\SettingPlayerTeam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TeamPlayer\InsertPlayers.Designer.cs">
-      <DependentUpon>InsertPlayers.cs</DependentUpon>
+    <Compile Include="Forms\Team\SettingPlayerTeam.Designer.cs">
+      <DependentUpon>SettingPlayerTeam.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -161,11 +161,18 @@
       <DependentUpon>TeamsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Presenters\MatchPresenter.cs" />
+    <Compile Include="Presenters\PersonPresenter.cs" />
     <Compile Include="Presenters\SettingMatchPresenter.cs" />
+    <Compile Include="Presenters\SettingPersonPresenter.cs" />
+    <Compile Include="Presenters\SettingPlayerTeamPresenter.cs" />
     <Compile Include="Presenters\SettingTeamPresenter.cs" />
     <Compile Include="Presenters\TeamPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\PlayersTeam\IPlayerTeamView.cs" />
+    <Compile Include="Views\PlayersTeam\ITablePlayerTeamView.cs" />
+    <Compile Include="Views\Person\IPersonView.cs" />
+    <Compile Include="Views\Person\ISettingPersonView.cs" />
     <Compile Include="Views\Match\ISettingMatchView.cs" />
     <Compile Include="Views\Match\IMatchView.cs" />
     <Compile Include="Views\Team\ISettingTeamView.cs" />
@@ -173,8 +180,8 @@
     <EmbeddedResource Include="Forms\Match\InsertMatchPlayers.resx">
       <DependentUpon>InsertMatchPlayers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TeamPlayer\InsertPlayers.resx">
-      <DependentUpon>InsertPlayers.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Team\SettingPlayerTeam.resx">
+      <DependentUpon>SettingPlayerTeam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -249,7 +256,9 @@
   <ItemGroup>
     <None Include="Resources\lock_lock1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Forms\TeamPlayer\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="DomainLayer\ModelLayer.csproj">
       <Project>{9bf59132-e389-4a7f-880f-dd82e929081b}</Project>

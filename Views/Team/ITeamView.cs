@@ -15,4 +15,13 @@ namespace FNL.Views
         string NameTeamShort { get; set; }
         string PathTeamLogo { get; set; }
 	}
+
+    public class ClassTeamView : ITeamView
+    {
+        public int IdTeam { get; set; }
+        public Color ColorTeam { get; set; }
+        public string NameTeamFull { get; set; }
+        public string NameTeamShort { get; set; }
+        public string PathTeamLogo { get; set; }
+    }
 }

@@ -74,7 +74,6 @@
             // 
             // buttonChangeMatch
             // 
-            this.buttonChangeMatch.Enabled = false;
             this.buttonChangeMatch.Location = new System.Drawing.Point(87, 6);
             this.buttonChangeMatch.Name = "buttonChangeMatch";
             this.buttonChangeMatch.Size = new System.Drawing.Size(75, 23);

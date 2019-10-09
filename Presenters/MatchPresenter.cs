@@ -10,17 +10,21 @@ namespace FNL.Presenters
 {
     public class MatchPresenter
     {
-        IMatchView matchView;
+        private IMatchView _matchView;
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="matchView"></param>
         public MatchPresenter(IMatchView matchView)
         {
-            this.matchView = matchView;
+            this._matchView = matchView;
         }
 
         /// <summary>
         /// Return data from database.
         /// </summary>
-        /// <returns>matches.</returns>
+        /// <returns></returns>
         public List<IMatchView> GetMatches()
         {
             List<IMatchView> matchesView = new List<IMatchView>();
@@ -32,7 +36,7 @@ namespace FNL.Presenters
                 // Get data drom database.
                 foreach (var match in matches)
                 {
-                    HelperMatchView matchView = new HelperMatchView();
+                    IMatchView matchView = new ClassMatchView();
 
                     if (match.CommentatorsMatch != null)
                     {
@@ -52,23 +56,15 @@ namespace FNL.Presenters
                                 match.CommentatorsMatch[1].Person.MiddleName);
                         }
                     }
-
                     matchView.Date = match.Date;
-
                     //matchView.GoalsGuest = match.Statistics.
                     //matchView.GoalsOwner = match.Statistics.
-
                     matchView.MatchId = match.MatchId;
-
                     matchView.NameMatch = match.Name;
-
-                    matchView.NameSeason = match.SeasonId != null ? db.Seasons.Where(i=>i.SeasonId == match.SeasonId).FirstOrDefault().Name : "";
-
-                    matchView.NameStadium = match.StadiumId != null ? db.Stadiums.Where(i => i.StadiumId == match.StadiumId).FirstOrDefault().Name : "";
-
+                    matchView.NameSeason = match.Season != null ? match.Season.Name : "";
+                    matchView.NameStadium = match.Stadium != null ? match.Stadium.Name : "";
                     matchView.NameTeamGuest = match.TeamGuestId != null ? db.Teams.Where(i => i.TeamId == match.TeamGuestId).FirstOrDefault().NameFull : "";
-
-                    matchView.NameTeamOwner = match.TeamOwner != null ? db.Teams.Where(i => i.TeamId == match.TeamOwnerId).FirstOrDefault().NameFull : "";
+                    matchView.NameTeamOwner = match.TeamOwnerId != null ? db.Teams.Where(i => i.TeamId == match.TeamOwnerId).FirstOrDefault().NameFull : "";
 
                     matchesView.Add(matchView);
                 }
@@ -89,21 +85,6 @@ namespace FNL.Presenters
 
                 db.SaveChanges();
             }
-        }
-
-        class HelperMatchView : IMatchView
-        {
-            public int MatchId { get; set; }
-            public string NameMatch { get; set; }
-            public DateTime Date { get; set; }
-            public string NameStadium { get; set; }
-            public string NameSeason { get; set; }
-            public string NameTeamGuest { get; set; }
-            public int GoalsGuest { get; set; }
-            public string NameTeamOwner { get; set; }
-            public int GoalsOwner { get; set; }
-            public string CommentatorsMatch1 { get; set; }
-            public string CommentatorsMatch2 { get; set; }
         }
 
     }

@@ -14,6 +14,6 @@ namespace ModelLayer.Models
         [Required]
 		public string Name { get; set; }
 
-		public List<EventStatistic> EventStatistics { get; set; }
+		public virtual List<EventStatistic> EventStatistics { get; set; }
 	}
 }

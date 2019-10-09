@@ -31,22 +31,22 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCancle = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
-            this.buttonChangeMatch = new System.Windows.Forms.Button();
-            this.buttonDeleteMatch = new System.Windows.Forms.Button();
-            this.buttonInsertMatch = new System.Windows.Forms.Button();
-            this.dataGridViewMatch = new System.Windows.Forms.DataGridView();
+            this.buttonChangePerson = new System.Windows.Forms.Button();
+            this.buttonDeletePerson = new System.Windows.Forms.Button();
+            this.buttonInsertPerson = new System.Windows.Forms.Button();
+            this.dataGridViewPerson = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMatch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPerson)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.buttonCancle);
             this.panel1.Controls.Add(this.buttonOk);
-            this.panel1.Controls.Add(this.buttonChangeMatch);
-            this.panel1.Controls.Add(this.buttonDeleteMatch);
-            this.panel1.Controls.Add(this.buttonInsertMatch);
-            this.panel1.Controls.Add(this.dataGridViewMatch);
+            this.panel1.Controls.Add(this.buttonChangePerson);
+            this.panel1.Controls.Add(this.buttonDeletePerson);
+            this.panel1.Controls.Add(this.buttonInsertPerson);
+            this.panel1.Controls.Add(this.dataGridViewPerson);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -71,40 +71,43 @@
             this.buttonOk.Text = "Ок";
             this.buttonOk.UseVisualStyleBackColor = true;
             // 
-            // buttonChangeMatch
+            // buttonChangePerson
             // 
-            this.buttonChangeMatch.Location = new System.Drawing.Point(87, 6);
-            this.buttonChangeMatch.Name = "buttonChangeMatch";
-            this.buttonChangeMatch.Size = new System.Drawing.Size(75, 23);
-            this.buttonChangeMatch.TabIndex = 3;
-            this.buttonChangeMatch.Text = "Изменить";
-            this.buttonChangeMatch.UseVisualStyleBackColor = true;
+            this.buttonChangePerson.Location = new System.Drawing.Point(87, 6);
+            this.buttonChangePerson.Name = "buttonChangePerson";
+            this.buttonChangePerson.Size = new System.Drawing.Size(75, 23);
+            this.buttonChangePerson.TabIndex = 3;
+            this.buttonChangePerson.Text = "Изменить";
+            this.buttonChangePerson.UseVisualStyleBackColor = true;
+            this.buttonChangePerson.Click += new System.EventHandler(this.buttonChangePerson_Click);
             // 
-            // buttonDeleteMatch
+            // buttonDeletePerson
             // 
-            this.buttonDeleteMatch.Location = new System.Drawing.Point(168, 6);
-            this.buttonDeleteMatch.Name = "buttonDeleteMatch";
-            this.buttonDeleteMatch.Size = new System.Drawing.Size(75, 23);
-            this.buttonDeleteMatch.TabIndex = 2;
-            this.buttonDeleteMatch.Text = "Удалить";
-            this.buttonDeleteMatch.UseVisualStyleBackColor = true;
+            this.buttonDeletePerson.Location = new System.Drawing.Point(168, 6);
+            this.buttonDeletePerson.Name = "buttonDeletePerson";
+            this.buttonDeletePerson.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeletePerson.TabIndex = 2;
+            this.buttonDeletePerson.Text = "Удалить";
+            this.buttonDeletePerson.UseVisualStyleBackColor = true;
+            this.buttonDeletePerson.Click += new System.EventHandler(this.buttonDeletePerson_Click);
             // 
-            // buttonInsertMatch
+            // buttonInsertPerson
             // 
-            this.buttonInsertMatch.Location = new System.Drawing.Point(6, 6);
-            this.buttonInsertMatch.Name = "buttonInsertMatch";
-            this.buttonInsertMatch.Size = new System.Drawing.Size(75, 23);
-            this.buttonInsertMatch.TabIndex = 1;
-            this.buttonInsertMatch.Text = "Добавить";
-            this.buttonInsertMatch.UseVisualStyleBackColor = true;
+            this.buttonInsertPerson.Location = new System.Drawing.Point(6, 6);
+            this.buttonInsertPerson.Name = "buttonInsertPerson";
+            this.buttonInsertPerson.Size = new System.Drawing.Size(75, 23);
+            this.buttonInsertPerson.TabIndex = 1;
+            this.buttonInsertPerson.Text = "Добавить";
+            this.buttonInsertPerson.UseVisualStyleBackColor = true;
+            this.buttonInsertPerson.Click += new System.EventHandler(this.buttonInsertPerson_Click);
             // 
-            // dataGridViewMatch
+            // dataGridViewPerson
             // 
-            this.dataGridViewMatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMatch.Location = new System.Drawing.Point(3, 35);
-            this.dataGridViewMatch.Name = "dataGridViewMatch";
-            this.dataGridViewMatch.Size = new System.Drawing.Size(1011, 387);
-            this.dataGridViewMatch.TabIndex = 0;
+            this.dataGridViewPerson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPerson.Location = new System.Drawing.Point(3, 35);
+            this.dataGridViewPerson.Name = "dataGridViewPerson";
+            this.dataGridViewPerson.Size = new System.Drawing.Size(1011, 387);
+            this.dataGridViewPerson.TabIndex = 0;
             // 
             // PersonForm
             // 
@@ -115,7 +118,7 @@
             this.Name = "PersonForm";
             this.Text = "PersonForm";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMatch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPerson)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,9 +128,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonCancle;
         private System.Windows.Forms.Button buttonOk;
-        private System.Windows.Forms.Button buttonChangeMatch;
-        private System.Windows.Forms.Button buttonDeleteMatch;
-        private System.Windows.Forms.Button buttonInsertMatch;
-        private System.Windows.Forms.DataGridView dataGridViewMatch;
+        private System.Windows.Forms.Button buttonChangePerson;
+        private System.Windows.Forms.Button buttonDeletePerson;
+        private System.Windows.Forms.Button buttonInsertPerson;
+        private System.Windows.Forms.DataGridView dataGridViewPerson;
     }
 }

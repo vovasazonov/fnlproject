@@ -13,44 +13,44 @@ using FNL.Presenters;
 
 namespace FNL.Forms
 {
-	public partial class SettingMatch : Form, ISettingMatchView
-	{
-        MatchesForm matchesForm = new MatchesForm();
-        bool isEdit = false;
-        int idMatch = -1;
-        //IMatchView matchView;
-
+    public partial class SettingMatch : Form, ISettingMatchView
+    {
+        #region View
         public string NameMatch { get => textNameMatch.Text; set => textNameMatch.Text = value; }
         public string NameStadium { get => comboStadium.Text; set => comboStadium.Text = value; }
         public string NameGuestTeam { get => comboGuest.Text; set => comboGuest.Text = value; }
-        public string NameOwnerTeam{ get => comboOwner.Text; set => comboOwner.Text = value; }
+        public string NameOwnerTeam { get => comboOwner.Text; set => comboOwner.Text = value; }
         public string NameSeason { get => comboSeason.Text; set => comboSeason.Text = value; }
         public DateTime DateTime { get => dateTimeMatch.Value; set => dateTimeMatch.Value = value; }
         public string NameCommentator1 { get => comboCommentator1.Text; set => comboCommentator1.Text = value; }
         public string NameCommentator2 { get => comboCommentator2.Text; set => comboCommentator2.Text = value; }
 
-        //public SettingMatch()
-        //{
-        //    InitializeComponent();
-        //    isEdit = false;
-        //}
+        public int ?MatchId { get; set; }
+        public int ?StadiumId{get;set;}
+        public int ?GuestTeamId{get;set;}
+        public int ?OwnerTeamId{get;set;}
+        public int ?SeasonId{get;set;}
+        public int ?CommentatorPerson1Id{get;set;}
+        public int ?CommentatorPerson2Id{get;set;}
+        #endregion
 
-        public SettingMatch(MatchesForm matchesForm, bool isEdit = false, int idMatch = -1)
+        private MatchesForm _matchesForm = new MatchesForm();
+        private bool _isEdit = false;
+
+        public SettingMatch(MatchesForm matchesForm, bool isEdit = false)
         {
             InitializeComponent();
 
-            this.isEdit = isEdit;
-            this.matchesForm = matchesForm;
-            this.idMatch = idMatch;
-            
-            if (isEdit)
+            this._isEdit = isEdit;
+            this._matchesForm = matchesForm;
+
+            if (_isEdit)
             {
                 SettingMatchPresenter settingMatchPresenter = new SettingMatchPresenter(this);
-                settingMatchPresenter.ShowMatchInView(this.idMatch);
+                settingMatchPresenter.ShowMatchInView(_matchesForm.MatchId);
             }
         }
 
-        
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -60,16 +60,16 @@ namespace FNL.Forms
         {
             SettingMatchPresenter settingMatchPresenter = new SettingMatchPresenter(this);
 
-            if (isEdit)
+            if (_isEdit)
             {
-                //settingMatchPresenter.UpdateMatch(idMatch);
+                settingMatchPresenter.UpdateMatch();
             }
             else
             {
                 settingMatchPresenter.InsertMatch();
             }
 
-            matchesForm.UpdateTable();
+            _matchesForm.UpdateTable();
 
             this.Close();
         }

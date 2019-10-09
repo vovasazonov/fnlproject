@@ -21,11 +21,11 @@ namespace ModelLayer.Models
 		public Address Address { get; set; }
         public int RoleId { get; set; }
 
-		public Role Position { get; set; }
-		public List<TeamPlayer> TeamPlayers { get; set; }
-		public List<CommentatorMatch> CommentatorMatches { get; set; }
-		public List<StatisticPlayerMatch> Statistics { get; set; }
-        public List<PlayerMatch> PlayerMatches { get; set; }
+		public virtual Role Role { get; set; }
+		public virtual List<TeamPlayer> TeamPlayers { get; set; }
+		public virtual List<CommentatorMatch> CommentatorMatches { get; set; }
+		public virtual List<StatisticPlayerMatch> Statistics { get; set; }
+        public virtual List<PlayerMatch> PlayerMatches { get; set; }
 
 	}
 }
