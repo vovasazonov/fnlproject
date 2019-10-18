@@ -11,12 +11,82 @@ namespace FNL.Presenters
 {
     public class SettingPlayerTeamPresenter
     {
-        private ITablePlayerTeamView settingPlayerTeamView;
+        private ISettingPlayerTeamView _view;
 
-        public SettingPlayerTeamPresenter(ITablePlayerTeamView settingPlayerTeamView)
+        public SettingPlayerTeamPresenter(ISettingPlayerTeamView view)
         {
-            this.settingPlayerTeamView = settingPlayerTeamView;
+            this._view = view;
         }
 
+        public void ShowPlayerInView()
+        {
+            using (DbFnlContext db = new DbFnlContext())
+            {
+                TeamPlayer teamPlayer = db.TeamPlayers.Where(t => t.PersonId == _view.IdPerson).FirstOrDefault() ?? new TeamPlayer();
+
+
+                _view.Number = teamPlayer.NumberPlayer ?? 0;
+                //_view.IdTeam = teamPlayer.TeamId;
+                _view.TeamName = teamPlayer.Team != null ? teamPlayer.Team.NameFull : "";
+                _view.IdAmplua = teamPlayer.AmpluaId;
+                _view.AmpluaName = teamPlayer.Amplua != null ? teamPlayer.Amplua.Name : "";
+            }
+        }
+
+        /// <summary>
+        /// Delete person from database.
+        /// </summary>
+        public void DeleteModelDB()
+        {
+            using (var db = new DbFnlContext())
+            {
+                Person model = db.People.Where(t => t.PersonId == _view.IdPerson).FirstOrDefault();
+                db.People.Remove(model);
+                db.SaveChanges();
+            }
+        }
+        /// <summary>
+        /// Update info of player in team.
+        /// </summary>
+        public void UpdateModelDB()
+        {
+            TeamPlayer model = GetModelFromView();
+
+            using (var db = new DbFnlContext())
+            {
+                db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+
+                db.SaveChanges();
+            }
+        }
+        /// <summary>
+        /// Insert new player to team.
+        /// </summary>
+        public void InsertModelDB()
+        {
+            using (DbFnlContext db = new DbFnlContext())
+            {
+                TeamPlayer model = GetModelFromView();
+                db.TeamPlayers.Add(model);
+                db.SaveChanges();
+            }
+        }
+
+        private TeamPlayer GetModelFromView()
+        {
+            TeamPlayer model = new TeamPlayer();
+
+            using (DbFnlContext db = new DbFnlContext())
+            {
+                model = db.TeamPlayers.Where(t => t.TeamId == _view.IdTeam && t.PersonId == _view.IdPerson).FirstOrDefault();
+                model = model != null ? model : new TeamPlayer();
+                model.AmpluaId = _view.IdAmplua;
+                model.NumberPlayer = _view.Number;
+                model.PersonId = _view.IdPerson;
+                model.TeamId = _view.IdTeam;
+            }
+
+            return model;
+        }
     }
 }

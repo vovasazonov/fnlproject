@@ -10,18 +10,18 @@ namespace FNL.Presenters
 {
     public class PersonPresenter
     {
-        IPersonView personView;
+        private IPersonView _view;
 
-        public PersonPresenter(IPersonView personView)
+        public PersonPresenter(IPersonView view)
         {
-            this.personView = personView;
+            this._view = view;
         }
 
         /// <summary>
-        /// Return data from database.
+        /// Return data from database converted to view.
         /// </summary>
         /// <returns>matches.</returns>
-        public List<IPersonView> GetPeople()
+        public List<IPersonView> GetView()
         {
             List<IPersonView> personView = new List<IPersonView>();
 
@@ -32,27 +32,32 @@ namespace FNL.Presenters
                 // Get data drom database.
                 foreach (var person in people)
                 {
-                    HelperPersonView helperPersonView = new HelperPersonView();
+                    IPersonView view = new ClassPersonView();
 
-                    helperPersonView.Id = person.PersonId;
+                    view.IdPerson = person.PersonId;
 
-                    helperPersonView.FirstName = person.FirstName;
-                    helperPersonView.LastName = person.LastName;
-                    helperPersonView.MiddleName = person.MiddleName;
+                    view.FirstName = person.FirstName;
+                    view.LastName = person.LastName;
+                    view.MiddleName = person.MiddleName;
 
-                    helperPersonView.Role = db.Roles.Where(i => i.RoleId == person.RoleId).FirstOrDefault().Name;
-                    helperPersonView.City = person.Address.City;
-                    helperPersonView.Country = person.Address.Country;
-                    helperPersonView.PhotoPath = person.PhotoPath;
+                    var Role = db.Roles.Where(i => i.RoleId == person.RoleId).FirstOrDefault();
+                    view.Role = Role != null ? Role.Name : "";
+                    view.City = person.Address!=null?person.Address.City:"";
+                    view.Country = person.Address!=null?person.Address.Country:"";
+                    view.PhotoPath = person.PhotoPath;
 
-                    personView.Add(helperPersonView);
+                    personView.Add(view);
                 }
             }
 
             return personView;
         }
 
-        public void DeletePersonFromDatabase(int idPerson)
+        /// <summary>
+        /// Delete recored from database. 
+        /// </summary>
+        /// <param name="idPerson"></param>
+        public void DeleteModelDB(int idPerson)
         {
             using (DbFnlContext db = new DbFnlContext())
             {
@@ -66,16 +71,5 @@ namespace FNL.Presenters
             }
         }
 
-        class HelperPersonView : IPersonView
-        {
-            public int Id { get; set; }
-            public string FirstName { get; set; }
-            public string LastName {get;set;}
-            public string MiddleName{get;set;}
-            public string PhotoPath {get;set;}
-            public string Country {get;set;}
-            public string City {get;set;}
-            public string Role {get;set;}
-        }
     }
 }

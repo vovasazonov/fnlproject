@@ -10,24 +10,24 @@ namespace FNL.Presenters
 {
     public class MatchPresenter
     {
-        private IMatchView _matchView;
+        private IMatchView _view;
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="matchView"></param>
-        public MatchPresenter(IMatchView matchView)
+        /// <param name="view"></param>
+        public MatchPresenter(IMatchView view)
         {
-            this._matchView = matchView;
+            this._view = view;
         }
 
         /// <summary>
         /// Return data from database.
         /// </summary>
         /// <returns></returns>
-        public List<IMatchView> GetMatches()
+        public List<IMatchView> GetView()
         {
-            List<IMatchView> matchesView = new List<IMatchView>();
+            List<IMatchView> views = new List<IMatchView>();
 
             using (DbFnlContext db = new DbFnlContext())
             {
@@ -66,19 +66,23 @@ namespace FNL.Presenters
                     matchView.NameTeamGuest = match.TeamGuestId != null ? db.Teams.Where(i => i.TeamId == match.TeamGuestId).FirstOrDefault().NameFull : "";
                     matchView.NameTeamOwner = match.TeamOwnerId != null ? db.Teams.Where(i => i.TeamId == match.TeamOwnerId).FirstOrDefault().NameFull : "";
 
-                    matchesView.Add(matchView);
+                    views.Add(matchView);
                 }
             }
 
-            return matchesView;
+            return views;
         }
 
-        public void DeleteMatchFromDatabase(int idMatch)
+        /// <summary>
+        /// Delete record from data base.
+        /// </summary>
+        /// <param name="idMatch"></param>
+        public void DelteModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
                 var query = from m in db.Matches
-                            where m.MatchId == idMatch
+                            where m.MatchId == _view.MatchId
                             select m;
 
                 db.Matches.Remove(query.FirstOrDefault());

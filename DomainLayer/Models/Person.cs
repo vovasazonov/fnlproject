@@ -19,7 +19,7 @@ namespace ModelLayer.Models
 		public string MiddleName { get; set; }
 		public string PhotoPath { get; set; } 
 		public Address Address { get; set; }
-        public int RoleId { get; set; }
+        public int? RoleId { get; set; }
 
 		public virtual Role Role { get; set; }
 		public virtual List<TeamPlayer> TeamPlayers { get; set; }

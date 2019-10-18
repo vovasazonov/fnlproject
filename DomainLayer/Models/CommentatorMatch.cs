@@ -12,7 +12,7 @@ namespace ModelLayer.Models
 	{
 		public int CommentatorMatchId { get; set; }
         public int PersonId { get; set; }
-        public int? MatchId { get; set; }
+        public int MatchId { get; set; }
 
 		public virtual Person Person { get; set; }
 		public virtual List<Match> Matches { get; set; }

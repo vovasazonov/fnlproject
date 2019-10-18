@@ -776,7 +776,7 @@ namespace FNL
 
         private void buttonMatch_Click(object sender, EventArgs e)
         {
-            MatchesForm matchesForm = new MatchesForm();
+            MatchesForm matchesForm = new MatchesForm(this);
             matchesForm.Show();
         }
     }

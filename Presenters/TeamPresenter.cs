@@ -15,11 +15,11 @@ namespace FNL.Presenters
 {
     public class TeamPresenter
     {
-        private ITeamView _teamView;
+        private ITeamView _view;
 
-        public TeamPresenter(ITeamView teamView)
+        public TeamPresenter(ITeamView view)
         {
-            this._teamView = teamView;
+            this._view = view;
         }
 
         #region !!! that methods need to be in MainForm (After realise MainPresenter drag this methods to there
@@ -36,8 +36,8 @@ namespace FNL.Presenters
                 _cgData.Clear();
 
                 // build data
-                _cgData.SetData("team1Color", _teamView.ColorTeam.ToArgb().ToString());
-                _cgData.SetData("team2Color", _teamView.ColorTeam.ToArgb().ToString());
+                _cgData.SetData("team1Color", _view.ColorTeam.ToArgb().ToString());
+                _cgData.SetData("team2Color", _view.ColorTeam.ToArgb().ToString());
             }
             catch
             {
@@ -65,13 +65,13 @@ namespace FNL.Presenters
                 // Allows the user to get help. (The default is false.)
                 ShowHelp = true,
                 // Sets the initial color select to the current text color.
-                Color = _teamView.ColorTeam
+                Color = _view.ColorTeam
             };
 
             // Update the text box color if the user clicks OK 
             if (MyDialog.ShowDialog() == DialogResult.OK)
             {
-                _teamView.ColorTeam = MyDialog.Color;
+                _view.ColorTeam = MyDialog.Color;
                 return true;
             }
 
@@ -80,10 +80,10 @@ namespace FNL.Presenters
         #endregion
 
         /// <summary>
-        /// Return data from database.
+        /// Return data from database and set to views.
         /// </summary>
-        /// <returns>matches.</returns>
-        public List<ITeamView> GetTeams()
+        /// <returns>Views</returns>
+        public List<ITeamView> GetViews()
         {
             List<ITeamView> matchesView = new List<ITeamView>();
 
@@ -109,8 +109,13 @@ namespace FNL.Presenters
             return matchesView;
         }
 
-        public void DeleteTeamFromDatabase(int idTeam)
+        /// <summary>
+        /// Delete record in database.
+        /// </summary>
+        /// <param name="idTeam"></param>
+        public void DeleteModelDB()
         {
+            int idTeam = _view.IdTeam;
             using (DbFnlContext db = new DbFnlContext())
             {
                 var query = from t in db.Teams
@@ -122,7 +127,6 @@ namespace FNL.Presenters
                 db.SaveChanges();
             }
         }
-
 
     }
 }

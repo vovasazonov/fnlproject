@@ -33,11 +33,22 @@ namespace FNL.Forms
             UpdateTable();
         }
 
+        public MatchesForm(MainForm mainForm)
+        {
+            InitializeComponent();
+
+            _mainForm = mainForm;
+
+            UpdateTable();
+        }
+
+        private MainForm _mainForm;
+
         public void UpdateTable()
         {
-            MatchPresenter matchPresenter = new MatchPresenter(this);
+            MatchPresenter presenter = new MatchPresenter(this);
             // Set table with data from database.
-            dataGridViewMatch.DataSource = matchPresenter.GetMatches();
+            dataGridViewMatch.DataSource = presenter.GetView();
             // Hide colum with ids.
             dataGridViewMatch.Columns[0].Visible = false;
         }
@@ -47,27 +58,34 @@ namespace FNL.Forms
         }
         private void buttonInsertMatch_Click(object sender, EventArgs e)
         {
-            SettingMatch settingMatchForm = new SettingMatch(this);
-            settingMatchForm.Show();           
+            SettingMatch form = new SettingMatch(this);
+            form.Show();           
         }
 
         private void buttonChangeMatch_Click(object sender, EventArgs e)
         {           
-            SettingMatch settingMatchForm = new SettingMatch(this,true);
-            settingMatchForm.Show();
+            SettingMatch form = new SettingMatch(this,true);
+            form.Show();
         }
 
         private void buttonDeleteMatch_Click(object sender, EventArgs e)
         {
-            MatchPresenter match = new MatchPresenter(this);
-            match.DeleteMatchFromDatabase(MatchId);
+            MatchPresenter presenter = new MatchPresenter(this);
+            presenter.DelteModelDB();
 
             UpdateTable();
         }
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _mainForm.MatchId = MatchId;
+            _mainForm.UpdateView();
+        }
+
+        private void buttonPlayersMatch_Click(object sender, EventArgs e)
+        {
+            MatchPlayers matchPlayersForm = new MatchPlayers(this);
+            matchPlayersForm.Show();
         }
     }
 }

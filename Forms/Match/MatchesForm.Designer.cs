@@ -35,12 +35,14 @@
             this.buttonDeleteMatch = new System.Windows.Forms.Button();
             this.buttonInsertMatch = new System.Windows.Forms.Button();
             this.dataGridViewMatch = new System.Windows.Forms.DataGridView();
+            this.buttonPlayersMatch = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMatch)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonPlayersMatch);
             this.panel1.Controls.Add(this.buttonCancle);
             this.panel1.Controls.Add(this.buttonOk);
             this.panel1.Controls.Add(this.buttonChangeMatch);
@@ -110,6 +112,16 @@
             this.dataGridViewMatch.Size = new System.Drawing.Size(1011, 387);
             this.dataGridViewMatch.TabIndex = 0;
             // 
+            // buttonPlayersMatch
+            // 
+            this.buttonPlayersMatch.Location = new System.Drawing.Point(419, 6);
+            this.buttonPlayersMatch.Name = "buttonPlayersMatch";
+            this.buttonPlayersMatch.Size = new System.Drawing.Size(225, 23);
+            this.buttonPlayersMatch.TabIndex = 6;
+            this.buttonPlayersMatch.Text = "Настройка игроков в игре";
+            this.buttonPlayersMatch.UseVisualStyleBackColor = true;
+            this.buttonPlayersMatch.Click += new System.EventHandler(this.buttonPlayersMatch_Click);
+            // 
             // MatchesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,5 +145,6 @@
 		private System.Windows.Forms.Button buttonInsertMatch;
 		private System.Windows.Forms.Button buttonCancle;
 		private System.Windows.Forms.Button buttonOk;
-	}
+        private System.Windows.Forms.Button buttonPlayersMatch;
+    }
 }

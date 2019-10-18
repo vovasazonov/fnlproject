@@ -11,7 +11,7 @@ namespace ModelLayer
     public class DbFnlContext:DbContext
     {
 		// In string the name of future database.
-		public DbFnlContext() : base("DbFnl5")
+		public DbFnlContext() : base("DbFnl6")
 		{ }
 
         public DbSet<Amplua> Ampluas { get; set; }

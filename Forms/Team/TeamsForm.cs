@@ -37,44 +37,53 @@ namespace FNL.Forms
         private SettingMatch _settingMatchForm;
         private bool _isGuestSender;
 
-
+        /// <summary>
+        /// Update the data in gridView.
+        /// </summary>
         public void UpdateTable()
         {
-            TeamPresenter newTeam = new TeamPresenter(this);
+            TeamPresenter presenter = new TeamPresenter(this);
             // Set table with data from database.
-            dataGridViewTeams.DataSource = newTeam.GetTeams();
+            dataGridViewTeams.DataSource = presenter.GetViews();
             // Hide colum with ids.
             dataGridViewTeams.Columns[0].Visible = false;
         }
 
         private void buttonInsertTeam_Click(object sender, EventArgs e)
         {
-            SettingTeam settingTeamForm = new SettingTeam(this);
-            settingTeamForm.Show();
+            SettingTeam form = new SettingTeam(this);
+            form.Show();
         }
 
         private void buttonDeleteTeam_Click(object sender, EventArgs e)
         {
-            TeamPresenter teamPresenter = new TeamPresenter(this);
-            teamPresenter.DeleteTeamFromDatabase(IdTeam);
+            TeamPresenter presenter = new TeamPresenter(this);
+            presenter.DeleteModelDB();
 
             UpdateTable();
         }
 
         private void buttonTeamOk_Click(object sender, EventArgs e)
         {
-            TeamPresenter team = new TeamPresenter(this);
-            string nameTeam = team.GetTeams().Where(t => t.IdTeam == IdTeam).FirstOrDefault().NameTeamFull;
+            TeamPresenter presenter = new TeamPresenter(this);
+            string nameTeam = presenter.GetViews().Where(t => t.IdTeam == IdTeam).FirstOrDefault().NameTeamFull;
 
             if (_isGuestSender)
             {
-                _settingMatchForm.NameGuestTeam = nameTeam;
-                _settingMatchForm.GuestTeamId = IdTeam;
+                if (_settingMatchForm != null)
+                {
+                    _settingMatchForm.NameGuestTeam = nameTeam;
+                    _settingMatchForm.GuestTeamId = IdTeam;
+                }
             }
             else
             {
-                _settingMatchForm.NameOwnerTeam = nameTeam;
-                _settingMatchForm.OwnerTeamId = IdTeam;
+                if (_settingMatchForm != null)
+                {
+                    _settingMatchForm.NameOwnerTeam = nameTeam;
+                    _settingMatchForm.OwnerTeamId = IdTeam;
+
+                }
             }
 
             this.Close();
@@ -87,7 +96,8 @@ namespace FNL.Forms
 
         private void buttonChangeTeam_Click(object sender, EventArgs e)
         {
-
+            SettingTeam form = new SettingTeam(this, true);
+            form.Show();
         }
     }
 }

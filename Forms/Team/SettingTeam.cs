@@ -14,7 +14,7 @@ namespace FNL.Forms
     public partial class SettingTeam : Form,ISettingTeamView, ITablePlayerTeamView
     {
         public int IdTeam { get; set; }
-        public Color ColorTeam { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Color ColorTeam { get; set; }
         public string NameTeamFull { get => textNameFullTeam.Text; set => textNameFullTeam.Text = value; }
         public string NameTeamShort { get => textNameShortTeam.Text; set => textNameShortTeam.Text = value; }
         public string PathTeamLogo { get => comboBoxPathLogo.Text; set => comboBoxPathLogo.Text = value; }
@@ -42,9 +42,15 @@ namespace FNL.Forms
 
             if (_isEdit)
             {
-                SettingTeamPresenter settingTeamPresenter = new SettingTeamPresenter(this);
-                settingTeamPresenter.ShowTeamInView(IdTeam);
+                SettingTeamPresenter presenter = new SettingTeamPresenter(this);
+                presenter.ShowModelInView(_teamForm.IdTeam);
                 UpdateTable();
+            }
+            else
+            {
+                // Hide buttons
+                buttonAddPlayer.Enabled = false;
+                buttonChangePlayer.Enabled = false;
             }
         }
 
@@ -52,11 +58,14 @@ namespace FNL.Forms
         private TeamsForm _teamForm = new TeamsForm();
         private bool _isEdit = false;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void UpdateTable()
         {
-            SettingTeamPresenter settingTeamPresenter = new SettingTeamPresenter(this);
+            TablePlayerTeamPresenter presenter = new TablePlayerTeamPresenter(this);
             // Set table with data from database.
-            dataGridViewPlayersTeam.DataSource = settingTeamPresenter.GetPlayersTeam();
+            dataGridViewPlayersTeam.DataSource = presenter.GetViews(IdTeam);
             // Hide colum with ids.
             dataGridViewPlayersTeam.Columns[0].Visible = false;
         }
@@ -68,18 +77,21 @@ namespace FNL.Forms
 
         private void buttonSetTeamOk_Click(object sender, EventArgs e)
         {
-            SettingTeamPresenter settingTeamPresenter = new SettingTeamPresenter(this);
+            SettingTeamPresenter presenter = new SettingTeamPresenter(this);
 
             if (_isEdit)
             {
-                settingTeamPresenter.UpdateTeam();
+                presenter.UpdateModelDB();
             }
             else
             {
-                settingTeamPresenter.InsertTeam();
+                presenter.InsertModelDB();
             }
 
-            _teamForm.UpdateTable();
+            if(_teamForm!=null)
+            {
+                _teamForm.UpdateTable();
+            }
 
             this.Close();
         }
@@ -92,8 +104,8 @@ namespace FNL.Forms
 
         private void buttonDeletePlayer_Click(object sender, EventArgs e)
         {
-            SettingTeamPresenter presenter = new SettingTeamPresenter(this);
-            presenter.DeletePlayerTeamFromDatabase(IdPerson);
+            TablePlayerTeamPresenter presenter = new TablePlayerTeamPresenter(this);
+            presenter.DeleteModelDB(IdPerson,IdTeam);
 
             UpdateTable();
         }

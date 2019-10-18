@@ -116,7 +116,6 @@
             // 
             // buttonChangeTeam
             // 
-            this.buttonChangeTeam.Enabled = false;
             this.buttonChangeTeam.Location = new System.Drawing.Point(87, 6);
             this.buttonChangeTeam.Name = "buttonChangeTeam";
             this.buttonChangeTeam.Size = new System.Drawing.Size(75, 23);

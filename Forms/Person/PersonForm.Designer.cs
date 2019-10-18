@@ -61,6 +61,7 @@
             this.buttonCancle.TabIndex = 5;
             this.buttonCancle.Text = "Отмена";
             this.buttonCancle.UseVisualStyleBackColor = true;
+            this.buttonCancle.Click += new System.EventHandler(this.buttonCancle_Click);
             // 
             // buttonOk
             // 
@@ -70,6 +71,7 @@
             this.buttonOk.TabIndex = 4;
             this.buttonOk.Text = "Ок";
             this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonChangePerson
             // 

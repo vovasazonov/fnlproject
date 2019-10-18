@@ -16,11 +16,11 @@ namespace FNL.Forms
     public partial class SettingPerson : Form, ISettingPersonView
     {
 
-        PersonForm perosnForm = new PersonForm();
-        bool isEdit = false;
-        int idPerson = -1;
+        private PersonForm _perosnForm = new PersonForm();
+        private bool _isEdit = false;
 
-        public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public int IdPerson { get; set; }
         public string FirstName { get => textFirstNamePerson.Text; set => textFirstNamePerson.Text = value; }
         public string LastName { get => textLastNamePerson.Text; set => textLastNamePerson.Text = value; }
         public string MiddleName { get => textMiddleNamePerson.Text; set => textMiddleNamePerson.Text = value; }
@@ -34,18 +34,17 @@ namespace FNL.Forms
             InitializeComponent();
         }
        
-        public SettingPerson(PersonForm personForm, bool isEdit = false, int idPerson = -1)
+        public SettingPerson(PersonForm personForm, bool isEdit = false)
         {
             InitializeComponent();
 
-            this.isEdit = isEdit;
-            this.perosnForm = personForm;
-            this.idPerson = idPerson;
+            this._isEdit = isEdit;
+            this._perosnForm = personForm;
 
             if (isEdit)
             {
                 SettingPersonPresenter settingPersonPresenter = new SettingPersonPresenter(this);
-                settingPersonPresenter.ShowPersonInView(this.idPerson);
+                settingPersonPresenter.ShowModelInView(IdPerson);
             }
         }
 
@@ -56,18 +55,18 @@ namespace FNL.Forms
 
         private void buttonOkPerson_Click(object sender, EventArgs e)
         {
-            SettingPersonPresenter settingPersonPresenter = new SettingPersonPresenter(this);
+            SettingPersonPresenter presenter = new SettingPersonPresenter(this);
 
-            if (isEdit)
+            if (_isEdit)
             {
                 //settingMatchPresenter.UpdateMatch(idMatch);
             }
             else
             {
-                settingPersonPresenter.InsertPerson();
+                presenter.InsertModelDB();
             }
 
-            perosnForm.UpdateTable();
+            _perosnForm.UpdateTable();
 
             this.Close();
         }

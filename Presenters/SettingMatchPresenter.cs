@@ -11,51 +11,62 @@ namespace FNL.Presenters
 {
     public class SettingMatchPresenter
     {
-        private ISettingMatchView _settingMatchView;
+        private ISettingMatchView _view;
 
-        public SettingMatchPresenter(ISettingMatchView settingMatchView)
+        public SettingMatchPresenter(ISettingMatchView view)
         {
-            this._settingMatchView = settingMatchView;
+            this._view = view;
         }
 
-        private Match GetMatchFromView()
+        /// <summary>
+        /// Convert view to model WITHOUT commentators.
+        /// </summary>
+        /// <returns></returns>
+        private Match GetModelFromView()
         {
             Match matchModel = new Match
             {
-                Name = _settingMatchView.NameMatch,
-                Date = _settingMatchView.DateTime,
-                MatchId = _settingMatchView.MatchId != null ? (int)_settingMatchView.MatchId : 0,
-                SeasonId = _settingMatchView.SeasonId,
-                StadiumId = _settingMatchView.StadiumId,
-                TeamGuestId = _settingMatchView.GuestTeamId,
-                TeamOwnerId = _settingMatchView.OwnerTeamId
+                Name = _view.NameMatch,
+                Date = _view.DateTime,
+                MatchId = _view.MatchId != null ? (int)_view.MatchId : 0,
+                SeasonId = _view.SeasonId,
+                StadiumId = _view.StadiumId,
+                TeamGuestId = _view.GuestTeamId,
+                TeamOwnerId = _view.OwnerTeamId,
             };
 
             return matchModel;
         }
 
+        /// <summary>
+        /// Add to model commentators.
+        /// </summary>
+        /// <param name="matchModel"></param>
         private void SetCommentatorsFromView(ref Match matchModel)
         {
             matchModel.CommentatorsMatch = new List<CommentatorMatch>();
 
             // Add commentators to match.
-            if (_settingMatchView.CommentatorPerson1Id != null)
+            if (_view.CommentatorPerson1Id != null)
             {
-                matchModel.CommentatorsMatch.Add(new CommentatorMatch { MatchId = matchModel.MatchId, PersonId = (int)_settingMatchView.CommentatorPerson1Id });
+                matchModel.CommentatorsMatch.Add(new CommentatorMatch { MatchId = matchModel.MatchId, PersonId = (int)_view.CommentatorPerson1Id });
             }
-            if (_settingMatchView.CommentatorPerson2Id != null)
+            if (_view.CommentatorPerson2Id != null)
             {
-                matchModel.CommentatorsMatch.Add(new CommentatorMatch { MatchId = matchModel.MatchId, PersonId = (int)_settingMatchView.CommentatorPerson2Id });
+                matchModel.CommentatorsMatch.Add(new CommentatorMatch { MatchId = matchModel.MatchId, PersonId = (int)_view.CommentatorPerson2Id });
             }
         }
 
-        public void InsertMatch()
+        /// <summary>
+        /// Insert record to database. Data take from view.
+        /// </summary>
+        public void InserModelDB()
         {
 
             using (DbFnlContext db = new DbFnlContext())
             {
                 // Add model to db.
-                Match matchModel = GetMatchFromView();
+                Match matchModel = GetModelFromView();
                 db.Matches.Add(matchModel);
                 db.SaveChanges();
 
@@ -66,12 +77,14 @@ namespace FNL.Presenters
             }
 
         }
-
-        public void UpdateMatch()
+        /// <summary>
+        /// Update record in databse. Take data from view.
+        /// </summary>
+        public void UpdateModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
-                Match matchModel = GetMatchFromView();
+                Match matchModel = GetModelFromView();
                 // Add commentators to match.
                 SetCommentatorsFromView(ref matchModel);
 
@@ -83,10 +96,10 @@ namespace FNL.Presenters
         }
 
         /// <summary>
-        /// Return data from database.
+        /// Show model in view.
         /// </summary>
         /// <returns>matches.</returns>
-        public void ShowMatchInView(int idMatch)
+        public void ShowModelInView(int idMatch)
         {
 
             using (DbFnlContext db = new DbFnlContext())
@@ -95,23 +108,23 @@ namespace FNL.Presenters
                                where m.MatchId == idMatch
                                select m).FirstOrDefault();
 
-                _settingMatchView.MatchId = match.MatchId;
-                _settingMatchView.StadiumId = match.StadiumId;
-                _settingMatchView.GuestTeamId = match.TeamGuestId;
-                _settingMatchView.OwnerTeamId = match.TeamOwnerId;
-                _settingMatchView.SeasonId = match.SeasonId;
+                _view.MatchId = match.MatchId;
+                _view.StadiumId = match.StadiumId;
+                _view.GuestTeamId = match.TeamGuestId;
+                _view.OwnerTeamId = match.TeamOwnerId;
+                _view.SeasonId = match.SeasonId;
                 List<CommentatorMatch> commentators = db.CommentatorsMatches.Where(c => c.MatchId == match.MatchId).ToList();
-                _settingMatchView.CommentatorPerson1Id = commentators != null ? commentators.Count > 0 ? (int?)commentators[0].CommentatorMatchId : null : null;
-                _settingMatchView.CommentatorPerson2Id = commentators != null ? commentators.Count > 1 ? (int?)commentators[1].CommentatorMatchId : null : null;
+                _view.CommentatorPerson1Id = commentators != null ? commentators.Count > 0 ? (int?)commentators[0].CommentatorMatchId : null : null;
+                _view.CommentatorPerson2Id = commentators != null ? commentators.Count > 1 ? (int?)commentators[1].CommentatorMatchId : null : null;
 
-                _settingMatchView.NameMatch = match.Name;
-                _settingMatchView.NameStadium = match.StadiumId != null ? db.Stadiums.Where(s => s.StadiumId == match.StadiumId).Select(s => s.Name).FirstOrDefault() : "";
-                _settingMatchView.NameGuestTeam = match.TeamGuestId != null ? db.Teams.Where(s => s.TeamId == match.TeamGuestId).Select(s => s.NameFull).FirstOrDefault() : "";
-                _settingMatchView.NameOwnerTeam = match.TeamOwnerId != null ? db.Teams.Where(s => s.TeamId == match.TeamOwnerId).Select(s => s.NameFull).FirstOrDefault() : "";
-                _settingMatchView.NameSeason = match.SeasonId != null ? db.Seasons.Where(s => s.SeasonId == match.SeasonId).Select(s => s.Name).FirstOrDefault() : "";
-                _settingMatchView.DateTime = match.Date;
-                _settingMatchView.NameCommentator1 = _settingMatchView.CommentatorPerson1Id != null ? db.People.Where(s => s.PersonId == _settingMatchView.CommentatorPerson1Id).Select(s => s.LastName + " " + s.FirstName + " " + s.MiddleName).FirstOrDefault() : "";
-                _settingMatchView.NameCommentator2 = _settingMatchView.CommentatorPerson2Id != null ? db.People.Where(s => s.PersonId == _settingMatchView.CommentatorPerson2Id).Select(s => s.LastName + " " + s.FirstName + " " + s.MiddleName).FirstOrDefault() : "";
+                _view.NameMatch = match.Name;
+                _view.NameStadium = match.StadiumId != null ? db.Stadiums.Where(s => s.StadiumId == match.StadiumId).Select(s => s.Name).FirstOrDefault() : "";
+                _view.NameGuestTeam = match.TeamGuestId != null ? db.Teams.Where(s => s.TeamId == match.TeamGuestId).Select(s => s.NameFull).FirstOrDefault() : "";
+                _view.NameOwnerTeam = match.TeamOwnerId != null ? db.Teams.Where(s => s.TeamId == match.TeamOwnerId).Select(s => s.NameFull).FirstOrDefault() : "";
+                _view.NameSeason = match.SeasonId != null ? db.Seasons.Where(s => s.SeasonId == match.SeasonId).Select(s => s.Name).FirstOrDefault() : "";
+                _view.DateTime = match.Date;
+                _view.NameCommentator1 = _view.CommentatorPerson1Id != null ? db.People.Where(s => s.PersonId == _view.CommentatorPerson1Id).Select(s => s.LastName + " " + s.FirstName + " " + s.MiddleName).FirstOrDefault() : "";
+                _view.NameCommentator2 = _view.CommentatorPerson2Id != null ? db.People.Where(s => s.PersonId == _view.CommentatorPerson2Id).Select(s => s.LastName + " " + s.FirstName + " " + s.MiddleName).FirstOrDefault() : "";
             }
         }
     }

@@ -46,8 +46,8 @@ namespace FNL.Forms
 
             if (_isEdit)
             {
-                SettingMatchPresenter settingMatchPresenter = new SettingMatchPresenter(this);
-                settingMatchPresenter.ShowMatchInView(_matchesForm.MatchId);
+                SettingMatchPresenter presenter = new SettingMatchPresenter(this);
+                presenter.ShowModelInView(_matchesForm.MatchId);
             }
         }
 
@@ -58,15 +58,15 @@ namespace FNL.Forms
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            SettingMatchPresenter settingMatchPresenter = new SettingMatchPresenter(this);
+            SettingMatchPresenter presenter = new SettingMatchPresenter(this);
 
             if (_isEdit)
             {
-                settingMatchPresenter.UpdateMatch();
+                presenter.UpdateModelDB();
             }
             else
             {
-                settingMatchPresenter.InsertMatch();
+                presenter.InserModelDB();
             }
 
             _matchesForm.UpdateTable();
@@ -76,14 +76,14 @@ namespace FNL.Forms
 
         private void comboGuest_Click(object sender, EventArgs e)
         {
-            TeamsForm teamsForm = new TeamsForm(this, true);
-            teamsForm.Show();
+            TeamsForm form = new TeamsForm(this, true);
+            form.Show();
         }
 
         private void comboOwner_Click(object sender, EventArgs e)
         {
-            TeamsForm teamsForm = new TeamsForm(this, false);
-            teamsForm.Show();
+            TeamsForm form = new TeamsForm(this, false);
+            form.Show();
         }
     }
 }

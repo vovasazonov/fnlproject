@@ -11,14 +11,18 @@ namespace FNL.Presenters
 {
     public class SettingPersonPresenter
     {
-        ISettingPersonView _settingPersonView;
+        ISettingPersonView _view;
 
-        public SettingPersonPresenter(ISettingPersonView settingPersonView)
+        public SettingPersonPresenter(ISettingPersonView view)
         {
-            this._settingPersonView = settingPersonView;
+            this._view = view;
         }
 
-        private Person GetModelPersonFromView()
+        /// <summary>
+        /// Return model converted from view.
+        /// </summary>
+        /// <returns></returns>
+        private Person GetModelFromView()
         {
             Person personModel = new Person();
 
@@ -26,12 +30,13 @@ namespace FNL.Presenters
             {
                 try
                 {
-                    personModel.Address.City = _settingPersonView.City;
-                    personModel.Address.Country = _settingPersonView.Country;
-                    personModel.FirstName = _settingPersonView.FirstName;
-                    personModel.LastName = _settingPersonView.LastName;
-                    personModel.MiddleName = _settingPersonView.MiddleName;
-                    
+                    personModel.Address = new Address();
+                    personModel.Address.City = _view.City;
+                    personModel.Address.Country = _view.Country;
+                    personModel.FirstName = _view.FirstName;
+                    personModel.LastName = _view.LastName;
+                    personModel.MiddleName = _view.MiddleName;
+
                 }
                 catch (Exception)
                 {
@@ -42,75 +47,41 @@ namespace FNL.Presenters
 
             return personModel;
         }
-        public void InsertPerson()
+        /// <summary>
+        /// Add record to database.
+        /// </summary>
+        public void InsertModelDB()
         {
 
             using (DbFnlContext db = new DbFnlContext())
             {
-                Person pernosModel = GetModelPersonFromView();
+                Person pernosModel = GetModelFromView();
 
-                try
-                {
-                    db.People.Add(pernosModel);
-                    db.SaveChanges();
-                }
-                catch (Exception)
-                {
+                db.People.Add(pernosModel);
+                db.SaveChanges();
 
-                    throw;
-                }
             }
 
         }
 
-        public void UpdatePerson(int idMatch)
+        /// <summary>
+        /// Update model in database. Take data from view.
+        /// </summary>
+        /// <param name="idPerson"></param>
+        public void UpdateModelDB(int idPerson)
         {
 
         }
 
         /// <summary>
-        /// Return data from database.
+        /// Show model in view. Data takes from database.
         /// </summary>
-        /// <returns>matches.</returns>
-        public void ShowPersonInView(int idMatch)
+        /// <returns></returns>
+        public void ShowModelInView(int idPerson)
         {
 
             using (DbFnlContext db = new DbFnlContext())
             {
-                Match match = (from theMatch in db.Matches
-                               where theMatch.MatchId == idMatch
-                               select theMatch).FirstOrDefault();
-
-
-                //if (match.CommentatorsMatch != null)
-                //{
-                //    if (match.CommentatorsMatch.Count > 0)
-                //    {
-                //        matchView.NameCommentator1 = string.Format("{0} {1} {2}",
-                //            match.CommentatorsMatch[0].Person.LastName,
-                //            match.CommentatorsMatch[0].Person.FirstName,
-                //            match.CommentatorsMatch[0].Person.MiddleName);
-                //    }
-
-                //    if (match.CommentatorsMatch.Count > 1)
-                //    {
-                //        matchView.CommentatorsMatch2 = string.Format("{0} {1} {2}",
-                //            match.CommentatorsMatch[1].Person.LastName,
-                //            match.CommentatorsMatch[1].Person.FirstName,
-                //            match.CommentatorsMatch[1].Person.MiddleName);
-                //    }
-                //}
-
-                //_settingPersonView.DateTime = match.Date;
-
-                ////matchView.GoalsGuest = match.Statistics.
-                ////matchView.GoalsOwner = match.Statistics.
-
-                //_settingPersonView.NameMatch = match.Name;
-                //_settingPersonView.NameSeason = match.Season != null ? match.Season.Name : "";
-                //_settingPersonView.NameStadium = match.Stadium != null ? match.Stadium.Name : "";
-                //_settingPersonView.NameGuestTeam = match.TeamGuest != null ? string.Format("{0} ({1})", match.TeamGuest.NameFull, match.TeamGuest.NameShort) : "";
-                //_settingPersonView.NameOwnerTeam = match.TeamOwner != null ? string.Format("{0} ({1})", match.TeamOwner.NameFull, match.TeamOwner.NameShort) : "";
 
             }
         }
