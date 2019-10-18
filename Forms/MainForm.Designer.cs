@@ -83,51 +83,23 @@
             this.textNameHome = new System.Windows.Forms.TextBox();
             this.buttonColorTeamHome = new System.Windows.Forms.Button();
             this.dataGridPlayersHome = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridPlayersPairsHome = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.textNameGuest = new System.Windows.Forms.TextBox();
             this.buttonColorTeamGuest = new System.Windows.Forms.Button();
             this.dataGridPlayersGuest = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastNamePlayer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamePlayer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Card = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amplua = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridPlayersPairsGuest = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel17 = new System.Windows.Forms.Panel();
             this.textNameMatch = new System.Windows.Forms.TextBox();
             this.buttonMatch = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.textChangeHome = new System.Windows.Forms.TextBox();
+            this.textChangeGuest = new System.Windows.Forms.TextBox();
             this.textBox30 = new System.Windows.Forms.TextBox();
             this.btnMinChangeHome = new System.Windows.Forms.Button();
             this.btnAddChangeHome = new System.Windows.Forms.Button();
@@ -135,79 +107,79 @@
             this.btnAddChangeGuest = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinGoalGuest = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textGoalsHome = new System.Windows.Forms.TextBox();
+            this.textGoalsGuest = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnMinGoalHome = new System.Windows.Forms.Button();
             this.btnAddGoalHome = new System.Windows.Forms.Button();
             this.btnAddGoalGuest = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.textBox32 = new System.Windows.Forms.TextBox();
+            this.textRedTicketHome = new System.Windows.Forms.TextBox();
+            this.textRedTicketGuest = new System.Windows.Forms.TextBox();
             this.textBox33 = new System.Windows.Forms.TextBox();
             this.btnMinRedTicketHome = new System.Windows.Forms.Button();
             this.btnAddRedTicketHome = new System.Windows.Forms.Button();
             this.btnMinRedTicketGuest = new System.Windows.Forms.Button();
             this.btnAddRedTicketGuest = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textTotalShotHome = new System.Windows.Forms.TextBox();
+            this.textTotalShotGuest = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.btnMinTotalShotHome = new System.Windows.Forms.Button();
             this.btnAddTotalShotHome = new System.Windows.Forms.Button();
             this.btnMinTotalShotGuest = new System.Windows.Forms.Button();
             this.btnAddTotalShotGuest = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
+            this.textYellowTicketHome = new System.Windows.Forms.TextBox();
+            this.textYellowTicketGuest = new System.Windows.Forms.TextBox();
             this.textBox36 = new System.Windows.Forms.TextBox();
             this.btnMinYellowTicketHome = new System.Windows.Forms.Button();
             this.btnAddYellowTicketHome = new System.Windows.Forms.Button();
             this.btnMinYellowTicketGuest = new System.Windows.Forms.Button();
             this.btnAddYellowTicketGuest = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textShotTargetHome = new System.Windows.Forms.TextBox();
+            this.textShotTargetGuest = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.btnMinShotTargetHome = new System.Windows.Forms.Button();
             this.btnAddShotTargetHome = new System.Windows.Forms.Button();
             this.btnMinShotTargetGuest = new System.Windows.Forms.Button();
             this.btnAddShotTargetGuest = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textFoulHome = new System.Windows.Forms.TextBox();
+            this.textFoulGuest = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.btnMinFoulHome = new System.Windows.Forms.Button();
             this.btnAddFoulHome = new System.Windows.Forms.Button();
             this.btnMinFoulGuest = new System.Windows.Forms.Button();
             this.btnAddFoulGuest = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textCornerHome = new System.Windows.Forms.TextBox();
+            this.textCornerGuest = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.btnMinCornerHome = new System.Windows.Forms.Button();
             this.btnAddCornerHome = new System.Windows.Forms.Button();
             this.btnMinCornerGuest = new System.Windows.Forms.Button();
             this.btnAddCornerGuest = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textAccuratePassHome = new System.Windows.Forms.TextBox();
+            this.textAccuratePassGuest = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.btnMinAccuratePassHome = new System.Windows.Forms.Button();
             this.btnAddAccuratePassHome = new System.Windows.Forms.Button();
             this.btnMinAccuratePassGuest = new System.Windows.Forms.Button();
             this.btnAddAccuratePassGuest = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.textOffsideHome = new System.Windows.Forms.TextBox();
+            this.textOffsideGuest = new System.Windows.Forms.TextBox();
             this.textBox24 = new System.Windows.Forms.TextBox();
             this.btnMinOffsideHome = new System.Windows.Forms.Button();
             this.btnAddOffsideHome = new System.Windows.Forms.Button();
             this.btnMinOffsideGuest = new System.Windows.Forms.Button();
             this.btnAddOffsideGuest = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textPassHome = new System.Windows.Forms.TextBox();
+            this.textPassGuest = new System.Windows.Forms.TextBox();
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.btnMinPassHome = new System.Windows.Forms.Button();
             this.btnAddPassHome = new System.Windows.Forms.Button();
@@ -778,62 +750,10 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridPlayersHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPlayersHome.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14});
             this.dataGridPlayersHome.Location = new System.Drawing.Point(2, 33);
             this.dataGridPlayersHome.Name = "dataGridPlayersHome";
             this.dataGridPlayersHome.Size = new System.Drawing.Size(313, 202);
             this.dataGridPlayersHome.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Идентификатор";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Visible = false;
-            this.dataGridViewTextBoxColumn8.Width = 112;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "N";
-            this.dataGridViewTextBoxColumn9.MaxInputLength = 99;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Фамилия";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 81;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "Имя";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 54;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "Р";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 39;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 19;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.HeaderText = "А";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 39;
             // 
             // label4
             // 
@@ -860,62 +780,10 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridPlayersPairsHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPlayersPairsHome.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21});
             this.dataGridPlayersPairsHome.Location = new System.Drawing.Point(0, 259);
             this.dataGridPlayersPairsHome.Name = "dataGridPlayersPairsHome";
             this.dataGridPlayersPairsHome.Size = new System.Drawing.Size(315, 147);
             this.dataGridPlayersPairsHome.TabIndex = 7;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "Идентификатор";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.Visible = false;
-            this.dataGridViewTextBoxColumn15.Width = 112;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "N";
-            this.dataGridViewTextBoxColumn16.MaxInputLength = 99;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.HeaderText = "Фамилия";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.Width = 81;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.HeaderText = "Имя";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.Width = 54;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.HeaderText = "Р";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.Width = 39;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.HeaderText = "";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.Width = 19;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.HeaderText = "А";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.Width = 39;
             // 
             // panel13
             // 
@@ -982,62 +850,10 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridPlayersGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPlayersGuest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Number,
-            this.LastNamePlayer,
-            this.NamePlayer,
-            this.Role,
-            this.Card,
-            this.Amplua});
             this.dataGridPlayersGuest.Location = new System.Drawing.Point(0, 33);
             this.dataGridPlayersGuest.Name = "dataGridPlayersGuest";
             this.dataGridPlayersGuest.Size = new System.Drawing.Size(312, 202);
             this.dataGridPlayersGuest.TabIndex = 0;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Идентификатор";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            this.Id.Width = 112;
-            // 
-            // Number
-            // 
-            this.Number.HeaderText = "N";
-            this.Number.MaxInputLength = 99;
-            this.Number.Name = "Number";
-            this.Number.Width = 40;
-            // 
-            // LastNamePlayer
-            // 
-            this.LastNamePlayer.HeaderText = "Фамилия";
-            this.LastNamePlayer.Name = "LastNamePlayer";
-            this.LastNamePlayer.Width = 81;
-            // 
-            // NamePlayer
-            // 
-            this.NamePlayer.HeaderText = "Имя";
-            this.NamePlayer.Name = "NamePlayer";
-            this.NamePlayer.Width = 54;
-            // 
-            // Role
-            // 
-            this.Role.HeaderText = "Р";
-            this.Role.Name = "Role";
-            this.Role.Width = 39;
-            // 
-            // Card
-            // 
-            this.Card.HeaderText = "";
-            this.Card.Name = "Card";
-            this.Card.Width = 19;
-            // 
-            // Amplua
-            // 
-            this.Amplua.HeaderText = "А";
-            this.Amplua.Name = "Amplua";
-            this.Amplua.Width = 39;
             // 
             // label1
             // 
@@ -1064,62 +880,10 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridPlayersPairsGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPlayersPairsGuest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
             this.dataGridPlayersPairsGuest.Location = new System.Drawing.Point(0, 259);
             this.dataGridPlayersPairsGuest.Name = "dataGridPlayersPairsGuest";
             this.dataGridPlayersPairsGuest.Size = new System.Drawing.Size(315, 147);
             this.dataGridPlayersPairsGuest.TabIndex = 7;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Идентификатор";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            this.dataGridViewTextBoxColumn1.Width = 112;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "N";
-            this.dataGridViewTextBoxColumn2.MaxInputLength = 99;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Фамилия";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 81;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Имя";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 54;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Р";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 39;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 19;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "А";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 39;
             // 
             // panel17
             // 
@@ -1171,8 +935,8 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.Silver;
-            this.panel10.Controls.Add(this.textBox28);
-            this.panel10.Controls.Add(this.textBox29);
+            this.panel10.Controls.Add(this.textChangeHome);
+            this.panel10.Controls.Add(this.textChangeGuest);
             this.panel10.Controls.Add(this.textBox30);
             this.panel10.Controls.Add(this.btnMinChangeHome);
             this.panel10.Controls.Add(this.btnAddChangeHome);
@@ -1184,29 +948,29 @@
             this.panel10.Size = new System.Drawing.Size(408, 34);
             this.panel10.TabIndex = 18;
             // 
-            // textBox28
+            // textChangeHome
             // 
-            this.textBox28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox28.Location = new System.Drawing.Point(323, 4);
-            this.textBox28.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox28.Multiline = true;
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(33, 24);
-            this.textBox28.TabIndex = 7;
-            this.textBox28.Text = "0";
-            this.textBox28.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textChangeHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textChangeHome.Location = new System.Drawing.Point(323, 4);
+            this.textChangeHome.Margin = new System.Windows.Forms.Padding(1);
+            this.textChangeHome.Multiline = true;
+            this.textChangeHome.Name = "textChangeHome";
+            this.textChangeHome.Size = new System.Drawing.Size(33, 24);
+            this.textChangeHome.TabIndex = 7;
+            this.textChangeHome.Text = "0";
+            this.textChangeHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox29
+            // textChangeGuest
             // 
-            this.textBox29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox29.Location = new System.Drawing.Point(51, 4);
-            this.textBox29.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox29.Multiline = true;
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(33, 24);
-            this.textBox29.TabIndex = 4;
-            this.textBox29.Text = "0";
-            this.textBox29.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textChangeGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textChangeGuest.Location = new System.Drawing.Point(51, 4);
+            this.textChangeGuest.Margin = new System.Windows.Forms.Padding(1);
+            this.textChangeGuest.Multiline = true;
+            this.textChangeGuest.Name = "textChangeGuest";
+            this.textChangeGuest.Size = new System.Drawing.Size(33, 24);
+            this.textChangeGuest.TabIndex = 4;
+            this.textChangeGuest.Text = "0";
+            this.textChangeGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox30
             // 
@@ -1270,8 +1034,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.btnMinGoalGuest);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.textGoalsHome);
+            this.panel1.Controls.Add(this.textGoalsGuest);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.btnMinGoalHome);
             this.panel1.Controls.Add(this.btnAddGoalHome);
@@ -1294,29 +1058,29 @@
             this.btnMinGoalGuest.Text = "-";
             this.btnMinGoalGuest.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // textGoalsHome
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(323, 4);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(33, 24);
-            this.textBox2.TabIndex = 7;
-            this.textBox2.Text = "0";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textGoalsHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textGoalsHome.Location = new System.Drawing.Point(323, 4);
+            this.textGoalsHome.Margin = new System.Windows.Forms.Padding(1);
+            this.textGoalsHome.Multiline = true;
+            this.textGoalsHome.Name = "textGoalsHome";
+            this.textGoalsHome.Size = new System.Drawing.Size(33, 24);
+            this.textGoalsHome.TabIndex = 7;
+            this.textGoalsHome.Text = "0";
+            this.textGoalsHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox1
+            // textGoalsGuest
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(51, 4);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(33, 24);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "0";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textGoalsGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textGoalsGuest.Location = new System.Drawing.Point(51, 4);
+            this.textGoalsGuest.Margin = new System.Windows.Forms.Padding(1);
+            this.textGoalsGuest.Multiline = true;
+            this.textGoalsGuest.Name = "textGoalsGuest";
+            this.textGoalsGuest.Size = new System.Drawing.Size(33, 24);
+            this.textGoalsGuest.TabIndex = 4;
+            this.textGoalsGuest.Text = "0";
+            this.textGoalsGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox3
             // 
@@ -1367,8 +1131,8 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.Red;
-            this.panel11.Controls.Add(this.textBox31);
-            this.panel11.Controls.Add(this.textBox32);
+            this.panel11.Controls.Add(this.textRedTicketHome);
+            this.panel11.Controls.Add(this.textRedTicketGuest);
             this.panel11.Controls.Add(this.textBox33);
             this.panel11.Controls.Add(this.btnMinRedTicketHome);
             this.panel11.Controls.Add(this.btnAddRedTicketHome);
@@ -1380,29 +1144,29 @@
             this.panel11.Size = new System.Drawing.Size(408, 34);
             this.panel11.TabIndex = 17;
             // 
-            // textBox31
+            // textRedTicketHome
             // 
-            this.textBox31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox31.Location = new System.Drawing.Point(323, 4);
-            this.textBox31.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox31.Multiline = true;
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(33, 24);
-            this.textBox31.TabIndex = 7;
-            this.textBox31.Text = "0";
-            this.textBox31.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textRedTicketHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textRedTicketHome.Location = new System.Drawing.Point(323, 4);
+            this.textRedTicketHome.Margin = new System.Windows.Forms.Padding(1);
+            this.textRedTicketHome.Multiline = true;
+            this.textRedTicketHome.Name = "textRedTicketHome";
+            this.textRedTicketHome.Size = new System.Drawing.Size(33, 24);
+            this.textRedTicketHome.TabIndex = 7;
+            this.textRedTicketHome.Text = "0";
+            this.textRedTicketHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox32
+            // textRedTicketGuest
             // 
-            this.textBox32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox32.Location = new System.Drawing.Point(51, 4);
-            this.textBox32.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox32.Multiline = true;
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(33, 24);
-            this.textBox32.TabIndex = 4;
-            this.textBox32.Text = "0";
-            this.textBox32.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textRedTicketGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textRedTicketGuest.Location = new System.Drawing.Point(51, 4);
+            this.textRedTicketGuest.Margin = new System.Windows.Forms.Padding(1);
+            this.textRedTicketGuest.Multiline = true;
+            this.textRedTicketGuest.Name = "textRedTicketGuest";
+            this.textRedTicketGuest.Size = new System.Drawing.Size(33, 24);
+            this.textRedTicketGuest.TabIndex = 4;
+            this.textRedTicketGuest.Text = "0";
+            this.textRedTicketGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox33
             // 
@@ -1465,8 +1229,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Controls.Add(this.textBox4);
-            this.panel2.Controls.Add(this.textBox5);
+            this.panel2.Controls.Add(this.textTotalShotHome);
+            this.panel2.Controls.Add(this.textTotalShotGuest);
             this.panel2.Controls.Add(this.textBox6);
             this.panel2.Controls.Add(this.btnMinTotalShotHome);
             this.panel2.Controls.Add(this.btnAddTotalShotHome);
@@ -1478,29 +1242,29 @@
             this.panel2.Size = new System.Drawing.Size(408, 34);
             this.panel2.TabIndex = 9;
             // 
-            // textBox4
+            // textTotalShotHome
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.Location = new System.Drawing.Point(323, 4);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(33, 24);
-            this.textBox4.TabIndex = 7;
-            this.textBox4.Text = "0";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textTotalShotHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textTotalShotHome.Location = new System.Drawing.Point(323, 4);
+            this.textTotalShotHome.Margin = new System.Windows.Forms.Padding(1);
+            this.textTotalShotHome.Multiline = true;
+            this.textTotalShotHome.Name = "textTotalShotHome";
+            this.textTotalShotHome.Size = new System.Drawing.Size(33, 24);
+            this.textTotalShotHome.TabIndex = 7;
+            this.textTotalShotHome.Text = "0";
+            this.textTotalShotHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox5
+            // textTotalShotGuest
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox5.Location = new System.Drawing.Point(51, 4);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(33, 24);
-            this.textBox5.TabIndex = 4;
-            this.textBox5.Text = "0";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textTotalShotGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textTotalShotGuest.Location = new System.Drawing.Point(51, 4);
+            this.textTotalShotGuest.Margin = new System.Windows.Forms.Padding(1);
+            this.textTotalShotGuest.Multiline = true;
+            this.textTotalShotGuest.Name = "textTotalShotGuest";
+            this.textTotalShotGuest.Size = new System.Drawing.Size(33, 24);
+            this.textTotalShotGuest.TabIndex = 4;
+            this.textTotalShotGuest.Text = "0";
+            this.textTotalShotGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox6
             // 
@@ -1563,8 +1327,8 @@
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.Yellow;
-            this.panel12.Controls.Add(this.textBox34);
-            this.panel12.Controls.Add(this.textBox35);
+            this.panel12.Controls.Add(this.textYellowTicketHome);
+            this.panel12.Controls.Add(this.textYellowTicketGuest);
             this.panel12.Controls.Add(this.textBox36);
             this.panel12.Controls.Add(this.btnMinYellowTicketHome);
             this.panel12.Controls.Add(this.btnAddYellowTicketHome);
@@ -1576,29 +1340,29 @@
             this.panel12.Size = new System.Drawing.Size(408, 34);
             this.panel12.TabIndex = 16;
             // 
-            // textBox34
+            // textYellowTicketHome
             // 
-            this.textBox34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox34.Location = new System.Drawing.Point(323, 4);
-            this.textBox34.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox34.Multiline = true;
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new System.Drawing.Size(33, 24);
-            this.textBox34.TabIndex = 7;
-            this.textBox34.Text = "0";
-            this.textBox34.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textYellowTicketHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textYellowTicketHome.Location = new System.Drawing.Point(323, 4);
+            this.textYellowTicketHome.Margin = new System.Windows.Forms.Padding(1);
+            this.textYellowTicketHome.Multiline = true;
+            this.textYellowTicketHome.Name = "textYellowTicketHome";
+            this.textYellowTicketHome.Size = new System.Drawing.Size(33, 24);
+            this.textYellowTicketHome.TabIndex = 7;
+            this.textYellowTicketHome.Text = "0";
+            this.textYellowTicketHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox35
+            // textYellowTicketGuest
             // 
-            this.textBox35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox35.Location = new System.Drawing.Point(51, 4);
-            this.textBox35.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox35.Multiline = true;
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(33, 24);
-            this.textBox35.TabIndex = 4;
-            this.textBox35.Text = "0";
-            this.textBox35.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textYellowTicketGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textYellowTicketGuest.Location = new System.Drawing.Point(51, 4);
+            this.textYellowTicketGuest.Margin = new System.Windows.Forms.Padding(1);
+            this.textYellowTicketGuest.Multiline = true;
+            this.textYellowTicketGuest.Name = "textYellowTicketGuest";
+            this.textYellowTicketGuest.Size = new System.Drawing.Size(33, 24);
+            this.textYellowTicketGuest.TabIndex = 4;
+            this.textYellowTicketGuest.Text = "0";
+            this.textYellowTicketGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox36
             // 
@@ -1661,8 +1425,8 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Silver;
-            this.panel4.Controls.Add(this.textBox10);
-            this.panel4.Controls.Add(this.textBox11);
+            this.panel4.Controls.Add(this.textShotTargetHome);
+            this.panel4.Controls.Add(this.textShotTargetGuest);
             this.panel4.Controls.Add(this.textBox12);
             this.panel4.Controls.Add(this.btnMinShotTargetHome);
             this.panel4.Controls.Add(this.btnAddShotTargetHome);
@@ -1674,29 +1438,29 @@
             this.panel4.Size = new System.Drawing.Size(408, 34);
             this.panel4.TabIndex = 10;
             // 
-            // textBox10
+            // textShotTargetHome
             // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox10.Location = new System.Drawing.Point(323, 4);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(33, 24);
-            this.textBox10.TabIndex = 7;
-            this.textBox10.Text = "0";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textShotTargetHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textShotTargetHome.Location = new System.Drawing.Point(323, 4);
+            this.textShotTargetHome.Margin = new System.Windows.Forms.Padding(1);
+            this.textShotTargetHome.Multiline = true;
+            this.textShotTargetHome.Name = "textShotTargetHome";
+            this.textShotTargetHome.Size = new System.Drawing.Size(33, 24);
+            this.textShotTargetHome.TabIndex = 7;
+            this.textShotTargetHome.Text = "0";
+            this.textShotTargetHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox11
+            // textShotTargetGuest
             // 
-            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox11.Location = new System.Drawing.Point(51, 4);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(33, 24);
-            this.textBox11.TabIndex = 4;
-            this.textBox11.Text = "0";
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textShotTargetGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textShotTargetGuest.Location = new System.Drawing.Point(51, 4);
+            this.textShotTargetGuest.Margin = new System.Windows.Forms.Padding(1);
+            this.textShotTargetGuest.Multiline = true;
+            this.textShotTargetGuest.Name = "textShotTargetGuest";
+            this.textShotTargetGuest.Size = new System.Drawing.Size(33, 24);
+            this.textShotTargetGuest.TabIndex = 4;
+            this.textShotTargetGuest.Text = "0";
+            this.textShotTargetGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox12
             // 
@@ -1759,8 +1523,8 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Controls.Add(this.textBox13);
-            this.panel5.Controls.Add(this.textBox14);
+            this.panel5.Controls.Add(this.textFoulHome);
+            this.panel5.Controls.Add(this.textFoulGuest);
             this.panel5.Controls.Add(this.textBox15);
             this.panel5.Controls.Add(this.btnMinFoulHome);
             this.panel5.Controls.Add(this.btnAddFoulHome);
@@ -1772,29 +1536,29 @@
             this.panel5.Size = new System.Drawing.Size(408, 34);
             this.panel5.TabIndex = 15;
             // 
-            // textBox13
+            // textFoulHome
             // 
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox13.Location = new System.Drawing.Point(323, 4);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox13.Multiline = true;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(33, 24);
-            this.textBox13.TabIndex = 7;
-            this.textBox13.Text = "0";
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textFoulHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textFoulHome.Location = new System.Drawing.Point(323, 4);
+            this.textFoulHome.Margin = new System.Windows.Forms.Padding(1);
+            this.textFoulHome.Multiline = true;
+            this.textFoulHome.Name = "textFoulHome";
+            this.textFoulHome.Size = new System.Drawing.Size(33, 24);
+            this.textFoulHome.TabIndex = 7;
+            this.textFoulHome.Text = "0";
+            this.textFoulHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox14
+            // textFoulGuest
             // 
-            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox14.Location = new System.Drawing.Point(51, 4);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox14.Multiline = true;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(33, 24);
-            this.textBox14.TabIndex = 4;
-            this.textBox14.Text = "0";
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textFoulGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textFoulGuest.Location = new System.Drawing.Point(51, 4);
+            this.textFoulGuest.Margin = new System.Windows.Forms.Padding(1);
+            this.textFoulGuest.Multiline = true;
+            this.textFoulGuest.Name = "textFoulGuest";
+            this.textFoulGuest.Size = new System.Drawing.Size(33, 24);
+            this.textFoulGuest.TabIndex = 4;
+            this.textFoulGuest.Text = "0";
+            this.textFoulGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox15
             // 
@@ -1857,8 +1621,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Silver;
-            this.panel3.Controls.Add(this.textBox7);
-            this.panel3.Controls.Add(this.textBox8);
+            this.panel3.Controls.Add(this.textCornerHome);
+            this.panel3.Controls.Add(this.textCornerGuest);
             this.panel3.Controls.Add(this.textBox9);
             this.panel3.Controls.Add(this.btnMinCornerHome);
             this.panel3.Controls.Add(this.btnAddCornerHome);
@@ -1870,29 +1634,29 @@
             this.panel3.Size = new System.Drawing.Size(408, 34);
             this.panel3.TabIndex = 11;
             // 
-            // textBox7
+            // textCornerHome
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox7.Location = new System.Drawing.Point(323, 4);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(33, 24);
-            this.textBox7.TabIndex = 7;
-            this.textBox7.Text = "0";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textCornerHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textCornerHome.Location = new System.Drawing.Point(323, 4);
+            this.textCornerHome.Margin = new System.Windows.Forms.Padding(1);
+            this.textCornerHome.Multiline = true;
+            this.textCornerHome.Name = "textCornerHome";
+            this.textCornerHome.Size = new System.Drawing.Size(33, 24);
+            this.textCornerHome.TabIndex = 7;
+            this.textCornerHome.Text = "0";
+            this.textCornerHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox8
+            // textCornerGuest
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox8.Location = new System.Drawing.Point(51, 4);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(33, 24);
-            this.textBox8.TabIndex = 4;
-            this.textBox8.Text = "0";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textCornerGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textCornerGuest.Location = new System.Drawing.Point(51, 4);
+            this.textCornerGuest.Margin = new System.Windows.Forms.Padding(1);
+            this.textCornerGuest.Multiline = true;
+            this.textCornerGuest.Name = "textCornerGuest";
+            this.textCornerGuest.Size = new System.Drawing.Size(33, 24);
+            this.textCornerGuest.TabIndex = 4;
+            this.textCornerGuest.Text = "0";
+            this.textCornerGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox9
             // 
@@ -1955,8 +1719,8 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Silver;
-            this.panel6.Controls.Add(this.textBox16);
-            this.panel6.Controls.Add(this.textBox17);
+            this.panel6.Controls.Add(this.textAccuratePassHome);
+            this.panel6.Controls.Add(this.textAccuratePassGuest);
             this.panel6.Controls.Add(this.textBox18);
             this.panel6.Controls.Add(this.btnMinAccuratePassHome);
             this.panel6.Controls.Add(this.btnAddAccuratePassHome);
@@ -1968,29 +1732,29 @@
             this.panel6.Size = new System.Drawing.Size(408, 34);
             this.panel6.TabIndex = 14;
             // 
-            // textBox16
+            // textAccuratePassHome
             // 
-            this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox16.Location = new System.Drawing.Point(323, 4);
-            this.textBox16.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox16.Multiline = true;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(33, 24);
-            this.textBox16.TabIndex = 7;
-            this.textBox16.Text = "0";
-            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textAccuratePassHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textAccuratePassHome.Location = new System.Drawing.Point(323, 4);
+            this.textAccuratePassHome.Margin = new System.Windows.Forms.Padding(1);
+            this.textAccuratePassHome.Multiline = true;
+            this.textAccuratePassHome.Name = "textAccuratePassHome";
+            this.textAccuratePassHome.Size = new System.Drawing.Size(33, 24);
+            this.textAccuratePassHome.TabIndex = 7;
+            this.textAccuratePassHome.Text = "0";
+            this.textAccuratePassHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox17
+            // textAccuratePassGuest
             // 
-            this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox17.Location = new System.Drawing.Point(51, 4);
-            this.textBox17.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox17.Multiline = true;
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(33, 24);
-            this.textBox17.TabIndex = 4;
-            this.textBox17.Text = "0";
-            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textAccuratePassGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textAccuratePassGuest.Location = new System.Drawing.Point(51, 4);
+            this.textAccuratePassGuest.Margin = new System.Windows.Forms.Padding(1);
+            this.textAccuratePassGuest.Multiline = true;
+            this.textAccuratePassGuest.Name = "textAccuratePassGuest";
+            this.textAccuratePassGuest.Size = new System.Drawing.Size(33, 24);
+            this.textAccuratePassGuest.TabIndex = 4;
+            this.textAccuratePassGuest.Text = "0";
+            this.textAccuratePassGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox18
             // 
@@ -2053,8 +1817,8 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Silver;
-            this.panel8.Controls.Add(this.textBox22);
-            this.panel8.Controls.Add(this.textBox23);
+            this.panel8.Controls.Add(this.textOffsideHome);
+            this.panel8.Controls.Add(this.textOffsideGuest);
             this.panel8.Controls.Add(this.textBox24);
             this.panel8.Controls.Add(this.btnMinOffsideHome);
             this.panel8.Controls.Add(this.btnAddOffsideHome);
@@ -2066,29 +1830,29 @@
             this.panel8.Size = new System.Drawing.Size(408, 34);
             this.panel8.TabIndex = 12;
             // 
-            // textBox22
+            // textOffsideHome
             // 
-            this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox22.Location = new System.Drawing.Point(323, 4);
-            this.textBox22.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox22.Multiline = true;
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(33, 24);
-            this.textBox22.TabIndex = 7;
-            this.textBox22.Text = "0";
-            this.textBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textOffsideHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textOffsideHome.Location = new System.Drawing.Point(323, 4);
+            this.textOffsideHome.Margin = new System.Windows.Forms.Padding(1);
+            this.textOffsideHome.Multiline = true;
+            this.textOffsideHome.Name = "textOffsideHome";
+            this.textOffsideHome.Size = new System.Drawing.Size(33, 24);
+            this.textOffsideHome.TabIndex = 7;
+            this.textOffsideHome.Text = "0";
+            this.textOffsideHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox23
+            // textOffsideGuest
             // 
-            this.textBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox23.Location = new System.Drawing.Point(51, 4);
-            this.textBox23.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox23.Multiline = true;
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(33, 24);
-            this.textBox23.TabIndex = 4;
-            this.textBox23.Text = "0";
-            this.textBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textOffsideGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textOffsideGuest.Location = new System.Drawing.Point(51, 4);
+            this.textOffsideGuest.Margin = new System.Windows.Forms.Padding(1);
+            this.textOffsideGuest.Multiline = true;
+            this.textOffsideGuest.Name = "textOffsideGuest";
+            this.textOffsideGuest.Size = new System.Drawing.Size(33, 24);
+            this.textOffsideGuest.TabIndex = 4;
+            this.textOffsideGuest.Text = "0";
+            this.textOffsideGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox24
             // 
@@ -2151,8 +1915,8 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Silver;
-            this.panel7.Controls.Add(this.textBox19);
-            this.panel7.Controls.Add(this.textBox20);
+            this.panel7.Controls.Add(this.textPassHome);
+            this.panel7.Controls.Add(this.textPassGuest);
             this.panel7.Controls.Add(this.textBox21);
             this.panel7.Controls.Add(this.btnMinPassHome);
             this.panel7.Controls.Add(this.btnAddPassHome);
@@ -2164,29 +1928,29 @@
             this.panel7.Size = new System.Drawing.Size(408, 34);
             this.panel7.TabIndex = 13;
             // 
-            // textBox19
+            // textPassHome
             // 
-            this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox19.Location = new System.Drawing.Point(323, 4);
-            this.textBox19.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox19.Multiline = true;
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(33, 24);
-            this.textBox19.TabIndex = 7;
-            this.textBox19.Text = "0";
-            this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textPassHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textPassHome.Location = new System.Drawing.Point(323, 4);
+            this.textPassHome.Margin = new System.Windows.Forms.Padding(1);
+            this.textPassHome.Multiline = true;
+            this.textPassHome.Name = "textPassHome";
+            this.textPassHome.Size = new System.Drawing.Size(33, 24);
+            this.textPassHome.TabIndex = 7;
+            this.textPassHome.Text = "0";
+            this.textPassHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox20
+            // textPassGuest
             // 
-            this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox20.Location = new System.Drawing.Point(51, 4);
-            this.textBox20.Margin = new System.Windows.Forms.Padding(1);
-            this.textBox20.Multiline = true;
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(33, 24);
-            this.textBox20.TabIndex = 4;
-            this.textBox20.Text = "0";
-            this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textPassGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textPassGuest.Location = new System.Drawing.Point(51, 4);
+            this.textPassGuest.Margin = new System.Windows.Forms.Padding(1);
+            this.textPassGuest.Multiline = true;
+            this.textPassGuest.Name = "textPassGuest";
+            this.textPassGuest.Size = new System.Drawing.Size(33, 24);
+            this.textPassGuest.TabIndex = 4;
+            this.textPassGuest.Text = "0";
+            this.textPassGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox21
             // 
@@ -2380,7 +2144,7 @@
 		private System.Windows.Forms.Button btnShowMain;
 		private System.Windows.Forms.DataGridView dataGridPlayersGuest;
 		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox textGoalsGuest;
 		private System.Windows.Forms.Button btnAddGoalHome;
 		private System.Windows.Forms.Button btnMinGoalHome;
 		private System.Windows.Forms.Button btnAddGoalGuest;
@@ -2388,101 +2152,87 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Panel panel10;
-		private System.Windows.Forms.TextBox textBox28;
-		private System.Windows.Forms.TextBox textBox29;
+		private System.Windows.Forms.TextBox textChangeHome;
+		private System.Windows.Forms.TextBox textChangeGuest;
 		private System.Windows.Forms.TextBox textBox30;
 		private System.Windows.Forms.Button btnMinChangeHome;
 		private System.Windows.Forms.Button btnAddChangeHome;
 		private System.Windows.Forms.Button btnMinChangeGuest;
 		private System.Windows.Forms.Button btnAddChangeGuest;
 		private System.Windows.Forms.Panel panel11;
-		private System.Windows.Forms.TextBox textBox31;
-		private System.Windows.Forms.TextBox textBox32;
+		private System.Windows.Forms.TextBox textRedTicketHome;
+		private System.Windows.Forms.TextBox textRedTicketGuest;
 		private System.Windows.Forms.TextBox textBox33;
 		private System.Windows.Forms.Button btnMinRedTicketHome;
 		private System.Windows.Forms.Button btnAddRedTicketHome;
 		private System.Windows.Forms.Button btnMinRedTicketGuest;
 		private System.Windows.Forms.Button btnAddRedTicketGuest;
 		private System.Windows.Forms.Panel panel12;
-		private System.Windows.Forms.TextBox textBox34;
-		private System.Windows.Forms.TextBox textBox35;
+		private System.Windows.Forms.TextBox textYellowTicketHome;
+		private System.Windows.Forms.TextBox textYellowTicketGuest;
 		private System.Windows.Forms.TextBox textBox36;
 		private System.Windows.Forms.Button btnMinYellowTicketHome;
 		private System.Windows.Forms.Button btnAddYellowTicketHome;
 		private System.Windows.Forms.Button btnMinYellowTicketGuest;
 		private System.Windows.Forms.Button btnAddYellowTicketGuest;
 		private System.Windows.Forms.Panel panel5;
-		private System.Windows.Forms.TextBox textBox13;
-		private System.Windows.Forms.TextBox textBox14;
+		private System.Windows.Forms.TextBox textFoulHome;
+		private System.Windows.Forms.TextBox textFoulGuest;
 		private System.Windows.Forms.TextBox textBox15;
 		private System.Windows.Forms.Button btnMinFoulHome;
 		private System.Windows.Forms.Button btnAddFoulHome;
 		private System.Windows.Forms.Button btnMinFoulGuest;
 		private System.Windows.Forms.Button btnAddFoulGuest;
 		private System.Windows.Forms.Panel panel6;
-		private System.Windows.Forms.TextBox textBox16;
-		private System.Windows.Forms.TextBox textBox17;
+		private System.Windows.Forms.TextBox textAccuratePassHome;
+		private System.Windows.Forms.TextBox textAccuratePassGuest;
 		private System.Windows.Forms.TextBox textBox18;
 		private System.Windows.Forms.Button btnMinAccuratePassHome;
 		private System.Windows.Forms.Button btnAddAccuratePassHome;
 		private System.Windows.Forms.Button btnMinAccuratePassGuest;
 		private System.Windows.Forms.Button btnAddAccuratePassGuest;
 		private System.Windows.Forms.Panel panel7;
-		private System.Windows.Forms.TextBox textBox19;
-		private System.Windows.Forms.TextBox textBox20;
+		private System.Windows.Forms.TextBox textPassHome;
+		private System.Windows.Forms.TextBox textPassGuest;
 		private System.Windows.Forms.TextBox textBox21;
 		private System.Windows.Forms.Button btnMinPassHome;
 		private System.Windows.Forms.Button btnAddPassHome;
 		private System.Windows.Forms.Button btnMinPassGuest;
 		private System.Windows.Forms.Button btnAddPassGuest;
 		private System.Windows.Forms.Panel panel8;
-		private System.Windows.Forms.TextBox textBox22;
-		private System.Windows.Forms.TextBox textBox23;
+		private System.Windows.Forms.TextBox textOffsideHome;
+		private System.Windows.Forms.TextBox textOffsideGuest;
 		private System.Windows.Forms.TextBox textBox24;
 		private System.Windows.Forms.Button btnMinOffsideHome;
 		private System.Windows.Forms.Button btnAddOffsideHome;
 		private System.Windows.Forms.Button btnMinOffsideGuest;
 		private System.Windows.Forms.Button btnAddOffsideGuest;
 		private System.Windows.Forms.Panel panel3;
-		private System.Windows.Forms.TextBox textBox7;
-		private System.Windows.Forms.TextBox textBox8;
+		private System.Windows.Forms.TextBox textCornerHome;
+		private System.Windows.Forms.TextBox textCornerGuest;
 		private System.Windows.Forms.TextBox textBox9;
 		private System.Windows.Forms.Button btnMinCornerHome;
 		private System.Windows.Forms.Button btnAddCornerHome;
 		private System.Windows.Forms.Button btnMinCornerGuest;
 		private System.Windows.Forms.Button btnAddCornerGuest;
 		private System.Windows.Forms.Panel panel4;
-		private System.Windows.Forms.TextBox textBox10;
-		private System.Windows.Forms.TextBox textBox11;
+		private System.Windows.Forms.TextBox textShotTargetHome;
+		private System.Windows.Forms.TextBox textShotTargetGuest;
 		private System.Windows.Forms.TextBox textBox12;
 		private System.Windows.Forms.Button btnMinShotTargetHome;
 		private System.Windows.Forms.Button btnAddShotTargetHome;
 		private System.Windows.Forms.Button btnMinShotTargetGuest;
 		private System.Windows.Forms.Button btnAddShotTargetGuest;
 		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.TextBox textBox4;
-		private System.Windows.Forms.TextBox textBox5;
+		private System.Windows.Forms.TextBox textTotalShotHome;
+		private System.Windows.Forms.TextBox textTotalShotGuest;
 		private System.Windows.Forms.TextBox textBox6;
 		private System.Windows.Forms.Button btnMinTotalShotHome;
 		private System.Windows.Forms.Button btnAddTotalShotHome;
 		private System.Windows.Forms.Button btnMinTotalShotGuest;
 		private System.Windows.Forms.Button btnAddTotalShotGuest;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox textGoalsHome;
 		private System.Windows.Forms.DataGridView dataGridPlayersPairsGuest;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Number;
-		private System.Windows.Forms.DataGridViewTextBoxColumn LastNamePlayer;
-		private System.Windows.Forms.DataGridViewTextBoxColumn NamePlayer;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Role;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Card;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Amplua;
 		private System.Windows.Forms.Panel panel13;
 		private System.Windows.Forms.Panel panel14;
 		private System.Windows.Forms.Panel panel9;
@@ -2494,22 +2244,8 @@
 		private System.Windows.Forms.Panel panel16;
 		private System.Windows.Forms.TextBox textNameHome;
 		private System.Windows.Forms.DataGridView dataGridPlayersHome;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.DataGridView dataGridPlayersPairsHome;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Panel panel18;
 		private System.Windows.Forms.GroupBox groupBox7;

@@ -16,7 +16,7 @@ using FNL.Presenters;
 
 namespace FNL
 {
-	public partial class MainForm : Form
+	public partial class MainForm : Form, IMatchView
     {
         private delegate void UpdateGUI(object parameter);
 
@@ -28,10 +28,23 @@ namespace FNL
         private DataView _team1Dv = new DataView();
         private DataView _team2Dv = new DataView();
 
-		/// <summary>
-		/// Help class. Realise interface ITeamView.
-		/// </summary>
-		public class TeamGuest : MainForm, ITeamView
+        public int MatchId { get; set;  }
+        public int GuestPlayerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int PairGuestPlayerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int HomePlayerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int PairHomePlayerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string NameMatch { get => textNameMatch.Text; set => textNameMatch.Text = value; }
+        public string NameGuest { get => textNameGuest.Text; set => textNameGuest.Text = value; }
+        public string NameHome { get => textNameHome.Text; set => textNameHome.Text = value; }
+        public Color ColorGuest { get => buttonColorTeamGuest.BackColor; set => buttonColorTeamGuest.BackColor = value; }
+        public Color ColorHome { get => buttonColorTeamHome.BackColor; set => buttonColorTeamHome.BackColor = value; }
+        public DateTime TimeMatch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int NumberTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        /// <summary>
+        /// Help class. Realise interface ITeamView.
+        /// </summary>
+        public class TeamGuest : MainForm, ITeamView
 		{
 			public Color ColorTeam { get => buttonColorTeamGuest.BackColor; set => buttonColorTeamGuest.BackColor=value; }
             public string NameTeamFull { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -592,6 +605,19 @@ namespace FNL
             }
         }
         #endregion
+
+        public void UpdateView()
+        {
+            TablePlayersMainPresenter presenterTable = new TablePlayersMainPresenter();
+            // Update tables.
+            dataGridPlayersGuest.DataSource = presenterTable.GetViews(MatchId,CategoryTable.GuestTeam,false);
+            dataGridPlayersPairsGuest.DataSource = presenterTable.GetViews(MatchId,CategoryTable.GuestTeam, true);
+            dataGridPlayersHome.DataSource = presenterTable.GetViews(MatchId,CategoryTable.HomeTeam,false);
+            dataGridPlayersPairsHome.DataSource = presenterTable.GetViews(MatchId,CategoryTable.HomeTeam, true);
+
+            MatchPresenter matchPresenter = new MatchPresenter(this);
+            matchPresenter.ShowView();
+        }
 
         private void BtnSetGameTime_Click(object sender, EventArgs e)
         {

@@ -12,9 +12,9 @@ using FNL.Presenters;
 
 namespace FNL.Forms
 {
-	public partial class MatchesForm : Form, IMatchView
+	public partial class MatchesForm : Form, IMatchTableView
 	{
-        public int MatchId { get => ((List<IMatchView>)(dataGridViewMatch.DataSource))[dataGridViewMatch.CurrentRow.Index].MatchId; set => throw new NotImplementedException(); }
+        public int MatchId { get => ((List<IMatchTableView>)(dataGridViewMatch.DataSource))[dataGridViewMatch.CurrentRow.Index].MatchId; set => throw new NotImplementedException(); }
         public string NameMatch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public DateTime Date { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string NameStadium { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -46,7 +46,7 @@ namespace FNL.Forms
 
         public void UpdateTable()
         {
-            MatchPresenter presenter = new MatchPresenter(this);
+            MatchTablePresenter presenter = new MatchTablePresenter(this);
             // Set table with data from database.
             dataGridViewMatch.DataSource = presenter.GetView();
             // Hide colum with ids.
@@ -70,7 +70,7 @@ namespace FNL.Forms
 
         private void buttonDeleteMatch_Click(object sender, EventArgs e)
         {
-            MatchPresenter presenter = new MatchPresenter(this);
+            MatchTablePresenter presenter = new MatchTablePresenter(this);
             presenter.DelteModelDB();
 
             UpdateTable();
@@ -80,6 +80,8 @@ namespace FNL.Forms
         {
             _mainForm.MatchId = MatchId;
             _mainForm.UpdateView();
+
+            this.Close();
         }
 
         private void buttonPlayersMatch_Click(object sender, EventArgs e)
