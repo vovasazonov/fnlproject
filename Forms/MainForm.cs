@@ -13,10 +13,11 @@ using Svt.Caspar;
 using Svt.Network;
 using FNL.Views;
 using FNL.Presenters;
+using System.Text.RegularExpressions;
 
 namespace FNL
 {
-	public partial class MainForm : Form, IMatchView
+    public partial class MainForm : Form, IMatchView
     {
         private delegate void UpdateGUI(object parameter);
 
@@ -28,7 +29,7 @@ namespace FNL
         private DataView _team1Dv = new DataView();
         private DataView _team2Dv = new DataView();
 
-        public int MatchId { get; set;  }
+        public int MatchId { get; set; }
         public int GuestPlayerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int PairGuestPlayerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int HomePlayerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -41,33 +42,11 @@ namespace FNL
         public DateTime TimeMatch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int NumberTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        /// <summary>
-        /// Help class. Realise interface ITeamView.
-        /// </summary>
-        public class TeamGuest : MainForm, ITeamView
-		{
-			public Color ColorTeam { get => buttonColorTeamGuest.BackColor; set => buttonColorTeamGuest.BackColor=value; }
-            public string NameTeamFull { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public string NameTeamShort { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public string PathTeamLogo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public int IdTeam { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        }
-		/// <summary>
-		/// Help class. Realise interface ITeamView.
-		/// </summary>
-		public class TeamHome : MainForm, ITeamView
-		{
-			public Color ColorTeam { get => buttonColorTeamHome.BackColor; set => buttonColorTeamHome.BackColor = value; }
-            public string NameTeamFull { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public string NameTeamShort { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public string PathTeamLogo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public int IdTeam { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        }
 
-		public MainForm()
+        public MainForm()
         {
             InitializeComponent();
-			
+
             _team1Dv.Table = _teamsDt;
             _team2Dv.Table = _teamsDt;
             cb1Teams.DataSource = _team1Dv;
@@ -274,7 +253,7 @@ namespace FNL
         /// </summary>
         private void DisableControls()
         {
-            //tabControl1.Enabled = false; // Убрать комментраий после теста!!!!!!!!!!!!!!!!!!!!!!!! базы данных
+            tabControl1.Enabled = false; // Убрать комментраий после теста!!!!!!!!!!!!!!!!!!!!!!!! базы данных
         }
         /// <summary>
         /// Enable controls in tub of form.
@@ -302,7 +281,7 @@ namespace FNL
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void UpdateTeams(object sender, EventArgs e)
+        private void UpdateTeams(object sender = null, EventArgs e = null)
         {
             /*
              Check for valid field values
@@ -318,8 +297,9 @@ namespace FNL
                 _cgData.Clear();
 
                 // build data
-                _cgData.SetData("team1Name", cb1Teams.SelectedValue.ToString());
-                _cgData.SetData("team2Name", cb2Teams.SelectedValue.ToString());
+                // Choose only what is in brackets. Short team name.
+                _cgData.SetData("team1Name", Regex.Replace(NameGuest, @"\([^)]+\)\.", String.Empty));
+                _cgData.SetData("team2Name", Regex.Replace(NameHome, @"\([^)]+\)\.", String.Empty));
             }
             catch
             {
@@ -543,37 +523,37 @@ namespace FNL
                 }
             }
         }
-        ///// <summary>
-        ///// Update the color teams in template.
-        ///// </summary>
-        //private void UpdateColorTeams()
-        //{
-        //    // spara halvtid
-        //    /*
-        //     TODO: Check for valid field values
-        //     */
+        /// <summary>
+        /// Update the color teams in template.
+        /// </summary>
+        private void UpdateColorTeams()
+        {
+            // spara halvtid
+            /*
+             TODO: Check for valid field values
+             */
 
-        //    try
-        //    {
-        //        // Clear old data
-        //        _cgData.Clear();
+            try
+            {
+                // Clear old data
+                _cgData.Clear();
 
-        //        // build data
-        //        _cgData.SetData("team1Color", buttonColorTeamGuest.BackColor.ToArgb().ToString());
-        //        _cgData.SetData("team2Color", buttonColorTeamHome.BackColor.ToArgb().ToString());
-        //    }
-        //    catch
-        //    {
+                // build data
+                _cgData.SetData("team1Color", buttonColorTeamGuest.BackColor.ToArgb().ToString());
+                _cgData.SetData("team2Color", buttonColorTeamHome.BackColor.ToArgb().ToString());
+            }
+            catch
+            {
 
-        //    }
-        //    finally
-        //    {
-        //        if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-        //        {
-        //            _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
-        //        }
-        //    }
-        //}
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
+                }
+            }
+        }
         /// <summary>
         /// Save the additional time that was setted by user in form.
         /// </summary>
@@ -610,13 +590,16 @@ namespace FNL
         {
             TablePlayersMainPresenter presenterTable = new TablePlayersMainPresenter();
             // Update tables.
-            dataGridPlayersGuest.DataSource = presenterTable.GetViews(MatchId,CategoryTable.GuestTeam,false);
-            dataGridPlayersPairsGuest.DataSource = presenterTable.GetViews(MatchId,CategoryTable.GuestTeam, true);
-            dataGridPlayersHome.DataSource = presenterTable.GetViews(MatchId,CategoryTable.HomeTeam,false);
-            dataGridPlayersPairsHome.DataSource = presenterTable.GetViews(MatchId,CategoryTable.HomeTeam, true);
+            dataGridPlayersGuest.DataSource = presenterTable.GetViews(MatchId, CategoryTable.GuestTeam, false);
+            dataGridPlayersPairsGuest.DataSource = presenterTable.GetViews(MatchId, CategoryTable.GuestTeam, true);
+            dataGridPlayersHome.DataSource = presenterTable.GetViews(MatchId, CategoryTable.HomeTeam, false);
+            dataGridPlayersPairsHome.DataSource = presenterTable.GetViews(MatchId, CategoryTable.HomeTeam, true);
 
             MatchPresenter matchPresenter = new MatchPresenter(this);
             matchPresenter.ShowView();
+
+            // Caspar CG Data Update
+            UpdateTeams();
         }
 
         private void BtnSetGameTime_Click(object sender, EventArgs e)
@@ -705,7 +688,7 @@ namespace FNL
         {
             buttonConnect.Enabled = false;
 
-			if (!_caspar_.IsConnected)
+            if (!_caspar_.IsConnected)
             {
                 _caspar_.Settings.Hostname = this.tbCasparServer.Text; // Properties.Settings.Default.Hostname;
                 _caspar_.Settings.Port = 5250;
@@ -766,9 +749,9 @@ namespace FNL
 
         private void BtnTimeStartStop_Click(object sender, EventArgs e)
         {
-            this.GameTimeStartStop(); 
+            this.GameTimeStartStop();
         }
-        
+
 
         private void BtnHalfSet(object sender, EventArgs e)
         {
@@ -780,24 +763,37 @@ namespace FNL
             this.SaveAdditionalTime();
         }
 
-		#region Done
-		private void ClickButtonColorTeamGuest(object sender, EventArgs e)
+        #region Done
+        private void ClickButtonColorTeamGuest(object sender, EventArgs e)
         {
-			TeamPresenter teamPresenter = new TeamPresenter(new TeamGuest());
-			if (teamPresenter.ChoseNewColor())
-			{
-				teamPresenter.UpdateColor(_cgData,_caspar_);
-			}
-		}
+            buttonColorTeamGuest.BackColor = ChoseNewColor();
+            UpdateColorTeams();
+        }
 
         private void ClickButtonColorTeamHome(object sender, EventArgs e)
         {
-			TeamPresenter teamPresenter = new TeamPresenter(new TeamHome());
-			if (teamPresenter.ChoseNewColor())
-			{
-				teamPresenter.UpdateColor(_cgData, _caspar_);
-			}
-		}
+            buttonColorTeamHome.BackColor = ChoseNewColor();
+            UpdateColorTeams();
+        }
+
+        public Color ChoseNewColor()
+        {
+            ColorDialog MyDialog = new ColorDialog
+            {
+                // Keeps the user from selecting a custom color.
+                AllowFullOpen = true,
+                // Allows the user to get help. (The default is false.)
+                ShowHelp = true,
+            };
+
+            // Update the text box color if the user clicks OK 
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+            {
+                return MyDialog.Color;
+            }
+
+            return Color.White;
+        }
         #endregion
 
         private void buttonMatch_Click(object sender, EventArgs e)
