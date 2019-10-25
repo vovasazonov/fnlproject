@@ -85,5 +85,16 @@ namespace FNL.Forms
             TeamsForm form = new TeamsForm(this, false);
             form.Show();
         }
+
+        private void comboStadium_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboSeason_Click(object sender, EventArgs e)
+        {
+            SeasonForm form = new SeasonForm(this);
+            form.Show();
+        }
     }
 }

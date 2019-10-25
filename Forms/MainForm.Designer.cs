@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbCasparServer = new System.Windows.Forms.TextBox();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.btnClearGraphics = new System.Windows.Forms.Button();
@@ -44,6 +44,11 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.checkBoxListPairsPlayers = new System.Windows.Forms.CheckBox();
+            this.checkBoxListPlayers = new System.Windows.Forms.CheckBox();
+            this.radioButtonHome = new System.Windows.Forms.RadioButton();
+            this.radioButtonGuest = new System.Windows.Forms.RadioButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button10 = new System.Windows.Forms.Button();
@@ -60,12 +65,6 @@
             this.numOvertime = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnShowMain = new System.Windows.Forms.Button();
-            this.gpTeams = new System.Windows.Forms.GroupBox();
-            this.btnLockTeams = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cb1Teams = new System.Windows.Forms.ComboBox();
-            this.cb2Teams = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnTeam2AddScore = new System.Windows.Forms.Button();
             this.btnTeam2MinusScore = new System.Windows.Forms.Button();
@@ -189,10 +188,12 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.colorDialog3 = new System.Windows.Forms.ColorDialog();
+            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel18.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHalfNum)).BeginInit();
@@ -200,7 +201,6 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numOvertime)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.gpTeams.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.gpStartStopTemplate.SuspendLayout();
             this.panel15.SuspendLayout();
@@ -300,8 +300,8 @@
             // 
             this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel18.AutoScroll = true;
+            this.panel18.Controls.Add(this.groupBox8);
             this.panel18.Controls.Add(this.groupBox7);
-            this.panel18.Controls.Add(this.gpTeams);
             this.panel18.Controls.Add(this.groupBox5);
             this.panel18.Controls.Add(this.gpStartStopTemplate);
             this.panel18.Controls.Add(this.groupBox2);
@@ -313,6 +313,63 @@
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(1076, 558);
             this.panel18.TabIndex = 23;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.checkBoxListPairsPlayers);
+            this.groupBox8.Controls.Add(this.checkBoxListPlayers);
+            this.groupBox8.Controls.Add(this.radioButtonHome);
+            this.groupBox8.Controls.Add(this.radioButtonGuest);
+            this.groupBox8.Location = new System.Drawing.Point(528, 487);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(231, 105);
+            this.groupBox8.TabIndex = 23;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Показ игроков";
+            // 
+            // checkBoxListPairsPlayers
+            // 
+            this.checkBoxListPairsPlayers.AutoSize = true;
+            this.checkBoxListPairsPlayers.Location = new System.Drawing.Point(6, 60);
+            this.checkBoxListPairsPlayers.Name = "checkBoxListPairsPlayers";
+            this.checkBoxListPairsPlayers.Size = new System.Drawing.Size(215, 17);
+            this.checkBoxListPairsPlayers.TabIndex = 5;
+            this.checkBoxListPairsPlayers.Text = "Показвать/Скрыть запасные игроки";
+            this.checkBoxListPairsPlayers.UseVisualStyleBackColor = true;
+            this.checkBoxListPairsPlayers.CheckedChanged += new System.EventHandler(this.checkBoxListPairsPlayers_CheckedChanged);
+            // 
+            // checkBoxListPlayers
+            // 
+            this.checkBoxListPlayers.AutoSize = true;
+            this.checkBoxListPlayers.Location = new System.Drawing.Point(6, 39);
+            this.checkBoxListPlayers.Name = "checkBoxListPlayers";
+            this.checkBoxListPlayers.Size = new System.Drawing.Size(201, 17);
+            this.checkBoxListPlayers.TabIndex = 4;
+            this.checkBoxListPlayers.Text = "Показать/Скрыть список игроков";
+            this.checkBoxListPlayers.UseVisualStyleBackColor = true;
+            this.checkBoxListPlayers.CheckedChanged += new System.EventHandler(this.checkBoxListPlayers_CheckedChanged);
+            // 
+            // radioButtonHome
+            // 
+            this.radioButtonHome.AutoSize = true;
+            this.radioButtonHome.Location = new System.Drawing.Point(94, 19);
+            this.radioButtonHome.Name = "radioButtonHome";
+            this.radioButtonHome.Size = new System.Drawing.Size(48, 17);
+            this.radioButtonHome.TabIndex = 1;
+            this.radioButtonHome.TabStop = true;
+            this.radioButtonHome.Text = "Дом";
+            this.radioButtonHome.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonGuest
+            // 
+            this.radioButtonGuest.AutoSize = true;
+            this.radioButtonGuest.Location = new System.Drawing.Point(7, 18);
+            this.radioButtonGuest.Name = "radioButtonGuest";
+            this.radioButtonGuest.Size = new System.Drawing.Size(54, 17);
+            this.radioButtonGuest.TabIndex = 0;
+            this.radioButtonGuest.TabStop = true;
+            this.radioButtonGuest.Text = "Гости";
+            this.radioButtonGuest.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
@@ -496,65 +553,6 @@
             this.btnShowMain.UseVisualStyleBackColor = false;
             this.btnShowMain.Click += new System.EventHandler(this.BtnShowMain_Click);
             // 
-            // gpTeams
-            // 
-            this.gpTeams.Controls.Add(this.btnLockTeams);
-            this.gpTeams.Controls.Add(this.label3);
-            this.gpTeams.Controls.Add(this.label2);
-            this.gpTeams.Controls.Add(this.cb1Teams);
-            this.gpTeams.Controls.Add(this.cb2Teams);
-            this.gpTeams.Location = new System.Drawing.Point(542, 487);
-            this.gpTeams.Name = "gpTeams";
-            this.gpTeams.Size = new System.Drawing.Size(660, 287);
-            this.gpTeams.TabIndex = 14;
-            this.gpTeams.TabStop = false;
-            this.gpTeams.Text = "Команды";
-            // 
-            // btnLockTeams
-            // 
-            this.btnLockTeams.Location = new System.Drawing.Point(601, 33);
-            this.btnLockTeams.Name = "btnLockTeams";
-            this.btnLockTeams.Size = new System.Drawing.Size(32, 24);
-            this.btnLockTeams.TabIndex = 4;
-            this.btnLockTeams.UseVisualStyleBackColor = true;
-            this.btnLockTeams.Click += new System.EventHandler(this.BtnLockTeams_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(385, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Гости";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(179, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Хозяева";
-            // 
-            // cb1Teams
-            // 
-            this.cb1Teams.FormattingEnabled = true;
-            this.cb1Teams.Location = new System.Drawing.Point(101, 35);
-            this.cb1Teams.Name = "cb1Teams";
-            this.cb1Teams.Size = new System.Drawing.Size(197, 21);
-            this.cb1Teams.TabIndex = 0;
-            this.cb1Teams.TextChanged += new System.EventHandler(this.UpdateTeams);
-            // 
-            // cb2Teams
-            // 
-            this.cb2Teams.FormattingEnabled = true;
-            this.cb2Teams.Location = new System.Drawing.Point(311, 35);
-            this.cb2Teams.Name = "cb2Teams";
-            this.cb2Teams.Size = new System.Drawing.Size(197, 21);
-            this.cb2Teams.TabIndex = 1;
-            this.cb2Teams.TextChanged += new System.EventHandler(this.UpdateTeams);
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.btnTeam2AddScore);
@@ -624,7 +622,7 @@
             this.tBScoreTeam2.TabStop = false;
             this.tBScoreTeam2.Text = "0";
             this.tBScoreTeam2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tBScoreTeam2.TextChanged += new System.EventHandler(this.UpdateScores);
+            this.tBScoreTeam2.TextChanged += new System.EventHandler(this.UpdateScoresCG);
             // 
             // tBScoreTeam1
             // 
@@ -636,7 +634,7 @@
             this.tBScoreTeam1.TabStop = false;
             this.tBScoreTeam1.Text = "0";
             this.tBScoreTeam1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tBScoreTeam1.TextChanged += new System.EventHandler(this.UpdateScores);
+            this.tBScoreTeam1.TextChanged += new System.EventHandler(this.UpdateScoresCG);
             // 
             // gpStartStopTemplate
             // 
@@ -738,17 +736,17 @@
             // 
             // dataGridPlayersHome
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
             this.dataGridPlayersHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
             this.dataGridPlayersHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersHome.Location = new System.Drawing.Point(2, 33);
             this.dataGridPlayersHome.Name = "dataGridPlayersHome";
@@ -768,17 +766,17 @@
             // 
             // dataGridPlayersPairsHome
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersPairsHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersPairsHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
             this.dataGridPlayersPairsHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
             this.dataGridPlayersPairsHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersPairsHome.Location = new System.Drawing.Point(0, 259);
             this.dataGridPlayersPairsHome.Name = "dataGridPlayersPairsHome";
@@ -838,17 +836,17 @@
             // 
             // dataGridPlayersGuest
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
             this.dataGridPlayersGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle46.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
             this.dataGridPlayersGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersGuest.Location = new System.Drawing.Point(0, 33);
             this.dataGridPlayersGuest.Name = "dataGridPlayersGuest";
@@ -868,17 +866,17 @@
             // 
             // dataGridPlayersPairsGuest
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersPairsGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersPairsGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle47;
             this.dataGridPlayersPairsGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle48;
             this.dataGridPlayersPairsGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersPairsGuest.Location = new System.Drawing.Point(0, 259);
             this.dataGridPlayersPairsGuest.Name = "dataGridPlayersPairsGuest";
@@ -2020,6 +2018,14 @@
             this.tabPage2.Text = "players";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // entityCommand1
+            // 
+            this.entityCommand1.CommandTimeout = 0;
+            this.entityCommand1.CommandTree = null;
+            this.entityCommand1.Connection = null;
+            this.entityCommand1.EnablePlanCaching = true;
+            this.entityCommand1.Transaction = null;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2041,6 +2047,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numHalfNum)).EndInit();
@@ -2049,8 +2057,6 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numOvertime)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.gpTeams.ResumeLayout(false);
-            this.gpTeams.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.gpStartStopTemplate.ResumeLayout(false);
@@ -2112,14 +2118,8 @@
 		private System.Windows.Forms.GroupBox gpStartStopTemplate;
 		private System.Windows.Forms.Button btnStartGraphics;
 		private System.Windows.Forms.Button btnStopGraphics;
-		private System.Windows.Forms.GroupBox gpTeams;
 		private System.Windows.Forms.Button buttonColorTeamHome;
 		private System.Windows.Forms.Button buttonColorTeamGuest;
-		private System.Windows.Forms.Button btnLockTeams;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.ComboBox cb1Teams;
-		private System.Windows.Forms.ComboBox cb2Teams;
 		private System.Windows.Forms.GroupBox groupBox6;
 		private System.Windows.Forms.Button button10;
 		private System.Windows.Forms.NumericUpDown numHalfNum;
@@ -2251,6 +2251,12 @@
 		private System.Windows.Forms.GroupBox groupBox7;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.RadioButton radioButtonHome;
+        private System.Windows.Forms.RadioButton radioButtonGuest;
+        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
+        private System.Windows.Forms.CheckBox checkBoxListPairsPlayers;
+        private System.Windows.Forms.CheckBox checkBoxListPlayers;
     }
 }
 

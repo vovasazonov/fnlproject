@@ -111,6 +111,7 @@
             this.comboBoxPathLogo.Name = "comboBoxPathLogo";
             this.comboBoxPathLogo.Size = new System.Drawing.Size(389, 21);
             this.comboBoxPathLogo.TabIndex = 0;
+            this.comboBoxPathLogo.Click += new System.EventHandler(this.comboBoxPathLogo_Click);
             // 
             // label3
             // 

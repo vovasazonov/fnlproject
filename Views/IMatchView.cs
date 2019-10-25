@@ -22,6 +22,7 @@ namespace FNL.Views
         Color ColorHome { get; set; }
         DateTime TimeMatch { get; set; }
         int NumberTime { get;set; }
+        string SeasonName { get; set; }
 
     }
 }

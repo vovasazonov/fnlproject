@@ -114,6 +114,7 @@
             this.comboSeason.Name = "comboSeason";
             this.comboSeason.Size = new System.Drawing.Size(145, 21);
             this.comboSeason.TabIndex = 12;
+            this.comboSeason.Click += new System.EventHandler(this.comboSeason_Click);
             // 
             // comboOwner
             // 
@@ -140,6 +141,7 @@
             this.comboStadium.Name = "comboStadium";
             this.comboStadium.Size = new System.Drawing.Size(145, 21);
             this.comboStadium.TabIndex = 9;
+            this.comboStadium.Click += new System.EventHandler(this.comboStadium_Click);
             // 
             // label8
             // 

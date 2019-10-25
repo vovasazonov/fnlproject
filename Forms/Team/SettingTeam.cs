@@ -115,5 +115,23 @@ namespace FNL.Forms
             SettingPlayerTeam form = new SettingPlayerTeam(this, true);
             form.Show();
         }
+
+        private void comboBoxPathLogo_Click(object sender, EventArgs e)
+        {
+            string folderName ="";
+
+            OpenFileDialog folderBrowserDialog1 = new OpenFileDialog();
+            // показать диалог выбора папки
+            DialogResult result = folderBrowserDialog1.ShowDialog();
+
+            // если папка выбрана и нажата клавиша `OK` - значит можно получить путь к папке
+            if (result == DialogResult.OK)
+            {
+                // запишем в нашу переменную путь к папке
+                folderName = folderBrowserDialog1.FileName ;
+            }
+
+            comboBoxPathLogo.Text = folderName;
+        }
     }
 }

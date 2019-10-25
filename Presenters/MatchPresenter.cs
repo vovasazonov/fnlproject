@@ -25,13 +25,36 @@ namespace FNL.Presenters
             {
                 var query = db.Matches.Where(t => t.MatchId == _view.MatchId).FirstOrDefault();
                 _view.NameMatch = query.Name;
-                _view.NameGuest = query.TeamGuest != null ? string.Format("{0} ({1})", query.TeamGuest.NameFull, query.TeamGuest.NameShort) :"";
-                _view.NameHome = query.TeamOwner != null ? string.Format("{0} ({1})", query.TeamOwner.NameFull, query.TeamOwner.NameShort): "";
+                _view.NameGuest = query.TeamGuest != null ? string.Format("{0} ({1})", query.TeamGuest.NameFull, query.TeamGuest.NameShort) : "";
+                _view.NameHome = query.TeamOwner != null ? string.Format("{0} ({1})", query.TeamOwner.NameFull, query.TeamOwner.NameShort) : "";
                 _view.ColorGuest = query.TeamGuest != null ? Color.FromArgb(query.TeamGuest.Color) : new Color();
                 _view.ColorHome = query.TeamOwner != null ? Color.FromArgb(query.TeamOwner.Color) : new Color();
+                _view.SeasonName = query.Season != null ? query.Season.Name : "";
                 //_view.TimeMatch = 
                 //_view.NumberTime = 
             }
         }
+
+        public string GetLogoPathTeam(bool isGuest)
+        {
+            string logoPath = "";
+
+            using (var db = new DbFnlContext())
+            {
+                var thisMatch = db.Matches.Where(t => t.MatchId == _view.MatchId).FirstOrDefault();
+
+                if (isGuest)
+                {
+                    logoPath = thisMatch.TeamGuest != null ? thisMatch.TeamGuest.LogotypePath : "";
+                }
+                else
+                {
+                    logoPath = thisMatch.TeamOwner != null ? thisMatch.TeamOwner.LogotypePath : "";
+                }
+            }
+
+            return logoPath;
+        }
+
     }
 }

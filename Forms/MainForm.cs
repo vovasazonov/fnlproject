@@ -41,7 +41,7 @@ namespace FNL
         public Color ColorHome { get => buttonColorTeamHome.BackColor; set => buttonColorTeamHome.BackColor = value; }
         public DateTime TimeMatch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int NumberTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+        public string SeasonName { get; set; }
 
         public MainForm()
         {
@@ -49,8 +49,8 @@ namespace FNL
 
             _team1Dv.Table = _teamsDt;
             _team2Dv.Table = _teamsDt;
-            cb1Teams.DataSource = _team1Dv;
-            cb2Teams.DataSource = _team2Dv;
+            //cb1Teams.DataSource = _team1Dv;
+            //cb2Teams.DataSource = _team2Dv;
 
             InitDatatable();
             FillDatatable();
@@ -59,7 +59,7 @@ namespace FNL
             _caspar_.FailedConnect += new EventHandler<NetworkEventArgs>(Caspar__FailedConnected);
             _caspar_.Disconnected += new EventHandler<NetworkEventArgs>(Caspar__Disconnected);
 
-            this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
+            //this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
 
             // Disable controls to click on button. There are not connection yet on start program.
             DisableControls();
@@ -161,8 +161,8 @@ namespace FNL
                 _cgData.Clear();
 
                 // build data
-                _cgData.SetData("team1Name", cb1Teams.SelectedValue.ToString());
-                _cgData.SetData("team2Name", cb2Teams.SelectedValue.ToString());
+                _cgData.SetData("team1Name", ""/*cb1Teams.SelectedValue.ToString()*/);
+                _cgData.SetData("team2Name", ""/*cb2Teams.SelectedValue.ToString()*/);
                 _cgData.SetData("team1Score", tBScoreTeam1.Text);
                 _cgData.SetData("team2Score", tBScoreTeam2.Text);
                 _cgData.SetData("team1Color", buttonColorTeamGuest.BackColor.ToArgb().ToString());
@@ -218,11 +218,11 @@ namespace FNL
                 _teamsDt.Columns[0].DataType = System.Type.GetType("System.String");
             }
 
-            cb1Teams.ValueMember = "TeamNameAbbrevation";
-            cb1Teams.DisplayMember = "TeamNameFull";
+            //cb1Teams.ValueMember = "TeamNameAbbrevation";
+            //cb1Teams.DisplayMember = "TeamNameFull";
 
-            cb2Teams.ValueMember = "TeamNameAbbrevation";
-            cb2Teams.DisplayMember = "TeamNameFull";
+            //cb2Teams.ValueMember = "TeamNameAbbrevation";
+            //cb2Teams.DisplayMember = "TeamNameFull";
         }
 
         private void FillDatatable()
@@ -253,7 +253,7 @@ namespace FNL
         /// </summary>
         private void DisableControls()
         {
-            tabControl1.Enabled = false; // Убрать комментраий после теста!!!!!!!!!!!!!!!!!!!!!!!! базы данных
+            tabControl1.Enabled = false; //!!!!!!!!!!!!!!!!!!!!!!!!
         }
         /// <summary>
         /// Enable controls in tub of form.
@@ -390,7 +390,7 @@ namespace FNL
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void UpdateScores(object sender, EventArgs e)
+        private void UpdateScoresCG(object sender, EventArgs e)
         {
             /*
              Check for valid field values
@@ -421,6 +421,164 @@ namespace FNL
                 }
             }
         }
+
+        /// <summary>
+        /// Update data of players in Caspar CG. 
+        /// Chose between guest or home team indepences 
+        /// <param name="isGuest"></param> parametr.
+        /// </summary>
+        /// <param name="isGuest"></param>
+        /// /// <param name="isPairs"></param>
+        private void UpdatePlayersCG(bool isGuest, bool isPairs)
+        {
+            List<ITablePlayersMainView> players = new List<ITablePlayersMainView>();
+            List<ITablePlayersMainView> pairsPlayers = new List<ITablePlayersMainView>();
+            string logoPath;
+
+            MatchPresenter presenter = new MatchPresenter(this);
+            logoPath = presenter.GetLogoPathTeam(isGuest);
+            if (isGuest)
+            {
+
+                players = !isPairs ? (List<ITablePlayersMainView>)dataGridPlayersGuest.DataSource : null;
+                pairsPlayers = isPairs ? (List<ITablePlayersMainView>)dataGridPlayersPairsGuest.DataSource : null;
+            }
+            else
+            {
+                players = !isPairs ? (List<ITablePlayersMainView>)dataGridPlayersHome.DataSource : null;
+                pairsPlayers = isPairs ? (List<ITablePlayersMainView>)dataGridPlayersPairsHome.DataSource : null;
+            }
+
+            players = players ?? new List<ITablePlayersMainView>();
+            pairsPlayers = pairsPlayers ?? new List<ITablePlayersMainView>();
+
+            /*
+ Check for valid field values
+ */
+            // Change goalkeeper with classic player. Goalkeeper need to be in first place in list.
+            // Здесь код для перестановки вратаря на первое место.
+
+            try
+            {
+                // Clear old data
+                _cgData.Clear();
+
+                // buid logo
+                _cgData.SetData("teamLogoPath", logoPath);
+
+                // Build title.
+                _cgData.SetData("titleName", isPairs ? "ЗАПАСНЫЕ" : "СТАРТОВЫЙ СОСТВА");
+
+                // Build season name.
+                _cgData.SetData("seasonName", SeasonName);
+
+                // build data players.
+                if (!isPairs)
+                {
+                    _cgData.SetData("namePlayer1", players.Count() > 0 ? players[0].FirstName + " " + players[0].LastName : " ");
+                    _cgData.SetData("namePlayer2", players.Count() > 1 ? players[1].FirstName + " " + players[1].LastName : " ");
+                    _cgData.SetData("namePlayer3", players.Count() > 2 ? players[2].FirstName + " " + players[2].LastName : " ");
+                    _cgData.SetData("namePlayer4", players.Count() > 3 ? players[3].FirstName + " " + players[3].LastName : " ");
+                    _cgData.SetData("namePlayer5", players.Count() > 4 ? players[4].FirstName + " " + players[4].LastName : " ");
+                    _cgData.SetData("namePlayer6", players.Count() > 5 ? players[5].FirstName + " " + players[5].LastName : " ");
+                    _cgData.SetData("namePlayer7", players.Count() > 6 ? players[6].FirstName + " " + players[6].LastName : " ");
+                    _cgData.SetData("namePlayer8", players.Count() > 7 ? players[7].FirstName + " " + players[7].LastName : " ");
+                    _cgData.SetData("namePlayer9", players.Count() > 8 ? players[8].FirstName + " " + players[8].LastName : " ");
+                    _cgData.SetData("namePlayer10", players.Count() > 9 ? players[9].FirstName + " " + players[9].LastName : " ");
+                    _cgData.SetData("namePlayer11", players.Count() > 10 ? players[10].FirstName + " " + players[10].LastName : " ");
+
+                    _cgData.SetData("numPlayer1", players.Count() > 0 ? players[0].N.ToString() : " ");
+                    _cgData.SetData("numPlayer2", players.Count() > 1 ? players[1].N.ToString() : " ");
+                    _cgData.SetData("numPlayer3", players.Count() > 2 ? players[2].N.ToString() : " ");
+                    _cgData.SetData("numPlayer4", players.Count() > 3 ? players[3].N.ToString() : " ");
+                    _cgData.SetData("numPlayer5", players.Count() > 4 ? players[4].N.ToString() : " ");
+                    _cgData.SetData("numPlayer6", players.Count() > 5 ? players[5].N.ToString() : " ");
+                    _cgData.SetData("numPlayer7", players.Count() > 6 ? players[6].N.ToString() : " ");
+                    _cgData.SetData("numPlayer8", players.Count() > 7 ? players[7].N.ToString() : " ");
+                    _cgData.SetData("numPlayer9", players.Count() > 8 ? players[8].N.ToString() : " ");
+                    _cgData.SetData("numPlayer10", players.Count() > 9 ? players[9].N.ToString() : " ");
+                    _cgData.SetData("numPlayer11", players.Count() > 10 ? players[10].N.ToString() : " ");
+
+                }
+                else if (isPairs)
+                {
+                    _cgData.SetData("nameSparePlayer1", pairsPlayers.Count() > 0 ? pairsPlayers[0].FirstName + " " + pairsPlayers[0].LastName : " ");
+                    _cgData.SetData("nameSparePlayer2", pairsPlayers.Count() > 1 ? pairsPlayers[1].FirstName + " " + pairsPlayers[1].LastName : " ");
+                    _cgData.SetData("nameSparePlayer3", pairsPlayers.Count() > 2 ? pairsPlayers[2].FirstName + " " + pairsPlayers[2].LastName : " ");
+                    _cgData.SetData("nameSparePlayer4", pairsPlayers.Count() > 3 ? pairsPlayers[3].FirstName + " " + pairsPlayers[3].LastName : " ");
+                    _cgData.SetData("nameSparePlayer5", pairsPlayers.Count() > 4 ? pairsPlayers[4].FirstName + " " + pairsPlayers[4].LastName : " ");
+                    _cgData.SetData("nameSparePlayer6", pairsPlayers.Count() > 5 ? pairsPlayers[5].FirstName + " " + pairsPlayers[5].LastName : " ");
+                    _cgData.SetData("nameSparePlayer7", pairsPlayers.Count() > 6 ? pairsPlayers[6].FirstName + " " + pairsPlayers[6].LastName : " ");
+                    _cgData.SetData("nameSparePlayer8", pairsPlayers.Count() > 7 ? pairsPlayers[7].FirstName + " " + pairsPlayers[7].LastName : " ");
+                    _cgData.SetData("nameSparePlayer9", pairsPlayers.Count() > 8 ? pairsPlayers[8].FirstName + " " + pairsPlayers[8].LastName : " ");
+                    _cgData.SetData("nameSparePlayer10", pairsPlayers.Count() > 9 ? pairsPlayers[9].FirstName + " " + pairsPlayers[9].LastName : " ");
+                    _cgData.SetData("nameSparePlayer11", pairsPlayers.Count() > 10 ? pairsPlayers[10].FirstName + " " + pairsPlayers[10].LastName : " ");
+
+                    _cgData.SetData("numSparePlayer1", pairsPlayers.Count() > 0 ? pairsPlayers[0].N.ToString() : " ");
+                    _cgData.SetData("numSparePlayer2", pairsPlayers.Count() > 1 ? pairsPlayers[1].N.ToString() : " ");
+                    _cgData.SetData("numSparePlayer3", pairsPlayers.Count() > 2 ? pairsPlayers[2].N.ToString() : " ");
+                    _cgData.SetData("numSparePlayer4", pairsPlayers.Count() > 3 ? pairsPlayers[3].N.ToString() : " ");
+                    _cgData.SetData("numSparePlayer5", pairsPlayers.Count() > 4 ? pairsPlayers[4].N.ToString() : " ");
+                    _cgData.SetData("numSparePlayer6", pairsPlayers.Count() > 5 ? pairsPlayers[5].N.ToString() : " ");
+                    _cgData.SetData("numSparePlayer7", pairsPlayers.Count() > 6 ? pairsPlayers[6].N.ToString() : " ");
+                    _cgData.SetData("numSparePlayer8", pairsPlayers.Count() > 7 ? pairsPlayers[7].N.ToString() : " ");
+                    _cgData.SetData("numSparePlayer9", pairsPlayers.Count() > 8 ? pairsPlayers[8].N.ToString() : " ");
+                    _cgData.SetData("numSparePlayer10", pairsPlayers.Count() > 9 ? pairsPlayers[9].N.ToString() : " ");
+                    _cgData.SetData("numSparePlayer11", pairsPlayers.Count() > 10 ? pairsPlayers[10].N.ToString() : " ");
+
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
+                }
+            }
+        }
+
+        private void ShowHidePlayers()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "PlayersShowHide");
+                }
+            }
+        }
+        private void ShowHideSparePlayers()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "PlayersSpareShowHide");
+                }
+            }
+        }
+
         private bool HasValidClockData()
         {
             return true;
@@ -723,17 +881,17 @@ namespace FNL
         /// <param name="e"></param>
         private void BtnLockTeams_Click(object sender, EventArgs e)
         {
-            this.cb1Teams.Enabled = !this.cb1Teams.Enabled;
-            this.cb2Teams.Enabled = !this.cb2Teams.Enabled;
+            //this.cb1Teams.Enabled = !this.cb1Teams.Enabled;
+            //this.cb2Teams.Enabled = !this.cb2Teams.Enabled;
 
-            if (this.cb1Teams.Enabled)
-            {
-                this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
-            }
-            else
-            {
-                this.btnLockTeams.Image = FNL.Properties.Resources.lock_lock;
-            }
+            //if (this.cb1Teams.Enabled)
+            //{
+            //    this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
+            //}
+            //else
+            //{
+            //    this.btnLockTeams.Image = FNL.Properties.Resources.lock_lock;
+            //}
         }
 
         private void BtnStartGraphics_Click(object sender, EventArgs e)
@@ -801,6 +959,41 @@ namespace FNL
             MatchesForm matchesForm = new MatchesForm(this);
             matchesForm.Show();
         }
+
+        private void checkBoxListPlayers_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxListPlayers.Enabled)
+            {
+                if (radioButtonGuest.Checked)
+                {
+                    UpdatePlayersCG(true,false);
+                }
+                else if (radioButtonHome.Checked)
+                {
+                    UpdatePlayersCG(false,false);
+                }
+            }
+
+            ShowHidePlayers();
+        }
+
+        private void checkBoxListPairsPlayers_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxListPlayers.Enabled)
+            {
+                if (radioButtonGuest.Checked)
+                {
+                    UpdatePlayersCG(true,true);
+                }
+                else if (radioButtonHome.Checked)
+                {
+                    UpdatePlayersCG(false,true);
+                }
+            }
+
+            ShowHideSparePlayers();
+        }
+
     }
 
 }

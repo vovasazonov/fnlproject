@@ -147,6 +147,7 @@
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(256, 21);
             this.comboBoxRole.TabIndex = 6;
+            this.comboBoxRole.SelectedIndexChanged += new System.EventHandler(this.comboBoxRole_SelectedIndexChanged);
             // 
             // textMiddleNamePerson
             // 

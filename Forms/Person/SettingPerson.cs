@@ -38,6 +38,12 @@ namespace FNL.Forms
         {
             InitializeComponent();
 
+            // Prepare combo box role.
+            foreach (var role in DictionaryRoles.Role)
+            {
+                comboBoxRole.Items.Insert((int)(DictionaryRoles.Roles)(role.Key), (string)role.Value);
+            }
+
             this._isEdit = isEdit;
             this._perosnForm = personForm;
 
@@ -69,6 +75,11 @@ namespace FNL.Forms
             _perosnForm.UpdateTable();
 
             this.Close();
+        }
+
+        private void comboBoxRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

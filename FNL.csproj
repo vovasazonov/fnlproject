@@ -71,6 +71,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dictionarys\DictionaryAmpluas.cs" />
+    <Compile Include="Dictionarys\DictionaryRoles.cs" />
     <Compile Include="Football.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,9 +166,11 @@
     <Compile Include="Presenters\MatchPresenter.cs" />
     <Compile Include="Presenters\MatchTablePresenter.cs" />
     <Compile Include="Presenters\PersonPresenter.cs" />
+    <Compile Include="Presenters\SeasonPresenter.cs" />
     <Compile Include="Presenters\SettingMatchPresenter.cs" />
     <Compile Include="Presenters\SettingPersonPresenter.cs" />
     <Compile Include="Presenters\SettingPlayerTeamPresenter.cs" />
+    <Compile Include="Presenters\SettingSeasonPresenter.cs" />
     <Compile Include="Presenters\SettingTeamPresenter.cs" />
     <Compile Include="Presenters\TablePlayersMainPresenter.cs" />
     <Compile Include="Presenters\TablePlayerTeamPresenter.cs" />
@@ -174,6 +178,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IMatchView.cs" />
+    <Compile Include="Views\ISettingSeasonView.cs" />
+    <Compile Include="Views\ISeasonView.cs" />
     <Compile Include="Views\ITablePlayersMainView.cs" />
     <Compile Include="Views\Match\IMatchPlayersView.cs" />
     <Compile Include="Views\Match\ISettingPlayerTeamView.cs" />
@@ -187,6 +193,12 @@
     <Compile Include="Views\Team\ITeamView.cs" />
     <EmbeddedResource Include="Forms\Match\InsertMatchPlayers.resx">
       <DependentUpon>InsertMatchPlayers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Season\SeasonForm.resx">
+      <DependentUpon>SeasonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Season\SettingSeason.resx">
+      <DependentUpon>SettingSeason.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Team\SettingPlayerTeam.resx">
       <DependentUpon>SettingPlayerTeam.cs</DependentUpon>
