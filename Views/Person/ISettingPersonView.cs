@@ -8,5 +8,6 @@ namespace FNL.Views
 {
     public interface ISettingPersonView:IPersonView
     {
+        int RoleId { get; set; }
     }
 }

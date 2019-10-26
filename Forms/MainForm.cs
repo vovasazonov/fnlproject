@@ -440,7 +440,7 @@ namespace FNL
             if (isGuest)
             {
 
-                players = !isPairs ? (List<ITablePlayersMainView>)dataGridPlayersGuest.DataSource : null;
+                players = !isPairs ? ((List<ITablePlayersMainView>)dataGridPlayersGuest.DataSource) : null;
                 pairsPlayers = isPairs ? (List<ITablePlayersMainView>)dataGridPlayersPairsGuest.DataSource : null;
             }
             else
@@ -451,6 +451,21 @@ namespace FNL
 
             players = players ?? new List<ITablePlayersMainView>();
             pairsPlayers = pairsPlayers ?? new List<ITablePlayersMainView>();
+
+            // Get trainer of team.
+            var mainTrainer = players.Where(t => t.R == DictionaryRoles.RoleDic[DictionaryRoles.Roles.MainTrainer]).FirstOrDefault();
+
+            // Delete all people that not players.
+            players = players.Where(t => t.R == DictionaryRoles.RoleDic[DictionaryRoles.Roles.Player]).ToList();
+            pairsPlayers = pairsPlayers.Where(t => t.R == DictionaryRoles.RoleDic[DictionaryRoles.Roles.Player]).ToList();
+
+            // Set goalkeper to first position in list.
+            var goalKeper = players.Where(t => t.A == DictionaryAmpluas.AmpluaDic[DictionaryAmpluas.Ampluas.Goalkeeper]).FirstOrDefault();
+            if (goalKeper != null)
+            {
+                players.Remove(goalKeper);
+                players.Insert(0, goalKeper);
+            }
 
             /*
  Check for valid field values
@@ -471,6 +486,12 @@ namespace FNL
 
                 // Build season name.
                 _cgData.SetData("seasonName", SeasonName);
+
+                // Set main trainer of team.
+                _cgData.SetData("trainerName", string.Format("Главный тренер - {0} {1}", mainTrainer != null ? mainTrainer.FirstName : "", mainTrainer != null ? mainTrainer.LastName : ""));
+
+                // Set the amplua of first player goalkeper.
+                _cgData.SetData("ampluaPlayer1", "В");
 
                 // build data players.
                 if (!isPairs)
@@ -966,11 +987,11 @@ namespace FNL
             {
                 if (radioButtonGuest.Checked)
                 {
-                    UpdatePlayersCG(true,false);
+                    UpdatePlayersCG(true, false);
                 }
                 else if (radioButtonHome.Checked)
                 {
-                    UpdatePlayersCG(false,false);
+                    UpdatePlayersCG(false, false);
                 }
             }
 
@@ -983,11 +1004,11 @@ namespace FNL
             {
                 if (radioButtonGuest.Checked)
                 {
-                    UpdatePlayersCG(true,true);
+                    UpdatePlayersCG(true, true);
                 }
                 else if (radioButtonHome.Checked)
                 {
-                    UpdatePlayersCG(false,true);
+                    UpdatePlayersCG(false, true);
                 }
             }
 

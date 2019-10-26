@@ -15,8 +15,8 @@
 	public class WindowStartingLineup extends MovieClip {
 		
 		public var UpLine:MovieClip;
-		public var centerLine:MovieClip;
-		public var centerLineSmall:MovieClip;
+		public var CenterLine:MovieClip;
+		public var CenterLineSmall:MovieClip;
 		public var DownLine:MovieClip;
 		
 		// ---- 	Logo&Titles 	----
@@ -92,7 +92,7 @@
 		}
 		public function set nameTrainer(value:String):void 
 		{
-			centerLine.NameTrainer.text = value;
+			CenterLine.NameTrainer.text = value;
 			_nameTrainer = value;
 		}
 		public function set logoTeam(value:String):void 
@@ -131,230 +131,230 @@
 		}
 		public function set ampluaPlayer1(value:String):void 
 		{
-			centerLine.AmpluaPlayer1.text = value;
+			CenterLine.AmpluaPlayer1.text = value;
 			_ampluaPlayer1 = value;
 		}
 		public function set namePlayer1(value:String):void 
 		{
-			centerLine.NamePlayer1.text = value;
+			CenterLine.NamePlayer1.text = value;
 			_namePlayer1 = value;
 			
 			// Move amplua text.
-			centerLine.AmpluaPlayer1.x = centerLine.NamePlayer1.x + centerLine.NamePlayer1.textWidth + 10;
+			CenterLine.AmpluaPlayer1.x = CenterLine.NamePlayer1.x + CenterLine.NamePlayer1.textWidth + 10;
 		}
 		public function set namePlayer2(value:String):void 
 		{
-			centerLine.NamePlayer2.text = value;
+			CenterLine.NamePlayer2.text = value;
 			_namePlayer2 = value;
 		}
 		public function set namePlayer3(value:String):void 
 		{
-			centerLine.NamePlayer3.text = value;
+			CenterLine.NamePlayer3.text = value;
 			_namePlayer3 = value;
 		}
 		public function set namePlayer4(value:String):void 
 		{
-			centerLine.NamePlayer4.text = value;
+			CenterLine.NamePlayer4.text = value;
 			_namePlayer4 = value;
 		}
 		public function set namePlayer5(value:String):void 
 		{
-			centerLine.NamePlayer5.text = value;
+			CenterLine.NamePlayer5.text = value;
 			_namePlayer5 = value;
 		}
 		public function set namePlayer6(value:String):void 
 		{
-			centerLine.NamePlayer6.text = value;
+			CenterLine.NamePlayer6.text = value;
 			_namePlayer6 = value;
 		}
 		public function set namePlayer7(value:String):void 
 		{
-			centerLine.NamePlayer7.text = value;
+			CenterLine.NamePlayer7.text = value;
 			_namePlayer7 = value;
 		}
 		public function set namePlayer8(value:String):void 
 		{
-			centerLine.NamePlayer8.text = value;
+			CenterLine.NamePlayer8.text = value;
 			_namePlayer8 = value;
 		}
 		public function set namePlayer9(value:String):void 
 		{
-			centerLine.NamePlayer9.text = value;
+			CenterLine.NamePlayer9.text = value;
 			_namePlayer9 = value;
 		}
 		public function set namePlayer10(value:String):void 
 		{
-			centerLine.NamePlayer10.text = value;
+			CenterLine.NamePlayer10.text = value;
 			_namePlayer10 = value;
 		}
 		public function set namePlayer11(value:String):void 
 		{
-			centerLine.NamePlayer11.text = value;
+			CenterLine.NamePlayer11.text = value;
 			_namePlayer1 = value;
 		}
 		public function set numPlayer1(value:String):void 
 		{
-			centerLine.NumPlayer1.text = value;
+			CenterLine.NumPlayer1.text = value;
 			_numPlayer1 = value;
 		}
 		public function set numPlayer2(value:String):void 
 		{
-			centerLine.NumPlayer2.text = value;
+			CenterLine.NumPlayer2.text = value;
 			_numPlayer2 = value;
 		}
 		public function set numPlayer3(value:String):void 
 		{
-			centerLine.NumPlayer3.text = value;
+			CenterLine.NumPlayer3.text = value;
 			_numPlayer3 = value;
 		}
 		public function set numPlayer4(value:String):void 
 		{
-			centerLine.NumPlayer4.text = value;
+			CenterLine.NumPlayer4.text = value;
 			_numPlayer4 = value;
 		}
 		public function set numPlayer5(value:String):void 
 		{
-			centerLine.NumPlayer5.text = value;
+			CenterLine.NumPlayer5.text = value;
 			_numPlayer5 = value;
 		}
 		public function set numPlayer6(value:String):void 
 		{
-			centerLine.NumPlayer6.text = value;
+			CenterLine.NumPlayer6.text = value;
 			_numPlayer6 = value;
 		}
 		public function set numPlayer7(value:String):void 
 		{
-			centerLine.NumPlayer7.text = value;
+			CenterLine.NumPlayer7.text = value;
 			_numPlayer7 = value;
 		}
 		public function set numPlayer8(value:String):void 
 		{
-			centerLine.NumPlayer8.text = value;
+			CenterLine.NumPlayer8.text = value;
 			_numPlayer8 = value;
 		}
 		public function set numPlayer9(value:String):void 
 		{
-			centerLine.NumPlayer9.text = value;
+			CenterLine.NumPlayer9.text = value;
 			_numPlayer9 = value;
 		}
 		public function set numPlayer10(value:String):void 
 		{
-			centerLine.NumPlayer10.text = value;
+			CenterLine.NumPlayer10.text = value;
 			_numPlayer10 = value;
 		}
 		public function set numPlayer11(value:String):void 
 		{
-			centerLine.NumPlayer11.text = value;
+			CenterLine.NumPlayer11.text = value;
 			_numPlayer11 = value;
 		}
 		public function set nameSparePlayer1(value:String):void 
 		{
-			centerLineSmall.NamePlayer1.text = value;
+			CenterLineSmall.NamePlayer1.text = value;
 			_nameSparePlayer1 = value;
 		}
 		public function set nameSparePlayer2(value:String):void 
 		{
-			centerLineSmall.NamePlayer2.text = value;
+			CenterLineSmall.NamePlayer2.text = value;
 			_nameSparePlayer2 = value;
 		}
 		public function set nameSparePlayer3(value:String):void 
 		{
-			centerLineSmall.NamePlayer3.text = value;
+			CenterLineSmall.NamePlayer3.text = value;
 			_nameSparePlayer3 = value;
 		}
 		public function set nameSparePlayer4(value:String):void 
 		{
-			centerLineSmall.NamePlayer4.text = value;
+			CenterLineSmall.NamePlayer4.text = value;
 			_nameSparePlayer4 = value;
 		}
 		public function set nameSparePlayer5(value:String):void 
 		{
-			centerLineSmall.NamePlayer5.text = value;
+			CenterLineSmall.NamePlayer5.text = value;
 			_nameSparePlayer5 = value;
 		}
 		public function set nameSparePlayer6(value:String):void 
 		{
-			centerLineSmall.NamePlayer6.text = value;
+			CenterLineSmall.NamePlayer6.text = value;
 			_nameSparePlayer6 = value;
 		}
 		public function set nameSparePlayer7(value:String):void 
 		{
-			centerLineSmall.NamePlayer7.text = value;
+			CenterLineSmall.NamePlayer7.text = value;
 			_nameSparePlayer7 = value;
 		}
 		public function set nameSparePlayer8(value:String):void 
 		{
-			centerLineSmall.NamePlayer8.text = value;
+			CenterLineSmall.NamePlayer8.text = value;
 			_nameSparePlayer8 = value;
 		}
 		public function set nameSparePlayer9(value:String):void 
 		{
-			centerLineSmall.NamePlayer9.text = value;
+			CenterLineSmall.NamePlayer9.text = value;
 			_nameSparePlayer9 = value;
 		}
 		public function set nameSparePlayer10(value:String):void 
 		{
-			centerLineSmall.NamePlayer10.text = value;
+			CenterLineSmall.NamePlayer10.text = value;
 			_nameSparePlayer10 = value;
 		}
 		public function set nameSparePlayer11(value:String):void 
 		{
-			centerLineSmall.NamePlayer11.text = value;
+			CenterLineSmall.NamePlayer11.text = value;
 			_nameSparePlayer1 = value;
 		}
 		public function set numSparePlayer1(value:String):void 
 		{
-			centerLineSmall.NumPlayer1.text = value;
+			CenterLineSmall.NumPlayer1.text = value;
 			_numSparePlayer1 = value;
 		}
 		public function set numSparePlayer2(value:String):void 
 		{
-			centerLineSmall.NumPlayer2.text = value;
+			CenterLineSmall.NumPlayer2.text = value;
 			_numSparePlayer2 = value;
 		}
 		public function set numSparePlayer3(value:String):void 
 		{
-			centerLineSmall.NumPlayer3.text = value;
+			CenterLineSmall.NumPlayer3.text = value;
 			_numSparePlayer3 = value;
 		}
 		public function set numSparePlayer4(value:String):void 
 		{
-			centerLineSmall.NumPlayer4.text = value;
+			CenterLineSmall.NumPlayer4.text = value;
 			_numSparePlayer4 = value;
 		}
 		public function set numSparePlayer5(value:String):void 
 		{
-			centerLineSmall.NumPlayer5.text = value;
+			CenterLineSmall.NumPlayer5.text = value;
 			_numSparePlayer5 = value;
 		}
 		public function set numSparePlayer6(value:String):void 
 		{
-			centerLineSmall.NumPlayer6.text = value;
+			CenterLineSmall.NumPlayer6.text = value;
 			_numSparePlayer6 = value;
 		}
 		public function set numSparePlayer7(value:String):void 
 		{
-			centerLineSmall.NumPlayer7.text = value;
+			CenterLineSmall.NumPlayer7.text = value;
 			_numSparePlayer7 = value;
 		}
 		public function set numSparePlayer8(value:String):void 
 		{
-			centerLineSmall.NumPlayer8.text = value;
+			CenterLineSmall.NumPlayer8.text = value;
 			_numSparePlayer8 = value;
 		}
 		public function set numSparePlayer9(value:String):void 
 		{
-			centerLineSmall.NumPlayer9.text = value;
+			CenterLineSmall.NumPlayer9.text = value;
 			_numSparePlayer9 = value;
 		}
 		public function set numSparePlayer10(value:String):void 
 		{
-			centerLineSmall.NumPlayer10.text = value;
+			CenterLineSmall.NumPlayer10.text = value;
 			_numSparePlayer10 = value;
 		}
 		public function set numSparePlayer11(value:String):void 
 		{
-			centerLineSmall.NumPlayer11.text = value;
+			CenterLineSmall.NumPlayer11.text = value;
 			_numSparePlayer11 = value;
 		}
 		// ----- Set methods. -----

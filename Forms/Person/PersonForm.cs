@@ -24,8 +24,8 @@ namespace FNL.Forms
         public string Role { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         private SettingPlayerTeam _settingPlayerTeamForm;
-        private MatchPlayers _matchPlayersForm;
-        private CategoryTable _categoryTable;
+        //private MatchPlayers _matchPlayersForm;
+        //private CategoryTable _categoryTable;
         private bool _isEdit;
 
         public PersonForm()
@@ -45,15 +45,15 @@ namespace FNL.Forms
             UpdateTable();
         }
 
-        public PersonForm(MatchPlayers matchPlayersForm, CategoryTable category)
-        {
-            InitializeComponent();
+        //public PersonForm(MatchPlayers matchPlayersForm, CategoryTable category)
+        //{
+        //    InitializeComponent();
 
-            _matchPlayersForm = matchPlayersForm;
-            _categoryTable = category;
+        //    _matchPlayersForm = matchPlayersForm;
+        //    _categoryTable = category;
 
-            UpdateTable();
-        }
+        //    UpdateTable();
+        //}
 
 
         public void UpdateTable()
@@ -104,11 +104,11 @@ namespace FNL.Forms
                 _settingPlayerTeamForm.UpdateTable();
             }
 
-            if (_matchPlayersForm != null)
-            {
-                _matchPlayersForm.IdPerson = IdPerson;
-                _matchPlayersForm.InsertData(_categoryTable);
-            }
+            //if (_matchPlayersForm != null)
+            //{
+            //    _matchPlayersForm.IdPerson = IdPerson;
+            //    _matchPlayersForm.InsertData(_categoryTable);
+            //}
 
 
             this.Close();

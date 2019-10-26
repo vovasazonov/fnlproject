@@ -8,7 +8,7 @@ namespace FNL
 {
     static class DictionaryRoles
     {
-        static public readonly Dictionary<Roles, string> Role = new Dictionary<Roles, string>
+        static public readonly Dictionary<Roles, string> RoleDic = new Dictionary<Roles, string>
         {
             {Roles.Player,"Игрок" },
             {Roles.MainTrainer,"Главный тренер" },
@@ -20,16 +20,16 @@ namespace FNL
             {Roles.Delegat,"Делегат" }
         };
 
-        public enum Roles
+        public enum Roles : uint
         {
-            Player,
-            MainTrainer,
-            Commentator,
-            MainJudje,
-            HelperJudje,
-            PairJudje,
-            Inspector,
-            Delegat
+            Player = 7765731,
+            MainTrainer = 78768678,
+            Commentator = 3454366,
+            MainJudje = 47656567,
+            HelperJudje= 2342453,
+            PairJudje = 4354354,
+            Inspector = 345435345,
+            Delegat = 1233213
         }
     }
 }

@@ -55,6 +55,7 @@ namespace FNL.Presenters
             using (var db = new DbFnlContext())
             {
                 db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                CheckAmplua();
 
                 db.SaveChanges();
             }
@@ -67,8 +68,24 @@ namespace FNL.Presenters
             using (DbFnlContext db = new DbFnlContext())
             {
                 TeamPlayer model = GetModelFromView();
+                CheckAmplua();
                 db.TeamPlayers.Add(model);
                 db.SaveChanges();
+            }
+        }
+
+        private void CheckAmplua()
+        {
+            using (var db = new DbFnlContext())
+            {
+                var ampluaId = _view.IdAmplua;
+
+                if (!db.Ampluas.Where(t => t.AmpluaId == ampluaId).Any())
+                {
+                    // Add role to database first.
+                    db.Ampluas.Add(new Amplua { AmpluaId = (int)ampluaId, Name = DictionaryAmpluas.AmpluaDic[(DictionaryAmpluas.Ampluas)ampluaId] ?? "" });
+                    db.SaveChanges();
+                }
             }
         }
 

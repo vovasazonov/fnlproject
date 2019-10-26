@@ -28,7 +28,27 @@ namespace FNL.Forms
         public string Country { get => textCountryPerson.Text; set => textCountryPerson.Text = value; }
         public string City { get => textCityPerson.Text; set => textCityPerson.Text = value; }
         public string Role { get => comboBoxRole.Text; set => comboBoxRole.Text = value; }
-        
+        public int RoleId
+        {
+            get
+            {
+                DictionaryRoles.Roles id = DictionaryRoles.Roles.Player;
+
+                foreach (var item in DictionaryRoles.RoleDic)
+                {
+                    if (item.Value == Role)
+                    {
+                        id = item.Key;
+                    }
+                }
+                return (int)id;
+            }
+            set
+            {
+
+            }
+        }
+
         public SettingPerson()
         {
             InitializeComponent();
@@ -38,12 +58,6 @@ namespace FNL.Forms
         {
             InitializeComponent();
 
-            // Prepare combo box role.
-            foreach (var role in DictionaryRoles.Role)
-            {
-                comboBoxRole.Items.Insert((int)(DictionaryRoles.Roles)(role.Key), (string)role.Value);
-            }
-
             this._isEdit = isEdit;
             this._perosnForm = personForm;
 
@@ -52,6 +66,8 @@ namespace FNL.Forms
                 SettingPersonPresenter settingPersonPresenter = new SettingPersonPresenter(this);
                 settingPersonPresenter.ShowModelInView(IdPerson);
             }
+            comboBoxRole.Items.AddRange(DictionaryRoles.RoleDic.Values.ToArray());
+            comboBoxRole.SelectedIndex = 0;
         }
 
         private void buttonCanclePerson_Click(object sender, EventArgs e)

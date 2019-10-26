@@ -23,6 +23,10 @@ namespace FNL.Forms
 
             IdTeam = _settingTeam.IdTeam;
 
+            // Prepare combobox amplua
+            comboBoxAmplua.Items.AddRange(DictionaryAmpluas.AmpluaDic.Values.ToArray());
+            comboBoxAmplua.SelectedIndex = 0;
+
             SettingPlayerTeamPresenter presenterPlayerTeam = new SettingPlayerTeamPresenter(this);
 
             // Load only current person to table.
@@ -73,12 +77,31 @@ namespace FNL.Forms
         public string AmpluaName { get => comboBoxAmplua.Text; set => comboBoxAmplua.Text = value; }
         public string TeamName { get => comboBoxTeam.Text; set => comboBoxTeam.Text = value; }
         public int IdTeam { get; set; }
-        public int? IdAmplua { get; set; }
+        public int? IdAmplua
+        {
+            get
+            {
+                DictionaryAmpluas.Ampluas id = DictionaryAmpluas.Ampluas.Goalkeeper;
+
+                foreach (var item in DictionaryAmpluas.AmpluaDic)
+                {
+                    if (item.Value == Amplua)
+                    {
+                        id = item.Key;
+                    }
+                }
+                return (int)id;
+            }
+            set
+            {
+
+            }
+        }
         public string FirstName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string LastName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string MiddleName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Role { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Amplua { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Amplua { get => comboBoxAmplua.Text; set => comboBoxAmplua.Text = value; }
 
         public void UpdateTable()
         {

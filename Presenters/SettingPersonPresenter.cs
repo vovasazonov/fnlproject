@@ -36,6 +36,7 @@ namespace FNL.Presenters
                     personModel.FirstName = _view.FirstName;
                     personModel.LastName = _view.LastName;
                     personModel.MiddleName = _view.MiddleName;
+                    personModel.RoleId = _view.RoleId;
 
                 }
                 catch (Exception)
@@ -52,16 +53,34 @@ namespace FNL.Presenters
         /// </summary>
         public void InsertModelDB()
         {
+            CheckRole();
 
             using (DbFnlContext db = new DbFnlContext())
             {
                 Person pernosModel = GetModelFromView();
+
 
                 db.People.Add(pernosModel);
                 db.SaveChanges();
 
             }
 
+        }
+
+        private void CheckRole()
+        {
+            using (var db = new DbFnlContext())
+            {
+                var roleId = _view.RoleId;
+
+                if (!db.Roles.Where(t => t.RoleId == roleId).Any())
+                {
+                    // Add role to database first.
+                    db.Roles.Add(new Role { RoleId = roleId, Name = DictionaryRoles.RoleDic[(DictionaryRoles.Roles)roleId] ?? "" });
+                    var f = db.Roles.ToList();
+                    db.SaveChanges();
+                }
+            }
         }
 
         /// <summary>

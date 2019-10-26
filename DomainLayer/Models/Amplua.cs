@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelLayer.Models
 {
 	public class Amplua
 	{
-		public int AmpluaId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int AmpluaId { get; set; }
         [Required]
 		public string Name { get; set; }
 

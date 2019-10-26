@@ -48,32 +48,42 @@ namespace FNL.Forms
             dataGridGuestPlayers.DataSource = presenter.GetViews(CategoryTable.GuestTeam, _matchesForm.MatchId);
         }
 
-        public void InsertData(CategoryTable category)
+        public void InsertData(CategoryTable category, bool isPair = false)
         {
+
+            //if (category != CategoryTable.Actor)
+            //{
+            //    MatchPlayersPresenter presenter = new MatchPlayersPresenter(this);
+            //    //DialogResult result = MessageBox.Show(
+            //    //   "Данный игрок запасной?",
+            //    //   "Сообщение",
+            //    //   MessageBoxButtons.YesNo,
+            //    //   MessageBoxIcon.Information,
+            //    //   MessageBoxDefaultButton.Button1,
+            //    //   MessageBoxOptions.DefaultDesktopOnly);
+
+            //    //if (result == DialogResult.Yes)
+            //    //    IsSpare = true;
+            //    IsSpare = IsSpare;
+            //    presenter.InsertModelDB(category, _matchesForm.MatchId);
+
+            //}
+            //else
+            //{
+
+            //}
             MatchPlayersPresenter presenter = new MatchPlayersPresenter(this);
-
-            if (category != CategoryTable.Actor)
-            {
-                DialogResult result = MessageBox.Show(
-                   "Данный игрок запасной?",
-                   "Сообщение",
-                   MessageBoxButtons.YesNo,
-                   MessageBoxIcon.Information,
-                   MessageBoxDefaultButton.Button1,
-                   MessageBoxOptions.DefaultDesktopOnly);
-
-                if (result == DialogResult.Yes)
-                    IsSpare = true;
-
-            }
+            IsSpare = isPair;
             presenter.InsertModelDB(category, _matchesForm.MatchId);
+
             UpdateView();
         }
 
         private void buttonAddPlayerHome_Click(object sender, EventArgs e)
         {
             //IdPerson = ((List<IMatchPlayersView>)(dataGridHomePlayers.DataSource))[dataGridHomePlayers.CurrentRow.Index].IdPerson;
-            PersonForm personForm = new PersonForm(this, CategoryTable.HomeTeam);
+            //PersonForm personForm = new PersonForm(this, CategoryTable.HomeTeam);
+            InsertMatchPlayers personForm = new InsertMatchPlayers(this, CategoryTable.HomeTeam, _matchesForm.MatchId);
             personForm.Show();
 
         }
@@ -89,7 +99,9 @@ namespace FNL.Forms
         private void buttonAddPlayerGuest_Click(object sender, EventArgs e)
         {
             //IdPerson = ((List<IMatchPlayersView>)(dataGridGuestPlayers.DataSource))[dataGridGuestPlayers.CurrentRow.Index].IdPerson;
-            PersonForm personForm = new PersonForm(this, CategoryTable.GuestTeam);
+            //PersonForm personForm = new PersonForm(this, CategoryTable.GuestTeam);
+            //personForm.Show();
+            InsertMatchPlayers personForm = new InsertMatchPlayers(this, CategoryTable.GuestTeam, _matchesForm.MatchId);
             personForm.Show();
         }
 
@@ -104,16 +116,16 @@ namespace FNL.Forms
         private void buttonAddActor_Click(object sender, EventArgs e)
         {
             //IdPerson = ((List<IMatchPlayersView>)(dataGridActors.DataSource))[dataGridActors.CurrentRow.Index].IdPerson;
-            PersonForm personForm = new PersonForm(this, CategoryTable.Actor);
-            personForm.Show();
+            //PersonForm personForm = new PersonForm(this, CategoryTable.Actor);
+            //personForm.Show();
         }
 
         private void buttonDeleteActor_Click(object sender, EventArgs e)
         {
-            IdPerson = ((List<IMatchPlayersView>)(dataGridActors.DataSource))[dataGridActors.CurrentRow.Index].IdPerson;
-            MatchPlayersPresenter presenter = new MatchPlayersPresenter(this);
-            presenter.DeleteModelDB(CategoryTable.Actor, _matchesForm.MatchId);
-            UpdateView();
+            //IdPerson = ((List<IMatchPlayersView>)(dataGridActors.DataSource))[dataGridActors.CurrentRow.Index].IdPerson;
+            //MatchPlayersPresenter presenter = new MatchPlayersPresenter(this);
+            //presenter.DeleteModelDB(CategoryTable.Actor, _matchesForm.MatchId);
+            //UpdateView();
         }
     }
 }

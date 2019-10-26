@@ -8,14 +8,16 @@ namespace FNL
 {
     static class DictionaryAmpluas
     {
-        static readonly Dictionary<Ampluas, string> Role = new Dictionary<Ampluas, string>
+        static public readonly Dictionary<Ampluas, string> AmpluaDic = new Dictionary<Ampluas, string>
         {
+            {Ampluas.WithoutAmplua,"Без амплуа" },
             {Ampluas.Goalkeeper,"Вратарь" }
         };
 
-        enum Ampluas
+        public enum Ampluas : uint
         {
-            Goalkeeper
+            WithoutAmplua = 32432423,
+            Goalkeeper = 24343243
         }
     }
 }

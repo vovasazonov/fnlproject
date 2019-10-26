@@ -81,6 +81,7 @@
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Судьи и комментаторы";
+            this.groupBox3.Visible = false;
             // 
             // dataGridActors
             // 
