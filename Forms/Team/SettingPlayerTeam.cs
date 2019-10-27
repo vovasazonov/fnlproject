@@ -152,7 +152,7 @@ namespace FNL.Forms
 
             if (_isEdit)
             {
-                presenter.UpdateModelDB();
+                presenter.UpdateModelDB(_settingTeam.IdPerson);
             }
             else
             {

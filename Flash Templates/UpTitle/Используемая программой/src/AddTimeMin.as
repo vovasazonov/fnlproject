@@ -70,7 +70,7 @@
 			}
 			else
 			{
-				extraTimeLeft.xtf.text = "+ " + value.toString();
+				extraTimeLeft.xtf.text = "+" + value.toString();
 			}
 		}
 		

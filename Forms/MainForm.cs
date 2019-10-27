@@ -30,18 +30,92 @@ namespace FNL
         private DataView _team2Dv = new DataView();
 
         public int MatchId { get; set; }
-        public int GuestPlayerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int PairGuestPlayerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int HomePlayerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int PairHomePlayerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int GuestPlayerId
+        {
+            get
+            {
+                ITablePlayersMainView player = null;
+                if (dataGridPlayersGuest.CurrentRow != null)
+                {
+
+                    player = ((List<ITablePlayersMainView>)(dataGridPlayersGuest.DataSource))[dataGridPlayersGuest.CurrentRow.Index];
+                }
+                return player != null ? player.PersonId : -1;
+            }
+            set => throw new NotImplementedException();
+        }
+        public int PairGuestPlayerId
+        {
+            get
+            {
+                ITablePlayersMainView player = null;
+                if (dataGridPlayersPairsGuest.CurrentRow != null)
+                {
+
+                    player = ((List<ITablePlayersMainView>)(dataGridPlayersPairsGuest.DataSource))[dataGridPlayersPairsGuest.CurrentRow.Index];
+                }
+                return player != null ? player.PersonId : -1;
+            }
+            set => throw new NotImplementedException();
+        }
+        public int HomePlayerId
+        {
+            get
+            {
+                ITablePlayersMainView player = null;
+                if (dataGridPlayersHome.CurrentRow != null)
+                {
+                    player = ((List<ITablePlayersMainView>)(dataGridPlayersHome.DataSource))[dataGridPlayersHome.CurrentRow.Index];
+
+                }
+                return player != null ? player.PersonId : -1;
+            }
+            set => throw new NotImplementedException();
+        }
+        public int PairHomePlayerId
+        {
+            get
+            {
+                ITablePlayersMainView player = null;
+                if (dataGridPlayersPairsHome.CurrentRow != null)
+                {
+                    player = ((List<ITablePlayersMainView>)(dataGridPlayersPairsHome.DataSource))[dataGridPlayersPairsHome.CurrentRow.Index];
+
+                }
+                return player != null ? player.PersonId : -1;
+            }
+            set => throw new NotImplementedException();
+        }
         public string NameMatch { get => textNameMatch.Text; set => textNameMatch.Text = value; }
         public string NameGuest { get => textNameGuest.Text; set => textNameGuest.Text = value; }
         public string NameHome { get => textNameHome.Text; set => textNameHome.Text = value; }
         public Color ColorGuest { get => buttonColorTeamGuest.BackColor; set => buttonColorTeamGuest.BackColor = value; }
         public Color ColorHome { get => buttonColorTeamHome.BackColor; set => buttonColorTeamHome.BackColor = value; }
         public DateTime TimeMatch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int NumberTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int NumberHalfTime { get => (int)numHalfNum.Value ; set => numHalfNum.Value = value; }
         public string SeasonName { get; set; }
+        public string GoalsGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string TotalShotGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ShotTargetGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string CornerGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string OffsideGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string PassGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string AccuratePassGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string FoulGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string YellowTicketGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string RedTicketGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ChangeGuest { get => textChangeGuest.Text; set => textChangeGuest.Text = value; }
+        public string GoalsHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string TotalShotHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ShotTargetHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string CornerHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string OffsideHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string PassHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string AccuratePassHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string FoulHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string YellowTicketHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string RedTicketHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ChangeHome { get => textChangeHome.Text; set => textChangeHome.Text = value; }
 
         public MainForm()
         {
@@ -63,7 +137,20 @@ namespace FNL
 
             // Disable controls to click on button. There are not connection yet on start program.
             DisableControls();
+
+            dataGridPlayersGuest.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
+            dataGridPlayersPairsGuest.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
+            dataGridPlayersHome.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
+            dataGridPlayersPairsHome.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
+
         }
+
+        private void DataGridPlayers_CurrentCellChanged(object sender, EventArgs e)
+        {
+            MatchPresenter presenter = new MatchPresenter(this);
+            presenter.UpdateViewEvents();
+        }
+
 
         #region Connection CasparCG methods
         /// <summary>
@@ -160,14 +247,16 @@ namespace FNL
                 // Clear old data
                 _cgData.Clear();
 
+
+                var stringteam = Regex.Replace(NameGuest, @"\((.*)\)", String.Empty);
                 // build data
-                _cgData.SetData("team1Name", ""/*cb1Teams.SelectedValue.ToString()*/);
-                _cgData.SetData("team2Name", ""/*cb2Teams.SelectedValue.ToString()*/);
+                _cgData.SetData("team1Name", NameGuest);//Regex.Replace(NameGuest, @"\(([^)]+)\)", String.Empty));
+                _cgData.SetData("team2Name", NameHome);// Regex.Replace(NameHome, @"\(([^)]+)\)", String.Empty));
                 _cgData.SetData("team1Score", tBScoreTeam1.Text);
                 _cgData.SetData("team2Score", tBScoreTeam2.Text);
                 _cgData.SetData("team1Color", buttonColorTeamGuest.BackColor.ToArgb().ToString());
                 _cgData.SetData("team2Color", buttonColorTeamHome.BackColor.ToArgb().ToString());
-                _cgData.SetData("halfNum", Convert.ToString(numHalfNum.Value));
+                _cgData.SetData("halfNum", Convert.ToString(NumberHalfTime));
                 _cgData.SetData("gameTime", this.GetGameTimeCGData());
                 _cgData.SetData("overtime", Convert.ToString(numOvertime.Value));
 
@@ -298,8 +387,8 @@ namespace FNL
 
                 // build data
                 // Choose only what is in brackets. Short team name.
-                _cgData.SetData("team1Name", Regex.Replace(NameGuest, @"\([^)]+\)\.", String.Empty));
-                _cgData.SetData("team2Name", Regex.Replace(NameHome, @"\([^)]+\)\.", String.Empty));
+                _cgData.SetData("team1Name", NameGuest);// Regex.Replace(NameGuest, @"\(([^)]+)\)", String.Empty));
+                _cgData.SetData("team2Name", NameHome);// Regex.Replace(NameHome, @"\(([^)]+)\)", String.Empty));
             }
             catch
             {
@@ -422,6 +511,70 @@ namespace FNL
             }
         }
 
+        private void UpdateReplacementCG(bool isGuest)
+        {
+            MatchPresenter presenter = new MatchPresenter(this);
+
+            ITablePlayersMainView player = null;
+            ITablePlayersMainView pairPlayer = null;
+
+            if (isGuest)
+            {
+                player = ((List<ITablePlayersMainView>)dataGridPlayersGuest.DataSource)[dataGridPlayersGuest.CurrentRow.Index];
+                pairPlayer = ((List<ITablePlayersMainView>)dataGridPlayersPairsGuest.DataSource)[dataGridPlayersPairsGuest.CurrentRow.Index];
+            }
+            else
+            {
+                player = ((List<ITablePlayersMainView>)dataGridPlayersHome.DataSource)[dataGridPlayersHome.CurrentRow.Index];
+                pairPlayer = ((List<ITablePlayersMainView>)dataGridPlayersPairsHome.DataSource)[dataGridPlayersPairsHome.CurrentRow.Index];
+            }
+
+            try
+            {
+                // Clear old data
+                _cgData.Clear();
+
+                // buid logo
+                _cgData.SetData("replacementTeamLogoPath", presenter.GetLogoPathTeam(isGuest));
+
+                // Build names and numbers players that are replacementing.
+                _cgData.SetData("nameRedLine", string.Format("{0} {1}", player.FirstName, player.LastName));
+                _cgData.SetData("numberRedLine", player.N.ToString());
+                _cgData.SetData("nameGreenLine", string.Format("{0} {1}", pairPlayer.FirstName, pairPlayer.LastName));
+                _cgData.SetData("numberGreenLine", pairPlayer.N.ToString());
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
+                }
+            }
+        }
+
+        private void ShowHideReplacementCG()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "ReplacementShowHide");
+                }
+            }
+        }
         /// <summary>
         /// Update data of players in Caspar CG. 
         /// Chose between guest or home team indepences 
@@ -563,7 +716,7 @@ namespace FNL
             }
         }
 
-        private void ShowHidePlayers()
+        private void ShowHidePlayersCG()
         {
             try
             {
@@ -581,7 +734,7 @@ namespace FNL
                 }
             }
         }
-        private void ShowHideSparePlayers()
+        private void ShowHidePairsPlayers()
         {
             try
             {
@@ -688,7 +841,7 @@ namespace FNL
                 _cgData.Clear();
 
                 // build data
-                _cgData.SetData("halfNum", Convert.ToString(numHalfNum.Value));
+                _cgData.SetData("halfNum", Convert.ToString(NumberHalfTime));
             }
             catch
             {
@@ -995,7 +1148,7 @@ namespace FNL
                 }
             }
 
-            ShowHidePlayers();
+            ShowHidePlayersCG();
         }
 
         private void checkBoxListPairsPlayers_CheckedChanged(object sender, EventArgs e)
@@ -1012,9 +1165,39 @@ namespace FNL
                 }
             }
 
-            ShowHideSparePlayers();
+            ShowHidePairsPlayers();
         }
 
+        private void btnMinChangeGuest_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnAddChangeGuest_Click(object sender, EventArgs e)
+        {
+            MatchPresenter presenter = new MatchPresenter(this);
+            presenter.Replacement(true);
+
+            UpdateReplacementCG(true);
+            ShowHideReplacementCG();
+
+            UpdateView();
+        }
+
+        private void btnAddChangeHome_Click(object sender, EventArgs e)
+        {
+            MatchPresenter presenter = new MatchPresenter(this);
+            presenter.Replacement(false);
+
+            UpdateReplacementCG(false);
+            ShowHideReplacementCG();
+
+            UpdateView();
+        }
+
+        private void btnMinChangeHome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

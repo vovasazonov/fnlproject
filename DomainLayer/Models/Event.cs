@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelLayer.Models
 {
 	public class Event
 	{
-		public int EventId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int EventId { get; set; }
         [Required]
 		public string Name { get; set; }
 

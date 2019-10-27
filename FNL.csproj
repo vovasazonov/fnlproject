@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dictionarys\DictionaryEvents.cs" />
     <Compile Include="Dictionarys\DictionaryAmpluas.cs" />
     <Compile Include="Dictionarys\DictionaryRoles.cs" />
     <Compile Include="Football.Designer.cs">

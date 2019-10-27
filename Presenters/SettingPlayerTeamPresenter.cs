@@ -48,12 +48,13 @@ namespace FNL.Presenters
         /// <summary>
         /// Update info of player in team.
         /// </summary>
-        public void UpdateModelDB()
+        public void UpdateModelDB(int idPerson)
         {
-            TeamPlayer model = GetModelFromView();
-
             using (var db = new DbFnlContext())
             {
+                TeamPlayer model = model = db.TeamPlayers.Where(t => t.TeamId == _view.IdTeam && t.PersonId == idPerson).FirstOrDefault();
+                model.NumberPlayer = _view.Number;
+                model.AmpluaId = _view.IdAmplua;
                 db.Entry(model).State = System.Data.Entity.EntityState.Modified;
                 CheckAmplua();
 

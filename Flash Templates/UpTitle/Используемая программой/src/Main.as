@@ -10,10 +10,10 @@
 	{
 		// ------------------ Layers ------------------
 		public var up_title:background;
-		public var up_ltimer:AddTimeMin; //up_ltimer - is the whole object, AddTimeMin - layer.
+		public var up_ltimer:AddTimeMin; //up_ltimer - is the whole object (name of object created by symbol in layer), AddTimeMin - script name of symbol.
 		public var up_change:change;
 		public var winStartLineup:WindowStartingLineup;
-
+		public var replacement:replacementPlayers;
 		// ------------------ Layers ------------------
 		
 		// ------------------ Booleans ------------------
@@ -275,6 +275,28 @@
 					winStartLineup.numSparePlayer11 = element.data.@value;
 				}
 				// ----- WindowStartingLineup -----
+				// ----- replacementPlayers -----
+				if(element.@id == "nameRedLine")
+				{
+					replacement.nameRedLine = element.data.@value;
+				}
+				if(element.@id == "numberRedLine")
+				{
+					replacement.numberRedLine = element.data.@value;
+				}
+				if(element.@id == "nameGreenLine")
+				{
+					replacement.nameGreenLine = element.data.@value;
+				}
+				if(element.@id == "numberGreenLine")
+				{
+					replacement.numberGreenLine = element.data.@value;
+				}
+				if(element.@id == "replacementTeamLogoPath") 
+				{
+					replacement.logoTeam = element.data.@value;
+				}
+				// ----- replacementPlayers -----
 
 			}
 		}
@@ -404,7 +426,12 @@
 			}
 		}
 		// ----- WindowStartingLineup -----
-		
+		// ----- replacementPlayers -----
+		public function ReplacementShowHide():void
+		{
+			replacement.ReplacementShow();
+		}
+		// ----- replacementPlayers -----
 	}
 	
 }
