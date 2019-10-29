@@ -46,6 +46,9 @@
       <HintPath>CasparCG\Interop.ShockwaveFlashObjects.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Svt.Caspar">
       <HintPath>CasparCG\Svt.Caspar.dll</HintPath>
     </Reference>
@@ -75,7 +78,7 @@
     <Compile Include="Dictionarys\DictionaryAmpluas.cs" />
     <Compile Include="Dictionarys\DictionaryRoles.cs" />
     <Compile Include="Enums\AmpluaType.cs" />
-    <Compile Include="Enums\TablePersonType.cs" />
+    <Compile Include="Enums\PersonAccessory.cs" />
     <Compile Include="Enums\EventMatchType.cs" />
     <Compile Include="Enums\RoleType.cs" />
     <Compile Include="Football.Designer.cs">
@@ -167,6 +170,7 @@
     <Compile Include="Forms\Team\TeamsForm.Designer.cs">
       <DependentUpon>TeamsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logger.cs" />
     <Compile Include="Presenters\InsertMatchPlayersPresenter.cs" />
     <Compile Include="Presenters\MatchPlayersPresenter.cs" />
     <Compile Include="Presenters\MatchPresenter.cs" />

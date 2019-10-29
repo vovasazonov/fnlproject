@@ -20,7 +20,7 @@ namespace FNL.Forms
         //    InitializeComponent();
         //}
 
-        public InsertMatchPlayers(MatchPlayers matchPlayersForm, TablePersonType category, int matchId)
+        public InsertMatchPlayers(MatchPlayers matchPlayersForm, PersonAccessory category, int matchId)
         {
             InitializeComponent();
 
@@ -32,7 +32,7 @@ namespace FNL.Forms
         }
 
         private MatchPlayers _matchPlayersForm;
-        private TablePersonType _categoryTable;
+        private PersonAccessory _categoryTable;
         private int _matchId;
 
         public int PersonId { get=> ((List<ITablePlayersMainView>)(dataGridPlayers.DataSource))[dataGridPlayers.CurrentRow.Index].PersonId; set => throw new NotImplementedException(); }

@@ -48,12 +48,36 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
+            this.comboMainJudje = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboHelperJudje1 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboHelperJudje2 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboPairJudje = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboInspector = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboDelegat = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.comboDelegat);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.comboInspector);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.comboPairJudje);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.comboHelperJudje2);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.comboHelperJudje1);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.comboMainJudje);
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.textNameMatch);
             this.panel1.Controls.Add(this.comboCommentator2);
             this.panel1.Controls.Add(this.comboCommentator1);
@@ -72,7 +96,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 42);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 222);
+            this.panel1.Size = new System.Drawing.Size(267, 384);
             this.panel1.TabIndex = 0;
             // 
             // textNameMatch
@@ -244,11 +268,113 @@
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
+            // comboMainJudje
+            // 
+            this.comboMainJudje.FormattingEnabled = true;
+            this.comboMainJudje.Location = new System.Drawing.Point(109, 219);
+            this.comboMainJudje.Name = "comboMainJudje";
+            this.comboMainJudje.Size = new System.Drawing.Size(145, 21);
+            this.comboMainJudje.TabIndex = 18;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(16, 222);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(83, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Главный судья";
+            // 
+            // comboHelperJudje1
+            // 
+            this.comboHelperJudje1.FormattingEnabled = true;
+            this.comboHelperJudje1.Location = new System.Drawing.Point(109, 246);
+            this.comboHelperJudje1.Name = "comboHelperJudje1";
+            this.comboHelperJudje1.Size = new System.Drawing.Size(145, 21);
+            this.comboHelperJudje1.TabIndex = 20;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 249);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(71, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Помощник 1";
+            // 
+            // comboHelperJudje2
+            // 
+            this.comboHelperJudje2.FormattingEnabled = true;
+            this.comboHelperJudje2.Location = new System.Drawing.Point(109, 273);
+            this.comboHelperJudje2.Name = "comboHelperJudje2";
+            this.comboHelperJudje2.Size = new System.Drawing.Size(145, 21);
+            this.comboHelperJudje2.TabIndex = 22;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(28, 276);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 13);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Помощник 2";
+            // 
+            // comboPairJudje
+            // 
+            this.comboPairJudje.FormattingEnabled = true;
+            this.comboPairJudje.Location = new System.Drawing.Point(109, 300);
+            this.comboPairJudje.Name = "comboPairJudje";
+            this.comboPairJudje.Size = new System.Drawing.Size(145, 21);
+            this.comboPairJudje.TabIndex = 24;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 303);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 13);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Резервный судья";
+            // 
+            // comboInspector
+            // 
+            this.comboInspector.FormattingEnabled = true;
+            this.comboInspector.Location = new System.Drawing.Point(109, 327);
+            this.comboInspector.Name = "comboInspector";
+            this.comboInspector.Size = new System.Drawing.Size(145, 21);
+            this.comboInspector.TabIndex = 26;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(37, 330);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(62, 13);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "Инспектор";
+            // 
+            // comboDelegat
+            // 
+            this.comboDelegat.FormattingEnabled = true;
+            this.comboDelegat.Location = new System.Drawing.Point(109, 354);
+            this.comboDelegat.Name = "comboDelegat";
+            this.comboDelegat.Size = new System.Drawing.Size(145, 21);
+            this.comboDelegat.TabIndex = 28;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(49, 357);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(50, 13);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Делегат";
+            // 
             // SettingMatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 271);
+            this.ClientSize = new System.Drawing.Size(284, 435);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "SettingMatch";
@@ -282,5 +408,17 @@
 		private System.Windows.Forms.Button buttonCancel;
 		private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.TextBox textNameMatch;
+        private System.Windows.Forms.ComboBox comboDelegat;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboInspector;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox comboPairJudje;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboHelperJudje2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboHelperJudje1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboMainJudje;
+        private System.Windows.Forms.Label label9;
     }
 }

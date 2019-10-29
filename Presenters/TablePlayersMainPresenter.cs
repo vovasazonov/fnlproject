@@ -13,9 +13,9 @@ namespace FNL.Presenters
     public class TablePlayersMainPresenter
     {
 
-        public List<ITablePlayersMainView> GetViews(int matchId, TablePersonType category, bool isSpare)
+        public List<ITablePlayersMainView> GetViews(int matchId, PersonAccessory category, bool isSpare)
         {
-            if (category == TablePersonType.Actor)
+            if (category == PersonAccessory.FaceMatch)
             {
                 return null;
             }
@@ -25,7 +25,7 @@ namespace FNL.Presenters
             using (DbFnlContext db = new DbFnlContext())
             {
                 var currentMatch = db.Matches.Where(m => m.MatchId == matchId).FirstOrDefault();
-                int? idTeam = category == TablePersonType.GuestTeam ? currentMatch.TeamGuestId : currentMatch.TeamOwnerId;
+                int? idTeam = category == PersonAccessory.GuestTeam ? currentMatch.TeamGuestId : currentMatch.TeamOwnerId;
 
                 if (idTeam == null)
                 {
@@ -63,7 +63,7 @@ namespace FNL.Presenters
         /// <param name="category"></param>
         /// <param name="isSpare"></param>
         /// <returns></returns>
-        public List<ITablePlayersMainView> GetViewsNotChosed(int matchId, TablePersonType category)
+        public List<ITablePlayersMainView> GetViewsNotChosed(int matchId, PersonAccessory category)
         {
             List<ITablePlayersMainView> views = new List<ITablePlayersMainView>();
 
@@ -71,7 +71,7 @@ namespace FNL.Presenters
             {
                 // ---------------------------------
                 var currentMatch = db.Matches.Where(m => m.MatchId == matchId).FirstOrDefault();
-                int? idTeam = category == TablePersonType.GuestTeam ? currentMatch.TeamGuestId : currentMatch.TeamOwnerId;
+                int? idTeam = category == PersonAccessory.GuestTeam ? currentMatch.TeamGuestId : currentMatch.TeamOwnerId;
 
                 if (idTeam == null)
                 {

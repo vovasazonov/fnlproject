@@ -275,6 +275,77 @@
 				{
 					winStartLineup.numSparePlayer11 = element.data.@value;
 				}
+				if(element.@id == "titleMainJudje")
+				{
+					winStartLineup.titleMainJudje = element.data.@value;
+				}
+				if(element.@id == "titleHelperJudje")
+				{
+					winStartLineup.titleHelperJudje = element.data.@value;
+				}
+				if(element.@id == "titlePairJudje")
+				{
+					winStartLineup.titlePairJudje = element.data.@value;
+				}
+				if(element.@id == "titleInsepcotor")
+				{
+					winStartLineup.titleInsepcotor = element.data.@value;
+				}
+				if(element.@id == "titleDelegat")
+				{
+					winStartLineup.titleDelegat = element.data.@value;
+				}
+				
+				if(element.@id == "nameMainJudje")
+				{
+					winStartLineup.nameMainJudje = element.data.@value;
+				}
+				if(element.@id == "nameHelperJudje1")
+				{
+					winStartLineup.nameHelperJudje1 = element.data.@value;
+				}
+				if(element.@id == "nameHelperJudje2")
+				{
+					winStartLineup.nameHelperJudje2 = element.data.@value;
+				}
+				if(element.@id == "namePairJudje")
+				{
+					winStartLineup.namePairJudje = element.data.@value;
+				}
+				if(element.@id == "nameInsepcotor")
+				{
+					winStartLineup.nameInsepcotor = element.data.@value;
+				}
+				if(element.@id == "nameDelegat")
+				{
+					winStartLineup.nameDelegat = element.data.@value;
+				}
+				
+				if(element.@id == "cityMainJudje")
+				{
+					winStartLineup.cityMainJudje = element.data.@value;
+				}
+				if(element.@id == "cityHelperJudje1")
+				{
+					winStartLineup.nameHelperJudje1 = element.data.@value;
+				}
+				if(element.@id == "cityHelperJudje2")
+				{
+					winStartLineup.cityHelperJudje2 = element.data.@value;
+				}
+				if(element.@id == "cityPairJudje")
+				{
+					winStartLineup.cityPairJudje = element.data.@value;
+				}
+				if(element.@id == "cityInsepcotor")
+				{
+					winStartLineup.cityInsepcotor = element.data.@value;
+				}
+				if(element.@id == "cityDelegat")
+				{
+					winStartLineup.cityDelegat = element.data.@value;
+				}
+				
 				// ----- WindowStartingLineup -----
 				// ----- replacementPlayers -----
 				if(element.@id == "nameRedLine")

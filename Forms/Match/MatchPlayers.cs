@@ -44,12 +44,12 @@ namespace FNL.Forms
             // Update tables
             MatchPlayersPresenter presenter = new MatchPlayersPresenter(this);
             // Set table with data from database.
-            dataGridActors.DataSource = presenter.GetViews(TablePersonType.Actor, _matchesForm.MatchId);
-            dataGridHomePlayers.DataSource = presenter.GetViews(TablePersonType.HomeTeam, _matchesForm.MatchId);
-            dataGridGuestPlayers.DataSource = presenter.GetViews(TablePersonType.GuestTeam, _matchesForm.MatchId);
+            dataGridActors.DataSource = presenter.GetViews(PersonAccessory.FaceMatch, _matchesForm.MatchId);
+            dataGridHomePlayers.DataSource = presenter.GetViews(PersonAccessory.HomeTeam, _matchesForm.MatchId);
+            dataGridGuestPlayers.DataSource = presenter.GetViews(PersonAccessory.GuestTeam, _matchesForm.MatchId);
         }
 
-        public void InsertData(TablePersonType category, bool isPair = false)
+        public void InsertData(PersonAccessory category, bool isPair = false)
         {
 
             //if (category != CategoryTable.Actor)
@@ -84,7 +84,7 @@ namespace FNL.Forms
         {
             //IdPerson = ((List<IMatchPlayersView>)(dataGridHomePlayers.DataSource))[dataGridHomePlayers.CurrentRow.Index].IdPerson;
             //PersonForm personForm = new PersonForm(this, CategoryTable.HomeTeam);
-            InsertMatchPlayers personForm = new InsertMatchPlayers(this, TablePersonType.HomeTeam, _matchesForm.MatchId);
+            InsertMatchPlayers personForm = new InsertMatchPlayers(this, PersonAccessory.HomeTeam, _matchesForm.MatchId);
             personForm.Show();
 
         }
@@ -93,7 +93,7 @@ namespace FNL.Forms
         {
             IdPerson = ((List<IMatchPlayersView>)(dataGridHomePlayers.DataSource))[dataGridHomePlayers.CurrentRow.Index].IdPerson;
             MatchPlayersPresenter presenter = new MatchPlayersPresenter(this);
-            presenter.DeleteModelDB(TablePersonType.HomeTeam, _matchesForm.MatchId);
+            presenter.DeleteModelDB(PersonAccessory.HomeTeam, _matchesForm.MatchId);
             UpdateView();
         }
 
@@ -102,7 +102,7 @@ namespace FNL.Forms
             //IdPerson = ((List<IMatchPlayersView>)(dataGridGuestPlayers.DataSource))[dataGridGuestPlayers.CurrentRow.Index].IdPerson;
             //PersonForm personForm = new PersonForm(this, CategoryTable.GuestTeam);
             //personForm.Show();
-            InsertMatchPlayers personForm = new InsertMatchPlayers(this, TablePersonType.GuestTeam, _matchesForm.MatchId);
+            InsertMatchPlayers personForm = new InsertMatchPlayers(this, PersonAccessory.GuestTeam, _matchesForm.MatchId);
             personForm.Show();
         }
 
@@ -110,7 +110,7 @@ namespace FNL.Forms
         {
             IdPerson = ((List<IMatchPlayersView>)(dataGridGuestPlayers.DataSource))[dataGridGuestPlayers.CurrentRow.Index].IdPerson;
             MatchPlayersPresenter presenter = new MatchPlayersPresenter(this);
-            presenter.DeleteModelDB(TablePersonType.GuestTeam, _matchesForm.MatchId);
+            presenter.DeleteModelDB(PersonAccessory.GuestTeam, _matchesForm.MatchId);
             UpdateView();
         }
 

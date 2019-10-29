@@ -23,14 +23,12 @@ namespace FNL
     {
         private delegate void UpdateGUI(object parameter);
 
+        #region CasparCG values.
         private CasparDevice _caspar_ = new CasparDevice();
         private CasparCGDataCollection _cgData = new CasparCGDataCollection();
+        #endregion
 
-        //private DataSet _teamsDs = new DataSet();
-        private DataTable _teamsDt = new DataTable("TEAMS");
-        private DataView _team1Dv = new DataView();
-        private DataView _team2Dv = new DataView();
-
+        #region View value.
         public int MatchId { get; set; }
         public int GuestPlayerId
         {
@@ -94,7 +92,7 @@ namespace FNL
         public Color ColorGuest { get => buttonColorTeamGuest.BackColor; set => buttonColorTeamGuest.BackColor = value; }
         public Color ColorHome { get => buttonColorTeamHome.BackColor; set => buttonColorTeamHome.BackColor = value; }
         public DateTime TimeMatch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int NumberHalfTime { get => (int)numHalfNum.Value ; set => numHalfNum.Value = value; }
+        public int NumberHalfTime { get => (int)numHalfNum.Value; set => numHalfNum.Value = value; }
         public string SeasonName { get; set; }
         public string GoalsGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string TotalShotGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -118,24 +116,15 @@ namespace FNL
         public string YellowTicketHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string RedTicketHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string ChangeHome { get => textChangeHome.Text; set => textChangeHome.Text = value; }
+        #endregion
 
         public MainForm()
         {
             InitializeComponent();
 
-            _team1Dv.Table = _teamsDt;
-            _team2Dv.Table = _teamsDt;
-            //cb1Teams.DataSource = _team1Dv;
-            //cb2Teams.DataSource = _team2Dv;
-
-            InitDatatable();
-            FillDatatable();
-
             _caspar_.Connected += new EventHandler<NetworkEventArgs>(Caspar__Connected);
             _caspar_.FailedConnect += new EventHandler<NetworkEventArgs>(Caspar__FailedConnected);
             _caspar_.Disconnected += new EventHandler<NetworkEventArgs>(Caspar__Disconnected);
-
-            //this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
 
             // Disable controls to click on button. There are not connection yet on start program.
             DisableControls();
@@ -145,16 +134,24 @@ namespace FNL
             dataGridPlayersHome.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
             dataGridPlayersPairsHome.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
 
+            Logger.InitLogger();//инициализация - требуется один раз в начале
+            Logger.Log.Info("Ура заработало!");
+            Logger.Log.Error("Ошибочка вышла!");
+            try
+            {
+                int i = 5;
+                int d = 0;
+                var t = i/d;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log.Error("Ошибка деление на нуль", ex);
+            }
         }
 
-        private void DataGridPlayers_CurrentCellChanged(object sender, EventArgs e)
-        {
-            MatchPresenter presenter = new MatchPresenter(this);
-            presenter.UpdateViewEvents();
-        }
 
 
-        #region Connection CasparCG methods
+        #region Connection CasparCG methods.
         /// <summary>
         /// Method that call for caspar cg when it connected.
         /// </summary>
@@ -230,7 +227,7 @@ namespace FNL
         }
         #endregion
 
-        #region Graphic
+        #region Graphic CasparCG.
         /// <summary>
         /// Start graphic and set data to cgData.
         /// </summary>
@@ -249,11 +246,9 @@ namespace FNL
                 // Clear old data
                 _cgData.Clear();
 
-
-                var stringteam = Regex.Replace(NameGuest, @"\((.*)\)", String.Empty);
                 // build data
-                _cgData.SetData("team1Name", NameGuest);//Regex.Replace(NameGuest, @"\(([^)]+)\)", String.Empty));
-                _cgData.SetData("team2Name", NameHome);// Regex.Replace(NameHome, @"\(([^)]+)\)", String.Empty));
+                _cgData.SetData("team1Name", NameGuest);
+                _cgData.SetData("team2Name", NameHome);
                 _cgData.SetData("team1Score", tBScoreTeam1.Text);
                 _cgData.SetData("team2Score", tBScoreTeam2.Text);
                 _cgData.SetData("team1Color", buttonColorTeamGuest.BackColor.ToArgb().ToString());
@@ -298,47 +293,20 @@ namespace FNL
         }
         #endregion
 
-        #region Datatable mathods
-        private void InitDatatable()
+        /// <summary>
+        /// Update the values view of events.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGridPlayers_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (_teamsDt.Columns.Count == 0)
-            {
-                _teamsDt.Columns.Add("TeamNameAbbrevation");
-                _teamsDt.Columns[0].DataType = System.Type.GetType("System.String");
-                _teamsDt.Columns.Add("TeamNameFull");
-                _teamsDt.Columns[0].DataType = System.Type.GetType("System.String");
-            }
-
-            //cb1Teams.ValueMember = "TeamNameAbbrevation";
-            //cb1Teams.DisplayMember = "TeamNameFull";
-
-            //cb2Teams.ValueMember = "TeamNameAbbrevation";
-            //cb2Teams.DisplayMember = "TeamNameFull";
+            MatchPresenter presenter = new MatchPresenter(this);
+            presenter.UpdateViewEvents();
         }
 
-        private void FillDatatable()
-        {
-            DataRow relation;
-            // Declare the array variable.
-            object[] rowArray = new object[2];
-            // Create 10 new rows and add to DataRowCollection.
-            for (int i = 0; i < Properties.Settings.Default.Teams.Count; i++)
-            {
-                String[] teamDescription = Properties.Settings.Default.Teams[i].Split((new Char[] { '#', ',' }));
-                if (teamDescription.Length == 2)
-                {
-                    rowArray[0] = teamDescription[0];
-                    rowArray[1] = teamDescription[1];
-                    relation = _teamsDt.NewRow();
-                    relation.ItemArray = rowArray;
-                    _teamsDt.Rows.Add(relation);
-                }
-            }
-        }
 
-        #endregion
 
-        #region Other methods.
+
         /// <summary>
         /// Disable controls in tub of form.
         /// </summary>
@@ -584,21 +552,28 @@ namespace FNL
         /// </summary>
         /// <param name="isGuest"></param>
         /// /// <param name="isPairs"></param>
-        private void UpdatePlayersCG(bool isGuest, bool isPairs)
+        private void UpdatePlayersCG(PersonAccessory accessory/*bool isGuest*/, bool isPairs = false)
         {
             List<ITablePlayersMainView> players = new List<ITablePlayersMainView>();
             List<ITablePlayersMainView> pairsPlayers = new List<ITablePlayersMainView>();
             string logoPath;
 
             MatchPresenter presenter = new MatchPresenter(this);
-            logoPath = presenter.GetLogoPathTeam(isGuest);
-            if (isGuest)
+            if (accessory == PersonAccessory.FaceMatch)
+            {
+                logoPath = "";
+            }
+            else
+            {
+                logoPath = presenter.GetLogoPathTeam(accessory == PersonAccessory.GuestTeam ? true : false);
+            }
+            if (accessory == PersonAccessory.GuestTeam)
             {
 
                 players = !isPairs ? ((List<ITablePlayersMainView>)dataGridPlayersGuest.DataSource) : null;
                 pairsPlayers = isPairs ? (List<ITablePlayersMainView>)dataGridPlayersPairsGuest.DataSource : null;
             }
-            else
+            else if (accessory == PersonAccessory.HomeTeam)
             {
                 players = !isPairs ? (List<ITablePlayersMainView>)dataGridPlayersHome.DataSource : null;
                 pairsPlayers = isPairs ? (List<ITablePlayersMainView>)dataGridPlayersPairsHome.DataSource : null;
@@ -622,12 +597,6 @@ namespace FNL
                 players.Insert(0, goalKeper);
             }
 
-            /*
- Check for valid field values
- */
-            // Change goalkeeper with classic player. Goalkeeper need to be in first place in list.
-            // Здесь код для перестановки вратаря на первое место.
-
             try
             {
                 // Clear old data
@@ -637,7 +606,7 @@ namespace FNL
                 _cgData.SetData("teamLogoPath", logoPath);
 
                 // Build title.
-                _cgData.SetData("titleName", isPairs ? "ЗАПАСНЫЕ" : "СТАРТОВЫЙ СОСТВА");
+                _cgData.SetData("titleName", accessory == PersonAccessory.FaceMatch ? "ОФИЦИАЛЬНЫЕ ЛИЦА МАТЧА" : (isPairs ? "ЗАПАСНЫЕ" : "СТАРТОВЫЙ СОСТВА"));
 
                 // Build season name.
                 _cgData.SetData("seasonName", SeasonName);
@@ -649,58 +618,47 @@ namespace FNL
                 _cgData.SetData("ampluaPlayer1", "В");
 
                 // build data players.
-                if (!isPairs)
+                if (!isPairs || accessory != PersonAccessory.FaceMatch)
                 {
-                    _cgData.SetData("namePlayer1", players.Count() > 0 ? players[0].FirstName + " " + players[0].LastName : " ");
-                    _cgData.SetData("namePlayer2", players.Count() > 1 ? players[1].FirstName + " " + players[1].LastName : " ");
-                    _cgData.SetData("namePlayer3", players.Count() > 2 ? players[2].FirstName + " " + players[2].LastName : " ");
-                    _cgData.SetData("namePlayer4", players.Count() > 3 ? players[3].FirstName + " " + players[3].LastName : " ");
-                    _cgData.SetData("namePlayer5", players.Count() > 4 ? players[4].FirstName + " " + players[4].LastName : " ");
-                    _cgData.SetData("namePlayer6", players.Count() > 5 ? players[5].FirstName + " " + players[5].LastName : " ");
-                    _cgData.SetData("namePlayer7", players.Count() > 6 ? players[6].FirstName + " " + players[6].LastName : " ");
-                    _cgData.SetData("namePlayer8", players.Count() > 7 ? players[7].FirstName + " " + players[7].LastName : " ");
-                    _cgData.SetData("namePlayer9", players.Count() > 8 ? players[8].FirstName + " " + players[8].LastName : " ");
-                    _cgData.SetData("namePlayer10", players.Count() > 9 ? players[9].FirstName + " " + players[9].LastName : " ");
-                    _cgData.SetData("namePlayer11", players.Count() > 10 ? players[10].FirstName + " " + players[10].LastName : " ");
-
-                    _cgData.SetData("numPlayer1", players.Count() > 0 ? players[0].N.ToString() : " ");
-                    _cgData.SetData("numPlayer2", players.Count() > 1 ? players[1].N.ToString() : " ");
-                    _cgData.SetData("numPlayer3", players.Count() > 2 ? players[2].N.ToString() : " ");
-                    _cgData.SetData("numPlayer4", players.Count() > 3 ? players[3].N.ToString() : " ");
-                    _cgData.SetData("numPlayer5", players.Count() > 4 ? players[4].N.ToString() : " ");
-                    _cgData.SetData("numPlayer6", players.Count() > 5 ? players[5].N.ToString() : " ");
-                    _cgData.SetData("numPlayer7", players.Count() > 6 ? players[6].N.ToString() : " ");
-                    _cgData.SetData("numPlayer8", players.Count() > 7 ? players[7].N.ToString() : " ");
-                    _cgData.SetData("numPlayer9", players.Count() > 8 ? players[8].N.ToString() : " ");
-                    _cgData.SetData("numPlayer10", players.Count() > 9 ? players[9].N.ToString() : " ");
-                    _cgData.SetData("numPlayer11", players.Count() > 10 ? players[10].N.ToString() : " ");
+                    for (int i = 0; i < 11; i++)
+                    {
+                        _cgData.SetData(string.Format("namePlayer{0}", i + 1), players.Count() > 0 ? players[0].FirstName + " " + players[0].LastName : " ");
+                        _cgData.SetData(string.Format("numPlayer{0}", i + 1), players.Count() > 0 ? players[0].N.ToString() : " ");
+                    }
 
                 }
-                else if (isPairs)
+                else if (isPairs || accessory == PersonAccessory.FaceMatch)
                 {
-                    _cgData.SetData("nameSparePlayer1", pairsPlayers.Count() > 0 ? pairsPlayers[0].FirstName + " " + pairsPlayers[0].LastName : " ");
-                    _cgData.SetData("nameSparePlayer2", pairsPlayers.Count() > 1 ? pairsPlayers[1].FirstName + " " + pairsPlayers[1].LastName : " ");
-                    _cgData.SetData("nameSparePlayer3", pairsPlayers.Count() > 2 ? pairsPlayers[2].FirstName + " " + pairsPlayers[2].LastName : " ");
-                    _cgData.SetData("nameSparePlayer4", pairsPlayers.Count() > 3 ? pairsPlayers[3].FirstName + " " + pairsPlayers[3].LastName : " ");
-                    _cgData.SetData("nameSparePlayer5", pairsPlayers.Count() > 4 ? pairsPlayers[4].FirstName + " " + pairsPlayers[4].LastName : " ");
-                    _cgData.SetData("nameSparePlayer6", pairsPlayers.Count() > 5 ? pairsPlayers[5].FirstName + " " + pairsPlayers[5].LastName : " ");
-                    _cgData.SetData("nameSparePlayer7", pairsPlayers.Count() > 6 ? pairsPlayers[6].FirstName + " " + pairsPlayers[6].LastName : " ");
-                    _cgData.SetData("nameSparePlayer8", pairsPlayers.Count() > 7 ? pairsPlayers[7].FirstName + " " + pairsPlayers[7].LastName : " ");
-                    _cgData.SetData("nameSparePlayer9", pairsPlayers.Count() > 8 ? pairsPlayers[8].FirstName + " " + pairsPlayers[8].LastName : " ");
-                    _cgData.SetData("nameSparePlayer10", pairsPlayers.Count() > 9 ? pairsPlayers[9].FirstName + " " + pairsPlayers[9].LastName : " ");
-                    _cgData.SetData("nameSparePlayer11", pairsPlayers.Count() > 10 ? pairsPlayers[10].FirstName + " " + pairsPlayers[10].LastName : " ");
+                    for (int i = 0; i < 11; i++)
+                    {
+                        _cgData.SetData(string.Format("nameSparePlayer{0}", i + 1), pairsPlayers.Count() > i && accessory != PersonAccessory.FaceMatch ? pairsPlayers[i].FirstName + " " + pairsPlayers[i].LastName : " ");
+                        _cgData.SetData(string.Format("numSparePlayer{0}", i + 1), pairsPlayers.Count() > i && accessory != PersonAccessory.FaceMatch ? pairsPlayers[i].N.ToString() : " ");
+                    }
+                }
 
-                    _cgData.SetData("numSparePlayer1", pairsPlayers.Count() > 0 ? pairsPlayers[0].N.ToString() : " ");
-                    _cgData.SetData("numSparePlayer2", pairsPlayers.Count() > 1 ? pairsPlayers[1].N.ToString() : " ");
-                    _cgData.SetData("numSparePlayer3", pairsPlayers.Count() > 2 ? pairsPlayers[2].N.ToString() : " ");
-                    _cgData.SetData("numSparePlayer4", pairsPlayers.Count() > 3 ? pairsPlayers[3].N.ToString() : " ");
-                    _cgData.SetData("numSparePlayer5", pairsPlayers.Count() > 4 ? pairsPlayers[4].N.ToString() : " ");
-                    _cgData.SetData("numSparePlayer6", pairsPlayers.Count() > 5 ? pairsPlayers[5].N.ToString() : " ");
-                    _cgData.SetData("numSparePlayer7", pairsPlayers.Count() > 6 ? pairsPlayers[6].N.ToString() : " ");
-                    _cgData.SetData("numSparePlayer8", pairsPlayers.Count() > 7 ? pairsPlayers[7].N.ToString() : " ");
-                    _cgData.SetData("numSparePlayer9", pairsPlayers.Count() > 8 ? pairsPlayers[8].N.ToString() : " ");
-                    _cgData.SetData("numSparePlayer10", pairsPlayers.Count() > 9 ? pairsPlayers[9].N.ToString() : " ");
-                    _cgData.SetData("numSparePlayer11", pairsPlayers.Count() > 10 ? pairsPlayers[10].N.ToString() : " ");
+                if (accessory == PersonAccessory.FaceMatch)
+                {
+                    _cgData.SetData("titleMainJudje", "Главный судья");
+                    _cgData.SetData("titleHelperJudje", "Помощники");
+                    _cgData.SetData("titlePairJudje", "Резервный судья");
+                    _cgData.SetData("titleInsepcotor", "Инспектор");
+                    _cgData.SetData("titleDelegat", "Делегат");
+
+                    _cgData.SetData("nameMainJudje", "");
+                    _cgData.SetData("nameHelperJudje1", "");
+                    _cgData.SetData("nameHelperJudje2", "");
+                    _cgData.SetData("namePairJudje", "");
+                    _cgData.SetData("nameInsepcotor", "");
+                    _cgData.SetData("nameDelegat", "");
+
+                    _cgData.SetData("cityMainJudje", "");
+                    _cgData.SetData("cityHelperJudje1", "");
+                    _cgData.SetData("cityHelperJudje2", "");
+                    _cgData.SetData("cityPairJudje", "");
+                    _cgData.SetData("cityInsepcotor", "");
+                    _cgData.SetData("cityDelegat", "");
+
+
 
                 }
 
@@ -918,16 +876,16 @@ namespace FNL
                 }
             }
         }
-        #endregion
+
 
         public void UpdateView()
         {
             TablePlayersMainPresenter presenterTable = new TablePlayersMainPresenter();
             // Update tables.
-            dataGridPlayersGuest.DataSource = presenterTable.GetViews(MatchId, TablePersonType.GuestTeam, false);
-            dataGridPlayersPairsGuest.DataSource = presenterTable.GetViews(MatchId, TablePersonType.GuestTeam, true);
-            dataGridPlayersHome.DataSource = presenterTable.GetViews(MatchId, TablePersonType.HomeTeam, false);
-            dataGridPlayersPairsHome.DataSource = presenterTable.GetViews(MatchId, TablePersonType.HomeTeam, true);
+            dataGridPlayersGuest.DataSource = presenterTable.GetViews(MatchId, PersonAccessory.GuestTeam, false);
+            dataGridPlayersPairsGuest.DataSource = presenterTable.GetViews(MatchId, PersonAccessory.GuestTeam, true);
+            dataGridPlayersHome.DataSource = presenterTable.GetViews(MatchId, PersonAccessory.HomeTeam, false);
+            dataGridPlayersPairsHome.DataSource = presenterTable.GetViews(MatchId, PersonAccessory.HomeTeam, true);
 
             MatchPresenter matchPresenter = new MatchPresenter(this);
             matchPresenter.ShowView();
@@ -1142,11 +1100,11 @@ namespace FNL
             {
                 if (radioButtonGuest.Checked)
                 {
-                    UpdatePlayersCG(true, false);
+                    UpdatePlayersCG(PersonAccessory.GuestTeam, false);
                 }
                 else if (radioButtonHome.Checked)
                 {
-                    UpdatePlayersCG(false, false);
+                    UpdatePlayersCG(PersonAccessory.HomeTeam, false);
                 }
             }
 
@@ -1159,11 +1117,11 @@ namespace FNL
             {
                 if (radioButtonGuest.Checked)
                 {
-                    UpdatePlayersCG(true, true);
+                    UpdatePlayersCG(PersonAccessory.GuestTeam, true);
                 }
                 else if (radioButtonHome.Checked)
                 {
-                    UpdatePlayersCG(false, true);
+                    UpdatePlayersCG(PersonAccessory.HomeTeam, true);
                 }
             }
 
@@ -1199,6 +1157,31 @@ namespace FNL
         private void btnMinChangeHome_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBoxOfficialFaces_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePlayersCG(PersonAccessory.FaceMatch);
+            ShowHideOfficialFacesMatch();
+        }
+
+        private void ShowHideOfficialFacesMatch()
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                {
+                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "OfficialFacesShowHide");
+                }
+            }
         }
     }
 

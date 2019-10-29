@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbCasparServer = new System.Windows.Forms.TextBox();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.btnClearGraphics = new System.Windows.Forms.Button();
@@ -65,19 +65,16 @@
             this.numOvertime = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnShowMain = new System.Windows.Forms.Button();
-            this.btnTeam2AddScore = new System.Windows.Forms.Button();
-            this.btnTeam2MinusScore = new System.Windows.Forms.Button();
-            this.btnTeam1AddScore = new System.Windows.Forms.Button();
-            this.btnTeam1MinusScore = new System.Windows.Forms.Button();
-            this.tBScoreTeam2 = new System.Windows.Forms.TextBox();
-            this.tBScoreTeam1 = new System.Windows.Forms.TextBox();
             this.gpStartStopTemplate = new System.Windows.Forms.GroupBox();
             this.btnStartGraphics = new System.Windows.Forms.Button();
             this.btnStopGraphics = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.btnTeam2AddScore = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnTeam2MinusScore = new System.Windows.Forms.Button();
+            this.tBScoreTeam2 = new System.Windows.Forms.TextBox();
             this.textNameHome = new System.Windows.Forms.TextBox();
             this.buttonColorTeamHome = new System.Windows.Forms.Button();
             this.dataGridPlayersHome = new System.Windows.Forms.DataGridView();
@@ -87,7 +84,10 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.textNameGuest = new System.Windows.Forms.TextBox();
+            this.btnTeam1AddScore = new System.Windows.Forms.Button();
             this.buttonColorTeamGuest = new System.Windows.Forms.Button();
+            this.btnTeam1MinusScore = new System.Windows.Forms.Button();
+            this.tBScoreTeam1 = new System.Windows.Forms.TextBox();
             this.dataGridPlayersGuest = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridPlayersPairsGuest = new System.Windows.Forms.DataGridView();
@@ -188,6 +188,9 @@
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.colorDialog3 = new System.Windows.Forms.ColorDialog();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkBoxOfficialFaces = new System.Windows.Forms.CheckBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -222,6 +225,7 @@
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbCasparServer
@@ -298,7 +302,8 @@
             // 
             this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel18.AutoScroll = true;
-            this.panel18.Controls.Add(this.groupBox8);
+            this.panel18.Controls.Add(this.groupBox9);
+            this.panel18.Controls.Add(this.groupBox5);
             this.panel18.Controls.Add(this.groupBox7);
             this.panel18.Controls.Add(this.gpStartStopTemplate);
             this.panel18.Controls.Add(this.groupBox2);
@@ -313,13 +318,14 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox8.Controls.Add(this.checkBoxListPairsPlayers);
             this.groupBox8.Controls.Add(this.checkBoxListPlayers);
             this.groupBox8.Controls.Add(this.radioButtonHome);
             this.groupBox8.Controls.Add(this.radioButtonGuest);
-            this.groupBox8.Location = new System.Drawing.Point(528, 487);
+            this.groupBox8.Location = new System.Drawing.Point(6, 16);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(231, 105);
+            this.groupBox8.Size = new System.Drawing.Size(169, 66);
             this.groupBox8.TabIndex = 23;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Показ игроков";
@@ -327,29 +333,29 @@
             // checkBoxListPairsPlayers
             // 
             this.checkBoxListPairsPlayers.AutoSize = true;
-            this.checkBoxListPairsPlayers.Location = new System.Drawing.Point(6, 60);
+            this.checkBoxListPairsPlayers.Location = new System.Drawing.Point(6, 49);
             this.checkBoxListPairsPlayers.Name = "checkBoxListPairsPlayers";
-            this.checkBoxListPairsPlayers.Size = new System.Drawing.Size(215, 17);
+            this.checkBoxListPairsPlayers.Size = new System.Drawing.Size(77, 17);
             this.checkBoxListPairsPlayers.TabIndex = 5;
-            this.checkBoxListPairsPlayers.Text = "Показвать/Скрыть запасные игроки";
+            this.checkBoxListPairsPlayers.Text = "Запасные";
             this.checkBoxListPairsPlayers.UseVisualStyleBackColor = true;
             this.checkBoxListPairsPlayers.CheckedChanged += new System.EventHandler(this.checkBoxListPairsPlayers_CheckedChanged);
             // 
             // checkBoxListPlayers
             // 
             this.checkBoxListPlayers.AutoSize = true;
-            this.checkBoxListPlayers.Location = new System.Drawing.Point(6, 39);
+            this.checkBoxListPlayers.Location = new System.Drawing.Point(6, 33);
             this.checkBoxListPlayers.Name = "checkBoxListPlayers";
-            this.checkBoxListPlayers.Size = new System.Drawing.Size(201, 17);
+            this.checkBoxListPlayers.Size = new System.Drawing.Size(114, 17);
             this.checkBoxListPlayers.TabIndex = 4;
-            this.checkBoxListPlayers.Text = "Показать/Скрыть список игроков";
+            this.checkBoxListPlayers.Text = "Основной состав";
             this.checkBoxListPlayers.UseVisualStyleBackColor = true;
             this.checkBoxListPlayers.CheckedChanged += new System.EventHandler(this.checkBoxListPlayers_CheckedChanged);
             // 
             // radioButtonHome
             // 
             this.radioButtonHome.AutoSize = true;
-            this.radioButtonHome.Location = new System.Drawing.Point(94, 19);
+            this.radioButtonHome.Location = new System.Drawing.Point(66, 15);
             this.radioButtonHome.Name = "radioButtonHome";
             this.radioButtonHome.Size = new System.Drawing.Size(48, 17);
             this.radioButtonHome.TabIndex = 1;
@@ -360,7 +366,7 @@
             // 
             this.radioButtonGuest.AutoSize = true;
             this.radioButtonGuest.Checked = true;
-            this.radioButtonGuest.Location = new System.Drawing.Point(7, 18);
+            this.radioButtonGuest.Location = new System.Drawing.Point(6, 15);
             this.radioButtonGuest.Name = "radioButtonGuest";
             this.radioButtonGuest.Size = new System.Drawing.Size(54, 17);
             this.radioButtonGuest.TabIndex = 0;
@@ -377,7 +383,7 @@
             this.groupBox7.Controls.Add(this.groupBox1);
             this.groupBox7.Location = new System.Drawing.Point(79, 487);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(443, 105);
+            this.groupBox7.Size = new System.Drawing.Size(443, 98);
             this.groupBox7.TabIndex = 22;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Верхний титр";
@@ -550,91 +556,23 @@
             this.btnShowMain.UseVisualStyleBackColor = false;
             this.btnShowMain.Click += new System.EventHandler(this.BtnShowMain_Click);
             // 
-            // btnTeam2AddScore
-            // 
-            this.btnTeam2AddScore.BackColor = System.Drawing.Color.Honeydew;
-            this.btnTeam2AddScore.Location = new System.Drawing.Point(213, 0);
-            this.btnTeam2AddScore.Name = "btnTeam2AddScore";
-            this.btnTeam2AddScore.Size = new System.Drawing.Size(26, 23);
-            this.btnTeam2AddScore.TabIndex = 3;
-            this.btnTeam2AddScore.Text = "+";
-            this.btnTeam2AddScore.UseVisualStyleBackColor = false;
-            this.btnTeam2AddScore.Click += new System.EventHandler(this.BtnTeam2AddScore_Click);
-            // 
-            // btnTeam2MinusScore
-            // 
-            this.btnTeam2MinusScore.BackColor = System.Drawing.Color.Salmon;
-            this.btnTeam2MinusScore.Location = new System.Drawing.Point(160, 0);
-            this.btnTeam2MinusScore.Name = "btnTeam2MinusScore";
-            this.btnTeam2MinusScore.Size = new System.Drawing.Size(26, 23);
-            this.btnTeam2MinusScore.TabIndex = 2;
-            this.btnTeam2MinusScore.Text = "-";
-            this.btnTeam2MinusScore.UseVisualStyleBackColor = false;
-            this.btnTeam2MinusScore.Click += new System.EventHandler(this.BtnTeam2MinusScore_Click);
-            // 
-            // btnTeam1AddScore
-            // 
-            this.btnTeam1AddScore.BackColor = System.Drawing.Color.Honeydew;
-            this.btnTeam1AddScore.Location = new System.Drawing.Point(201, 0);
-            this.btnTeam1AddScore.Name = "btnTeam1AddScore";
-            this.btnTeam1AddScore.Size = new System.Drawing.Size(26, 23);
-            this.btnTeam1AddScore.TabIndex = 1;
-            this.btnTeam1AddScore.Text = "+";
-            this.btnTeam1AddScore.UseVisualStyleBackColor = false;
-            this.btnTeam1AddScore.Click += new System.EventHandler(this.BtnTeam1AddScore_Click);
-            // 
-            // btnTeam1MinusScore
-            // 
-            this.btnTeam1MinusScore.BackColor = System.Drawing.Color.Salmon;
-            this.btnTeam1MinusScore.Location = new System.Drawing.Point(148, 0);
-            this.btnTeam1MinusScore.Name = "btnTeam1MinusScore";
-            this.btnTeam1MinusScore.Size = new System.Drawing.Size(26, 23);
-            this.btnTeam1MinusScore.TabIndex = 0;
-            this.btnTeam1MinusScore.Text = "-";
-            this.btnTeam1MinusScore.UseVisualStyleBackColor = false;
-            this.btnTeam1MinusScore.Click += new System.EventHandler(this.BtnTeam1MinusScore_Click);
-            // 
-            // tBScoreTeam2
-            // 
-            this.tBScoreTeam2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBScoreTeam2.Location = new System.Drawing.Point(187, 1);
-            this.tBScoreTeam2.Name = "tBScoreTeam2";
-            this.tBScoreTeam2.Size = new System.Drawing.Size(26, 22);
-            this.tBScoreTeam2.TabIndex = 3;
-            this.tBScoreTeam2.TabStop = false;
-            this.tBScoreTeam2.Text = "0";
-            this.tBScoreTeam2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tBScoreTeam2.TextChanged += new System.EventHandler(this.UpdateScoresCG);
-            // 
-            // tBScoreTeam1
-            // 
-            this.tBScoreTeam1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBScoreTeam1.Location = new System.Drawing.Point(175, 1);
-            this.tBScoreTeam1.Name = "tBScoreTeam1";
-            this.tBScoreTeam1.Size = new System.Drawing.Size(25, 22);
-            this.tBScoreTeam1.TabIndex = 99;
-            this.tBScoreTeam1.TabStop = false;
-            this.tBScoreTeam1.Text = "0";
-            this.tBScoreTeam1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tBScoreTeam1.TextChanged += new System.EventHandler(this.UpdateScoresCG);
-            // 
             // gpStartStopTemplate
             // 
             this.gpStartStopTemplate.Controls.Add(this.btnStartGraphics);
             this.gpStartStopTemplate.Controls.Add(this.btnStopGraphics);
             this.gpStartStopTemplate.Location = new System.Drawing.Point(8, 484);
             this.gpStartStopTemplate.Name = "gpStartStopTemplate";
-            this.gpStartStopTemplate.Size = new System.Drawing.Size(65, 108);
+            this.gpStartStopTemplate.Size = new System.Drawing.Size(65, 102);
             this.gpStartStopTemplate.TabIndex = 21;
             this.gpStartStopTemplate.TabStop = false;
-            this.gpStartStopTemplate.Text = "Graphics";
+            this.gpStartStopTemplate.Text = "Графика";
             // 
             // btnStartGraphics
             // 
             this.btnStartGraphics.BackColor = System.Drawing.Color.Lime;
             this.btnStartGraphics.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartGraphics.ForeColor = System.Drawing.Color.Black;
-            this.btnStartGraphics.Location = new System.Drawing.Point(7, 63);
+            this.btnStartGraphics.Location = new System.Drawing.Point(7, 56);
             this.btnStartGraphics.Name = "btnStartGraphics";
             this.btnStartGraphics.Size = new System.Drawing.Size(50, 38);
             this.btnStartGraphics.TabIndex = 1;
@@ -688,6 +626,17 @@
             this.panel16.Size = new System.Drawing.Size(309, 26);
             this.panel16.TabIndex = 8;
             // 
+            // btnTeam2AddScore
+            // 
+            this.btnTeam2AddScore.BackColor = System.Drawing.Color.Honeydew;
+            this.btnTeam2AddScore.Location = new System.Drawing.Point(213, 0);
+            this.btnTeam2AddScore.Name = "btnTeam2AddScore";
+            this.btnTeam2AddScore.Size = new System.Drawing.Size(26, 23);
+            this.btnTeam2AddScore.TabIndex = 3;
+            this.btnTeam2AddScore.Text = "+";
+            this.btnTeam2AddScore.UseVisualStyleBackColor = false;
+            this.btnTeam2AddScore.Click += new System.EventHandler(this.BtnTeam2AddScore_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -698,6 +647,29 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Дом";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnTeam2MinusScore
+            // 
+            this.btnTeam2MinusScore.BackColor = System.Drawing.Color.Salmon;
+            this.btnTeam2MinusScore.Location = new System.Drawing.Point(160, 0);
+            this.btnTeam2MinusScore.Name = "btnTeam2MinusScore";
+            this.btnTeam2MinusScore.Size = new System.Drawing.Size(26, 23);
+            this.btnTeam2MinusScore.TabIndex = 2;
+            this.btnTeam2MinusScore.Text = "-";
+            this.btnTeam2MinusScore.UseVisualStyleBackColor = false;
+            this.btnTeam2MinusScore.Click += new System.EventHandler(this.BtnTeam2MinusScore_Click);
+            // 
+            // tBScoreTeam2
+            // 
+            this.tBScoreTeam2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBScoreTeam2.Location = new System.Drawing.Point(187, 1);
+            this.tBScoreTeam2.Name = "tBScoreTeam2";
+            this.tBScoreTeam2.Size = new System.Drawing.Size(26, 22);
+            this.tBScoreTeam2.TabIndex = 3;
+            this.tBScoreTeam2.TabStop = false;
+            this.tBScoreTeam2.Text = "0";
+            this.tBScoreTeam2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBScoreTeam2.TextChanged += new System.EventHandler(this.UpdateScoresCG);
             // 
             // textNameHome
             // 
@@ -721,17 +693,17 @@
             // 
             // dataGridPlayersHome
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridPlayersHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridPlayersHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersHome.Location = new System.Drawing.Point(2, 33);
             this.dataGridPlayersHome.Name = "dataGridPlayersHome";
@@ -751,17 +723,17 @@
             // 
             // dataGridPlayersPairsHome
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersPairsHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersPairsHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridPlayersPairsHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridPlayersPairsHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersPairsHome.Location = new System.Drawing.Point(0, 259);
             this.dataGridPlayersPairsHome.Name = "dataGridPlayersPairsHome";
@@ -812,6 +784,17 @@
             this.textNameGuest.Text = "РОТ";
             this.textNameGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // btnTeam1AddScore
+            // 
+            this.btnTeam1AddScore.BackColor = System.Drawing.Color.Honeydew;
+            this.btnTeam1AddScore.Location = new System.Drawing.Point(201, 0);
+            this.btnTeam1AddScore.Name = "btnTeam1AddScore";
+            this.btnTeam1AddScore.Size = new System.Drawing.Size(26, 23);
+            this.btnTeam1AddScore.TabIndex = 1;
+            this.btnTeam1AddScore.Text = "+";
+            this.btnTeam1AddScore.UseVisualStyleBackColor = false;
+            this.btnTeam1AddScore.Click += new System.EventHandler(this.BtnTeam1AddScore_Click);
+            // 
             // buttonColorTeamGuest
             // 
             this.buttonColorTeamGuest.BackColor = System.Drawing.Color.Maroon;
@@ -822,19 +805,42 @@
             this.buttonColorTeamGuest.UseVisualStyleBackColor = false;
             this.buttonColorTeamGuest.Click += new System.EventHandler(this.ClickButtonColorTeamGuest);
             // 
+            // btnTeam1MinusScore
+            // 
+            this.btnTeam1MinusScore.BackColor = System.Drawing.Color.Salmon;
+            this.btnTeam1MinusScore.Location = new System.Drawing.Point(148, 0);
+            this.btnTeam1MinusScore.Name = "btnTeam1MinusScore";
+            this.btnTeam1MinusScore.Size = new System.Drawing.Size(26, 23);
+            this.btnTeam1MinusScore.TabIndex = 0;
+            this.btnTeam1MinusScore.Text = "-";
+            this.btnTeam1MinusScore.UseVisualStyleBackColor = false;
+            this.btnTeam1MinusScore.Click += new System.EventHandler(this.BtnTeam1MinusScore_Click);
+            // 
+            // tBScoreTeam1
+            // 
+            this.tBScoreTeam1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBScoreTeam1.Location = new System.Drawing.Point(175, 1);
+            this.tBScoreTeam1.Name = "tBScoreTeam1";
+            this.tBScoreTeam1.Size = new System.Drawing.Size(25, 22);
+            this.tBScoreTeam1.TabIndex = 99;
+            this.tBScoreTeam1.TabStop = false;
+            this.tBScoreTeam1.Text = "0";
+            this.tBScoreTeam1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBScoreTeam1.TextChanged += new System.EventHandler(this.UpdateScoresCG);
+            // 
             // dataGridPlayersGuest
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridPlayersGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridPlayersGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersGuest.Location = new System.Drawing.Point(0, 33);
             this.dataGridPlayersGuest.Name = "dataGridPlayersGuest";
@@ -854,17 +860,17 @@
             // 
             // dataGridPlayersPairsGuest
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersPairsGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersPairsGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridPlayersPairsGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridPlayersPairsGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersPairsGuest.Location = new System.Drawing.Point(0, 259);
             this.dataGridPlayersPairsGuest.Name = "dataGridPlayersPairsGuest";
@@ -2027,6 +2033,38 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.Bisque;
+            this.groupBox5.Controls.Add(this.checkBoxOfficialFaces);
+            this.groupBox5.Controls.Add(this.groupBox8);
+            this.groupBox5.Location = new System.Drawing.Point(532, 487);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(184, 98);
+            this.groupBox5.TabIndex = 24;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Титр информирования";
+            // 
+            // checkBoxOfficialFaces
+            // 
+            this.checkBoxOfficialFaces.AutoSize = true;
+            this.checkBoxOfficialFaces.Location = new System.Drawing.Point(12, 82);
+            this.checkBoxOfficialFaces.Name = "checkBoxOfficialFaces";
+            this.checkBoxOfficialFaces.Size = new System.Drawing.Size(166, 17);
+            this.checkBoxOfficialFaces.TabIndex = 24;
+            this.checkBoxOfficialFaces.Text = "Оффициальные лица матча";
+            this.checkBoxOfficialFaces.UseVisualStyleBackColor = true;
+            this.checkBoxOfficialFaces.CheckedChanged += new System.EventHandler(this.checkBoxOfficialFaces_CheckedChanged);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Location = new System.Drawing.Point(834, 590);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(200, 100);
+            this.groupBox9.TabIndex = 25;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "groupBox9";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2096,6 +2134,8 @@
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2255,6 +2295,9 @@
         private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
         private System.Windows.Forms.CheckBox checkBoxListPairsPlayers;
         private System.Windows.Forms.CheckBox checkBoxListPlayers;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.CheckBox checkBoxOfficialFaces;
     }
 }
 

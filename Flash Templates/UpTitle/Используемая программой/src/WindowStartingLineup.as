@@ -84,7 +84,7 @@
 		{
 			CenterLine.NamePlayer1.text = value;
 			
-			// Move amplua text.
+			// Move text.
 			CenterLine.AmpluaPlayer1.x = CenterLine.NamePlayer1.x + CenterLine.NamePlayer1.textWidth + 10;
 		}
 		public function set namePlayer2(value:String):void 
@@ -308,7 +308,7 @@
 		}
 		public function set titleHelperJudje(value:String):void
 		{
-			CenterLineSmall.NumPlayer11.text = value;
+			CenterLineSmall.TitleHelperJudje.text = value;
 		}
 		public function set titlePairJudje(value:String):void
 		{
@@ -325,26 +325,38 @@
 		public function set nameMainJudje(value:String):void
 		{
 			CenterLineSmall.NameMainJudje.text = value;
+			// Move text.
+			CenterLineSmall.CityMainJudje.x = CenterLineSmall.NameMainJudje.x + CenterLineSmall.NameMainJudje.textWidth + 10;
 		}
 		public function set nameHelperJudje1(value:String):void
 		{
 			CenterLineSmall.NameHelperJudje1.text = value;
+			// Move text.
+			CenterLineSmall.CityHelperJudje1.x = CenterLineSmall.NameHelperJudje1.x + CenterLineSmall.NameHelperJudje1.textWidth + 10;
 		}
 		public function set nameHelperJudje2(value:String):void
 		{
 			CenterLineSmall.NameHelperJudje2.text = value;
+			// Move text.
+			CenterLineSmall.CityHelperJudje2.x = CenterLineSmall.NameHelperJudje2.x + CenterLineSmall.NameHelperJudje2.textWidth + 10;
 		}
 		public function set namePairJudje(value:String):void
 		{
 			CenterLineSmall.NamePairJudje.text = value;
+			// Move text.
+			CenterLineSmall.CityPairJudje.x = CenterLineSmall.NamePairJudje.x + CenterLineSmall.NamePairJudje.textWidth + 10;
 		}
 		public function set nameInsepcotor(value:String):void
 		{
 			CenterLineSmall.NameInsepcotor.text = value;
+			// Move text.
+			CenterLineSmall.CityInsepcotor.x = CenterLineSmall.NameInsepcotor.x + CenterLineSmall.NameInsepcotor.textWidth + 10;
 		}
 		public function set nameDelegat(value:String):void
 		{
 			CenterLineSmall.NameDelegat.text = value;
+			// Move text.
+			CenterLineSmall.CityDelegat.x = CenterLineSmall.NameDelegat.x + CenterLineSmall.NameDelegat.textWidth + 10;
 		}
 		public function set cityMainJudje(value:String):void
 		{

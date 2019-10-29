@@ -19,7 +19,7 @@ namespace FNL.Presenters
             _view = matchPlayersView;
         }
 
-        public List<IMatchPlayersView> GetViews(TablePersonType category, int idMatch)
+        public List<IMatchPlayersView> GetViews(PersonAccessory category, int idMatch)
         {
             List<IMatchPlayersView> playersView = new List<IMatchPlayersView>();
 
@@ -34,13 +34,13 @@ namespace FNL.Presenters
                 IEnumerable<Person> people = new List<Person>();
                 switch (category)
                 {
-                    case TablePersonType.Actor:
+                    case PersonAccessory.FaceMatch:
                         people = queryActors;
                         break;
-                    case TablePersonType.HomeTeam:
+                    case PersonAccessory.HomeTeam:
                         people = queryOwnerTeam;
                         break;
-                    case TablePersonType.GuestTeam:
+                    case PersonAccessory.GuestTeam:
                         people = queryGuestTeam;
                         break;
                     default:
@@ -70,7 +70,7 @@ namespace FNL.Presenters
             return playersView;
         }
 
-        public void DeleteModelDB(TablePersonType category, int idMatch)
+        public void DeleteModelDB(PersonAccessory category, int idMatch)
         {
             using (DbFnlContext db = new DbFnlContext())
             {
@@ -78,15 +78,15 @@ namespace FNL.Presenters
 
                 switch (category)
                 {
-                    case TablePersonType.Actor:
+                    case PersonAccessory.FaceMatch:
                         var query1 = db.FacesMatches.Where(t => t.MatchId == idMatch && t.PersonId == _view.IdPerson);
                         db.FacesMatches.Remove(query1.FirstOrDefault());
                         break;
-                    case TablePersonType.HomeTeam:
+                    case PersonAccessory.HomeTeam:
                         var query2 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamOwnerId && t.PersonId == _view.IdPerson);
                         db.PlayersMatches.Remove(query2.FirstOrDefault());
                         break;
-                    case TablePersonType.GuestTeam:
+                    case PersonAccessory.GuestTeam:
                         var query3 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamGuestId && t.PersonId == _view.IdPerson);
                         db.PlayersMatches.Remove(query3.FirstOrDefault());
                         break;
@@ -99,7 +99,7 @@ namespace FNL.Presenters
 
         }
 
-        public void InsertModelDB(TablePersonType category, int idMatch)
+        public void InsertModelDB(PersonAccessory category, int idMatch)
         {
             using (DbFnlContext db = new DbFnlContext())
             {
@@ -107,11 +107,11 @@ namespace FNL.Presenters
 
                 switch (category)
                 {
-                    case TablePersonType.Actor:
+                    case PersonAccessory.FaceMatch:
                          FaceMatch model = new FaceMatch { MatchId = idMatch, PersonId = _view.IdPerson };
                         db.FacesMatches.Add(model);
                         break;
-                    case TablePersonType.HomeTeam:
+                    case PersonAccessory.HomeTeam:
                         if (currentMatch.TeamOwnerId != null)
                         {
                             PlayerMatch playerHome = new PlayerMatch { MatchId = idMatch, TeamId = (int)currentMatch.TeamOwnerId, PersonId = _view.IdPerson, IsSpare = _view.IsSpare };
@@ -120,7 +120,7 @@ namespace FNL.Presenters
                         }
 
                         break;
-                    case TablePersonType.GuestTeam:
+                    case PersonAccessory.GuestTeam:
                         if (currentMatch.TeamGuestId != null)
                         {
                             PlayerMatch playerGuest = new PlayerMatch { MatchId = idMatch, TeamId = (int)currentMatch.TeamGuestId, PersonId = _view.IdPerson, IsSpare = _view.IsSpare };
