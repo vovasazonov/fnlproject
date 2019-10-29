@@ -74,6 +74,10 @@
     <Compile Include="Dictionarys\DictionaryEvents.cs" />
     <Compile Include="Dictionarys\DictionaryAmpluas.cs" />
     <Compile Include="Dictionarys\DictionaryRoles.cs" />
+    <Compile Include="Enums\AmpluaType.cs" />
+    <Compile Include="Enums\TablePersonType.cs" />
+    <Compile Include="Enums\EventMatchType.cs" />
+    <Compile Include="Enums\RoleType.cs" />
     <Compile Include="Football.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,11 +101,11 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Match\MatchesForm.cs">
+    <Compile Include="Forms\Match\MatchTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Match\MatchesForm.Designer.cs">
-      <DependentUpon>MatchesForm.cs</DependentUpon>
+    <Compile Include="Forms\Match\MatchTableForm.Designer.cs">
+      <DependentUpon>MatchTableForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Match\MatchPlayers.cs">
       <SubType>Form</SubType>
@@ -209,8 +213,8 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Match\MatchesForm.resx">
-      <DependentUpon>MatchesForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Match\MatchTableForm.resx">
+      <DependentUpon>MatchTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Match\MatchPlayers.resx">
       <DependentUpon>MatchPlayers.cs</DependentUpon>

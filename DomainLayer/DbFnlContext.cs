@@ -15,7 +15,7 @@ namespace ModelLayer
 		{ }
 
         public DbSet<Amplua> Ampluas { get; set; }
-		public DbSet<CommentatorMatch> CommentatorsMatches { get; set; }
+		public DbSet<FaceMatch> FacesMatches { get; set; }
 		public DbSet<Event> Events { get; set; }
 		public DbSet<EventStatistic> EventsStatistics { get; set; }
 		public DbSet<Match> Matches { get; set; }

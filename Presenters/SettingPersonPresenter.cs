@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using ModelLayer.Models;
 using ModelLayer;
 using FNL.Views;
+using FNL.Dictionarys;
+using FNL.Enums;
 
 namespace FNL.Presenters
 {
@@ -76,7 +78,7 @@ namespace FNL.Presenters
                 if (!db.Roles.Where(t => t.RoleId == roleId).Any())
                 {
                     // Add role to database first.
-                    db.Roles.Add(new Role { RoleId = roleId, Name = DictionaryRoles.RoleDic[(DictionaryRoles.Roles)roleId] ?? "" });
+                    db.Roles.Add(new Role { RoleId = roleId, Name = DictionaryRoles.Dic[(RoleType)roleId] ?? "" });
                     var f = db.Roles.ToList();
                     db.SaveChanges();
                 }

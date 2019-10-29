@@ -44,16 +44,16 @@ namespace FNL.Presenters
         /// <param name="matchModel"></param>
         private void SetCommentatorsFromView(ref Match matchModel)
         {
-            matchModel.CommentatorsMatch = new List<CommentatorMatch>();
+            matchModel.FaceMatch = new List<FaceMatch>();
 
             // Add commentators to match.
             if (_view.CommentatorPerson1Id != null)
             {
-                matchModel.CommentatorsMatch.Add(new CommentatorMatch { MatchId = matchModel.MatchId, PersonId = (int)_view.CommentatorPerson1Id });
+                matchModel.FaceMatch.Add(new FaceMatch { MatchId = matchModel.MatchId, PersonId = (int)_view.CommentatorPerson1Id });
             }
             if (_view.CommentatorPerson2Id != null)
             {
-                matchModel.CommentatorsMatch.Add(new CommentatorMatch { MatchId = matchModel.MatchId, PersonId = (int)_view.CommentatorPerson2Id });
+                matchModel.FaceMatch.Add(new FaceMatch { MatchId = matchModel.MatchId, PersonId = (int)_view.CommentatorPerson2Id });
             }
         }
 
@@ -113,9 +113,9 @@ namespace FNL.Presenters
                 _view.GuestTeamId = match.TeamGuestId;
                 _view.OwnerTeamId = match.TeamOwnerId;
                 _view.SeasonId = match.SeasonId;
-                List<CommentatorMatch> commentators = db.CommentatorsMatches.Where(c => c.MatchId == match.MatchId).ToList();
-                _view.CommentatorPerson1Id = commentators != null ? commentators.Count > 0 ? (int?)commentators[0].CommentatorMatchId : null : null;
-                _view.CommentatorPerson2Id = commentators != null ? commentators.Count > 1 ? (int?)commentators[1].CommentatorMatchId : null : null;
+                List<FaceMatch> commentators = db.FacesMatches.Where(c => c.MatchId == match.MatchId).ToList();
+                _view.CommentatorPerson1Id = commentators != null ? commentators.Count > 0 ? (int?)commentators[0].FaceMatchId : null : null;
+                _view.CommentatorPerson2Id = commentators != null ? commentators.Count > 1 ? (int?)commentators[1].FaceMatchId : null : null;
 
                 _view.NameMatch = match.Name;
                 _view.NameStadium = match.StadiumId != null ? db.Stadiums.Where(s => s.StadiumId == match.StadiumId).Select(s => s.Name).FirstOrDefault() : "";

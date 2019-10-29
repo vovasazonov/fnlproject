@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using ModelLayer;
 using ModelLayer.Models;
 using FNL.Views;
+using FNL.Dictionarys;
+using FNL.Enums;
 
 namespace FNL.Presenters
 {
@@ -84,7 +86,7 @@ namespace FNL.Presenters
                 if (!db.Ampluas.Where(t => t.AmpluaId == ampluaId).Any())
                 {
                     // Add role to database first.
-                    db.Ampluas.Add(new Amplua { AmpluaId = (int)ampluaId, Name = DictionaryAmpluas.AmpluaDic[(DictionaryAmpluas.Ampluas)ampluaId] ?? "" });
+                    db.Ampluas.Add(new Amplua { AmpluaId = (int)ampluaId, Name = DictionaryAmpluas.Dic[(AmpluaType)ampluaId] ?? "" });
                     db.SaveChanges();
                 }
             }

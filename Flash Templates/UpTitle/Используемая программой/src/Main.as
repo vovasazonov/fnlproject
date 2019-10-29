@@ -23,6 +23,7 @@
 		private var _changeIsVisible:Boolean = false;		
 		private var _playersSpareIsVisible:Boolean = false;
 		private var _playersIsVisible:Boolean = false;
+		private var _officialFacesIsVisible:Boolean = false;
 		// ------------------ Booleans ------------------
 		
 		public function Main() {
@@ -423,6 +424,20 @@
 			{
 				winStartLineup.SparePlayersShow();
 				_playersSpareIsVisible = true;
+			}
+		}
+		public function OfficialFacesShowHide():void
+		{
+			if (_officialFacesIsVisible)
+			{
+				winStartLineup.OfficialFacesHide();
+				_officialFacesIsVisible = false;
+
+			}
+			else
+			{
+				winStartLineup.OfficialFacesShow();
+				_officialFacesIsVisible = true;
 			}
 		}
 		// ----- WindowStartingLineup -----

@@ -27,7 +27,7 @@ namespace ModelLayer.Models
 		public virtual Season Season { get; set; }
 		public virtual Team TeamOwner { get; set; }
 		public virtual Team TeamGuest { get; set; }
-		public virtual List<CommentatorMatch> CommentatorsMatch { get; set; }
+		public virtual List<FaceMatch> FaceMatch { get; set; }
 		public virtual List<StatisticPlayerMatch> Statistics { get; set; }
         public virtual List<PlayerMatch> PlayersMatch { get; set; }
 	}

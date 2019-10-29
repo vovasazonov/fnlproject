@@ -23,7 +23,7 @@ namespace ModelLayer.Models
 
 		public virtual Role Role { get; set; }
 		public virtual List<TeamPlayer> TeamPlayers { get; set; }
-		public virtual List<CommentatorMatch> CommentatorMatches { get; set; }
+		public virtual List<FaceMatch> FacesMatches { get; set; }
 		public virtual List<StatisticPlayerMatch> Statistics { get; set; }
         public virtual List<PlayerMatch> PlayerMatches { get; set; }
 

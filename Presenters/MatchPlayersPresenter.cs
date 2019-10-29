@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FNL.Views;
 using ModelLayer.Models;
 using ModelLayer;
+using FNL.Enums;
 
 namespace FNL.Presenters
 {
@@ -18,7 +19,7 @@ namespace FNL.Presenters
             _view = matchPlayersView;
         }
 
-        public List<IMatchPlayersView> GetViews(CategoryTable category, int idMatch)
+        public List<IMatchPlayersView> GetViews(TablePersonType category, int idMatch)
         {
             List<IMatchPlayersView> playersView = new List<IMatchPlayersView>();
 
@@ -28,18 +29,18 @@ namespace FNL.Presenters
 
                 var queryOwnerTeam = currentMatch.PlayersMatch.Where(t => t.TeamId == currentMatch.TeamOwnerId).Select(p => p.Person);
                 var queryGuestTeam = currentMatch.PlayersMatch.Where(t => t.TeamId == currentMatch.TeamGuestId).Select(p => p.Person);
-                var queryActors = db.CommentatorsMatches.Where(t => t.MatchId == idMatch).Select(p => p.Person);
-                var quertytest = db.CommentatorsMatches.ToList();
+                var queryActors = db.FacesMatches.Where(t => t.MatchId == idMatch).Select(p => p.Person);
+                var quertytest = db.FacesMatches.ToList();
                 IEnumerable<Person> people = new List<Person>();
                 switch (category)
                 {
-                    case CategoryTable.Actor:
+                    case TablePersonType.Actor:
                         people = queryActors;
                         break;
-                    case CategoryTable.HomeTeam:
+                    case TablePersonType.HomeTeam:
                         people = queryOwnerTeam;
                         break;
-                    case CategoryTable.GuestTeam:
+                    case TablePersonType.GuestTeam:
                         people = queryGuestTeam;
                         break;
                     default:
@@ -69,7 +70,7 @@ namespace FNL.Presenters
             return playersView;
         }
 
-        public void DeleteModelDB(CategoryTable category, int idMatch)
+        public void DeleteModelDB(TablePersonType category, int idMatch)
         {
             using (DbFnlContext db = new DbFnlContext())
             {
@@ -77,15 +78,15 @@ namespace FNL.Presenters
 
                 switch (category)
                 {
-                    case CategoryTable.Actor:
-                        var query1 = db.CommentatorsMatches.Where(t => t.MatchId == idMatch && t.PersonId == _view.IdPerson);
-                        db.CommentatorsMatches.Remove(query1.FirstOrDefault());
+                    case TablePersonType.Actor:
+                        var query1 = db.FacesMatches.Where(t => t.MatchId == idMatch && t.PersonId == _view.IdPerson);
+                        db.FacesMatches.Remove(query1.FirstOrDefault());
                         break;
-                    case CategoryTable.HomeTeam:
+                    case TablePersonType.HomeTeam:
                         var query2 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamOwnerId && t.PersonId == _view.IdPerson);
                         db.PlayersMatches.Remove(query2.FirstOrDefault());
                         break;
-                    case CategoryTable.GuestTeam:
+                    case TablePersonType.GuestTeam:
                         var query3 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamGuestId && t.PersonId == _view.IdPerson);
                         db.PlayersMatches.Remove(query3.FirstOrDefault());
                         break;
@@ -98,7 +99,7 @@ namespace FNL.Presenters
 
         }
 
-        public void InsertModelDB(CategoryTable category, int idMatch)
+        public void InsertModelDB(TablePersonType category, int idMatch)
         {
             using (DbFnlContext db = new DbFnlContext())
             {
@@ -106,11 +107,11 @@ namespace FNL.Presenters
 
                 switch (category)
                 {
-                    case CategoryTable.Actor:
-                         CommentatorMatch model = new CommentatorMatch { MatchId = idMatch, PersonId = _view.IdPerson };
-                        db.CommentatorsMatches.Add(model);
+                    case TablePersonType.Actor:
+                         FaceMatch model = new FaceMatch { MatchId = idMatch, PersonId = _view.IdPerson };
+                        db.FacesMatches.Add(model);
                         break;
-                    case CategoryTable.HomeTeam:
+                    case TablePersonType.HomeTeam:
                         if (currentMatch.TeamOwnerId != null)
                         {
                             PlayerMatch playerHome = new PlayerMatch { MatchId = idMatch, TeamId = (int)currentMatch.TeamOwnerId, PersonId = _view.IdPerson, IsSpare = _view.IsSpare };
@@ -119,7 +120,7 @@ namespace FNL.Presenters
                         }
 
                         break;
-                    case CategoryTable.GuestTeam:
+                    case TablePersonType.GuestTeam:
                         if (currentMatch.TeamGuestId != null)
                         {
                             PlayerMatch playerGuest = new PlayerMatch { MatchId = idMatch, TeamId = (int)currentMatch.TeamGuestId, PersonId = _view.IdPerson, IsSpare = _view.IsSpare };
@@ -138,12 +139,5 @@ namespace FNL.Presenters
 
         }
 
-    }
-
-    public enum CategoryTable
-    {
-        Actor,
-        HomeTeam,
-        GuestTeam
     }
 }

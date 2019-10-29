@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FNL.Enums;
 using FNL.Presenters;
 using FNL.Views;
 
@@ -14,12 +15,12 @@ namespace FNL.Forms
 {
     public partial class InsertMatchPlayers : Form, IInsertMatchPlayersView
     {
-        public InsertMatchPlayers()
-        {
-            InitializeComponent();
-        }
+        //public InsertMatchPlayers()
+        //{
+        //    InitializeComponent();
+        //}
 
-        public InsertMatchPlayers(MatchPlayers matchPlayersForm, CategoryTable category, int matchId)
+        public InsertMatchPlayers(MatchPlayers matchPlayersForm, TablePersonType category, int matchId)
         {
             InitializeComponent();
 
@@ -31,7 +32,7 @@ namespace FNL.Forms
         }
 
         private MatchPlayers _matchPlayersForm;
-        private CategoryTable _categoryTable;
+        private TablePersonType _categoryTable;
         private int _matchId;
 
         public int PersonId { get=> ((List<ITablePlayersMainView>)(dataGridPlayers.DataSource))[dataGridPlayers.CurrentRow.Index].PersonId; set => throw new NotImplementedException(); }

@@ -20,24 +20,36 @@ namespace FNL.Views
         int GoalsOwner { get; set; }
         string CommentatorsMatch1 { get; set; }
         string CommentatorsMatch2 { get; set; }
+        string MainJudje { get; set; }
+        string HelperJudje1 { get; set; }
+        string HelperJudje2 { get; set; }
+        string PairJudje { get; set; }
+        string Inspector { get; set; }
+        string Delegat { get; set; }
     }
 
     /// <summary>
     /// Helper class for to create exemplar of interface via class.
     /// </summary>
-    public class ClassMatchTableView : IMatchTableView
+    public class CMatchTableView : IMatchTableView
     {
         int IMatchTableView.MatchId { get; set; }
-        string IMatchTableView.NameMatch         {get;set;}
-        DateTime IMatchTableView.Date            {get;set;}
-        string IMatchTableView.NameStadium       {get;set;}
-        string IMatchTableView.NameSeason        {get;set;}
-        string IMatchTableView.NameTeamGuest     {get;set;}
-        int IMatchTableView.GoalsGuest           {get;set;}
-        string IMatchTableView.NameTeamOwner     {get;set;}
-        int IMatchTableView.GoalsOwner           {get;set;}
-        string IMatchTableView.CommentatorsMatch1{get;set;}
-        string IMatchTableView.CommentatorsMatch2{get;set;}
+        string IMatchTableView.NameMatch { get; set; }
+        DateTime IMatchTableView.Date { get; set; }
+        string IMatchTableView.NameStadium { get; set; }
+        string IMatchTableView.NameSeason { get; set; }
+        string IMatchTableView.NameTeamGuest { get; set; }
+        int IMatchTableView.GoalsGuest { get; set; }
+        string IMatchTableView.NameTeamOwner { get; set; }
+        int IMatchTableView.GoalsOwner { get; set; }
+        string IMatchTableView.CommentatorsMatch1 { get; set; }
+        string IMatchTableView.CommentatorsMatch2 { get; set; }
+        string IMatchTableView.MainJudje { get; set; }
+        string IMatchTableView.HelperJudje1 { get; set; }
+        string IMatchTableView.HelperJudje2 { get; set; }
+        string IMatchTableView.PairJudje { get; set; }
+        string IMatchTableView.Inspector { get; set; }
+        string IMatchTableView.Delegat { get; set; }
     }
 
 }

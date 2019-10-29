@@ -34,10 +34,10 @@ namespace FNL.Forms
         public int ?CommentatorPerson2Id{get;set;}
         #endregion
 
-        private MatchesForm _matchesForm = new MatchesForm();
+        private MatchTableForm _matchesForm = new MatchTableForm();
         private bool _isEdit = false;
 
-        public SettingMatch(MatchesForm matchesForm, bool isEdit = false)
+        public SettingMatch(MatchTableForm matchesForm, bool isEdit = false)
         {
             InitializeComponent();
 

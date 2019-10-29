@@ -54,7 +54,7 @@
     <Compile Include="DbFnlContext.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Amplua.cs" />
-    <Compile Include="Models\CommentatorMatch.cs" />
+    <Compile Include="Models\FaceMatch.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventStatistic.cs" />
     <Compile Include="Models\Match.cs" />

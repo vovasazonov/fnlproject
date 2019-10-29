@@ -93,6 +93,7 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Выбрано";
+            this.groupBox2.Visible = false;
             // 
             // label3
             // 

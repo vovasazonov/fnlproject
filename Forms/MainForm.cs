@@ -14,6 +14,8 @@ using Svt.Network;
 using FNL.Views;
 using FNL.Presenters;
 using System.Text.RegularExpressions;
+using FNL.Dictionarys;
+using FNL.Enums;
 
 namespace FNL
 {
@@ -606,14 +608,14 @@ namespace FNL
             pairsPlayers = pairsPlayers ?? new List<ITablePlayersMainView>();
 
             // Get trainer of team.
-            var mainTrainer = players.Where(t => t.R == DictionaryRoles.RoleDic[DictionaryRoles.Roles.MainTrainer]).FirstOrDefault();
+            var mainTrainer = players.Where(t => t.R == DictionaryRoles.Dic[RoleType.MainTrainer]).FirstOrDefault();
 
             // Delete all people that not players.
-            players = players.Where(t => t.R == DictionaryRoles.RoleDic[DictionaryRoles.Roles.Player]).ToList();
-            pairsPlayers = pairsPlayers.Where(t => t.R == DictionaryRoles.RoleDic[DictionaryRoles.Roles.Player]).ToList();
+            players = players.Where(t => t.R == DictionaryRoles.Dic[RoleType.Player]).ToList();
+            pairsPlayers = pairsPlayers.Where(t => t.R == DictionaryRoles.Dic[RoleType.Player]).ToList();
 
             // Set goalkeper to first position in list.
-            var goalKeper = players.Where(t => t.A == DictionaryAmpluas.AmpluaDic[DictionaryAmpluas.Ampluas.Goalkeeper]).FirstOrDefault();
+            var goalKeper = players.Where(t => t.A == DictionaryAmpluas.Dic[AmpluaType.Goalkeeper]).FirstOrDefault();
             if (goalKeper != null)
             {
                 players.Remove(goalKeper);
@@ -922,10 +924,10 @@ namespace FNL
         {
             TablePlayersMainPresenter presenterTable = new TablePlayersMainPresenter();
             // Update tables.
-            dataGridPlayersGuest.DataSource = presenterTable.GetViews(MatchId, CategoryTable.GuestTeam, false);
-            dataGridPlayersPairsGuest.DataSource = presenterTable.GetViews(MatchId, CategoryTable.GuestTeam, true);
-            dataGridPlayersHome.DataSource = presenterTable.GetViews(MatchId, CategoryTable.HomeTeam, false);
-            dataGridPlayersPairsHome.DataSource = presenterTable.GetViews(MatchId, CategoryTable.HomeTeam, true);
+            dataGridPlayersGuest.DataSource = presenterTable.GetViews(MatchId, TablePersonType.GuestTeam, false);
+            dataGridPlayersPairsGuest.DataSource = presenterTable.GetViews(MatchId, TablePersonType.GuestTeam, true);
+            dataGridPlayersHome.DataSource = presenterTable.GetViews(MatchId, TablePersonType.HomeTeam, false);
+            dataGridPlayersPairsHome.DataSource = presenterTable.GetViews(MatchId, TablePersonType.HomeTeam, true);
 
             MatchPresenter matchPresenter = new MatchPresenter(this);
             matchPresenter.ShowView();
@@ -1130,7 +1132,7 @@ namespace FNL
 
         private void buttonMatch_Click(object sender, EventArgs e)
         {
-            MatchesForm matchesForm = new MatchesForm(this);
+            MatchTableForm matchesForm = new MatchTableForm(this);
             matchesForm.Show();
         }
 

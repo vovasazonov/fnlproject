@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FNL.Dictionarys;
+using FNL.Enums;
 using FNL.Views;
 using ModelLayer;
 using ModelLayer.Models;
@@ -81,7 +83,7 @@ namespace FNL.Presenters
                     HalfMatch = _view.NumberHalfTime,
                     Time = DateTime.Now,
                     StatisticPlayerMatchId = db.StatisticsPlayersMatches.Where(t => t.MatchId == _view.MatchId && t.PersonId == idPlayer).FirstOrDefault().StatisticPlayerMatchId,
-                    EventId = DictionaryEvents.GetEventId(DictionaryEvents.Events.Replacement)
+                    EventId = DictionaryEvents.GetEventId(EventMatchType.Replacement)
                 });
 
                 db.SaveChanges();
@@ -91,7 +93,7 @@ namespace FNL.Presenters
                     HalfMatch = _view.NumberHalfTime,
                     Time = DateTime.Now,
                     StatisticPlayerMatchId = db.StatisticsPlayersMatches.Where(t => t.MatchId == _view.MatchId && t.PersonId == idPair).FirstOrDefault().StatisticPlayerMatchId,
-                    EventId = DictionaryEvents.GetEventId(DictionaryEvents.Events.Replacement)
+                    EventId = DictionaryEvents.GetEventId(EventMatchType.Replacement)
                 });
 
                 db.SaveChanges();
@@ -118,7 +120,7 @@ namespace FNL.Presenters
                 //_view.FoulGuest { get; set; }
                 //_view.YellowTicketGuest { get; set; }
                 //_view.RedTicketGuest { get; set; }
-                _view.ChangeGuest = db.EventsStatistics.Where(t => t.EventId == (int)DictionaryEvents.Events.Replacement && t.StatisticPlayerMatch.PersonId == _view.GuestPlayerId).Count().ToString();
+                _view.ChangeGuest = db.EventsStatistics.Where(t => t.EventId == (int)EventMatchType.Replacement && t.StatisticPlayerMatch.PersonId == _view.GuestPlayerId).Count().ToString();
 
                 //_view.GoalsHome { get; set; }
                 //_view.TotalShotHome { get; set; }
@@ -130,7 +132,7 @@ namespace FNL.Presenters
                 //_view.FoulHome { get; set; }
                 //_view.YellowTicketHome { get; set; }
                 //_view.RedTicketHome { get; set; }
-                _view.ChangeHome = db.EventsStatistics.Where(t => t.EventId == (int)DictionaryEvents.Events.Replacement && t.StatisticPlayerMatch.PersonId == _view.HomePlayerId).Count().ToString();
+                _view.ChangeHome = db.EventsStatistics.Where(t => t.EventId == (int)EventMatchType.Replacement && t.StatisticPlayerMatch.PersonId == _view.HomePlayerId).Count().ToString();
             }
         }
     }

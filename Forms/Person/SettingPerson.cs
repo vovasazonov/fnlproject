@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using FNL.Forms;
 using FNL.Views;
 using FNL.Presenters;
+using FNL.Dictionarys;
+using FNL.Enums;
 
 namespace FNL.Forms
 {
@@ -32,9 +34,9 @@ namespace FNL.Forms
         {
             get
             {
-                DictionaryRoles.Roles id = DictionaryRoles.Roles.Player;
+                RoleType id = RoleType.Player;
 
-                foreach (var item in DictionaryRoles.RoleDic)
+                foreach (var item in DictionaryRoles.Dic)
                 {
                     if (item.Value == Role)
                     {
@@ -66,7 +68,7 @@ namespace FNL.Forms
                 SettingPersonPresenter settingPersonPresenter = new SettingPersonPresenter(this);
                 settingPersonPresenter.ShowModelInView(IdPerson);
             }
-            comboBoxRole.Items.AddRange(DictionaryRoles.RoleDic.Values.ToArray());
+            comboBoxRole.Items.AddRange(DictionaryRoles.Dic.Values.ToArray());
             comboBoxRole.SelectedIndex = 0;
         }
 

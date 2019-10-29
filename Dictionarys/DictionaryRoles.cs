@@ -3,33 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FNL.Enums;
+using ModelLayer;
+using ModelLayer.Models;
 
-namespace FNL
+namespace FNL.Dictionarys
 {
-    static class DictionaryRoles
+    static public class DictionaryRoles
     {
-        static public readonly Dictionary<Roles, string> RoleDic = new Dictionary<Roles, string>
+        /// <summary>
+        /// Dictionary that key is the uniq id of elemnt and value is string name of element.
+        /// </summary>
+        static public readonly Dictionary<RoleType, string> Dic = new Dictionary<RoleType, string>
         {
-            {Roles.Player,"Игрок" },
-            {Roles.MainTrainer,"Главный тренер" },
-            {Roles.Commentator,"Комментатор" },
-            {Roles.MainJudje,"Главный судья" },
-            {Roles.HelperJudje,"Помощник судьи" },
-            {Roles.PairJudje,"Резервный судья" },
-            {Roles.Inspector,"Инспектор" },
-            {Roles.Delegat,"Делегат" }
+            {RoleType.Player,"Игрок" },
+            {RoleType.MainTrainer,"Главный тренер" },
+            {RoleType.Commentator,"Комментатор" },
+            {RoleType.MainJudje,"Главный судья" },
+            {RoleType.HelperJudje,"Помощник судьи" },
+            {RoleType.PairJudje,"Резервный судья" },
+            {RoleType.Inspector,"Инспектор" },
+            {RoleType.Delegat,"Делегат" }
         };
 
-        public enum Roles : uint
+        /// <summary>
+        /// Return uniq id of element type.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        static public int GetId(RoleType type)
         {
-            Player = 7765731,
-            MainTrainer = 78768678,
-            Commentator = 3454366,
-            MainJudje = 47656567,
-            HelperJudje= 2342453,
-            PairJudje = 4354354,
-            Inspector = 345435345,
-            Delegat = 1233213
+            using (var db = new DbFnlContext())
+            {
+                if (!db.Roles.Where(t => t.RoleId == (uint)type).Any())
+                {
+                    db.Roles.Add(new Role() { RoleId = (int)type, Name = Dic[type] });
+                    db.SaveChanges();
+                }
+            }
+
+            return (int)type;
         }
+
     }
 }

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using FNL.Views;
 using ModelLayer;
+using ModelLayer.Models;
+using FNL.Enums;
 
 namespace FNL.Presenters
 {
@@ -25,7 +27,7 @@ namespace FNL.Presenters
         /// Return data from database.
         /// </summary>
         /// <returns></returns>
-        public List<IMatchTableView> GetView()
+        public List<IMatchTableView> GetViews()
         {
             List<IMatchTableView> views = new List<IMatchTableView>();
 
@@ -36,35 +38,49 @@ namespace FNL.Presenters
                 // Get data drom database.
                 foreach (var match in matches)
                 {
-                    IMatchTableView matchView = new ClassMatchTableView();
+                    IMatchTableView matchView = new CMatchTableView();
 
-                    if (match.CommentatorsMatch != null)
-                    {
-                        if (match.CommentatorsMatch.Count > 0)
-                        {
-                            matchView.CommentatorsMatch1 = string.Format("{0} {1} {2}",
-                                match.CommentatorsMatch[0].Person.LastName,
-                                match.CommentatorsMatch[0].Person.FirstName,
-                                match.CommentatorsMatch[0].Person.MiddleName);
-                        }
-
-                        if (match.CommentatorsMatch.Count > 1)
-                        {
-                            matchView.CommentatorsMatch2 = string.Format("{0} {1} {2}",
-                                match.CommentatorsMatch[1].Person.LastName,
-                                match.CommentatorsMatch[1].Person.FirstName,
-                                match.CommentatorsMatch[1].Person.MiddleName);
-                        }
-                    }
-                    matchView.Date = match.Date;
-                    //matchView.GoalsGuest = match.Statistics.
-                    //matchView.GoalsOwner = match.Statistics.
                     matchView.MatchId = match.MatchId;
                     matchView.NameMatch = match.Name;
-                    matchView.NameSeason = match.Season != null ? match.Season.Name : "";
+                    matchView.Date = match.Date;
                     matchView.NameStadium = match.Stadium != null ? match.Stadium.Name : "";
+                    matchView.NameSeason = match.Season != null ? match.Season.Name : "";
                     matchView.NameTeamGuest = match.TeamGuestId != null ? db.Teams.Where(i => i.TeamId == match.TeamGuestId).FirstOrDefault().NameFull : "";
+                    //matchView.GoalsGuest { get; set; }
                     matchView.NameTeamOwner = match.TeamOwnerId != null ? db.Teams.Where(i => i.TeamId == match.TeamOwnerId).FirstOrDefault().NameFull : "";
+                    //matchView.GoalsOwner { get; set; }
+                    foreach (var face in match.FaceMatch)
+                    {
+                        switch ((RoleType)(face.Person.RoleId))
+                        {
+                            case RoleType.Commentator:
+                                // Should be 2 commentators.
+                                break;
+                            case RoleType.MainJudje:
+                                break;
+                            case RoleType.HelperJudje:
+                                // Should be 2 helpers judje.
+                                break;
+                            case RoleType.PairJudje:
+                                break;
+                            case RoleType.Inspector:
+                                break;
+                            case RoleType.Delegat:
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
+                    //matchView.CommentatorsMatch1 = match.CommentatorsMatch.Where(t=>t.)
+                    //matchView.CommentatorsMatch2 { get; set; }
+                    //matchView.MainJudje = match.FaceMatch.Where(t=>t.)
+                    //matchView.HelperJudje1 { get; set; }
+                    //matchView.HelperJudje2 { get; set; }
+                    //matchView.PairJudje { get; set; }
+                    //matchView.Inspector { get; set; }
+                    //matchView.Delegat { get; set; }
+
 
                     views.Add(matchView);
                 }

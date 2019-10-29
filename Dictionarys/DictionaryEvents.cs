@@ -5,32 +5,37 @@ using System.Text;
 using System.Threading.Tasks;
 using ModelLayer;
 using ModelLayer.Models;
+using FNL.Enums;
 
-namespace FNL
+namespace FNL.Dictionarys
 {
-    static class DictionaryEvents
+    /// <summary>
+    /// Dictionary that key is the uniq id of elemnt and value is string name of element.
+    /// </summary>
+    static public class DictionaryEvents
     {
-        static public readonly Dictionary<Events, string> EventDic = new Dictionary<Events, string>
+        static internal readonly Dictionary<EventMatchType, string> Dic = new Dictionary<EventMatchType, string>
         {
-            {Events.Replacement,"Замена" }
+            {EventMatchType.Replacement,"Замена" }
         };
 
-        public static int GetEventId(Events matchEvent)
+        /// <summary>
+        /// Return uniq id of element type.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        static public int GetEventId(EventMatchType matchEvent)
         {
             using (var db = new DbFnlContext())
             {
-                if (!db.Events.Where(t=>t.EventId == (uint)matchEvent).Any())
+                if (!db.Events.Where(t => t.EventId == (uint)matchEvent).Any())
                 {
-                    db.Events.Add(new Event() { EventId = (int)matchEvent, Name = EventDic[matchEvent] });
+                    db.Events.Add(new Event() { EventId = (int)matchEvent, Name = Dic[matchEvent] });
                     db.SaveChanges();
                 }
             }
 
             return (int)matchEvent;
-        }
-        public enum Events : uint
-        {
-            Replacement = 32432423
         }
     }
 }

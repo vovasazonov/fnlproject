@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FNL.Enums;
 using FNL.Views;
 using ModelLayer;
 using ModelLayer.Models;
@@ -12,9 +13,9 @@ namespace FNL.Presenters
     public class TablePlayersMainPresenter
     {
 
-        public List<ITablePlayersMainView> GetViews(int matchId, CategoryTable category, bool isSpare)
+        public List<ITablePlayersMainView> GetViews(int matchId, TablePersonType category, bool isSpare)
         {
-            if (category == CategoryTable.Actor)
+            if (category == TablePersonType.Actor)
             {
                 return null;
             }
@@ -24,7 +25,7 @@ namespace FNL.Presenters
             using (DbFnlContext db = new DbFnlContext())
             {
                 var currentMatch = db.Matches.Where(m => m.MatchId == matchId).FirstOrDefault();
-                int? idTeam = category == CategoryTable.GuestTeam ? currentMatch.TeamGuestId : currentMatch.TeamOwnerId;
+                int? idTeam = category == TablePersonType.GuestTeam ? currentMatch.TeamGuestId : currentMatch.TeamOwnerId;
 
                 if (idTeam == null)
                 {
@@ -62,7 +63,7 @@ namespace FNL.Presenters
         /// <param name="category"></param>
         /// <param name="isSpare"></param>
         /// <returns></returns>
-        public List<ITablePlayersMainView> GetViewsNotChosed(int matchId, CategoryTable category)
+        public List<ITablePlayersMainView> GetViewsNotChosed(int matchId, TablePersonType category)
         {
             List<ITablePlayersMainView> views = new List<ITablePlayersMainView>();
 
@@ -70,7 +71,7 @@ namespace FNL.Presenters
             {
                 // ---------------------------------
                 var currentMatch = db.Matches.Where(m => m.MatchId == matchId).FirstOrDefault();
-                int? idTeam = category == CategoryTable.GuestTeam ? currentMatch.TeamGuestId : currentMatch.TeamOwnerId;
+                int? idTeam = category == TablePersonType.GuestTeam ? currentMatch.TeamGuestId : currentMatch.TeamOwnerId;
 
                 if (idTeam == null)
                 {
@@ -122,6 +123,5 @@ namespace FNL.Presenters
             return views;
 
         }
-
     }
 }

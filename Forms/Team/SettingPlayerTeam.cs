@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FNL.Dictionarys;
+using FNL.Enums;
 using FNL.Presenters;
 using FNL.Views;
 
@@ -24,7 +26,7 @@ namespace FNL.Forms
             IdTeam = _settingTeam.IdTeam;
 
             // Prepare combobox amplua
-            comboBoxAmplua.Items.AddRange(DictionaryAmpluas.AmpluaDic.Values.ToArray());
+            comboBoxAmplua.Items.AddRange(DictionaryAmpluas.Dic.Values.ToArray());
             comboBoxAmplua.SelectedIndex = 0;
 
             SettingPlayerTeamPresenter presenterPlayerTeam = new SettingPlayerTeamPresenter(this);
@@ -81,9 +83,9 @@ namespace FNL.Forms
         {
             get
             {
-                DictionaryAmpluas.Ampluas id = DictionaryAmpluas.Ampluas.Goalkeeper;
+                AmpluaType id = AmpluaType.Goalkeeper;
 
-                foreach (var item in DictionaryAmpluas.AmpluaDic)
+                foreach (var item in DictionaryAmpluas.Dic)
                 {
                     if (item.Value == Amplua)
                     {
