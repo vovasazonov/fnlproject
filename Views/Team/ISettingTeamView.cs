@@ -8,6 +8,5 @@ namespace FNL.Views
 {
     public interface ISettingTeamView : ITeamView
     {
-        List <int> IdsPlayers { get; set; }
     }
 }

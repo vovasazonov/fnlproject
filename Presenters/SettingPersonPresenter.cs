@@ -11,11 +11,11 @@ using FNL.Enums;
 
 namespace FNL.Presenters
 {
-    public class SettingPersonPresenter
+    internal class SettingPersonPresenter
     {
         ISettingPersonView _view;
 
-        public SettingPersonPresenter(ISettingPersonView view)
+        internal SettingPersonPresenter(ISettingPersonView view)
         {
             this._view = view;
         }
@@ -30,22 +30,13 @@ namespace FNL.Presenters
 
             using (DbFnlContext db = new DbFnlContext())
             {
-                try
-                {
-                    personModel.Address = new Address();
-                    personModel.Address.City = _view.City;
-                    personModel.Address.Country = _view.Country;
-                    personModel.FirstName = _view.FirstName;
-                    personModel.LastName = _view.LastName;
-                    personModel.MiddleName = _view.MiddleName;
-                    personModel.RoleId = _view.RoleId;
-
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
+                personModel.Address = new Address();
+                personModel.Address.City = _view.City;
+                personModel.Address.Country = _view.Country;
+                personModel.FirstName = _view.FirstName;
+                personModel.LastName = _view.LastName;
+                personModel.MiddleName = _view.MiddleName;
+                personModel.RoleId = _view.RoleId;
             }
 
             return personModel;
@@ -53,10 +44,8 @@ namespace FNL.Presenters
         /// <summary>
         /// Add record to database.
         /// </summary>
-        public void InsertModelDB()
+        internal void InsertModelDB()
         {
-            CheckRole();
-
             using (DbFnlContext db = new DbFnlContext())
             {
                 Person pernosModel = GetModelFromView();
@@ -69,41 +58,42 @@ namespace FNL.Presenters
 
         }
 
-        private void CheckRole()
-        {
-            using (var db = new DbFnlContext())
-            {
-                var roleId = _view.RoleId;
-
-                if (!db.Roles.Where(t => t.RoleId == roleId).Any())
-                {
-                    // Add role to database first.
-                    db.Roles.Add(new Role { RoleId = roleId, Name = DictionaryRoles.Dic[(RoleType)roleId] ?? "" });
-                    var f = db.Roles.ToList();
-                    db.SaveChanges();
-                }
-            }
-        }
-
         /// <summary>
         /// Update model in database. Take data from view.
         /// </summary>
         /// <param name="idPerson"></param>
-        public void UpdateModelDB(int idPerson)
+        internal void UpdateModelDB()
         {
+            using (DbFnlContext db = new DbFnlContext())
+            {
+                var model = GetModelFromView();
 
+                // Say to database that this model is consist and changed.
+                db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+
+                db.SaveChanges();
+            }
         }
 
         /// <summary>
         /// Show model in view. Data takes from database.
         /// </summary>
         /// <returns></returns>
-        public void ShowModelInView(int idPerson)
+        internal void ShowModelInView()
         {
-
             using (DbFnlContext db = new DbFnlContext())
             {
+                var model = db.People.Where(t => t.PersonId == _view.PersonId).FirstOrDefault() ?? new Person();
 
+                _view.LastName = model.LastName;
+                _view.FirstName = model.FirstName;
+                _view.MiddleName = model.MiddleName;
+                _view.PhotoPath = model.PhotoPath;
+                string nameRole = "";
+                DictionaryRoles.Dic.TryGetValue((RoleType)((int)model.RoleId), out nameRole);
+                _view.Role = nameRole;
+                _view.City = model.Address != null ? model.Address.City : "";
+                _view.Country = model.Address != null ? model.Address.Country : "";
             }
         }
     }

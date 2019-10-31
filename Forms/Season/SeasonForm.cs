@@ -14,13 +14,45 @@ namespace FNL.Forms
 {
     public partial class SeasonForm : Form, ISeasonView
     {
-        public int SeasonId { get => ((List<ISeasonView>)(dataGridViewSeasons.DataSource))[dataGridViewSeasons.CurrentRow.Index].SeasonId; set => throw new NotImplementedException(); }
-        public string SeasonName { get => ((List<ISeasonView>)(dataGridViewSeasons.DataSource))[dataGridViewSeasons.CurrentRow.Index].SeasonName; set => throw new NotImplementedException(); }
+        #region View variables.
+        public int SeasonId
+        {
+            get
+            {
+                var dataSource = (List<ISeasonView>)(dataGridViewSeasons.DataSource);
+                var currentRow = dataGridViewSeasons.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].SeasonId : -1;
+            }
+            set
+            {
+
+            }
+        }
+        public string SeasonName
+        {
+            get
+            {
+                var dataSource = (List<ISeasonView>)(dataGridViewSeasons.DataSource);
+                var currentRow = dataGridViewSeasons.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].SeasonName : "";
+            }
+            set
+            {
+
+            }
+        }
+        #endregion
+
+        #region Class variables.
+        private SettingMatchForm _settingMatchForm = null;
+        #endregion
+
         public SeasonForm()
         {
             InitializeComponent();
         }
-        public SeasonForm(SettingMatch settingMatchForm)
+
+        public SeasonForm(SettingMatchForm settingMatchForm)
         {
             InitializeComponent();
 
@@ -29,29 +61,25 @@ namespace FNL.Forms
             UpdateTable();
         }
 
-        private SettingMatch _settingMatchForm;
-
         /// <summary>
         /// Update the data in gridView.
         /// </summary>
-        public void UpdateTable()
+        internal void UpdateTable()
         {
             SeasonPresenter presenter = new SeasonPresenter(this);
             // Set table with data from database.
             dataGridViewSeasons.DataSource = presenter.GetViews();
-            // Hide colum with ids.
-            dataGridViewSeasons.Columns[0].Visible = false;
         }
 
         private void buttonInsertSeason_Click(object sender, EventArgs e)
         {
-            SettingSeason form = new SettingSeason(this);
+            SettingSeasonForm form = new SettingSeasonForm(this);
             form.Show();
         }
 
         private void buttonChangeSeason_Click(object sender, EventArgs e)
         {
-            SettingSeason form = new SettingSeason(this, true);
+            SettingSeasonForm form = new SettingSeasonForm(this, true);
             form.Show();
         }
 
@@ -65,8 +93,11 @@ namespace FNL.Forms
 
         private void buttonSeasonOk_Click(object sender, EventArgs e)
         {
-            _settingMatchForm.SeasonId = SeasonId;
-            _settingMatchForm.NameSeason = SeasonName;
+            if (_settingMatchForm != null)
+            {
+                _settingMatchForm.NameSeason = SeasonName;
+                _settingMatchForm.SeasonId = SeasonId;
+            }
 
             this.Close();
         }

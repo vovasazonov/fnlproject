@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace FNL.Views
 {
-    public interface ISeasonView
+    public interface ISeasonView : ISeasonIds
     {
-        int SeasonId { get; set; }
         string SeasonName { get; set; }
     }
 
-    public class ClassSeasonView : ISeasonView
+    public class CSeasonView : ISeasonView
     {
         public int SeasonId { get; set; }
         public string SeasonName { get; set; }

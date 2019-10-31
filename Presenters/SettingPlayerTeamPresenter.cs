@@ -24,14 +24,14 @@ namespace FNL.Presenters
         {
             using (DbFnlContext db = new DbFnlContext())
             {
-                TeamPlayer teamPlayer = db.TeamPlayers.Where(t => t.PersonId == _view.IdPerson).FirstOrDefault() ?? new TeamPlayer();
+                TeamPlayer teamPlayer = db.TeamPlayers.Where(t => t.PersonId == _view.PersonId).FirstOrDefault() ?? new TeamPlayer();
 
 
                 _view.Number = teamPlayer.NumberPlayer ?? 0;
                 //_view.IdTeam = teamPlayer.TeamId;
-                _view.TeamName = teamPlayer.Team != null ? teamPlayer.Team.NameFull : "";
-                _view.IdAmplua = teamPlayer.AmpluaId;
-                _view.AmpluaName = teamPlayer.Amplua != null ? teamPlayer.Amplua.Name : "";
+                _view.Team = teamPlayer.Team != null ? teamPlayer.Team.NameFull : "";
+                _view.AmpluaId = teamPlayer.AmpluaId ?? 0;
+                _view.Amplua = teamPlayer.Amplua != null ? teamPlayer.Amplua.Name : "";
             }
         }
 
@@ -42,7 +42,7 @@ namespace FNL.Presenters
         {
             using (var db = new DbFnlContext())
             {
-                Person model = db.People.Where(t => t.PersonId == _view.IdPerson).FirstOrDefault();
+                Person model = db.People.Where(t => t.PersonId == _view.PersonId).FirstOrDefault();
                 db.People.Remove(model);
                 db.SaveChanges();
             }
@@ -50,15 +50,14 @@ namespace FNL.Presenters
         /// <summary>
         /// Update info of player in team.
         /// </summary>
-        public void UpdateModelDB(int idPerson)
+        public void UpdateModelDB()
         {
             using (var db = new DbFnlContext())
             {
-                TeamPlayer model = model = db.TeamPlayers.Where(t => t.TeamId == _view.IdTeam && t.PersonId == idPerson).FirstOrDefault();
+                TeamPlayer model = model = db.TeamPlayers.Where(t => t.TeamId == _view.TeamId && t.PersonId == _view.PersonId).FirstOrDefault();
                 model.NumberPlayer = _view.Number;
-                model.AmpluaId = _view.IdAmplua;
+                model.AmpluaId = DictionaryAmpluas.Dic.Keys.Contains((AmpluaType)_view.AmpluaId) ? _view.AmpluaId : DictionaryAmpluas.GetId(AmpluaType.WithoutAmplua);
                 db.Entry(model).State = System.Data.Entity.EntityState.Modified;
-                CheckAmplua();
 
                 db.SaveChanges();
             }
@@ -71,26 +70,12 @@ namespace FNL.Presenters
             using (DbFnlContext db = new DbFnlContext())
             {
                 TeamPlayer model = GetModelFromView();
-                CheckAmplua();
+
                 db.TeamPlayers.Add(model);
                 db.SaveChanges();
             }
         }
 
-        private void CheckAmplua()
-        {
-            using (var db = new DbFnlContext())
-            {
-                var ampluaId = _view.IdAmplua;
-
-                if (!db.Ampluas.Where(t => t.AmpluaId == ampluaId).Any())
-                {
-                    // Add role to database first.
-                    db.Ampluas.Add(new Amplua { AmpluaId = (int)ampluaId, Name = DictionaryAmpluas.Dic[(AmpluaType)ampluaId] ?? "" });
-                    db.SaveChanges();
-                }
-            }
-        }
 
         private TeamPlayer GetModelFromView()
         {
@@ -98,12 +83,12 @@ namespace FNL.Presenters
 
             using (DbFnlContext db = new DbFnlContext())
             {
-                model = db.TeamPlayers.Where(t => t.TeamId == _view.IdTeam && t.PersonId == _view.IdPerson).FirstOrDefault();
+                model = db.TeamPlayers.Where(t => t.TeamId == _view.TeamId && t.PersonId == _view.PersonId).FirstOrDefault();
                 model = model != null ? model : new TeamPlayer();
-                model.AmpluaId = _view.IdAmplua;
+                model.AmpluaId = DictionaryAmpluas.Dic.Keys.Contains((AmpluaType)_view.AmpluaId) ? _view.AmpluaId : DictionaryAmpluas.GetId(AmpluaType.WithoutAmplua);
                 model.NumberPlayer = _view.Number;
-                model.PersonId = _view.IdPerson;
-                model.TeamId = _view.IdTeam;
+                model.PersonId = _view.PersonId;
+                model.TeamId = _view.TeamId;
             }
 
             return model;

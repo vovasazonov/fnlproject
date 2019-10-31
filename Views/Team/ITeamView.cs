@@ -7,21 +7,23 @@ using System.Drawing;
 
 namespace FNL.Views
 {
-	public interface ITeamView
+	public interface ITeamView : ITeamIds
 	{
-        int IdTeam { get; set; }
-		Color ColorTeam { get; set; }
-        string NameTeamFull { get; set; }
-        string NameTeamShort { get; set; }
-        string PathTeamLogo { get; set; }
+		Color Color { get; set; }
+        string NameFull { get; set; }
+        string NameShort { get; set; }
+        string PathLogo { get; set; }
 	}
 
-    public class ClassTeamView : ITeamView
+    /// <summary>
+    /// Helper class to create object of interface.
+    /// </summary>
+    public class CTeamView : ITeamView
     {
-        public int IdTeam { get; set; }
-        public Color ColorTeam { get; set; }
-        public string NameTeamFull { get; set; }
-        public string NameTeamShort { get; set; }
-        public string PathTeamLogo { get; set; }
+        public int TeamId { get; set; }
+        public Color Color { get; set; }
+        public string NameFull { get; set; }
+        public string NameShort { get; set; }
+        public string PathLogo { get; set; }
     }
 }

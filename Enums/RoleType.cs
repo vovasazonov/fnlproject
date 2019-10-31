@@ -11,6 +11,7 @@ namespace FNL.Enums
     /// </summary>
     public enum RoleType : uint
     {
+        WithoutRole = 2345432,
         Player = 7765731,
         MainTrainer = 78768678,
         Commentator = 3454366,

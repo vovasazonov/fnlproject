@@ -6,7 +6,24 @@ using System.Threading.Tasks;
 
 namespace FNL.Views
 {
-    public interface IPlayerTeamView
+    public interface IPlayerTeamView : IPlayerView
     {
+    }
+
+    public class CSettingPlayerTeamView : IPlayerTeamView
+    {
+        public int Number { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string MiddleName { get; set; }
+        public string Role { get; set; }
+        public string Amplua { get; set; }
+        public int PersonId { get; set; }
+        public int TeamId { get; set; }
+        public int AmpluaId { get; set; }
+        public int RoleId { get; set; }
+        public string PhotoPath {get;set;}
+        public string Country {get;set;}
+        public string City {get;set;}
     }
 }

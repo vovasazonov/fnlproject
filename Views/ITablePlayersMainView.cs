@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace FNL.Views
 {
-    public interface ITablePlayersMainView
+    public interface ITablePlayersMainView : IPlayerView
     {
-        int PersonId { get; set; }
         int N { get; set; }
-        string LastName { get; set; }
-        string FirstName { get; set; }
+        new string LastName { get; set; }
+        new string FirstName { get; set; }
         string R { get; set; }
         Color K { get; set; }
         string A { get; set; }
@@ -20,12 +19,22 @@ namespace FNL.Views
 
     public class ClassTablePlayersMainView : ITablePlayersMainView
     {
-        int ITablePlayersMainView.PersonId { get; set; }
-        int ITablePlayersMainView.N { get; set; }
-        string ITablePlayersMainView.LastName { get; set; }
-        string ITablePlayersMainView.FirstName { get; set; }
-        string ITablePlayersMainView.R { get; set; }
-        Color ITablePlayersMainView.K { get; set; }
-        string ITablePlayersMainView.A { get; set; }
+        public int PersonId { get; set; }
+        public int N { get => Number;set => Number = value; }
+        public string LastName { get;set; }
+        public string FirstName { get;set; }
+        public string R { get => Role; set => Role = value; }
+        public Color K { get;set; }
+        public string A { get => Amplua; set => Amplua = value; }
+        public int Number { get;set; }
+        public string Amplua { get;set; }
+        public int TeamId { get;set; }
+        public int AmpluaId { get;set; }
+        public string MiddleName { get;set; }
+        public string PhotoPath { get;set; }
+        public string Country { get;set; }
+        public string City { get;set; }
+        public string Role { get;set; }
+        public int RoleId { get;set; }
     }
 }

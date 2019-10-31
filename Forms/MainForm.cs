@@ -16,10 +16,11 @@ using FNL.Presenters;
 using System.Text.RegularExpressions;
 using FNL.Dictionarys;
 using FNL.Enums;
+using FNL.Extensions;
 
 namespace FNL
 {
-    public partial class MainForm : Form, IMatchView
+    public partial class MainForm : Form, IMainView
     {
         private delegate void UpdateGUI(object parameter);
 
@@ -122,31 +123,18 @@ namespace FNL
         {
             InitializeComponent();
 
+            // Disable controls to click on button. There are not connection yet on start program.
+            DisableControls();
+
             _caspar_.Connected += new EventHandler<NetworkEventArgs>(Caspar__Connected);
             _caspar_.FailedConnect += new EventHandler<NetworkEventArgs>(Caspar__FailedConnected);
             _caspar_.Disconnected += new EventHandler<NetworkEventArgs>(Caspar__Disconnected);
 
-            // Disable controls to click on button. There are not connection yet on start program.
-            DisableControls();
 
             dataGridPlayersGuest.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
             dataGridPlayersPairsGuest.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
             dataGridPlayersHome.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
             dataGridPlayersPairsHome.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
-
-            Logger.InitLogger();//инициализация - требуется один раз в начале
-            Logger.Log.Info("Ура заработало!");
-            Logger.Log.Error("Ошибочка вышла!");
-            try
-            {
-                int i = 5;
-                int d = 0;
-                var t = i/d;
-            }
-            catch (Exception ex)
-            {
-                Logger.Log.Error("Ошибка деление на нуль", ex);
-            }
         }
 
 
@@ -300,7 +288,7 @@ namespace FNL
         /// <param name="e"></param>
         private void DataGridPlayers_CurrentCellChanged(object sender, EventArgs e)
         {
-            MatchPresenter presenter = new MatchPresenter(this);
+            MainPresenter presenter = new MainPresenter(this);
             presenter.UpdateViewEvents();
         }
 
@@ -483,7 +471,7 @@ namespace FNL
 
         private void UpdateReplacementCG(bool isGuest)
         {
-            MatchPresenter presenter = new MatchPresenter(this);
+            MainPresenter presenter = new MainPresenter(this);
 
             ITablePlayersMainView player = null;
             ITablePlayersMainView pairPlayer = null;
@@ -552,28 +540,28 @@ namespace FNL
         /// </summary>
         /// <param name="isGuest"></param>
         /// /// <param name="isPairs"></param>
-        private void UpdatePlayersCG(PersonAccessory accessory/*bool isGuest*/, bool isPairs = false)
+        private void UpdatePlayersCG(PersonCategoryType accessory/*bool isGuest*/, bool isPairs = false)
         {
             List<ITablePlayersMainView> players = new List<ITablePlayersMainView>();
             List<ITablePlayersMainView> pairsPlayers = new List<ITablePlayersMainView>();
             string logoPath;
 
-            MatchPresenter presenter = new MatchPresenter(this);
-            if (accessory == PersonAccessory.FaceMatch)
+            MainPresenter presenter = new MainPresenter(this);
+            if (accessory == PersonCategoryType.FaceMatch)
             {
                 logoPath = "";
             }
             else
             {
-                logoPath = presenter.GetLogoPathTeam(accessory == PersonAccessory.GuestTeam ? true : false);
+                logoPath = presenter.GetLogoPathTeam(accessory == PersonCategoryType.GuestTeam ? true : false);
             }
-            if (accessory == PersonAccessory.GuestTeam)
+            if (accessory == PersonCategoryType.GuestTeam)
             {
 
                 players = !isPairs ? ((List<ITablePlayersMainView>)dataGridPlayersGuest.DataSource) : null;
                 pairsPlayers = isPairs ? (List<ITablePlayersMainView>)dataGridPlayersPairsGuest.DataSource : null;
             }
-            else if (accessory == PersonAccessory.HomeTeam)
+            else if (accessory == PersonCategoryType.HomeTeam)
             {
                 players = !isPairs ? (List<ITablePlayersMainView>)dataGridPlayersHome.DataSource : null;
                 pairsPlayers = isPairs ? (List<ITablePlayersMainView>)dataGridPlayersPairsHome.DataSource : null;
@@ -606,7 +594,7 @@ namespace FNL
                 _cgData.SetData("teamLogoPath", logoPath);
 
                 // Build title.
-                _cgData.SetData("titleName", accessory == PersonAccessory.FaceMatch ? "ОФИЦИАЛЬНЫЕ ЛИЦА МАТЧА" : (isPairs ? "ЗАПАСНЫЕ" : "СТАРТОВЫЙ СОСТВА"));
+                _cgData.SetData("titleName", accessory == PersonCategoryType.FaceMatch ? "ОФИЦИАЛЬНЫЕ ЛИЦА МАТЧА" : (isPairs ? "ЗАПАСНЫЕ" : "СТАРТОВЫЙ СОСТВА"));
 
                 // Build season name.
                 _cgData.SetData("seasonName", SeasonName);
@@ -618,7 +606,7 @@ namespace FNL
                 _cgData.SetData("ampluaPlayer1", "В");
 
                 // build data players.
-                if (!isPairs || accessory != PersonAccessory.FaceMatch)
+                if (!isPairs || accessory != PersonCategoryType.FaceMatch)
                 {
                     for (int i = 0; i < 11; i++)
                     {
@@ -627,16 +615,16 @@ namespace FNL
                     }
 
                 }
-                else if (isPairs || accessory == PersonAccessory.FaceMatch)
+                else if (isPairs || accessory == PersonCategoryType.FaceMatch)
                 {
                     for (int i = 0; i < 11; i++)
                     {
-                        _cgData.SetData(string.Format("nameSparePlayer{0}", i + 1), pairsPlayers.Count() > i && accessory != PersonAccessory.FaceMatch ? pairsPlayers[i].FirstName + " " + pairsPlayers[i].LastName : " ");
-                        _cgData.SetData(string.Format("numSparePlayer{0}", i + 1), pairsPlayers.Count() > i && accessory != PersonAccessory.FaceMatch ? pairsPlayers[i].N.ToString() : " ");
+                        _cgData.SetData(string.Format("nameSparePlayer{0}", i + 1), pairsPlayers.Count() > i && accessory != PersonCategoryType.FaceMatch ? pairsPlayers[i].FirstName + " " + pairsPlayers[i].LastName : " ");
+                        _cgData.SetData(string.Format("numSparePlayer{0}", i + 1), pairsPlayers.Count() > i && accessory != PersonCategoryType.FaceMatch ? pairsPlayers[i].N.ToString() : " ");
                     }
                 }
 
-                if (accessory == PersonAccessory.FaceMatch)
+                if (accessory == PersonCategoryType.FaceMatch)
                 {
                     _cgData.SetData("titleMainJudje", "Главный судья");
                     _cgData.SetData("titleHelperJudje", "Помощники");
@@ -882,12 +870,12 @@ namespace FNL
         {
             TablePlayersMainPresenter presenterTable = new TablePlayersMainPresenter();
             // Update tables.
-            dataGridPlayersGuest.DataSource = presenterTable.GetViews(MatchId, PersonAccessory.GuestTeam, false);
-            dataGridPlayersPairsGuest.DataSource = presenterTable.GetViews(MatchId, PersonAccessory.GuestTeam, true);
-            dataGridPlayersHome.DataSource = presenterTable.GetViews(MatchId, PersonAccessory.HomeTeam, false);
-            dataGridPlayersPairsHome.DataSource = presenterTable.GetViews(MatchId, PersonAccessory.HomeTeam, true);
+            dataGridPlayersGuest.DataSource = presenterTable.GetViews(MatchId, PersonCategoryType.GuestTeam, false);
+            dataGridPlayersPairsGuest.DataSource = presenterTable.GetViews(MatchId, PersonCategoryType.GuestTeam, true);
+            dataGridPlayersHome.DataSource = presenterTable.GetViews(MatchId, PersonCategoryType.HomeTeam, false);
+            dataGridPlayersPairsHome.DataSource = presenterTable.GetViews(MatchId, PersonCategoryType.HomeTeam, true);
 
-            MatchPresenter matchPresenter = new MatchPresenter(this);
+            MainPresenter matchPresenter = new MainPresenter(this);
             matchPresenter.ShowView();
 
             // Caspar CG Data Update
@@ -1003,7 +991,7 @@ namespace FNL
                 this._caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Clear();
                 this._caspar_.Channels[Properties.Settings.Default.CasparChannel].Clear();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -1058,39 +1046,20 @@ namespace FNL
         #region Done
         private void ClickButtonColorTeamGuest(object sender, EventArgs e)
         {
-            buttonColorTeamGuest.BackColor = ChoseNewColor();
+            buttonColorTeamGuest.BackColor = (new Color()).ChoseColorDialog();
             UpdateColorTeams();
         }
 
         private void ClickButtonColorTeamHome(object sender, EventArgs e)
         {
-            buttonColorTeamHome.BackColor = ChoseNewColor();
+            buttonColorTeamHome.BackColor = (new Color()).ChoseColorDialog();
             UpdateColorTeams();
-        }
-
-        public Color ChoseNewColor()
-        {
-            ColorDialog MyDialog = new ColorDialog
-            {
-                // Keeps the user from selecting a custom color.
-                AllowFullOpen = true,
-                // Allows the user to get help. (The default is false.)
-                ShowHelp = true,
-            };
-
-            // Update the text box color if the user clicks OK 
-            if (MyDialog.ShowDialog() == DialogResult.OK)
-            {
-                return MyDialog.Color;
-            }
-
-            return Color.White;
         }
         #endregion
 
         private void buttonMatch_Click(object sender, EventArgs e)
         {
-            MatchTableForm matchesForm = new MatchTableForm(this);
+            MatchForm matchesForm = new MatchForm(this);
             matchesForm.Show();
         }
 
@@ -1100,11 +1069,11 @@ namespace FNL
             {
                 if (radioButtonGuest.Checked)
                 {
-                    UpdatePlayersCG(PersonAccessory.GuestTeam, false);
+                    UpdatePlayersCG(PersonCategoryType.GuestTeam, false);
                 }
                 else if (radioButtonHome.Checked)
                 {
-                    UpdatePlayersCG(PersonAccessory.HomeTeam, false);
+                    UpdatePlayersCG(PersonCategoryType.HomeTeam, false);
                 }
             }
 
@@ -1117,11 +1086,11 @@ namespace FNL
             {
                 if (radioButtonGuest.Checked)
                 {
-                    UpdatePlayersCG(PersonAccessory.GuestTeam, true);
+                    UpdatePlayersCG(PersonCategoryType.GuestTeam, true);
                 }
                 else if (radioButtonHome.Checked)
                 {
-                    UpdatePlayersCG(PersonAccessory.HomeTeam, true);
+                    UpdatePlayersCG(PersonCategoryType.HomeTeam, true);
                 }
             }
 
@@ -1134,7 +1103,7 @@ namespace FNL
 
         private void btnAddChangeGuest_Click(object sender, EventArgs e)
         {
-            MatchPresenter presenter = new MatchPresenter(this);
+            MainPresenter presenter = new MainPresenter(this);
             presenter.Replacement(true);
 
             UpdateReplacementCG(true);
@@ -1145,7 +1114,7 @@ namespace FNL
 
         private void btnAddChangeHome_Click(object sender, EventArgs e)
         {
-            MatchPresenter presenter = new MatchPresenter(this);
+            MainPresenter presenter = new MainPresenter(this);
             presenter.Replacement(false);
 
             UpdateReplacementCG(false);
@@ -1161,7 +1130,7 @@ namespace FNL
 
         private void checkBoxOfficialFaces_CheckedChanged(object sender, EventArgs e)
         {
-            UpdatePlayersCG(PersonAccessory.FaceMatch);
+            UpdatePlayersCG(PersonCategoryType.FaceMatch);
             ShowHideOfficialFacesMatch();
         }
 

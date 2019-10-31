@@ -1,6 +1,6 @@
 ﻿namespace FNL.Forms
 {
-    partial class SettingPerson
+    partial class SettingPersonForm
     {
         /// <summary>
         /// Required designer variable.

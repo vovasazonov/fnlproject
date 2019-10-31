@@ -1,6 +1,6 @@
 ﻿namespace FNL.Forms
 {
-    partial class SettingPlayerTeam
+    partial class SettingPlayerTeamForm
     {
         /// <summary>
         /// Required designer variable.

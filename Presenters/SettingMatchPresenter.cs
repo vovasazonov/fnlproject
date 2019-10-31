@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 using ModelLayer.Models;
 using ModelLayer;
 using FNL.Views;
+using FNL.Enums;
+using FNL.Dictionarys;
 
 namespace FNL.Presenters
 {
-    public class SettingMatchPresenter
+    internal class SettingMatchPresenter
     {
         private ISettingMatchView _view;
 
-        public SettingMatchPresenter(ISettingMatchView view)
+        internal SettingMatchPresenter(ISettingMatchView view)
         {
             this._view = view;
         }
@@ -24,43 +26,68 @@ namespace FNL.Presenters
         /// <returns></returns>
         private Match GetModelFromView()
         {
-            Match matchModel = new Match
+            Match matchModel;
+            using (var db = new DbFnlContext())
             {
-                Name = _view.NameMatch,
-                Date = _view.DateTime,
-                MatchId = _view.MatchId != null ? (int)_view.MatchId : 0,
-                SeasonId = _view.SeasonId,
-                StadiumId = _view.StadiumId,
-                TeamGuestId = _view.GuestTeamId,
-                TeamOwnerId = _view.OwnerTeamId,
-            };
+                matchModel = new Match
+                {
+                    Name = _view.NameMatch,
+                    Date = _view.Date,
+                    MatchId = _view.MatchId,
+                    SeasonId = db.Seasons.Any(t => t.SeasonId == _view.SeasonId) ? (int?)_view.SeasonId : null,
+                    StadiumId = db.Stadiums.Any(t => t.StadiumId == _view.StadiumId) ? (int?)_view.StadiumId : null,
+                    TeamGuestId = db.Teams.Any(t => t.TeamId == _view.GuestTeamId) ? (int?)_view.GuestTeamId : null,
+                    TeamOwnerId = db.Teams.Any(t => t.TeamId == _view.OwnerTeamId) ? (int?)_view.OwnerTeamId : null,
+                };
+            }
 
             return matchModel;
         }
 
         /// <summary>
-        /// Add to model commentators.
+        /// Add to model faces but first delete old.
         /// </summary>
         /// <param name="matchModel"></param>
-        private void SetCommentatorsFromView(ref Match matchModel)
+        private void SetFacesFromView(ref Match matchModel)
         {
-            matchModel.FaceMatch = new List<FaceMatch>();
-
-            // Add commentators to match.
-            if (_view.CommentatorPerson1Id != null)
+            if (matchModel.FaceMatch == null)
             {
-                matchModel.FaceMatch.Add(new FaceMatch { MatchId = matchModel.MatchId, PersonId = (int)_view.CommentatorPerson1Id });
+                return;
             }
-            if (_view.CommentatorPerson2Id != null)
+
+            using (var db = new DbFnlContext())
             {
-                matchModel.FaceMatch.Add(new FaceMatch { MatchId = matchModel.MatchId, PersonId = (int)_view.CommentatorPerson2Id });
+                // Delete old faces.
+                db.FacesMatches.RemoveRange(matchModel.FaceMatch);
+
+                InsertFaceDB(_view.Commentator1Id, matchModel.MatchId);
+                InsertFaceDB(_view.Commentator2Id, matchModel.MatchId);
+                InsertFaceDB(_view.DelegatId, matchModel.MatchId);
+                InsertFaceDB(_view.HelperJudje1Id, matchModel.MatchId);
+                InsertFaceDB(_view.HelperJudje2Id, matchModel.MatchId);
+                InsertFaceDB(_view.InspectorId, matchModel.MatchId);
+                InsertFaceDB(_view.MainJudjeId, matchModel.MatchId);
+                InsertFaceDB(_view.PairJudjeId, matchModel.MatchId);
+
+                void InsertFaceDB(int idFace, int idMatch)
+                {
+                    bool hasPerson = db.People.Any(t => t.PersonId == idFace);
+                    bool hasMatch = db.Matches.Any(t => t.MatchId == idMatch);
+
+                    if (hasPerson && hasMatch)
+                    {
+                        db.FacesMatches.Add(new FaceMatch { MatchId = idMatch, PersonId = idFace });
+                        db.SaveChanges();
+                    }
+
+                }
             }
         }
 
         /// <summary>
         /// Insert record to database. Data take from view.
         /// </summary>
-        public void InserModelDB()
+        internal void InserModelDB()
         {
 
             using (DbFnlContext db = new DbFnlContext())
@@ -71,7 +98,7 @@ namespace FNL.Presenters
                 db.SaveChanges();
 
                 // Add commentators to match.
-                SetCommentatorsFromView(ref matchModel);
+                SetFacesFromView(ref matchModel);
 
                 db.SaveChanges();
             }
@@ -80,13 +107,13 @@ namespace FNL.Presenters
         /// <summary>
         /// Update record in databse. Take data from view.
         /// </summary>
-        public void UpdateModelDB()
+        internal void UpdateModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
                 Match matchModel = GetModelFromView();
                 // Add commentators to match.
-                SetCommentatorsFromView(ref matchModel);
+                SetFacesFromView(ref matchModel);
 
                 // Say to database that this model is consist and changed.
                 db.Entry(matchModel).State = System.Data.Entity.EntityState.Modified;
@@ -99,32 +126,91 @@ namespace FNL.Presenters
         /// Show model in view.
         /// </summary>
         /// <returns>matches.</returns>
-        public void ShowModelInView(int idMatch)
+        internal void SetModelToView()
         {
 
             using (DbFnlContext db = new DbFnlContext())
             {
                 Match match = (from m in db.Matches
-                               where m.MatchId == idMatch
+                               where m.MatchId == _view.MatchId
                                select m).FirstOrDefault();
 
+                var faces = db.FacesMatches.Where(c => c.MatchId == match.MatchId);
+
                 _view.MatchId = match.MatchId;
-                _view.StadiumId = match.StadiumId;
-                _view.GuestTeamId = match.TeamGuestId;
-                _view.OwnerTeamId = match.TeamOwnerId;
-                _view.SeasonId = match.SeasonId;
-                List<FaceMatch> commentators = db.FacesMatches.Where(c => c.MatchId == match.MatchId).ToList();
-                _view.CommentatorPerson1Id = commentators != null ? commentators.Count > 0 ? (int?)commentators[0].FaceMatchId : null : null;
-                _view.CommentatorPerson2Id = commentators != null ? commentators.Count > 1 ? (int?)commentators[1].FaceMatchId : null : null;
+                _view.StadiumId = db.Stadiums.Where(t => t.StadiumId == match.StadiumId).Any() ? (int)match.StadiumId : -1;
+                _view.GuestTeamId = db.Teams.Where(t => t.TeamId == match.TeamGuestId).Any() ? (int)match.TeamGuestId : -1;
+                _view.OwnerTeamId = db.Teams.Where(t => t.TeamId == match.TeamOwnerId).Any() ? (int)match.TeamOwnerId : -1;
+                _view.SeasonId = db.Seasons.Where(t => t.SeasonId == match.SeasonId).Any() ? (int)match.SeasonId : -1;
+                if (faces != null)
+                {
+                    _view.Commentator1Id = SetIdOfFaceToView(RoleType.Commentator);
+                    _view.Commentator2Id = SetIdOfFaceToView(RoleType.Commentator);
+                    _view.DelegatId = SetIdOfFaceToView(RoleType.Delegat);
+                    _view.HelperJudje1Id = SetIdOfFaceToView(RoleType.HelperJudje);
+                    _view.HelperJudje2Id = SetIdOfFaceToView(RoleType.HelperJudje);
+                    _view.InspectorId = SetIdOfFaceToView(RoleType.Inspector);
+                    _view.MainJudjeId = SetIdOfFaceToView(RoleType.MainJudje);
+                    _view.PairJudjeId = SetIdOfFaceToView(RoleType.PairJudje);
+
+                    int SetIdOfFaceToView(RoleType roleType)
+                    {
+                        int varToSet;
+                        int idRole = DictionaryRoles.GetId(roleType);
+                        try
+                        {
+                            varToSet = faces.Select(t => t.Person).
+                            Where(t => t.RoleId == idRole).
+                            Select(t => t.PersonId).FirstOrDefault();
+                        }
+                        catch (Exception)
+                        {
+
+                            throw;
+                        }
+                        return varToSet;
+                    }
+
+
+
+                }
 
                 _view.NameMatch = match.Name;
                 _view.NameStadium = match.StadiumId != null ? db.Stadiums.Where(s => s.StadiumId == match.StadiumId).Select(s => s.Name).FirstOrDefault() : "";
-                _view.NameGuestTeam = match.TeamGuestId != null ? db.Teams.Where(s => s.TeamId == match.TeamGuestId).Select(s => s.NameFull).FirstOrDefault() : "";
-                _view.NameOwnerTeam = match.TeamOwnerId != null ? db.Teams.Where(s => s.TeamId == match.TeamOwnerId).Select(s => s.NameFull).FirstOrDefault() : "";
+                _view.NameTeamGuest = match.TeamGuestId != null ? db.Teams.Where(s => s.TeamId == match.TeamGuestId).Select(s => s.NameFull).FirstOrDefault() : "";
+                _view.NameTeamHome = match.TeamOwnerId != null ? db.Teams.Where(s => s.TeamId == match.TeamOwnerId).Select(s => s.NameFull).FirstOrDefault() : "";
                 _view.NameSeason = match.SeasonId != null ? db.Seasons.Where(s => s.SeasonId == match.SeasonId).Select(s => s.Name).FirstOrDefault() : "";
-                _view.DateTime = match.Date;
-                _view.NameCommentator1 = _view.CommentatorPerson1Id != null ? db.People.Where(s => s.PersonId == _view.CommentatorPerson1Id).Select(s => s.LastName + " " + s.FirstName + " " + s.MiddleName).FirstOrDefault() : "";
-                _view.NameCommentator2 = _view.CommentatorPerson2Id != null ? db.People.Where(s => s.PersonId == _view.CommentatorPerson2Id).Select(s => s.LastName + " " + s.FirstName + " " + s.MiddleName).FirstOrDefault() : "";
+                _view.Date = match.Date;
+                if (faces != null)
+                {
+                    _view.Commentators1 = SetNamesOfFaceToView(_view.Commentator1Id);
+                    _view.Commentators2 = SetNamesOfFaceToView(_view.Commentator2Id);
+                    _view.Delegat = SetNamesOfFaceToView(_view.DelegatId);
+                    _view.HelperJudje1 = SetNamesOfFaceToView(_view.HelperJudje1Id);
+                    _view.HelperJudje2 = SetNamesOfFaceToView(_view.HelperJudje2Id);
+                    _view.Inspector = SetNamesOfFaceToView(_view.InspectorId);
+                    _view.MainJudje = SetNamesOfFaceToView(_view.MainJudjeId);
+                    _view.PairJudje = SetNamesOfFaceToView(_view.PairJudjeId);
+
+                    string SetNamesOfFaceToView(int idPerson)
+                    {
+                        string varToSet = "";
+                        try
+                        {
+                            varToSet = faces.Where(t => t.PersonId == idPerson).
+                        Select(s => s.Person.FirstName + " " + s.Person.FirstName + " " + s.Person.MiddleName).
+                        FirstOrDefault();
+                        }
+                        catch (Exception)
+                        {
+
+                            throw;
+                        }
+
+                        return varToSet;
+                    }
+
+                }
             }
         }
     }

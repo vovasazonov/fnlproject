@@ -10,12 +10,23 @@ using ModelLayer.Models;
 
 namespace FNL.Presenters
 {
-    public class TablePlayersMainPresenter
+    internal class TablePlayersMainPresenter
     {
+        ITablePlayersMainView _view;
 
-        public List<ITablePlayersMainView> GetViews(int matchId, PersonAccessory category, bool isSpare)
+        internal TablePlayersMainPresenter()
         {
-            if (category == PersonAccessory.FaceMatch)
+#warning Constructor of presenter should be with parametr of view.
+        }
+
+        internal TablePlayersMainPresenter(ITablePlayersMainView view)
+        {
+            _view = view;
+        }
+
+        internal List<ITablePlayersMainView> GetViews(int matchId, PersonCategoryType category, bool isSpare)
+        {
+            if (category == PersonCategoryType.FaceMatch)
             {
                 return null;
             }
@@ -25,7 +36,7 @@ namespace FNL.Presenters
             using (DbFnlContext db = new DbFnlContext())
             {
                 var currentMatch = db.Matches.Where(m => m.MatchId == matchId).FirstOrDefault();
-                int? idTeam = category == PersonAccessory.GuestTeam ? currentMatch.TeamGuestId : currentMatch.TeamOwnerId;
+                int? idTeam = category == PersonCategoryType.GuestTeam ? currentMatch.TeamGuestId : currentMatch.TeamOwnerId;
 
                 if (idTeam == null)
                 {
@@ -63,7 +74,7 @@ namespace FNL.Presenters
         /// <param name="category"></param>
         /// <param name="isSpare"></param>
         /// <returns></returns>
-        public List<ITablePlayersMainView> GetViewsNotChosed(int matchId, PersonAccessory category)
+        internal List<ITablePlayersMainView> GetViewsNotChosed(int matchId, PersonCategoryType category)
         {
             List<ITablePlayersMainView> views = new List<ITablePlayersMainView>();
 
@@ -71,14 +82,14 @@ namespace FNL.Presenters
             {
                 // ---------------------------------
                 var currentMatch = db.Matches.Where(m => m.MatchId == matchId).FirstOrDefault();
-                int? idTeam = category == PersonAccessory.GuestTeam ? currentMatch.TeamGuestId : currentMatch.TeamOwnerId;
+                int? idTeam = category == PersonCategoryType.GuestTeam ? currentMatch.TeamGuestId : currentMatch.TeamOwnerId;
 
                 if (idTeam == null)
                 {
                     return null;
                 }
 
-                var playersTeam = db.TeamPlayers.Where( t=> t.TeamId == idTeam);
+                var playersTeam = db.TeamPlayers.Where(t => t.TeamId == idTeam);
 
                 // Get data drom database.
                 foreach (var player in playersTeam)

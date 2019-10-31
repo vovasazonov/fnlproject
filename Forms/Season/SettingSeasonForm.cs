@@ -12,17 +12,24 @@ using FNL.Presenters;
 
 namespace FNL.Forms
 {
-    public partial class SettingSeason : Form, ISettingSeasonView
+    public partial class SettingSeasonForm : Form, ISettingSeasonView
     {
+        #region View variables.
         public int SeasonId { get; set; }
         public string SeasonName { get => textNameSeason.Text; set => textNameSeason.Text = value; }
+        #endregion
 
-        public SettingSeason()
+        #region Class variables.
+        private SeasonForm _seasonForm = null;
+        private bool _isEdit = false;
+        #endregion
+
+        public SettingSeasonForm()
         {
             InitializeComponent();
         }
 
-        public SettingSeason(SeasonForm seasonForm, bool isEdit = false)
+        public SettingSeasonForm(SeasonForm seasonForm, bool isEdit = false)
         {
             InitializeComponent();
 
@@ -31,14 +38,12 @@ namespace FNL.Forms
 
             if (_isEdit)
             {
-                SettingSeasonPresenter presenter = new SettingSeasonPresenter(this);
                 SeasonId = _seasonForm.SeasonId;
+
+                SettingSeasonPresenter presenter = new SettingSeasonPresenter(this);
                 presenter.ShowModelInView();
             }
         }
-
-        private SeasonForm _seasonForm;
-        private bool _isEdit;
 
 
         private void buttonSetSeasonCancle_Click(object sender, EventArgs e)

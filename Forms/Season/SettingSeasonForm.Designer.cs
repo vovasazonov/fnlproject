@@ -1,6 +1,6 @@
 ﻿namespace FNL.Forms
 {
-    partial class SettingSeason
+    partial class SettingSeasonForm
     {
         /// <summary>
         /// Required designer variable.

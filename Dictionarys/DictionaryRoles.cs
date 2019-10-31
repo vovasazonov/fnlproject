@@ -16,6 +16,7 @@ namespace FNL.Dictionarys
         /// </summary>
         static public readonly Dictionary<RoleType, string> Dic = new Dictionary<RoleType, string>
         {
+            {RoleType.WithoutRole,"Без роли" },
             {RoleType.Player,"Игрок" },
             {RoleType.MainTrainer,"Главный тренер" },
             {RoleType.Commentator,"Комментатор" },

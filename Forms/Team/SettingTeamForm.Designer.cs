@@ -1,6 +1,6 @@
 ﻿namespace FNL.Forms
 {
-    partial class SettingTeam
+    partial class SettingTeamForm
     {
         /// <summary>
         /// Required designer variable.
@@ -42,6 +42,8 @@
             this.buttonAddPlayer = new System.Windows.Forms.Button();
             this.buttonDeletePlayer = new System.Windows.Forms.Button();
             this.buttonChangePlayer = new System.Windows.Forms.Button();
+            this.btnColor = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlayersTeam)).BeginInit();
@@ -93,6 +95,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btnColor);
             this.panel1.Controls.Add(this.comboBoxPathLogo);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.textNameShortTeam);
@@ -176,7 +180,25 @@
             this.buttonChangePlayer.UseVisualStyleBackColor = true;
             this.buttonChangePlayer.Click += new System.EventHandler(this.buttonChangePlayer_Click);
             // 
-            // SettingTeam
+            // btnColor
+            // 
+            this.btnColor.Location = new System.Drawing.Point(430, 9);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(75, 23);
+            this.btnColor.TabIndex = 20;
+            this.btnColor.UseVisualStyleBackColor = true;
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(343, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Цвет команды";
+            // 
+            // SettingTeamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -187,7 +209,7 @@
             this.Controls.Add(this.dataGridViewPlayersTeam);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "SettingTeam";
+            this.Name = "SettingTeamForm";
             this.Text = "SettingTeam";
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -213,5 +235,7 @@
         private System.Windows.Forms.Button buttonAddPlayer;
         private System.Windows.Forms.Button buttonDeletePlayer;
         private System.Windows.Forms.Button buttonChangePlayer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnColor;
     }
 }

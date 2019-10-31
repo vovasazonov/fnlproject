@@ -12,9 +12,9 @@ namespace FNL.Presenters
 {
     public class InsertMatchPlayersPresenter
     {
-        private InsertMatchPlayers _view;
+        private InsertMatchPlayersForm _view;
 
-        public InsertMatchPlayersPresenter(InsertMatchPlayers view)
+        public InsertMatchPlayersPresenter(InsertMatchPlayersForm view)
         {
             _view = view;
         }
@@ -34,9 +34,9 @@ namespace FNL.Presenters
                 // Get data drom database.
                 foreach (var person in people)
                 {
-                    IPersonView view = new ClassPersonView();
+                    IPersonView view = new CPersonView();
 
-                    view.IdPerson = person.PersonId;
+                    view.PersonId = person.PersonId;
 
                     view.FirstName = person.FirstName;
                     view.LastName = person.LastName;

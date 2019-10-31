@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace FNL.Views
 {
-    public interface IPersonView
+    public interface IPersonView : IPersonIds
     {
-        int IdPerson { get; set; }
         string FirstName { get; set; }
         string LastName { get; set; }
         string MiddleName { get; set; }
@@ -18,15 +17,16 @@ namespace FNL.Views
         string Role { get; set; }
     }
 
-    class ClassPersonView : IPersonView
+    class CPersonView : IPersonView
     {
-        public int IdPerson { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string MiddleName { get; set; }
-        public string PhotoPath { get; set; }
-        public string Country { get; set; }
-        public string City { get; set; }
-        public string Role { get; set; }
+        public string FirstName { get;set; }
+        public string LastName { get;set; }
+        public string MiddleName { get;set; }
+        public string PhotoPath { get;set; }
+        public string Country { get;set; }
+        public string City { get;set; }
+        public string Role { get;set; }
+        public int PersonId { get;set; }  
+        public int RoleId { get;set; } 
     }
 }

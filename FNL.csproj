@@ -81,22 +81,23 @@
     <Compile Include="Enums\PersonAccessory.cs" />
     <Compile Include="Enums\EventMatchType.cs" />
     <Compile Include="Enums\RoleType.cs" />
+    <Compile Include="Extensions\ColorExtension.cs" />
     <Compile Include="Football.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Football.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Match\InsertMatchPlayers.cs">
+    <Compile Include="Forms\Match\InsertMatchPlayersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Match\InsertMatchPlayers.Designer.cs">
-      <DependentUpon>InsertMatchPlayers.cs</DependentUpon>
+    <Compile Include="Forms\Match\InsertMatchPlayersForm.Designer.cs">
+      <DependentUpon>InsertMatchPlayersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Team\SettingPlayerTeam.cs">
+    <Compile Include="Forms\Team\SettingPlayerTeamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Team\SettingPlayerTeam.Designer.cs">
-      <DependentUpon>SettingPlayerTeam.cs</DependentUpon>
+    <Compile Include="Forms\Team\SettingPlayerTeamForm.Designer.cs">
+      <DependentUpon>SettingPlayerTeamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -104,23 +105,23 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Match\MatchTableForm.cs">
+    <Compile Include="Forms\Match\MatchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Match\MatchTableForm.Designer.cs">
-      <DependentUpon>MatchTableForm.cs</DependentUpon>
+    <Compile Include="Forms\Match\MatchForm.Designer.cs">
+      <DependentUpon>MatchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Match\MatchPlayers.cs">
+    <Compile Include="Forms\Match\MatchPlayersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Match\MatchPlayers.Designer.cs">
-      <DependentUpon>MatchPlayers.cs</DependentUpon>
+    <Compile Include="Forms\Match\MatchPlayersForm.Designer.cs">
+      <DependentUpon>MatchPlayersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Match\SettingMatch.cs">
+    <Compile Include="Forms\Match\SettingMatchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Match\SettingMatch.Designer.cs">
-      <DependentUpon>SettingMatch.cs</DependentUpon>
+    <Compile Include="Forms\Match\SettingMatchForm.Designer.cs">
+      <DependentUpon>SettingMatchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Person\PersonForm.cs">
       <SubType>Form</SubType>
@@ -134,23 +135,23 @@
     <Compile Include="Forms\Season\SeasonForm.Designer.cs">
       <DependentUpon>SeasonForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Season\SettingSeason.cs">
+    <Compile Include="Forms\Season\SettingSeasonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Season\SettingSeason.Designer.cs">
-      <DependentUpon>SettingSeason.cs</DependentUpon>
+    <Compile Include="Forms\Season\SettingSeasonForm.Designer.cs">
+      <DependentUpon>SettingSeasonForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Person\SettingPerson.cs">
+    <Compile Include="Forms\Person\SettingPersonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Person\SettingPerson.Designer.cs">
-      <DependentUpon>SettingPerson.cs</DependentUpon>
+    <Compile Include="Forms\Person\SettingPersonForm.Designer.cs">
+      <DependentUpon>SettingPersonForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Team\SettingTeam.cs">
+    <Compile Include="Forms\Team\SettingTeamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Team\SettingTeam.Designer.cs">
-      <DependentUpon>SettingTeam.cs</DependentUpon>
+    <Compile Include="Forms\Team\SettingTeamForm.Designer.cs">
+      <DependentUpon>SettingTeamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Stadium\SettingStadium.cs">
       <SubType>Form</SubType>
@@ -164,17 +165,17 @@
     <Compile Include="Forms\Stadium\StadiumForm.Designer.cs">
       <DependentUpon>StadiumForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Team\TeamsForm.cs">
+    <Compile Include="Forms\Team\TeamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Team\TeamsForm.Designer.cs">
-      <DependentUpon>TeamsForm.cs</DependentUpon>
+    <Compile Include="Forms\Team\TeamForm.Designer.cs">
+      <DependentUpon>TeamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Logger.cs" />
     <Compile Include="Presenters\InsertMatchPlayersPresenter.cs" />
     <Compile Include="Presenters\MatchPlayersPresenter.cs" />
+    <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\MatchPresenter.cs" />
-    <Compile Include="Presenters\MatchTablePresenter.cs" />
     <Compile Include="Presenters\PersonPresenter.cs" />
     <Compile Include="Presenters\SeasonPresenter.cs" />
     <Compile Include="Presenters\SettingMatchPresenter.cs" />
@@ -183,54 +184,60 @@
     <Compile Include="Presenters\SettingSeasonPresenter.cs" />
     <Compile Include="Presenters\SettingTeamPresenter.cs" />
     <Compile Include="Presenters\TablePlayersMainPresenter.cs" />
-    <Compile Include="Presenters\TablePlayerTeamPresenter.cs" />
+    <Compile Include="Presenters\PlayerTeamPresenter.cs" />
     <Compile Include="Presenters\TeamPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IInsertMatchPlayersView.cs" />
-    <Compile Include="Views\IMatchView.cs" />
+    <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Views\ISeasonIds.cs" />
     <Compile Include="Views\ISettingSeasonView.cs" />
     <Compile Include="Views\ISeasonView.cs" />
     <Compile Include="Views\ITablePlayersMainView.cs" />
+    <Compile Include="Views\Match\IMatchIds.cs" />
+    <Compile Include="Views\Match\IMatchPlayersIds.cs" />
     <Compile Include="Views\Match\IMatchPlayersView.cs" />
     <Compile Include="Views\Match\ISettingPlayerTeamView.cs" />
+    <Compile Include="Views\Person\IPersonIds.cs" />
+    <Compile Include="Views\PlayersTeam\IPlayersId.cs" />
     <Compile Include="Views\PlayersTeam\IPlayerTeamView.cs" />
-    <Compile Include="Views\PlayersTeam\ITablePlayerTeamView.cs" />
     <Compile Include="Views\Person\IPersonView.cs" />
     <Compile Include="Views\Person\ISettingPersonView.cs" />
     <Compile Include="Views\Match\ISettingMatchView.cs" />
-    <Compile Include="Views\Match\IMatchTableView.cs" />
+    <Compile Include="Views\Match\IMatchView.cs" />
+    <Compile Include="Views\PlayersTeam\IPlayerView.cs" />
     <Compile Include="Views\Team\ISettingTeamView.cs" />
+    <Compile Include="Views\Team\ITeamIds.cs" />
     <Compile Include="Views\Team\ITeamView.cs" />
-    <EmbeddedResource Include="Forms\Match\InsertMatchPlayers.resx">
-      <DependentUpon>InsertMatchPlayers.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Match\InsertMatchPlayersForm.resx">
+      <DependentUpon>InsertMatchPlayersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Season\SeasonForm.resx">
       <DependentUpon>SeasonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Season\SettingSeason.resx">
-      <DependentUpon>SettingSeason.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Season\SettingSeasonForm.resx">
+      <DependentUpon>SettingSeasonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Team\SettingPlayerTeam.resx">
-      <DependentUpon>SettingPlayerTeam.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Team\SettingPlayerTeamForm.resx">
+      <DependentUpon>SettingPlayerTeamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Match\MatchTableForm.resx">
-      <DependentUpon>MatchTableForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Match\MatchForm.resx">
+      <DependentUpon>MatchForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Match\MatchPlayers.resx">
-      <DependentUpon>MatchPlayers.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Match\MatchPlayersForm.resx">
+      <DependentUpon>MatchPlayersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Match\SettingMatch.resx">
-      <DependentUpon>SettingMatch.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Match\SettingMatchForm.resx">
+      <DependentUpon>SettingMatchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Person\PersonForm.resx">
       <DependentUpon>PersonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Person\SettingPerson.resx">
-      <DependentUpon>SettingPerson.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Person\SettingPersonForm.resx">
+      <DependentUpon>SettingPersonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Stadium\SettingStadium.resx">
       <DependentUpon>SettingStadium.cs</DependentUpon>
@@ -238,11 +245,11 @@
     <EmbeddedResource Include="Forms\Stadium\StadiumForm.resx">
       <DependentUpon>StadiumForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Team\SettingTeam.resx">
-      <DependentUpon>SettingTeam.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Team\SettingTeamForm.resx">
+      <DependentUpon>SettingTeamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Team\TeamsForm.resx">
-      <DependentUpon>TeamsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Team\TeamForm.resx">
+      <DependentUpon>TeamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

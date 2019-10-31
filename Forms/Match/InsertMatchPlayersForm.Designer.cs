@@ -1,6 +1,6 @@
 ﻿namespace FNL.Forms
 {
-    partial class InsertMatchPlayers
+    partial class InsertMatchPlayersForm
     {
         /// <summary>
         /// Required designer variable.

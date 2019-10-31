@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace FNL.Views
 {
-    public interface ISettingPlayerTeamView
+    public interface ISettingPlayerTeamView: IPlayerTeamView
     {
-        int Number { get; set; }
-        string AmpluaName { get; set; }
-        string TeamName { get; set; }
-
-        int IdTeam { get; set; }
-        int IdPerson { get; set; }
-        int ? IdAmplua { get; set; }
+        string Team { get; set; }
     }
 }

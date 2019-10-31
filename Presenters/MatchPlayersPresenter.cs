@@ -10,16 +10,16 @@ using FNL.Enums;
 
 namespace FNL.Presenters
 {
-    public class MatchPlayersPresenter
+    internal class MatchPlayersPresenter
     {
         private IMatchPlayersView _view;
 
-        public MatchPlayersPresenter(IMatchPlayersView matchPlayersView)
+        internal MatchPlayersPresenter(IMatchPlayersView matchPlayersView)
         {
             _view = matchPlayersView;
         }
 
-        public List<IMatchPlayersView> GetViews(PersonAccessory category, int idMatch)
+        internal List<IMatchPlayersView> GetViews(PersonCategoryType category, int idMatch)
         {
             List<IMatchPlayersView> playersView = new List<IMatchPlayersView>();
 
@@ -34,13 +34,13 @@ namespace FNL.Presenters
                 IEnumerable<Person> people = new List<Person>();
                 switch (category)
                 {
-                    case PersonAccessory.FaceMatch:
+                    case PersonCategoryType.FaceMatch:
                         people = queryActors;
                         break;
-                    case PersonAccessory.HomeTeam:
+                    case PersonCategoryType.HomeTeam:
                         people = queryOwnerTeam;
                         break;
-                    case PersonAccessory.GuestTeam:
+                    case PersonCategoryType.GuestTeam:
                         people = queryGuestTeam;
                         break;
                     default:
@@ -50,9 +50,9 @@ namespace FNL.Presenters
                 // Get data drom database.
                 foreach (var person in people)
                 {
-                    IMatchPlayersView playerView = new ClassMatchPlayersView();
+                    IMatchPlayersView playerView = new CMatchPlayersView();
 
-                    playerView.IdPerson = person.PersonId;
+                    playerView.PersonId = person.PersonId;
                     var playerTeam = db.TeamPlayers.Where(t => t.PersonId == person.PersonId).FirstOrDefault();
                     playerView.Number = playerTeam != null ? (int)playerTeam.NumberPlayer : 0;
                     playerView.FirstName = person.FirstName;
@@ -70,7 +70,7 @@ namespace FNL.Presenters
             return playersView;
         }
 
-        public void DeleteModelDB(PersonAccessory category, int idMatch)
+        internal void DeleteModelDB(PersonCategoryType category, int idMatch)
         {
             using (DbFnlContext db = new DbFnlContext())
             {
@@ -78,16 +78,16 @@ namespace FNL.Presenters
 
                 switch (category)
                 {
-                    case PersonAccessory.FaceMatch:
-                        var query1 = db.FacesMatches.Where(t => t.MatchId == idMatch && t.PersonId == _view.IdPerson);
+                    case PersonCategoryType.FaceMatch:
+                        var query1 = db.FacesMatches.Where(t => t.MatchId == idMatch && t.PersonId == _view.PersonId);
                         db.FacesMatches.Remove(query1.FirstOrDefault());
                         break;
-                    case PersonAccessory.HomeTeam:
-                        var query2 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamOwnerId && t.PersonId == _view.IdPerson);
+                    case PersonCategoryType.HomeTeam:
+                        var query2 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamOwnerId && t.PersonId == _view.PersonId);
                         db.PlayersMatches.Remove(query2.FirstOrDefault());
                         break;
-                    case PersonAccessory.GuestTeam:
-                        var query3 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamGuestId && t.PersonId == _view.IdPerson);
+                    case PersonCategoryType.GuestTeam:
+                        var query3 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamGuestId && t.PersonId == _view.PersonId);
                         db.PlayersMatches.Remove(query3.FirstOrDefault());
                         break;
                     default:
@@ -99,7 +99,7 @@ namespace FNL.Presenters
 
         }
 
-        public void InsertModelDB(PersonAccessory category, int idMatch)
+        internal void InsertModelDB(PersonCategoryType category, int idMatch)
         {
             using (DbFnlContext db = new DbFnlContext())
             {
@@ -107,23 +107,23 @@ namespace FNL.Presenters
 
                 switch (category)
                 {
-                    case PersonAccessory.FaceMatch:
-                         FaceMatch model = new FaceMatch { MatchId = idMatch, PersonId = _view.IdPerson };
+                    case PersonCategoryType.FaceMatch:
+                         FaceMatch model = new FaceMatch { MatchId = idMatch, PersonId = _view.PersonId };
                         db.FacesMatches.Add(model);
                         break;
-                    case PersonAccessory.HomeTeam:
+                    case PersonCategoryType.HomeTeam:
                         if (currentMatch.TeamOwnerId != null)
                         {
-                            PlayerMatch playerHome = new PlayerMatch { MatchId = idMatch, TeamId = (int)currentMatch.TeamOwnerId, PersonId = _view.IdPerson, IsSpare = _view.IsSpare };
+                            PlayerMatch playerHome = new PlayerMatch { MatchId = idMatch, TeamId = (int)currentMatch.TeamOwnerId, PersonId = _view.PersonId, IsSpare = _view.IsSpare };
                             db.PlayersMatches.Add(playerHome);
 
                         }
 
                         break;
-                    case PersonAccessory.GuestTeam:
+                    case PersonCategoryType.GuestTeam:
                         if (currentMatch.TeamGuestId != null)
                         {
-                            PlayerMatch playerGuest = new PlayerMatch { MatchId = idMatch, TeamId = (int)currentMatch.TeamGuestId, PersonId = _view.IdPerson, IsSpare = _view.IsSpare };
+                            PlayerMatch playerGuest = new PlayerMatch { MatchId = idMatch, TeamId = (int)currentMatch.TeamGuestId, PersonId = _view.PersonId, IsSpare = _view.IsSpare };
                             db.PlayersMatches.Add(playerGuest);
 
                         }

@@ -14,7 +14,20 @@ namespace FNL.Forms
 {
     public partial class PersonForm : Form, IPersonView
     {
-        public int IdPerson { get => ((List<IPersonView>)(dataGridViewPerson.DataSource))[dataGridViewPerson.CurrentRow.Index].IdPerson; set => throw new NotImplementedException(); }
+        #region View variables.
+        public int PersonId
+        {
+            get
+            {
+                var dataSource = (List<IPersonView>)(dataGridViewPerson.DataSource);
+                var currentRow = dataGridViewPerson.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].PersonId : -1;
+            }
+            set
+            {
+
+            }
+        }
         public string FirstName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string LastName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string MiddleName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -22,11 +35,13 @@ namespace FNL.Forms
         public string Country { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string City { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Role { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int RoleId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        #endregion
 
-        private SettingPlayerTeam _settingPlayerTeamForm;
-        //private MatchPlayers _matchPlayersForm;
-        //private CategoryTable _categoryTable;
-        private bool _isEdit;
+        #region Class variables.
+        private SettingPlayerTeamForm _settingPlayerTeamForm = null;
+        private bool _isEdit = false;
+        #endregion
 
         public PersonForm()
         {
@@ -35,7 +50,7 @@ namespace FNL.Forms
             UpdateTable();
         }
 
-        public PersonForm(SettingPlayerTeam settingPlayerTeamForm, bool isEdit = false)
+        public PersonForm(SettingPlayerTeamForm settingPlayerTeamForm, bool isEdit = false)
         {
             InitializeComponent();
 
@@ -45,18 +60,7 @@ namespace FNL.Forms
             UpdateTable();
         }
 
-        //public PersonForm(MatchPlayers matchPlayersForm, CategoryTable category)
-        //{
-        //    InitializeComponent();
-
-        //    _matchPlayersForm = matchPlayersForm;
-        //    _categoryTable = category;
-
-        //    UpdateTable();
-        //}
-
-
-        public void UpdateTable()
+        internal void UpdateTable()
         {
             PersonPresenter presenter = new PersonPresenter(this);
             dataGridViewPerson.DataSource = presenter.GetView();
@@ -64,31 +68,22 @@ namespace FNL.Forms
 
         private void buttonInsertPerson_Click(object sender, EventArgs e)
         {
-            SettingPerson form = new SettingPerson(this);
+            SettingPersonForm form = new SettingPersonForm(this);
             form.Show();
         }
 
         private void buttonChangePerson_Click(object sender, EventArgs e)
         {
-            SettingPerson form = new SettingPerson(this, true);
+            SettingPersonForm form = new SettingPersonForm(this, true);
             form.Show();
         }
 
         private void buttonDeletePerson_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //idPerson = Convert.ToInt32(dataGridViewPerson.CurrentRow.Cells[0].Value);
+            PersonPresenter person = new PersonPresenter(this);
+            person.DeleteModelDB();
 
-                PersonPresenter person = new PersonPresenter(this);
-                person.DeleteModelDB(IdPerson);
-                dataGridViewPerson.DataSource = person.GetView();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            dataGridViewPerson.DataSource = person.GetView();
         }
 
         private void buttonCancle_Click(object sender, EventArgs e)
@@ -103,13 +98,6 @@ namespace FNL.Forms
             {
                 _settingPlayerTeamForm.UpdateTable();
             }
-
-            //if (_matchPlayersForm != null)
-            //{
-            //    _matchPlayersForm.IdPerson = IdPerson;
-            //    _matchPlayersForm.InsertData(_categoryTable);
-            //}
-
 
             this.Close();
         }

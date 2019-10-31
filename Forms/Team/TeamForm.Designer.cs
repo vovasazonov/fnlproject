@@ -1,6 +1,6 @@
 ﻿namespace FNL.Forms
 {
-    partial class TeamsForm
+    partial class TeamForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,13 +33,14 @@
             this.buttonTeamCancle = new System.Windows.Forms.Button();
             this.buttonTeamOk = new System.Windows.Forms.Button();
             this.dataGridViewTeams = new System.Windows.Forms.DataGridView();
-            this.buttonCancle = new System.Windows.Forms.Button();
-            this.buttonOk = new System.Windows.Forms.Button();
             this.buttonChangeTeam = new System.Windows.Forms.Button();
             this.buttonDeleteTeam = new System.Windows.Forms.Button();
-            this.buttonInsertTeam = new System.Windows.Forms.Button();
+            this.btnInsertTeam = new System.Windows.Forms.Button();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeams)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -48,29 +49,28 @@
             this.panel1.Controls.Add(this.buttonTeamCancle);
             this.panel1.Controls.Add(this.buttonTeamOk);
             this.panel1.Controls.Add(this.dataGridViewTeams);
-            this.panel1.Controls.Add(this.buttonCancle);
-            this.panel1.Controls.Add(this.buttonOk);
             this.panel1.Controls.Add(this.buttonChangeTeam);
             this.panel1.Controls.Add(this.buttonDeleteTeam);
-            this.panel1.Controls.Add(this.buttonInsertTeam);
+            this.panel1.Controls.Add(this.btnInsertTeam);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(758, 293);
+            this.panel1.Size = new System.Drawing.Size(813, 315);
             this.panel1.TabIndex = 1;
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(6, 232);
+            this.groupBox1.Controls.Add(this.pictureBoxLogo);
+            this.groupBox1.Location = new System.Drawing.Point(642, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(743, 55);
+            this.groupBox1.Size = new System.Drawing.Size(161, 191);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Логотип";
             // 
             // buttonTeamCancle
             // 
-            this.buttonTeamCancle.Location = new System.Drawing.Point(674, 6);
+            this.buttonTeamCancle.Location = new System.Drawing.Point(561, 6);
             this.buttonTeamCancle.Name = "buttonTeamCancle";
             this.buttonTeamCancle.Size = new System.Drawing.Size(75, 23);
             this.buttonTeamCancle.TabIndex = 8;
@@ -80,7 +80,7 @@
             // 
             // buttonTeamOk
             // 
-            this.buttonTeamOk.Location = new System.Drawing.Point(596, 6);
+            this.buttonTeamOk.Location = new System.Drawing.Point(480, 6);
             this.buttonTeamOk.Name = "buttonTeamOk";
             this.buttonTeamOk.Size = new System.Drawing.Size(75, 23);
             this.buttonTeamOk.TabIndex = 7;
@@ -93,26 +93,9 @@
             this.dataGridViewTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTeams.Location = new System.Drawing.Point(6, 35);
             this.dataGridViewTeams.Name = "dataGridViewTeams";
-            this.dataGridViewTeams.Size = new System.Drawing.Size(743, 191);
+            this.dataGridViewTeams.Size = new System.Drawing.Size(630, 268);
             this.dataGridViewTeams.TabIndex = 6;
-            // 
-            // buttonCancle
-            // 
-            this.buttonCancle.Location = new System.Drawing.Point(939, 6);
-            this.buttonCancle.Name = "buttonCancle";
-            this.buttonCancle.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancle.TabIndex = 5;
-            this.buttonCancle.Text = "Отмена";
-            this.buttonCancle.UseVisualStyleBackColor = true;
-            // 
-            // buttonOk
-            // 
-            this.buttonOk.Location = new System.Drawing.Point(861, 6);
-            this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(75, 23);
-            this.buttonOk.TabIndex = 4;
-            this.buttonOk.Text = "Ок";
-            this.buttonOk.UseVisualStyleBackColor = true;
+            this.dataGridViewTeams.CurrentCellChanged += new System.EventHandler(this.dataGridViewTeams_CurrentCellChanged);
             // 
             // buttonChangeTeam
             // 
@@ -134,26 +117,36 @@
             this.buttonDeleteTeam.UseVisualStyleBackColor = true;
             this.buttonDeleteTeam.Click += new System.EventHandler(this.buttonDeleteTeam_Click);
             // 
-            // buttonInsertTeam
+            // btnInsertTeam
             // 
-            this.buttonInsertTeam.Location = new System.Drawing.Point(6, 6);
-            this.buttonInsertTeam.Name = "buttonInsertTeam";
-            this.buttonInsertTeam.Size = new System.Drawing.Size(75, 23);
-            this.buttonInsertTeam.TabIndex = 1;
-            this.buttonInsertTeam.Text = "Добавить";
-            this.buttonInsertTeam.UseVisualStyleBackColor = true;
-            this.buttonInsertTeam.Click += new System.EventHandler(this.buttonInsertTeam_Click);
+            this.btnInsertTeam.Location = new System.Drawing.Point(6, 6);
+            this.btnInsertTeam.Name = "btnInsertTeam";
+            this.btnInsertTeam.Size = new System.Drawing.Size(75, 23);
+            this.btnInsertTeam.TabIndex = 1;
+            this.btnInsertTeam.Text = "Добавить";
+            this.btnInsertTeam.UseVisualStyleBackColor = true;
+            this.btnInsertTeam.Click += new System.EventHandler(this.btnInsertTeam_Click);
             // 
-            // TeamsForm
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Location = new System.Drawing.Point(6, 19);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(149, 166);
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
+            // 
+            // TeamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 293);
+            this.ClientSize = new System.Drawing.Size(813, 315);
             this.Controls.Add(this.panel1);
-            this.Name = "TeamsForm";
+            this.Name = "TeamForm";
             this.Text = "TeamsForm";
             this.panel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeams)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -162,13 +155,12 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridViewTeams;
-        private System.Windows.Forms.Button buttonCancle;
-        private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonChangeTeam;
         private System.Windows.Forms.Button buttonDeleteTeam;
-        private System.Windows.Forms.Button buttonInsertTeam;
+        private System.Windows.Forms.Button btnInsertTeam;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonTeamCancle;
         private System.Windows.Forms.Button buttonTeamOk;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
     }
 }

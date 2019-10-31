@@ -11,7 +11,7 @@ namespace FNL.Enums
     /// There are faces of match like commentators and judjes.
     /// There are two type of teams, where can be players and their trainers.
     /// </summary>
-    public enum PersonAccessory
+    public enum PersonCategoryType
     {
         FaceMatch,
         HomeTeam,

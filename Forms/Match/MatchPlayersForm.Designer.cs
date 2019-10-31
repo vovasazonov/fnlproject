@@ -1,6 +1,6 @@
 ﻿namespace FNL.Forms
 {
-    partial class MatchPlayers
+    partial class MatchPlayersForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridActors = new System.Windows.Forms.DataGridView();
-            this.buttonAddActor = new System.Windows.Forms.Button();
-            this.buttonDeleteActor = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridGuestPlayers = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,8 +44,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxNameMatch = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridActors)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridGuestPlayers)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -59,7 +53,6 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label1);
@@ -69,47 +62,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(745, 495);
             this.panel1.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dataGridActors);
-            this.groupBox3.Controls.Add(this.buttonAddActor);
-            this.groupBox3.Controls.Add(this.buttonDeleteActor);
-            this.groupBox3.Location = new System.Drawing.Point(4, 442);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(718, 201);
-            this.groupBox3.TabIndex = 9;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Судьи и комментаторы";
-            this.groupBox3.Visible = false;
-            // 
-            // dataGridActors
-            // 
-            this.dataGridActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridActors.Location = new System.Drawing.Point(7, 49);
-            this.dataGridActors.Name = "dataGridActors";
-            this.dataGridActors.Size = new System.Drawing.Size(705, 150);
-            this.dataGridActors.TabIndex = 9;
-            // 
-            // buttonAddActor
-            // 
-            this.buttonAddActor.Location = new System.Drawing.Point(6, 19);
-            this.buttonAddActor.Name = "buttonAddActor";
-            this.buttonAddActor.Size = new System.Drawing.Size(75, 23);
-            this.buttonAddActor.TabIndex = 4;
-            this.buttonAddActor.Text = "Добавить";
-            this.buttonAddActor.UseVisualStyleBackColor = true;
-            this.buttonAddActor.Click += new System.EventHandler(this.buttonAddActor_Click);
-            // 
-            // buttonDeleteActor
-            // 
-            this.buttonDeleteActor.Location = new System.Drawing.Point(86, 19);
-            this.buttonDeleteActor.Name = "buttonDeleteActor";
-            this.buttonDeleteActor.Size = new System.Drawing.Size(75, 23);
-            this.buttonDeleteActor.TabIndex = 5;
-            this.buttonDeleteActor.Text = "Удалить";
-            this.buttonDeleteActor.UseVisualStyleBackColor = true;
-            this.buttonDeleteActor.Click += new System.EventHandler(this.buttonDeleteActor_Click);
             // 
             // groupBox2
             // 
@@ -246,18 +198,16 @@
             this.comboBoxNameMatch.Size = new System.Drawing.Size(390, 21);
             this.comboBoxNameMatch.TabIndex = 0;
             // 
-            // MatchPlayers
+            // MatchPlayersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 495);
             this.Controls.Add(this.panel1);
-            this.Name = "MatchPlayers";
+            this.Name = "MatchPlayersForm";
             this.Text = "MatchPlayers";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridActors)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridGuestPlayers)).EndInit();
@@ -273,10 +223,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxNameMatch;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridActors;
-        private System.Windows.Forms.Button buttonAddActor;
-        private System.Windows.Forms.Button buttonDeleteActor;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridGuestPlayers;
         private System.Windows.Forms.Label label3;

@@ -6,27 +6,31 @@ using System.Threading.Tasks;
 
 namespace FNL.Views
 {
-    public interface IMatchPlayersView// : ITablePlayerTeamView
+    public interface IMatchPlayersView : IPlayerView
     {
-        int IdPerson { get; set; }
-        int Number { get; set; }
-        string FirstName { get; set; }
-        string LastName { get; set; }
-        string MiddleName { get; set; }
-        string Role { get; set; }
-        string Amplua { get; set; }
+        new int Number { get; set; }
+        new string FirstName{get;set;}
+        new string LastName{get;set;}
+        new string MiddleName{get;set;}
+        new string Amplua { get; set; }
         bool IsSpare { get; set; }
     }
 
-    public class ClassMatchPlayersView : IMatchPlayersView
+    public class CMatchPlayersView : IMatchPlayersView
     {
-        int IMatchPlayersView.IdPerson {get;set;}
-        int IMatchPlayersView.Number { get; set; }
-        string IMatchPlayersView.FirstName {get;set;}
-        string IMatchPlayersView.LastName {get;set;}
-        string IMatchPlayersView.MiddleName {get;set;}
-        string IMatchPlayersView.Role {get;set;}
-        string IMatchPlayersView.Amplua {get;set;}
-        bool IMatchPlayersView.IsSpare {get;set;}
+        public int Number { get; set; }
+        public string FirstName { get;set; }
+        public string LastName { get;set; }
+        public string MiddleName { get;set; }
+        public string Amplua { get;set; }
+        public bool IsSpare { get;set; }
+        public string PhotoPath { get;set; }
+        public string Country { get;set; }
+        public string City { get;set; }
+        public string Role { get;set; }
+        public int PersonId { get;set; }
+        public int RoleId { get;set; }
+        public int AmpluaId { get;set; }
+        public int TeamId { get; set; }
     }
 }

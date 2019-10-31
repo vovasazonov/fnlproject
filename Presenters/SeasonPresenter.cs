@@ -10,16 +10,16 @@ using ModelLayer.Models;
 
 namespace FNL.Presenters
 {
-    public class SeasonPresenter
+    internal class SeasonPresenter
     {
         private ISeasonView _view;
 
-        public SeasonPresenter(ISeasonView view)
+        internal SeasonPresenter(ISeasonView view)
         {
             _view = view;
         }
 
-        public List<ISeasonView> GetViews()
+        internal List<ISeasonView> GetViews()
         {
             List<ISeasonView> views = new List<ISeasonView>();
 
@@ -30,7 +30,7 @@ namespace FNL.Presenters
                 // Get data drom database.
                 foreach (var season in seasons)
                 {
-                    ClassSeasonView view = new ClassSeasonView();
+                    CSeasonView view = new CSeasonView();
 
                     view.SeasonId = season.SeasonId;
                     view.SeasonName = season.Name;
@@ -45,7 +45,7 @@ namespace FNL.Presenters
         /// <summary>
         /// Delete record in database.
         /// </summary>
-        public void DeleteModelDB()
+        internal void DeleteModelDB()
         {
             int id = _view.SeasonId;
             using (DbFnlContext db = new DbFnlContext())

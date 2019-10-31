@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace FNL.Views
 {
-    public interface ISettingPersonView:IPersonView
+    public interface ISettingPersonView : IPersonView
     {
-        int RoleId { get; set; }
     }
 }

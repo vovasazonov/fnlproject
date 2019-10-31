@@ -8,11 +8,11 @@ using ModelLayer;
 
 namespace FNL.Presenters
 {
-    public class PersonPresenter
+    internal class PersonPresenter
     {
         private IPersonView _view;
 
-        public PersonPresenter(IPersonView view)
+        internal PersonPresenter(IPersonView view)
         {
             this._view = view;
         }
@@ -21,7 +21,7 @@ namespace FNL.Presenters
         /// Return data from database converted to view.
         /// </summary>
         /// <returns>matches.</returns>
-        public List<IPersonView> GetView()
+        internal List<IPersonView> GetView()
         {
             List<IPersonView> personView = new List<IPersonView>();
 
@@ -32,9 +32,9 @@ namespace FNL.Presenters
                 // Get data drom database.
                 foreach (var person in people)
                 {
-                    IPersonView view = new ClassPersonView();
+                    IPersonView view = new CPersonView();
 
-                    view.IdPerson = person.PersonId;
+                    view.PersonId = person.PersonId;
 
                     view.FirstName = person.FirstName;
                     view.LastName = person.LastName;
@@ -57,12 +57,12 @@ namespace FNL.Presenters
         /// Delete recored from database. 
         /// </summary>
         /// <param name="idPerson"></param>
-        public void DeleteModelDB(int idPerson)
+        internal void DeleteModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
                 var query = from p in db.People
-                            where p.PersonId == idPerson
+                            where p.PersonId == _view.PersonId
                             select p;
 
                 db.People.Remove(query.FirstOrDefault());

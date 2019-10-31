@@ -29,12 +29,11 @@ namespace FNL.Presenters
 
             using (DbFnlContext db = new DbFnlContext())
             {
-                model.TeamId = _view.IdTeam;
-                model.Color = _view.ColorTeam.ToArgb();
-                model.NameFull = _view.NameTeamFull;
-                model.NameShort = _view.NameTeamShort;
-                model.LogotypePath = _view.PathTeamLogo;
-                //model.TeamPlayers = db.TeamPlayers.Where(tp=>tp.per)
+                model = db.Teams.Where(t => t.TeamId == _view.TeamId).FirstOrDefault() ?? new Team();
+                model.Color = _view.Color.ToArgb();
+                model.NameFull = _view.NameFull;
+                model.NameShort = _view.NameShort;
+                model.LogotypePath = _view.PathLogo;
             }
 
             return model;
@@ -49,15 +48,6 @@ namespace FNL.Presenters
             {
                 Team teamModel = GetModelFromView();
 
-                //foreach (var idPerson in _view.IdsPlayers)
-                //{
-                //    TeamPlayer teamPlayer = db.TeamPlayers.Where(tp => tp.TeamId == teamModel.TeamId && tp.PersonId == idPerson).FirstOrDefault();
-                //    if (teamPlayer != null)
-                //    {
-                //        teamModel.TeamPlayers.Add(teamPlayer);
-                //    }
-                //}
-
                 // Say to database that this model is consist and changed.
                 db.Entry(teamModel).State = System.Data.Entity.EntityState.Modified;
 
@@ -70,7 +60,6 @@ namespace FNL.Presenters
         /// </summary>
         public void InsertModelDB()
         {
-
             using (DbFnlContext db = new DbFnlContext())
             {
                 Team teamModel = GetModelFromView();
@@ -83,21 +72,17 @@ namespace FNL.Presenters
         /// Take record from database and show in view.
         /// </summary>
         /// <returns></returns>
-        public void ShowModelInView(int idTeam)
+        public void ShowModelInView()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
-                Team team = (from m in db.Teams
-                             where m.TeamId == idTeam
-                             select m).FirstOrDefault();
+                Team team = db.Teams.Where(t => t.TeamId == _view.TeamId).FirstOrDefault() ?? new Team();
 
-                _view.IdTeam = team.TeamId;
-                _view.ColorTeam = Color.FromArgb(team.Color);
-                _view.NameTeamFull = team.NameFull;
-                _view.NameTeamShort = team.NameShort;
-                _view.PathTeamLogo = team.LogotypePath;
-
-                _view.IdsPlayers = db.TeamPlayers.Where(t => t.TeamId == team.TeamId).Select(t => t.PersonId).ToList();
+                _view.TeamId = team.TeamId;
+                _view.Color = Color.FromArgb(team.Color);
+                _view.NameFull = team.NameFull;
+                _view.NameShort = team.NameShort;
+                _view.PathLogo = team.LogotypePath;
             }
         }
 

@@ -15,14 +15,10 @@ using FNL.Enums;
 
 namespace FNL.Forms
 {
-    public partial class SettingPerson : Form, ISettingPersonView
+    public partial class SettingPersonForm : Form, ISettingPersonView
     {
-
-        private PersonForm _perosnForm = new PersonForm();
-        private bool _isEdit = false;
-
-
-        public int IdPerson { get; set; }
+        #region View variables.
+        public int PersonId { get; set; }
         public string FirstName { get => textFirstNamePerson.Text; set => textFirstNamePerson.Text = value; }
         public string LastName { get => textLastNamePerson.Text; set => textLastNamePerson.Text = value; }
         public string MiddleName { get => textMiddleNamePerson.Text; set => textMiddleNamePerson.Text = value; }
@@ -34,42 +30,45 @@ namespace FNL.Forms
         {
             get
             {
-                RoleType id = RoleType.Player;
-
-                foreach (var item in DictionaryRoles.Dic)
-                {
-                    if (item.Value == Role)
-                    {
-                        id = item.Key;
-                    }
-                }
-                return (int)id;
+                RoleType type = DictionaryRoles.Dic.FirstOrDefault(x => x.Value == Role).Key;
+                _ = !DictionaryRoles.Dic.TryGetValue(type, out string f) ? type = RoleType.WithoutRole : _ = type;
+                return DictionaryRoles.GetId(type);
             }
             set
             {
 
             }
         }
+        #endregion
 
-        public SettingPerson()
+        #region Class variables.
+        private PersonForm _perosnForm = null;
+        private bool _isEdit = false;
+        #endregion
+
+
+        public SettingPersonForm()
         {
             InitializeComponent();
         }
        
-        public SettingPerson(PersonForm personForm, bool isEdit = false)
+        public SettingPersonForm(PersonForm personForm, bool isEdit = false)
         {
             InitializeComponent();
 
             this._isEdit = isEdit;
             this._perosnForm = personForm;
 
+            // Prepare combobox on view.
+            comboBoxRole.Items.AddRange(DictionaryRoles.Dic.Values.ToArray());
+            comboBoxRole.SelectedIndex = 0;
+
             if (isEdit)
             {
                 SettingPersonPresenter settingPersonPresenter = new SettingPersonPresenter(this);
-                settingPersonPresenter.ShowModelInView(IdPerson);
+                settingPersonPresenter.ShowModelInView();
             }
-            comboBoxRole.Items.AddRange(DictionaryRoles.Dic.Values.ToArray());
-            comboBoxRole.SelectedIndex = 0;
+
         }
 
         private void buttonCanclePerson_Click(object sender, EventArgs e)
@@ -83,14 +82,17 @@ namespace FNL.Forms
 
             if (_isEdit)
             {
-                //settingMatchPresenter.UpdateMatch(idMatch);
+                presenter.UpdateModelDB();
             }
             else
             {
                 presenter.InsertModelDB();
             }
 
-            _perosnForm.UpdateTable();
+            if (_perosnForm != null)
+            {
+                _perosnForm.UpdateTable();
+            }
 
             this.Close();
         }

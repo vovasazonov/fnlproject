@@ -9,11 +9,11 @@ using ModelLayer.Models;
 
 namespace FNL.Presenters
 {
-    public class SettingSeasonPresenter
+    internal class SettingSeasonPresenter
     {
         private ISettingSeasonView _view;
 
-        public SettingSeasonPresenter(ISettingSeasonView view)
+        internal SettingSeasonPresenter(ISettingSeasonView view)
         {
             _view = view;
         }
@@ -38,7 +38,7 @@ namespace FNL.Presenters
         /// <summary>
         /// Update record in database. Take data from view.
         /// </summary>
-        public void UpdateModelDB()
+        internal void UpdateModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
@@ -54,7 +54,7 @@ namespace FNL.Presenters
         /// <summary>
         /// Insert record to Team in database. Take data from view.
         /// </summary>
-        public void InsertModelDB()
+        internal void InsertModelDB()
         {
 
             using (DbFnlContext db = new DbFnlContext())
@@ -69,7 +69,7 @@ namespace FNL.Presenters
         /// Take record from database and show in view.
         /// </summary>
         /// <returns></returns>
-        public void ShowModelInView()
+        internal void ShowModelInView()
         {
             using (DbFnlContext db = new DbFnlContext())
             {

@@ -1,6 +1,6 @@
 ﻿namespace FNL.Forms
 {
-	partial class MatchTableForm
+	partial class MatchForm
 	{
 		/// <summary>
 		/// Required designer variable.
