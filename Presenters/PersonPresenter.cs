@@ -42,8 +42,9 @@ namespace FNL.Presenters
 
                     var Role = db.Roles.Where(i => i.RoleId == person.RoleId).FirstOrDefault();
                     view.Role = Role != null ? Role.Name : "";
-                    view.City = person.Address!=null?person.Address.City:"";
-                    view.Country = person.Address!=null?person.Address.Country:"";
+                    view.RoleId = Role != null ? Role.RoleId : 0;
+                    view.City = person.Address != null ? person.Address.City : "";
+                    view.Country = person.Address != null ? person.Address.Country : "";
                     view.PhotoPath = person.PhotoPath;
 
                     personView.Add(view);
@@ -65,9 +66,13 @@ namespace FNL.Presenters
                             where p.PersonId == _view.PersonId
                             select p;
 
-                db.People.Remove(query.FirstOrDefault());
+                if (query.FirstOrDefault() != null)
+                {
+                    db.People.Remove(query.FirstOrDefault());
 
-                db.SaveChanges();
+                    db.SaveChanges();
+
+                }
             }
         }
 

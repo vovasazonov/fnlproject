@@ -44,6 +44,8 @@ namespace FNL.Forms
         #region Class variables.
         private PersonForm _perosnForm = null;
         private bool _isEdit = false;
+        internal bool IsBtnOkClicked { get => _isBtnOkClicked; private set => _isBtnOkClicked = value; }
+        private bool _isBtnOkClicked = false;
         #endregion
 
 
@@ -89,10 +91,7 @@ namespace FNL.Forms
                 presenter.InsertModelDB();
             }
 
-            if (_perosnForm != null)
-            {
-                _perosnForm.UpdateTable();
-            }
+            _isBtnOkClicked = true;
 
             this.Close();
         }

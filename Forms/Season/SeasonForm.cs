@@ -45,6 +45,8 @@ namespace FNL.Forms
 
         #region Class variables.
         private SettingMatchForm _settingMatchForm = null;
+        internal bool IsBtnOkClicked { get => _isBtnOkClicked; private set => _isBtnOkClicked = value; }
+        private bool _isBtnOkClicked = false;
         #endregion
 
         public SeasonForm()
@@ -64,7 +66,7 @@ namespace FNL.Forms
         /// <summary>
         /// Update the data in gridView.
         /// </summary>
-        internal void UpdateTable()
+        private void UpdateTable()
         {
             SeasonPresenter presenter = new SeasonPresenter(this);
             // Set table with data from database.
@@ -75,12 +77,26 @@ namespace FNL.Forms
         {
             SettingSeasonForm form = new SettingSeasonForm(this);
             form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked && this != null)
+                {
+                    UpdateTable();
+                }
+            };
         }
 
         private void buttonChangeSeason_Click(object sender, EventArgs e)
         {
             SettingSeasonForm form = new SettingSeasonForm(this, true);
             form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked && this != null)
+                {
+                    UpdateTable();
+                }
+            };
         }
 
         private void buttonDeleteSeason_Click(object sender, EventArgs e)
@@ -98,6 +114,8 @@ namespace FNL.Forms
                 _settingMatchForm.NameSeason = SeasonName;
                 _settingMatchForm.SeasonId = SeasonId;
             }
+
+            _isBtnOkClicked = true; 
 
             this.Close();
         }

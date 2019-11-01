@@ -80,15 +80,15 @@ namespace FNL.Presenters
                 {
                     case PersonCategoryType.FaceMatch:
                         var query1 = db.FacesMatches.Where(t => t.MatchId == idMatch && t.PersonId == _view.PersonId);
-                        db.FacesMatches.Remove(query1.FirstOrDefault());
+                        _ = query1.FirstOrDefault() != null ? db.FacesMatches.Remove(query1.FirstOrDefault()) : null;
                         break;
                     case PersonCategoryType.HomeTeam:
                         var query2 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamOwnerId && t.PersonId == _view.PersonId);
-                        db.PlayersMatches.Remove(query2.FirstOrDefault());
+                        _ = query2.FirstOrDefault() != null ? db.PlayersMatches.Remove(query2.FirstOrDefault()) : null;
                         break;
                     case PersonCategoryType.GuestTeam:
                         var query3 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamGuestId && t.PersonId == _view.PersonId);
-                        db.PlayersMatches.Remove(query3.FirstOrDefault());
+                        _ = query3.FirstOrDefault() != null ? db.PlayersMatches.Remove(query3.FirstOrDefault()) : null;
                         break;
                     default:
                         break;
@@ -108,7 +108,7 @@ namespace FNL.Presenters
                 switch (category)
                 {
                     case PersonCategoryType.FaceMatch:
-                         FaceMatch model = new FaceMatch { MatchId = idMatch, PersonId = _view.PersonId };
+                        FaceMatch model = new FaceMatch { MatchId = idMatch, PersonId = _view.PersonId };
                         db.FacesMatches.Add(model);
                         break;
                     case PersonCategoryType.HomeTeam:

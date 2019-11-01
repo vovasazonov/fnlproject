@@ -11,16 +11,16 @@ using FNL.Enums;
 
 namespace FNL.Presenters
 {
-    public class SettingPlayerTeamPresenter
+    internal class SettingPlayerTeamPresenter
     {
         private ISettingPlayerTeamView _view;
 
-        public SettingPlayerTeamPresenter(ISettingPlayerTeamView view)
+        internal SettingPlayerTeamPresenter(ISettingPlayerTeamView view)
         {
             this._view = view;
         }
 
-        public void ShowPlayerInView()
+        internal void ShowPlayerInView()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
@@ -38,7 +38,7 @@ namespace FNL.Presenters
         /// <summary>
         /// Delete person from database.
         /// </summary>
-        public void DeleteModelDB()
+        internal void DeleteModelDB()
         {
             using (var db = new DbFnlContext())
             {
@@ -50,7 +50,7 @@ namespace FNL.Presenters
         /// <summary>
         /// Update info of player in team.
         /// </summary>
-        public void UpdateModelDB()
+        internal void UpdateModelDB()
         {
             using (var db = new DbFnlContext())
             {
@@ -65,7 +65,7 @@ namespace FNL.Presenters
         /// <summary>
         /// Insert new player to team.
         /// </summary>
-        public void InsertModelDB()
+        internal void InsertModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {

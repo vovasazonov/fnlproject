@@ -12,11 +12,11 @@ using System.Drawing;
 
 namespace FNL.Presenters
 {
-    public class TeamPresenter
+    internal class TeamPresenter
     {
         private ITeamView _view;
 
-        public TeamPresenter(ITeamView view)
+        internal TeamPresenter(ITeamView view)
         {
             this._view = view;
         }
@@ -25,7 +25,7 @@ namespace FNL.Presenters
         /// Return data from database and set to views.
         /// </summary>
         /// <returns>Views</returns>
-        public List<ITeamView> GetViews()
+        internal List<ITeamView> GetViews()
         {
             List<ITeamView> views = new List<ITeamView>();
 
@@ -53,8 +53,7 @@ namespace FNL.Presenters
         /// <summary>
         /// Delete record in database.
         /// </summary>
-        /// <param name="idTeam"></param>
-        public void DeleteModelDB()
+        internal void DeleteModelDB()
         {
             int idTeam = _view.TeamId;
             using (DbFnlContext db = new DbFnlContext())
@@ -62,10 +61,12 @@ namespace FNL.Presenters
                 var query = from t in db.Teams
                             where t.TeamId == idTeam
                             select t;
+                if (query.FirstOrDefault() != null)
+                {
+                    db.Teams.Remove(query.FirstOrDefault());
+                    db.SaveChanges();
+                }
 
-                db.Teams.Remove(query.FirstOrDefault());
-
-                db.SaveChanges();
             }
         }
 

@@ -72,7 +72,6 @@ namespace FNL.Presenters
         /// </summary>
         /// <param name="matchId"></param>
         /// <param name="category"></param>
-        /// <param name="isSpare"></param>
         /// <returns></returns>
         internal List<ITablePlayersMainView> GetViewsNotChosed(int matchId, PersonCategoryType category)
         {

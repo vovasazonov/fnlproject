@@ -300,7 +300,7 @@ namespace FNL
         /// </summary>
         private void DisableControls()
         {
-            tabControl1.Enabled = false; //!!!!!!!!!!!!!!!!!!!!!!!!
+            //tabControl1.Enabled = false; //!!!!!!!!!!!!!!!!!!!!!!!!
         }
         /// <summary>
         /// Enable controls in tub of form.
@@ -1061,6 +1061,14 @@ namespace FNL
         {
             MatchForm matchesForm = new MatchForm(this);
             matchesForm.Show();
+            matchesForm.FormClosing += (s, ev) =>
+            {
+                if (matchesForm.IsBtnOkClicked && this != null)
+                {
+                    MatchId = matchesForm.MatchId;
+                    UpdateView();
+                }
+            };
         }
 
         private void checkBoxListPlayers_CheckedChanged(object sender, EventArgs e)

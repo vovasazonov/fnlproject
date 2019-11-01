@@ -28,22 +28,214 @@ namespace FNL.Forms
 
             }
         }
-        public string NameMatch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime Date { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string NameStadium { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string NameSeason { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string NameTeamGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int GoalsGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string NameTeamHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int GoalsOwner { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Commentators1 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Commentators2 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string MainJudje { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string HelperJudje1 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string HelperJudje2 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string PairJudje { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Inspector { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Delegat { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string NameMatch
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].NameMatch : "";
+            }
+            set
+            {
+
+            }
+        }
+        public DateTime Date
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].Date : new DateTime();
+            }
+            set
+            {
+
+            }
+        }
+        public string NameStadium
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].NameStadium : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string NameSeason
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].NameSeason : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string NameTeamGuest
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].NameTeamGuest : "";
+            }
+            set
+            {
+
+            }
+        }
+        public int GoalsGuest
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].GoalsGuest : -1;
+            }
+            set
+            {
+
+            }
+        }
+        public string NameTeamHome
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].NameTeamHome : "";
+            }
+            set
+            {
+
+            }
+        }
+        public int GoalsOwner
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].GoalsOwner : -1;
+            }
+            set
+            {
+
+            }
+        }
+        public string Commentators1
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].Commentators1 : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string Commentators2
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].Commentators2 : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string MainJudje
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].MainJudje : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string HelperJudje1
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].HelperJudje1 : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string HelperJudje2
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].HelperJudje2 : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string PairJudje
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].PairJudje : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string Inspector
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].Inspector :"";
+            }
+            set
+            {
+
+            }
+        }
+        public string Delegat
+        {
+            get
+            {
+                var dataSource = (List<IMatchView>)(dataGridViewMatch.DataSource);
+                var currentRow = dataGridViewMatch.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].Delegat : "";
+            }
+            set
+            {
+
+            }
+        }
         public int StadiumId { get; set; }
         public int GuestTeamId { get; set; }
         public int OwnerTeamId { get; set; }
@@ -60,8 +252,9 @@ namespace FNL.Forms
 
         #region Class variables.
         private MainForm _mainForm = null;
+        internal bool IsBtnOkClicked { get => _isBtnOkClicked; set => _isBtnOkClicked = value; }
+        private bool _isBtnOkClicked = false;
         #endregion
-
 
         public MatchForm()
         {
@@ -75,11 +268,12 @@ namespace FNL.Forms
             InitializeComponent();
 
             _mainForm = mainForm;
+
             UpdateTable();
         }
 
 
-        internal void UpdateTable()
+        private void UpdateTable()
         {
             MatchPresenter presenter = new MatchPresenter(this);
             // Set table with data from database.
@@ -90,16 +284,31 @@ namespace FNL.Forms
         {
             this.Close();
         }
+
         private void buttonInsertMatch_Click(object sender, EventArgs e)
         {
             SettingMatchForm form = new SettingMatchForm(this);
             form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked && this != null)
+                {
+                    UpdateTable();
+                }
+            };
         }
 
         private void buttonChangeMatch_Click(object sender, EventArgs e)
         {
             SettingMatchForm form = new SettingMatchForm(this, true);
             form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked && this != null)
+                {
+                    UpdateTable();
+                }
+            };
         }
 
         private void buttonDeleteMatch_Click(object sender, EventArgs e)
@@ -112,11 +321,7 @@ namespace FNL.Forms
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            if (_mainForm != null)
-            {
-                _mainForm.MatchId = MatchId;
-                _mainForm.UpdateView();
-            }
+            _isBtnOkClicked = true;
 
             this.Close();
         }

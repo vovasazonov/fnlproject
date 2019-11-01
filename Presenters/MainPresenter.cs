@@ -12,16 +12,16 @@ using ModelLayer.Models;
 
 namespace FNL.Presenters
 {
-    public class MainPresenter
+    internal class MainPresenter
     {
         private IMainView _view;
 
-        public MainPresenter(IMainView view)
+        internal MainPresenter(IMainView view)
         {
             _view = view;
         }
 
-        public void ShowView()
+        internal void ShowView()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
@@ -37,7 +37,7 @@ namespace FNL.Presenters
             }
         }
 
-        public string GetLogoPathTeam(bool isGuest)
+        internal string GetLogoPathTeam(bool isGuest)
         {
             string logoPath = "";
 
@@ -58,7 +58,7 @@ namespace FNL.Presenters
             return logoPath;
         }
 
-        public void Replacement(bool isGuest)
+        internal void Replacement(bool isGuest)
         {
             var idPlayer = isGuest ? _view.GuestPlayerId : _view.HomePlayerId;
             var idPair = isGuest ? _view.PairGuestPlayerId : _view.PairHomePlayerId;

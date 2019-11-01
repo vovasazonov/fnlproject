@@ -121,9 +121,11 @@ namespace FNL.Presenters
                             where m.MatchId == _view.MatchId
                             select m;
 
-                db.Matches.Remove(query.FirstOrDefault());
-
-                db.SaveChanges();
+                if (query.FirstOrDefault()!=null)
+                {
+                    db.Matches.Remove(query.FirstOrDefault());
+                    db.SaveChanges();
+                }
             }
         }
 

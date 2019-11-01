@@ -50,19 +50,105 @@ namespace FNL.Forms
 
             }
         }
-        public string FirstName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string LastName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string MiddleName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Role { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int RoleId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string PhotoPath { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Country { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string City { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string FirstName
+        {
+            get
+            {
+                var dataSource = ((List<IPlayerTeamView>)(dataGridViewAllPlayers.DataSource));
+                var currnetRow = dataGridViewAllPlayers.CurrentRow;
+                return currnetRow != null ? dataSource[currnetRow.Index].FirstName : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string LastName
+        {
+            get
+            {
+                var dataSource = ((List<IPlayerTeamView>)(dataGridViewAllPlayers.DataSource));
+                var currnetRow = dataGridViewAllPlayers.CurrentRow;
+                return currnetRow != null ? dataSource[currnetRow.Index].LastName : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string MiddleName
+        {
+            get
+            {
+                var dataSource = ((List<IPlayerTeamView>)(dataGridViewAllPlayers.DataSource));
+                var currnetRow = dataGridViewAllPlayers.CurrentRow;
+                return currnetRow != null ? dataSource[currnetRow.Index].MiddleName : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string Role
+        {
+            get
+            {
+                var dataSource = ((List<IPlayerTeamView>)(dataGridViewAllPlayers.DataSource));
+                var currnetRow = dataGridViewAllPlayers.CurrentRow;
+                return currnetRow != null ? dataSource[currnetRow.Index].Role : "";
+            }
+            set
+            {
+
+            }
+        }
+        public int RoleId { get; set; }
+        public string PhotoPath
+        {
+            get
+            {
+                var dataSource = ((List<IPlayerTeamView>)(dataGridViewAllPlayers.DataSource));
+                var currnetRow = dataGridViewAllPlayers.CurrentRow;
+                return currnetRow != null ? dataSource[currnetRow.Index].PhotoPath : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string Country
+        {
+            get
+            {
+                var dataSource = ((List<IPlayerTeamView>)(dataGridViewAllPlayers.DataSource));
+                var currnetRow = dataGridViewAllPlayers.CurrentRow;
+                return currnetRow != null ? dataSource[currnetRow.Index].Country : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string City
+        {
+            get
+            {
+                var dataSource = ((List<IPlayerTeamView>)(dataGridViewAllPlayers.DataSource));
+                var currnetRow = dataGridViewAllPlayers.CurrentRow;
+                return currnetRow != null ? dataSource[currnetRow.Index].City : "";
+            }
+            set
+            {
+
+            }
+        }
         #endregion
 
         #region Class variables.
         private bool _isEdit = false;
         private SettingTeamForm _settingTeamForm = null;
+        internal bool IsBtnOkClicked { get => _isBtnOkClicked; private set => _isBtnOkClicked = value; }
+        private bool _isBtnOkClicked = false;
         #endregion
 
         public SettingPlayerTeamForm(SettingTeamForm settingTeamForm, bool isEdit = false)
@@ -86,7 +172,7 @@ namespace FNL.Forms
                 PersonId = _settingTeamForm.PersonId;
 
                 PlayerTeamPresenter tablePresenter = new PlayerTeamPresenter(this);
-                dataGridViewAllPlayers.DataSource = tablePresenter.GetViews();
+                dataGridViewAllPlayers.DataSource = tablePresenter.GetView();
             }
             // Load all people.
             else
@@ -107,7 +193,7 @@ namespace FNL.Forms
         }
 
 
-        internal void UpdateTable()
+        private void UpdateTable()
         {
             PlayerTeamPresenter tablePresenter = new PlayerTeamPresenter(this);
             dataGridViewAllPlayers.DataSource = tablePresenter.GetViews();
@@ -120,21 +206,26 @@ namespace FNL.Forms
         {
             PersonForm personForm = new PersonForm(this);
             personForm.Show();
+            personForm.FormClosing += (s, ev) =>
+            {
+                if (personForm.IsBtnOkClicked && this != null)
+                {
+                    UpdateTable();
+                }
+            };
         }
 
         private void buttonChangePerson_Click(object sender, EventArgs e)
         {
             PersonForm personForm = new PersonForm(this, true);
             personForm.Show();
-            personForm.FormClosed += PersonForm_FormClosed;
-        }
-
-        private void PersonForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (this != null)
+            personForm.FormClosing += (s, ev) =>
             {
-                UpdateTable();
-            }
+                if (personForm.IsBtnOkClicked && this != null)
+                {
+                    UpdateTable();
+                }
+            };
         }
 
         private void buttonDeletePerson_Click(object sender, EventArgs e)
@@ -163,10 +254,7 @@ namespace FNL.Forms
                 presenter.InsertModelDB();
             }
 
-            if (_settingTeamForm != null)
-            {
-                _settingTeamForm.UpdateTable();
-            }
+            _isBtnOkClicked = true;
 
             this.Close();
         }

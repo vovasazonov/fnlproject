@@ -53,6 +53,11 @@ namespace FNL.Presenters
             return playersView;
         }
 
+        internal List<IPlayerTeamView> GetView()
+        {
+            return GetViews().Where(t => t.PersonId == _view.PersonId).ToList();
+        }
+
         /// <summary>
         /// Delete record from database.
         /// </summary>
@@ -61,13 +66,15 @@ namespace FNL.Presenters
             using (DbFnlContext db = new DbFnlContext())
             {
                 var query = from m in db.TeamPlayers
-                            where m.PersonId == _view.PersonId
-                            where m.TeamId == _view.TeamId
+                            where m.PersonId == _view.PersonId && m.TeamId == _view.TeamId
                             select m;
 
-                db.TeamPlayers.Remove(query.FirstOrDefault());
+                if (query.FirstOrDefault() != null)
+                {
+                    db.TeamPlayers.Remove(query.FirstOrDefault());
 
-                db.SaveChanges();
+                    db.SaveChanges();
+                }
             }
         }
 

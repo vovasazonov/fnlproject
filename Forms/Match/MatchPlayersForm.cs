@@ -53,8 +53,8 @@ namespace FNL.Forms
 
         internal void UpdateView()
         {
-            // Update tables
             MatchPlayersPresenter presenter = new MatchPlayersPresenter(this);
+
             // Set table with data from database.
             dataGridHomePlayers.DataSource = presenter.GetViews(PersonCategoryType.HomeTeam, _matchesForm.MatchId);
             dataGridGuestPlayers.DataSource = presenter.GetViews(PersonCategoryType.GuestTeam, _matchesForm.MatchId);
@@ -90,8 +90,8 @@ namespace FNL.Forms
 
         private void buttonAddPlayerGuest_Click(object sender, EventArgs e)
         {
-            InsertMatchPlayersForm personForm = new InsertMatchPlayersForm(this, PersonCategoryType.GuestTeam, _matchesForm.MatchId);
-            personForm.Show();
+            InsertMatchPlayersForm form = new InsertMatchPlayersForm(this, PersonCategoryType.GuestTeam, _matchesForm.MatchId);
+            form.Show();
         }
 
         private void buttonDeletePlayerGuest_Click(object sender, EventArgs e)

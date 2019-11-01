@@ -8,6 +8,11 @@ namespace FNL.Views
 {
     public interface IPlayerTeamView : IPlayerView
     {
+        new int Number { get; set; }
+        new string FirstName { get; set; }
+        new string LastName { get; set; }
+        new string MiddleName { get; set; }
+        new string Amplua { get; set; }
     }
 
     public class CSettingPlayerTeamView : IPlayerTeamView

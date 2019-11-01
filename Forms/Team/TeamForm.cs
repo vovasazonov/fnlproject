@@ -86,6 +86,8 @@ namespace FNL.Forms
         #region Class variable.
         private SettingMatchForm _settingMatchForm = null;
         private bool _isGuestSender = false;
+        internal bool IsBtnOkClicked { get => _isBtnOkClicked; private set => _isBtnOkClicked = value; }
+        private bool _isBtnOkClicked = false;
         #endregion
 
         public TeamForm()
@@ -106,7 +108,7 @@ namespace FNL.Forms
         /// <summary>
         /// Update the data in gridView.
         /// </summary>
-        internal void UpdateTable()
+        private void UpdateTable()
         {
             TeamPresenter presenter = new TeamPresenter(this);
             // Set table with data from database.
@@ -117,6 +119,13 @@ namespace FNL.Forms
         {
             SettingTeamForm form = new SettingTeamForm(this);
             form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked && this != null)
+                {
+                    UpdateTable();
+                }
+            };
         }
 
         private void buttonDeleteTeam_Click(object sender, EventArgs e)
@@ -129,13 +138,7 @@ namespace FNL.Forms
 
         private void buttonTeamOk_Click(object sender, EventArgs e)
         {
-            TeamPresenter presenter = new TeamPresenter(this);
-
-            if (_settingMatchForm != null)
-            {
-                _ = _isGuestSender ? _settingMatchForm.GuestTeamId = TeamId : _settingMatchForm.OwnerTeamId = TeamId;
-                _ = _isGuestSender ? _settingMatchForm.NameTeamGuest = NameFull : _settingMatchForm.NameTeamHome = NameFull;
-            }
+            _isBtnOkClicked = true;
 
             this.Close();
         }
@@ -149,6 +152,13 @@ namespace FNL.Forms
         {
             SettingTeamForm form = new SettingTeamForm(this, true);
             form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked && this != null)
+                {
+                    UpdateTable();
+                }
+            };
         }
 
         private void dataGridViewTeams_CurrentCellChanged(object sender, EventArgs e)

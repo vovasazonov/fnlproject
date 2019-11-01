@@ -53,10 +53,12 @@ namespace FNL.Presenters
                 var query = from t in db.Seasons
                             where t.SeasonId == id
                             select t;
+                if (query.FirstOrDefault() != null)
+                {
+                    db.Seasons.Remove(query.FirstOrDefault());
 
-                db.Seasons.Remove(query.FirstOrDefault());
-
-                db.SaveChanges();
+                    db.SaveChanges();
+                }
             }
         }
 

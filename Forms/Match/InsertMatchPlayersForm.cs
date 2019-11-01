@@ -54,7 +54,7 @@ namespace FNL.Forms
             UpdateView();
         }
 
-        internal void UpdateView()
+        private void UpdateView()
         {
             UpdateTable();
         }

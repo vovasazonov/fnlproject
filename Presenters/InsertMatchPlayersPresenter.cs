@@ -10,11 +10,11 @@ using ModelLayer.Models;
 
 namespace FNL.Presenters
 {
-    public class InsertMatchPlayersPresenter
+    internal class InsertMatchPlayersPresenter
     {
         private InsertMatchPlayersForm _view;
 
-        public InsertMatchPlayersPresenter(InsertMatchPlayersForm view)
+        internal InsertMatchPlayersPresenter(InsertMatchPlayersForm view)
         {
             _view = view;
         }
@@ -23,7 +23,7 @@ namespace FNL.Presenters
         /// Return data from database converted to view.
         /// </summary>
         /// <returns>matches.</returns>
-        public List<IPersonView> GetView()
+        internal List<IPersonView> GetView()
         {
             List<IPersonView> personView = new List<IPersonView>();
 

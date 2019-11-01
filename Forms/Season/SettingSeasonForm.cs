@@ -22,6 +22,8 @@ namespace FNL.Forms
         #region Class variables.
         private SeasonForm _seasonForm = null;
         private bool _isEdit = false;
+        internal bool IsBtnOkClicked { get => _isBtnOkClicked; private set => _isBtnOkClicked = value; }
+        private bool _isBtnOkClicked = false;
         #endregion
 
         public SettingSeasonForm()
@@ -64,10 +66,7 @@ namespace FNL.Forms
                 presenter.InsertModelDB();
             }
 
-            if (_seasonForm != null)
-            {
-                _seasonForm.UpdateTable();
-            }
+            _isBtnOkClicked = true;
 
             this.Close();
         }

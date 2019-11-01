@@ -140,14 +140,52 @@ namespace FNL.Forms
             }
         }
 
-        public string PhotoPath { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Country { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string City { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string PhotoPath
+        {
+            get
+            {
+                var dataSource = (List<IPlayerTeamView>)(dataGridViewPlayersTeam.DataSource);
+                var currentRow = dataGridViewPlayersTeam.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].PhotoPath : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string Country
+        {
+            get
+            {
+                var dataSource = (List<IPlayerTeamView>)(dataGridViewPlayersTeam.DataSource);
+                var currentRow = dataGridViewPlayersTeam.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].Country : "";
+            }
+            set
+            {
+
+            }
+        }
+        public string City
+        {
+            get
+            {
+                var dataSource = (List<IPlayerTeamView>)(dataGridViewPlayersTeam.DataSource);
+                var currentRow = dataGridViewPlayersTeam.CurrentRow;
+                return currentRow != null ? dataSource[currentRow.Index].City : "";
+            }
+            set
+            {
+
+            }
+        }
         #endregion
 
         #region Class variables.
         private TeamForm _teamForm = null;
         private bool _isEdit = false;
+        internal bool IsBtnOkClicked { get => _isBtnOkClicked; private set => _isBtnOkClicked = value; }
+        private bool _isBtnOkClicked = false;
         #endregion
 
         public SettingTeamForm()
@@ -181,13 +219,9 @@ namespace FNL.Forms
             }
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        internal void UpdateTable()
+        private void UpdateTable()
         {
-            PlayerTeamPresenter presenter = new PlayerTeamPresenter(this);
+            SettingTeamPresenter presenter = new SettingTeamPresenter(this);
             // Set table with data from database.
             dataGridViewPlayersTeam.DataSource = presenter.GetViews();
         }
@@ -205,10 +239,7 @@ namespace FNL.Forms
                 presenter.InsertModelDB();
             }
 
-            if (_teamForm != null)
-            {
-                _teamForm.UpdateTable();
-            }
+            _isBtnOkClicked = true;
 
             this.Close();
         }
@@ -217,6 +248,13 @@ namespace FNL.Forms
         {
             SettingPlayerTeamForm form = new SettingPlayerTeamForm(this);
             form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked && this != null)
+                {
+                    UpdateTable();
+                }
+            };
         }
 
         private void buttonDeletePlayer_Click(object sender, EventArgs e)
@@ -231,6 +269,13 @@ namespace FNL.Forms
         {
             SettingPlayerTeamForm form = new SettingPlayerTeamForm(this, true);
             form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked && this != null)
+                {
+                    UpdateTable();
+                }
+            };
         }
 
         private void comboBoxPathLogo_Click(object sender, EventArgs e)

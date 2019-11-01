@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using FNL.Forms;
 using FNL.Views;
 using FNL.Presenters;
+using FNL.Enums;
 
 namespace FNL.Forms
 {
@@ -50,6 +51,8 @@ namespace FNL.Forms
         #region Class variables.
         private MatchForm _matchesForm = new MatchForm();
         private bool _isEdit = false;
+        internal bool IsBtnOkClicked { get => _isBtnOkClicked; set => _isBtnOkClicked = value; }
+        private bool _isBtnOkClicked = false;
         #endregion
 
         public SettingMatchForm(MatchForm matchesForm, bool isEdit = false)
@@ -86,10 +89,7 @@ namespace FNL.Forms
                 presenter.InserModelDB();
             }
 
-            if (_matchesForm != null)
-            {
-                _matchesForm.UpdateTable();
-            }
+            _isBtnOkClicked = true;
 
             this.Close();
         }
@@ -98,23 +98,169 @@ namespace FNL.Forms
         {
             TeamForm form = new TeamForm(this, true);
             form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked && this != null)
+                {
+                    GuestTeamId = form.TeamId;
+                    NameTeamGuest = form.NameFull;
+                }
+            };
+
         }
 
         private void comboOwner_Click(object sender, EventArgs e)
         {
             TeamForm form = new TeamForm(this, false);
             form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked && this != null)
+                {
+                    OwnerTeamId = form.TeamId;
+                    NameTeamHome = form.NameFull;
+                }
+            };
         }
 
         private void comboStadium_Click(object sender, EventArgs e)
         {
-
+            //StadiumForm form = new StadiumForm(this);
+            //form.Show();
+            //form.FormClosing += (s, ev) =>
+            //{
+            //    if (form.IsBtnOkClicked && this != null)
+            //    {
+            //        StadiumId = form.StadiumId;
+            //        NameStadium = form.NameStadium;
+            //    }
+            //};
         }
 
         private void comboSeason_Click(object sender, EventArgs e)
         {
             SeasonForm form = new SeasonForm(this);
             form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked && this != null)
+                {
+                    SeasonId = form.SeasonId;
+                    NameSeason = form.SeasonName;
+                }
+            };
+        }
+
+        private void comboCommentator1_Click(object sender, EventArgs e)
+        {
+            PersonForm form = new PersonForm(this, RoleType.Commentator);
+            form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked)
+                {
+                    Commentators1 = form.GetFullNamePerson();
+                    Commentator2Id = form.PersonId;
+                }
+            };
+        }
+
+        private void comboCommentator2_Click(object sender, EventArgs e)
+        {
+            PersonForm form = new PersonForm(this, RoleType.Commentator);
+            form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked)
+                {
+                    Commentators2 = form.GetFullNamePerson();
+                    Commentator2Id = form.PersonId;
+                }
+            };
+        }
+
+        private void comboMainJudje_Click(object sender, EventArgs e)
+        {
+            PersonForm form = new PersonForm(this, RoleType.MainJudje);
+            form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked)
+                {
+                    MainJudje = form.GetFullNamePerson();
+                    MainJudjeId = form.PersonId;
+                }
+            };
+        }
+
+        private void comboHelperJudje1_Click(object sender, EventArgs e)
+        {
+            PersonForm form = new PersonForm(this, RoleType.HelperJudje);
+            form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked)
+                {
+                    HelperJudje1 = form.GetFullNamePerson();
+                    HelperJudje1Id = form.PersonId;
+                }
+            };
+        }
+
+        private void comboHelperJudje2_Click(object sender, EventArgs e)
+        {
+            PersonForm form = new PersonForm(this, RoleType.HelperJudje);
+            form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked)
+                {
+                    HelperJudje2 = form.GetFullNamePerson();
+                    HelperJudje2Id = form.PersonId;
+                }
+            };
+        }
+
+        private void comboPairJudje_Click(object sender, EventArgs e)
+        {
+            PersonForm form = new PersonForm(this, RoleType.PairJudje);
+            form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked)
+                {
+                    PairJudje = form.GetFullNamePerson();
+                    PairJudjeId = form.PersonId;
+                }
+            };
+        }
+
+        private void comboInspector_Click(object sender, EventArgs e)
+        {
+            PersonForm form = new PersonForm(this, RoleType.Inspector);
+            form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked)
+                {
+                    Inspector = form.GetFullNamePerson();
+                    InspectorId = form.PersonId;
+                }
+            };
+        }
+
+        private void comboDelegat_Click(object sender, EventArgs e)
+        {
+            PersonForm form = new PersonForm(this, RoleType.Delegat);
+            form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked)
+                {
+                    Delegat = form.GetFullNamePerson();
+                    DelegatId = form.PersonId;
+                }
+            };  
         }
     }
 }
