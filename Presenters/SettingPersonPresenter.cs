@@ -30,6 +30,7 @@ namespace FNL.Presenters
 
             using (DbFnlContext db = new DbFnlContext())
             {
+                personModel.PersonId = _view.PersonId;
                 personModel.Address = new Address();
                 personModel.Address.City = _view.City;
                 personModel.Address.Country = _view.Country;
@@ -90,7 +91,7 @@ namespace FNL.Presenters
                 _view.MiddleName = model.MiddleName;
                 _view.PhotoPath = model.PhotoPath;
                 string nameRole = "";
-                DictionaryRoles.Dic.TryGetValue((RoleType)((int)model.RoleId), out nameRole);
+                DictionaryRoles.Dic.TryGetValue((RoleType)(model.RoleId != null ? (int)model.RoleId : 0), out nameRole);
                 _view.Role = nameRole;
                 _view.City = model.Address != null ? model.Address.City : "";
                 _view.Country = model.Address != null ? model.Address.Country : "";

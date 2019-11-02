@@ -53,20 +53,21 @@ namespace FNL.Forms
         {
             InitializeComponent();
         }
-       
+
         public SettingPersonForm(PersonForm personForm, bool isEdit = false)
         {
             InitializeComponent();
 
             this._isEdit = isEdit;
             this._perosnForm = personForm;
-
             // Prepare combobox on view.
             comboBoxRole.Items.AddRange(DictionaryRoles.Dic.Values.ToArray());
             comboBoxRole.SelectedIndex = 0;
 
             if (isEdit)
             {
+                PersonId = personForm.PersonId;
+                    
                 SettingPersonPresenter settingPersonPresenter = new SettingPersonPresenter(this);
                 settingPersonPresenter.ShowModelInView();
             }

@@ -300,7 +300,7 @@ namespace FNL
         /// </summary>
         private void DisableControls()
         {
-            //tabControl1.Enabled = false; //!!!!!!!!!!!!!!!!!!!!!!!!
+            tabControl1.Enabled = false; //!!!!!!!!!!!!!!!!!!!!!!!!
         }
         /// <summary>
         /// Enable controls in tub of form.
@@ -610,12 +610,13 @@ namespace FNL
                 {
                     for (int i = 0; i < 11; i++)
                     {
-                        _cgData.SetData(string.Format("namePlayer{0}", i + 1), players.Count() > 0 ? players[0].FirstName + " " + players[0].LastName : " ");
-                        _cgData.SetData(string.Format("numPlayer{0}", i + 1), players.Count() > 0 ? players[0].N.ToString() : " ");
+                        _cgData.SetData(string.Format("namePlayer{0}", i + 1), players.Count() > i ? players[i].FirstName + " " + players[i].LastName : " ");
+                        _cgData.SetData(string.Format("numPlayer{0}", i + 1), players.Count() > i ? players[i].N.ToString() : " ");
                     }
 
                 }
-                else if (isPairs || accessory == PersonCategoryType.FaceMatch)
+
+                if (isPairs || accessory == PersonCategoryType.FaceMatch)
                 {
                     for (int i = 0; i < 11; i++)
                     {
@@ -624,31 +625,32 @@ namespace FNL
                     }
                 }
 
-                if (accessory == PersonCategoryType.FaceMatch)
-                {
-                    _cgData.SetData("titleMainJudje", "Главный судья");
-                    _cgData.SetData("titleHelperJudje", "Помощники");
-                    _cgData.SetData("titlePairJudje", "Резервный судья");
-                    _cgData.SetData("titleInsepcotor", "Инспектор");
-                    _cgData.SetData("titleDelegat", "Делегат");
 
-                    _cgData.SetData("nameMainJudje", "");
-                    _cgData.SetData("nameHelperJudje1", "");
-                    _cgData.SetData("nameHelperJudje2", "");
-                    _cgData.SetData("namePairJudje", "");
-                    _cgData.SetData("nameInsepcotor", "");
-                    _cgData.SetData("nameDelegat", "");
+                bool isFace = accessory == PersonCategoryType.FaceMatch;
 
-                    _cgData.SetData("cityMainJudje", "");
-                    _cgData.SetData("cityHelperJudje1", "");
-                    _cgData.SetData("cityHelperJudje2", "");
-                    _cgData.SetData("cityPairJudje", "");
-                    _cgData.SetData("cityInsepcotor", "");
-                    _cgData.SetData("cityDelegat", "");
+                _cgData.SetData("titleMainJudje", isFace ? "Главный судья" : "");
+                _cgData.SetData("titleHelperJudje", isFace ? "Помощники" : "");
+                _cgData.SetData("titlePairJudje", isFace ? "Резервный судья" : "");
+                _cgData.SetData("titleInsepcotor", isFace ? "Инспектор" : "");
+                _cgData.SetData("titleDelegat", isFace ? "Делегат" : "");
+
+                _cgData.SetData("nameMainJudje", isFace ? "" : "");
+                _cgData.SetData("nameHelperJudje1", isFace ? "" : "");
+                _cgData.SetData("nameHelperJudje2", isFace ? "" : "");
+                _cgData.SetData("namePairJudje", isFace ? "" : "");
+                _cgData.SetData("nameInsepcotor", isFace ? "" : "");
+                _cgData.SetData("nameDelegat", isFace ? "" : "");
+
+                _cgData.SetData("cityMainJudje", isFace ? "" : "");
+                _cgData.SetData("cityHelperJudje1", isFace ? "" : "");
+                _cgData.SetData("cityHelperJudje2", isFace ? "" : "");
+                _cgData.SetData("cityPairJudje", isFace ? "" : "");
+                _cgData.SetData("cityInsepcotor", isFace ? "" : "");
+                _cgData.SetData("cityDelegat", isFace ? "" : "");
 
 
 
-                }
+
 
             }
             catch
