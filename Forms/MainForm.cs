@@ -22,14 +22,7 @@ namespace FNL
 {
     public partial class MainForm : Form, IMainView
     {
-        private delegate void UpdateGUI(object parameter);
-
-        #region CasparCG values.
-        private CasparDevice _caspar_ = new CasparDevice();
-        private CasparCGDataCollection _cgData = new CasparCGDataCollection();
-        #endregion
-
-        #region View value.
+        #region View variables.
         public int MatchId { get; set; }
         public int GuestPlayerId
         {
@@ -119,6 +112,10 @@ namespace FNL
         public string ChangeHome { get => textChangeHome.Text; set => textChangeHome.Text = value; }
         #endregion
 
+        #region Class variables.
+        private delegate void UpdateGUI(object parameter);
+        #endregion
+
         public MainForm()
         {
             InitializeComponent();
@@ -126,10 +123,9 @@ namespace FNL
             // Disable controls to click on button. There are not connection yet on start program.
             DisableControls();
 
-            _caspar_.Connected += new EventHandler<NetworkEventArgs>(Caspar__Connected);
-            _caspar_.FailedConnect += new EventHandler<NetworkEventArgs>(Caspar__FailedConnected);
-            _caspar_.Disconnected += new EventHandler<NetworkEventArgs>(Caspar__Disconnected);
-
+            CasparFNL.Device.Connected += new EventHandler<NetworkEventArgs>(Caspar__Connected);
+            CasparFNL.Device.FailedConnect += new EventHandler<NetworkEventArgs>(Caspar__FailedConnected);
+            CasparFNL.Device.Disconnected += new EventHandler<NetworkEventArgs>(Caspar__Disconnected);
 
             dataGridPlayersGuest.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
             dataGridPlayersPairsGuest.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
@@ -137,336 +133,167 @@ namespace FNL
             dataGridPlayersPairsHome.CurrentCellChanged += DataGridPlayers_CurrentCellChanged;
         }
 
-
-
-        #region Connection CasparCG methods.
-        /// <summary>
-        /// Method that call for caspar cg when it connected.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void Caspar__Connected(object sender, NetworkEventArgs e)
+        private void Caspar__Connected(object sender, NetworkEventArgs e)
         {
             if (InvokeRequired)
                 BeginInvoke(new UpdateGUI(OnCasparConnected), e);
             else
                 OnCasparConnected(e);
         }
-        void OnCasparConnected(object param)
+
+        private void OnCasparConnected(object param)
         {
             buttonConnect.Enabled = true;
             UpdateConnectButtonText();
 
-            _caspar_.RefreshMediafiles();
-            _caspar_.RefreshDatalist();
+            CasparFNL.Device.RefreshMediafiles();
+            CasparFNL.Device.RefreshDatalist();
 
             NetworkEventArgs e = (NetworkEventArgs)param;
             statusStrip1.BackColor = Color.LightGreen;
-            toolStripStatusLabel1.Text = "Connected to " + _caspar_.Settings.Hostname; // Properties.Settings.Default.Hostname;
+            toolStripStatusLabel1.Text = "Connected to " + CasparFNL.Device.Settings.Hostname; 
 
             EnableControls();
         }
-        /// <summary>
-        /// Caspar event - failed connect.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void Caspar__FailedConnected(object sender, NetworkEventArgs e)
+
+        private void Caspar__FailedConnected(object sender, NetworkEventArgs e)
         {
             if (InvokeRequired)
                 BeginInvoke(new UpdateGUI(OnCasparFailedConnect), e);
             else
                 OnCasparFailedConnect(e);
         }
-        void OnCasparFailedConnect(object param)
+
+        private void OnCasparFailedConnect(object param)
         {
             buttonConnect.Enabled = true;
             UpdateConnectButtonText();
 
             NetworkEventArgs e = (NetworkEventArgs)param;
             statusStrip1.BackColor = Color.LightCoral;
-            toolStripStatusLabel1.Text = "Failed to connect to " + _caspar_.Settings.Hostname; // Properties.Settings.Default.Hostname;
+            toolStripStatusLabel1.Text = "Failed to connect to " + CasparFNL.Device.Settings.Hostname;
 
             DisableControls();
         }
 
-        /// <summary>
-        /// Caspar event - disconnected.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void Caspar__Disconnected(object sender, NetworkEventArgs e)
+        private void Caspar__Disconnected(object sender, NetworkEventArgs e)
         {
             if (InvokeRequired)
                 BeginInvoke(new UpdateGUI(OnCasparDisconnected), e);
             else
                 OnCasparDisconnected(e);
         }
-        void OnCasparDisconnected(object param)
+
+        private void OnCasparDisconnected(object param)
         {
             buttonConnect.Enabled = true;
             UpdateConnectButtonText();
 
             NetworkEventArgs e = (NetworkEventArgs)param;
             statusStrip1.BackColor = Color.LightCoral;
-            toolStripStatusLabel1.Text = "Disconnected from " + _caspar_.Settings.Hostname; // Properties.Settings.Default.Hostname;
+            toolStripStatusLabel1.Text = "Disconnected from " + CasparFNL.Device.Settings.Hostname;
 
             DisableControls();
         }
-        #endregion
 
-        #region Graphic CasparCG.
-        /// <summary>
-        /// Start graphic and set data to cgData.
-        /// </summary>
         private void StartGraphic()
         {
-            /*
-             Check for valid field values
-             */
+            // Check for valid field values.
             if (!this.HasValidClockData())
             {
                 return;
             }
 
-            try
-            {
-                // Clear old data
-                _cgData.Clear();
+            CasparFNL.StartGraphic();
 
-                // build data
-                _cgData.SetData("team1Name", NameGuest);
-                _cgData.SetData("team2Name", NameHome);
-                _cgData.SetData("team1Score", tBScoreTeam1.Text);
-                _cgData.SetData("team2Score", tBScoreTeam2.Text);
-                _cgData.SetData("team1Color", buttonColorTeamGuest.BackColor.ToArgb().ToString());
-                _cgData.SetData("team2Color", buttonColorTeamHome.BackColor.ToArgb().ToString());
-                _cgData.SetData("halfNum", Convert.ToString(NumberHalfTime));
-                _cgData.SetData("gameTime", this.GetGameTimeCGData());
-                _cgData.SetData("overtime", Convert.ToString(numOvertime.Value));
-
-            }
-            catch
+            CasparFNL.SendData(new Dictionary<string, string>()
             {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Add(Properties.Settings.Default.GraphicsLayerClock, Properties.Settings.Default.TemplateNameClock, true, _cgData);
-                }
-            }
+                {"team1Name", NameGuest},
+                {"team2Name", NameHome},
+                {"team1Score", tBScoreTeam1.Text},
+                {"team2Score", tBScoreTeam2.Text},
+                {"team1Color", buttonColorTeamGuest.BackColor.ToArgb().ToString()},
+                {"team2Color", buttonColorTeamHome.BackColor.ToArgb().ToString()},
+                {"halfNum", Convert.ToString(NumberHalfTime)},
+                {"gameTime", this.GetGameTimeCGData()},
+                {"overtime", Convert.ToString(numOvertime.Value)}
+            });
         }
-        /// <summary>
-        /// Stop graphic.
-        /// </summary>
+
         private void StopGraphic()
         {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Stop(Properties.Settings.Default.GraphicsLayerClock);
-                }
-            }
+            CasparFNL.StopGrpahic();
         }
-        #endregion
 
-        /// <summary>
-        /// Update the values view of events.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void DataGridPlayers_CurrentCellChanged(object sender, EventArgs e)
         {
             MainPresenter presenter = new MainPresenter(this);
             presenter.UpdateViewEvents();
         }
 
-
-
-
-        /// <summary>
-        /// Disable controls in tub of form.
-        /// </summary>
         private void DisableControls()
         {
-            tabControl1.Enabled = false; //!!!!!!!!!!!!!!!!!!!!!!!!
+            tabControl1.Enabled = false;
         }
-        /// <summary>
-        /// Enable controls in tub of form.
-        /// </summary>
+
         private void EnableControls()
         {
             tabControl1.Enabled = true;
         }
-        /// <summary>
-        /// Update the text status connection of button that control connection.
-        /// </summary>
+
         private void UpdateConnectButtonText()
         {
-            if (!_caspar_.IsConnected)
+            if (!CasparFNL.Device.IsConnected)
             {
-                buttonConnect.Text = "Connect";// to " + Properties.Settings.Default.Hostname;
+                buttonConnect.Text = "Connect";
             }
             else
             {
-                buttonConnect.Text = "Disconnect"; // from " + Properties.Settings.Default.Hostname;
+                buttonConnect.Text = "Disconnect"; 
             }
         }
-        /// <summary>
-        /// Update names of teams when it changing.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UpdateTeams(object sender = null, EventArgs e = null)
+
+        private void UpdateNameTeams(object sender = null, EventArgs e = null)
         {
-            /*
-             Check for valid field values
-             */
             if (!this.HasValidClockData())
             {
                 return;
             }
 
-            try
+            CasparFNL.SendData(new Dictionary<string, string>()
             {
-                // Clear old data
-                _cgData.Clear();
-
-                // build data
-                // Choose only what is in brackets. Short team name.
-                _cgData.SetData("team1Name", NameGuest);// Regex.Replace(NameGuest, @"\(([^)]+)\)", String.Empty));
-                _cgData.SetData("team2Name", NameHome);// Regex.Replace(NameHome, @"\(([^)]+)\)", String.Empty));
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
-                }
-            }
+                {"team1Name", NameGuest},
+                {"team2Name", NameHome}
+            });
         }
-        /// <summary>
-        /// Hide or show timer of game.
-        /// </summary>
+
         private void ShowHideTimer()
         {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "clockShowHideTimer");
-                }
-            }
+            CasparFNL.InvokeMethod("clockShowHideTimer");
         }
-        /// <summary>
-        /// Start or stop the timer.
-        /// </summary>
+
         private void GameTimeStartStop()
         {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "gameTimeStartStop");
-                }
-            }
+            CasparFNL.InvokeMethod("gameTimeStartStop");
         }
-        /// <summary>
-        /// Update game time that was setted with user.
-        /// </summary>
+
         private void UpdateGameTime()
         {
-            /*
-             TODO: Check for valid field values
-             */
-
-
-            try
-            {
-                // Clear old data
-                _cgData.Clear();
-
-                // build data
-                _cgData.SetData("gameTime", this.GetGameTimeCGData());
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
-                }
-            }
+            CasparFNL.SendData("gameTime", this.GetGameTimeCGData());
         }
-        /// <summary>
-        /// Update results of score in template animation.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void UpdateScoresCG(object sender, EventArgs e)
         {
-            /*
-             Check for valid field values
-             */
             if (!this.HasValidClockData())
             {
                 return;
             }
 
-            try
+            CasparFNL.SendData(new Dictionary<string, string>()
             {
-                // Clear old data
-                _cgData.Clear();
-
-                // build data
-                _cgData.SetData("team1Score", tBScoreTeam1.Text);
-                _cgData.SetData("team2Score", tBScoreTeam2.Text);
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
-                }
-            }
+                {"team1Score", tBScoreTeam1.Text},
+                {"team2Score", tBScoreTeam2.Text}
+            });
         }
 
         private void UpdateReplacementCG(bool isGuest)
@@ -487,52 +314,21 @@ namespace FNL
                 pairPlayer = ((List<ITablePlayersMainView>)dataGridPlayersPairsHome.DataSource)[dataGridPlayersPairsHome.CurrentRow.Index];
             }
 
-            try
+            CasparFNL.SendData(new Dictionary<string, string>()
             {
-                // Clear old data
-                _cgData.Clear();
-
-                // buid logo
-                _cgData.SetData("replacementTeamLogoPath", presenter.GetLogoPathTeam(isGuest));
-
-                // Build names and numbers players that are replacementing.
-                _cgData.SetData("nameRedLine", string.Format("{0} {1}", player.FirstName, player.LastName));
-                _cgData.SetData("numberRedLine", player.N.ToString());
-                _cgData.SetData("nameGreenLine", string.Format("{0} {1}", pairPlayer.FirstName, pairPlayer.LastName));
-                _cgData.SetData("numberGreenLine", pairPlayer.N.ToString());
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
-                }
-            }
+                {"replacementTeamLogoPath", presenter.GetLogoPathTeam(isGuest)},
+                {"nameRedLine", string.Format("{0} {1}", player.FirstName, player.LastName)},
+                {"numberRedLine", player.N.ToString()},
+                {"nameGreenLine", string.Format("{0} {1}", pairPlayer.FirstName, pairPlayer.LastName)},
+                {"numberGreenLine", pairPlayer.N.ToString()},
+            });
         }
 
         private void ShowHideReplacementCG()
         {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "ReplacementShowHide");
-                }
-            }
+            CasparFNL.InvokeMethod("ReplacementShowHide");
         }
+
         /// <summary>
         /// Update data of players in Caspar CG. 
         /// Chose between guest or home team indepences 
@@ -540,7 +336,7 @@ namespace FNL
         /// </summary>
         /// <param name="isGuest"></param>
         /// /// <param name="isPairs"></param>
-        private void UpdatePlayersCG(PersonCategoryType accessory/*bool isGuest*/, bool isPairs = false)
+        private void UpdatePlayersCG(PersonCategoryType accessory, bool isPairs = false)
         {
             List<ITablePlayersMainView> players = new List<ITablePlayersMainView>();
             List<ITablePlayersMainView> pairsPlayers = new List<ITablePlayersMainView>();
@@ -585,292 +381,140 @@ namespace FNL
                 players.Insert(0, goalKeper);
             }
 
-            try
+            Dictionary<string, string> dicCasparData = new Dictionary<string, string>();
+
+            // buid logo
+            dicCasparData.Add("teamLogoPath", logoPath);
+
+            // Build title.
+            dicCasparData.Add("titleName",
+                accessory == PersonCategoryType.FaceMatch ? 
+                "ОФИЦИАЛЬНЫЕ ЛИЦА МАТЧА" : 
+                (isPairs ? "ЗАПАСНЫЕ" : "СТАРТОВЫЙ СОСТВА"));
+
+            // Build season name.
+            dicCasparData.Add("seasonName", SeasonName);
+
+            // Set main trainer of team.
+            dicCasparData.Add("trainerName",
+                string.Format("Главный тренер - {0} {1}", 
+                mainTrainer != null ? mainTrainer.FirstName : "", mainTrainer != null ? mainTrainer.LastName : ""));
+
+            // Set the amplua of first player goalkeper.
+            dicCasparData.Add("ampluaPlayer1", "В");
+
+            // build data players.
+            if (!isPairs || accessory != PersonCategoryType.FaceMatch)
             {
-                // Clear old data
-                _cgData.Clear();
-
-                // buid logo
-                _cgData.SetData("teamLogoPath", logoPath);
-
-                // Build title.
-                _cgData.SetData("titleName", accessory == PersonCategoryType.FaceMatch ? "ОФИЦИАЛЬНЫЕ ЛИЦА МАТЧА" : (isPairs ? "ЗАПАСНЫЕ" : "СТАРТОВЫЙ СОСТВА"));
-
-                // Build season name.
-                _cgData.SetData("seasonName", SeasonName);
-
-                // Set main trainer of team.
-                _cgData.SetData("trainerName", string.Format("Главный тренер - {0} {1}", mainTrainer != null ? mainTrainer.FirstName : "", mainTrainer != null ? mainTrainer.LastName : ""));
-
-                // Set the amplua of first player goalkeper.
-                _cgData.SetData("ampluaPlayer1", "В");
-
-                // build data players.
-                if (!isPairs || accessory != PersonCategoryType.FaceMatch)
+                for (int i = 0; i < 11; i++)
                 {
-                    for (int i = 0; i < 11; i++)
-                    {
-                        _cgData.SetData(string.Format("namePlayer{0}", i + 1), players.Count() > i ? players[i].FirstName + " " + players[i].LastName : " ");
-                        _cgData.SetData(string.Format("numPlayer{0}", i + 1), players.Count() > i ? players[i].N.ToString() : " ");
-                    }
-
+                    dicCasparData.Add(string.Format("namePlayer{0}", i + 1),
+                        players.Count() > i ? players[i].FirstName + " " + players[i].LastName : " ");
+                    dicCasparData.Add(string.Format("numPlayer{0}", i + 1),
+                        players.Count() > i ? players[i].N.ToString() : " ");
                 }
 
-                if (isPairs || accessory == PersonCategoryType.FaceMatch)
-                {
-                    for (int i = 0; i < 11; i++)
-                    {
-                        _cgData.SetData(string.Format("nameSparePlayer{0}", i + 1), pairsPlayers.Count() > i && accessory != PersonCategoryType.FaceMatch ? pairsPlayers[i].FirstName + " " + pairsPlayers[i].LastName : " ");
-                        _cgData.SetData(string.Format("numSparePlayer{0}", i + 1), pairsPlayers.Count() > i && accessory != PersonCategoryType.FaceMatch ? pairsPlayers[i].N.ToString() : " ");
-                    }
-                }
-
-
-                bool isFace = accessory == PersonCategoryType.FaceMatch;
-
-                _cgData.SetData("titleMainJudje", isFace ? "Главный судья" : "");
-                _cgData.SetData("titleHelperJudje", isFace ? "Помощники" : "");
-                _cgData.SetData("titlePairJudje", isFace ? "Резервный судья" : "");
-                _cgData.SetData("titleInsepcotor", isFace ? "Инспектор" : "");
-                _cgData.SetData("titleDelegat", isFace ? "Делегат" : "");
-
-                _cgData.SetData("nameMainJudje", isFace ? "" : "");
-                _cgData.SetData("nameHelperJudje1", isFace ? "" : "");
-                _cgData.SetData("nameHelperJudje2", isFace ? "" : "");
-                _cgData.SetData("namePairJudje", isFace ? "" : "");
-                _cgData.SetData("nameInsepcotor", isFace ? "" : "");
-                _cgData.SetData("nameDelegat", isFace ? "" : "");
-
-                _cgData.SetData("cityMainJudje", isFace ? "" : "");
-                _cgData.SetData("cityHelperJudje1", isFace ? "" : "");
-                _cgData.SetData("cityHelperJudje2", isFace ? "" : "");
-                _cgData.SetData("cityPairJudje", isFace ? "" : "");
-                _cgData.SetData("cityInsepcotor", isFace ? "" : "");
-                _cgData.SetData("cityDelegat", isFace ? "" : "");
-
-
-
-
-
             }
-            catch
-            {
 
-            }
-            finally
+            if (isPairs || accessory == PersonCategoryType.FaceMatch)
             {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
+                for (int i = 0; i < 11; i++)
                 {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
+                    dicCasparData.Add(string.Format("nameSparePlayer{0}", i + 1),
+                        pairsPlayers.Count() > i && accessory != PersonCategoryType.FaceMatch ? 
+                        pairsPlayers[i].FirstName + " " + pairsPlayers[i].LastName : 
+                        " ");
+                    dicCasparData.Add(string.Format("numSparePlayer{0}", i + 1),
+                        pairsPlayers.Count() > i && accessory != PersonCategoryType.FaceMatch ? 
+                        pairsPlayers[i].N.ToString() : 
+                        " ");
                 }
             }
+
+
+            bool isFace = accessory == PersonCategoryType.FaceMatch;
+
+            dicCasparData.Add("titleMainJudje", isFace ? "Главный судья" : "");
+            dicCasparData.Add("titleHelperJudje", isFace ? "Помощники" : "");
+            dicCasparData.Add("titlePairJudje", isFace ? "Резервный судья" : "");
+            dicCasparData.Add("titleInsepcotor", isFace ? "Инспектор" : "");
+            dicCasparData.Add("titleDelegat", isFace ? "Делегат" : "");
+
+            dicCasparData.Add("nameMainJudje", isFace ? "" : "");
+            dicCasparData.Add("nameHelperJudje1", isFace ? "" : "");
+            dicCasparData.Add("nameHelperJudje2", isFace ? "" : "");
+            dicCasparData.Add("namePairJudje", isFace ? "" : "");
+            dicCasparData.Add("nameInsepcotor", isFace ? "" : "");
+            dicCasparData.Add("nameDelegat", isFace ? "" : "");
+
+            dicCasparData.Add("cityMainJudje", isFace ? "" : "");
+            dicCasparData.Add("cityHelperJudje1", isFace ? "" : "");
+            dicCasparData.Add("cityHelperJudje2", isFace ? "" : "");
+            dicCasparData.Add("cityPairJudje", isFace ? "" : "");
+            dicCasparData.Add("cityInsepcotor", isFace ? "" : "");
+            dicCasparData.Add("cityDelegat", isFace ? "" : "");
+
+            CasparFNL.SendData(dicCasparData);
         }
 
         private void ShowHidePlayersCG()
         {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "PlayersShowHide");
-                }
-            }
+            CasparFNL.InvokeMethod("PlayersShowHide");
         }
+
         private void ShowHidePairsPlayers()
         {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "PlayersSpareShowHide");
-                }
-            }
+            CasparFNL.InvokeMethod("PlayersSpareShowHide");
         }
 
         private bool HasValidClockData()
         {
             return true;
         }
-        /// <summary>
-        /// Get the time that was settes by user in form.
-        /// </summary>
-        /// <returns></returns>
+
         private string GetGameTimeCGData()
         {
             return tbTimeMin.Text + ":" + tbTimeSec.Text;
         }
-        /// <summary>
-        /// Show or hide the clock with timers and main information about teams like score and their names.
-        /// </summary>
+
         private void ShowHideClock()
         {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "clockShowHide");
-                }
-            }
+            CasparFNL.InvokeMethod("clockShowHide");
         }
-        /// <summary>
-        /// Show or hide additional minutes on screen.
-        /// </summary>
+
         private void ShowHideAddMin()
         {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "ltimerShowHide");
-                }
-            }
+            CasparFNL.InvokeMethod("ltimerShowHide");
         }
+
         private void ShowHideChange()
         {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "changeShowHide");
-                }
-            }
+            CasparFNL.InvokeMethod("changeShowHide");
         }
-        /// <summary>
-        /// Save to cgData and set to template information about the half of game.
-        /// </summary>
+
         private void SaveHalfNum()
         {
-            // spara halvtid
-            /*
-             TODO: Check for valid field values
-             */
-
-            try
-            {
-                // Clear old data
-                _cgData.Clear();
-
-                // build data
-                _cgData.SetData("halfNum", Convert.ToString(NumberHalfTime));
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
-                }
-            }
+            CasparFNL.SendData("halfNum", Convert.ToString(NumberHalfTime));
         }
-        /// <summary>
-        /// Update the color teams in template.
-        /// </summary>
+
         private void UpdateColorTeams()
         {
-            // spara halvtid
-            /*
-             TODO: Check for valid field values
-             */
-
-            try
+            CasparFNL.SendData(new Dictionary<string, string>
             {
-                // Clear old data
-                _cgData.Clear();
-
-                // build data
-                _cgData.SetData("team1Color", buttonColorTeamGuest.BackColor.ToArgb().ToString());
-                _cgData.SetData("team2Color", buttonColorTeamHome.BackColor.ToArgb().ToString());
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
-                }
-            }
+                {"team1Color", buttonColorTeamGuest.BackColor.ToArgb().ToString()},
+                {"team2Color", buttonColorTeamHome.BackColor.ToArgb().ToString()}
+            });
         }
-        /// <summary>
-        /// Save the additional time that was setted by user in form.
-        /// </summary>
+
         private void SaveAdditionalTime()
         {
-            // spara halvtid
-            /*
-             TODO: Check for valid field values
-             */
-
-            try
-            {
-                // Clear old data
-                _cgData.Clear();
-
-                // build data
-                _cgData.SetData("overtime", Convert.ToString(numOvertime.Value));
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Update(Properties.Settings.Default.GraphicsLayerClock, _cgData);
-                }
-            }
+            CasparFNL.SendData("overtime", Convert.ToString(numOvertime.Value));
         }
-
 
         public void UpdateView()
         {
             TablePlayersMainPresenter presenterTable = new TablePlayersMainPresenter();
+
             // Update tables.
             dataGridPlayersGuest.DataSource = presenterTable.GetViews(MatchId, PersonCategoryType.GuestTeam, false);
             dataGridPlayersPairsGuest.DataSource = presenterTable.GetViews(MatchId, PersonCategoryType.GuestTeam, true);
@@ -881,25 +525,25 @@ namespace FNL
             matchPresenter.ShowView();
 
             // Caspar CG Data Update
-            UpdateTeams();
+            UpdateNameTeams();
         }
 
         private void BtnSetGameTime_Click(object sender, EventArgs e)
         {
             this.UpdateGameTime();
         }
+
         private void BtnTeam1MinusScore_Click(object sender, EventArgs e)
         {
-            /// get score
+            // Get score team.
             int currentScore = Convert.ToInt16(tBScoreTeam1.Text);
 
-            /// update score
-            if (currentScore > 0)
+            // Update score.
+            if (currentScore >= 0)
             {
                 currentScore--;
                 tBScoreTeam1.Text = Convert.ToString(currentScore);
             }
-
         }
 
         private void BtnTeam1AddScore_Click(object sender, EventArgs e)
@@ -910,16 +554,15 @@ namespace FNL
             /// update score
             currentScore++;
             tBScoreTeam1.Text = Convert.ToString(currentScore);
-
         }
 
         private void BtnTeam2MinusScore_Click(object sender, EventArgs e)
         {
-            /// get score
+            // Get score team.
             int currentScore = Convert.ToInt16(tBScoreTeam2.Text);
 
-            /// update score
-            if (currentScore > 0)
+            // Update score.
+            if (currentScore >= 0)
             {
                 currentScore--;
                 tBScoreTeam2.Text = Convert.ToString(currentScore);
@@ -941,12 +584,6 @@ namespace FNL
             this.ShowHideClock();
         }
 
-
-        /// <summary>
-        /// Button to show additional minutes.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonShowAddMinutes(object sender, EventArgs e)
         {
             this.ShowHideAddMin();
@@ -961,61 +598,17 @@ namespace FNL
         {
             this.ShowHideTimer();
         }
-        /// <summary>
-        /// Connect/disconnect to caspar device.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void ButtonConnect_Click(object sender, EventArgs e)
         {
             buttonConnect.Enabled = false;
 
-            if (!_caspar_.IsConnected)
-            {
-                _caspar_.Settings.Hostname = this.tbCasparServer.Text; // Properties.Settings.Default.Hostname;
-                _caspar_.Settings.Port = 5250;
-                _caspar_.Connect();
-            }
-            else
-            {
-                _caspar_.Disconnect();
-            }
+            CasparFNL.Connect(this.tbCasparServer.Text);
         }
-        /// <summary>
-        /// Clear graphic in caspar device.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void BtnClearGraphics_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this._caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Clear();
-                this._caspar_.Channels[Properties.Settings.Default.CasparChannel].Clear();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        /// <summary>
-        /// Lock teams that was chosed.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnLockTeams_Click(object sender, EventArgs e)
-        {
-            //this.cb1Teams.Enabled = !this.cb1Teams.Enabled;
-            //this.cb2Teams.Enabled = !this.cb2Teams.Enabled;
-
-            //if (this.cb1Teams.Enabled)
-            //{
-            //    this.btnLockTeams.Image = FNL.Properties.Resources.lock_unlock;
-            //}
-            //else
-            //{
-            //    this.btnLockTeams.Image = FNL.Properties.Resources.lock_lock;
-            //}
+            CasparFNL.ClearGraphic();
         }
 
         private void BtnStartGraphics_Click(object sender, EventArgs e)
@@ -1028,12 +621,10 @@ namespace FNL
             this.StopGraphic();
         }
 
-
         private void BtnTimeStartStop_Click(object sender, EventArgs e)
         {
             this.GameTimeStartStop();
         }
-
 
         private void BtnHalfSet(object sender, EventArgs e)
         {
@@ -1045,7 +636,6 @@ namespace FNL
             this.SaveAdditionalTime();
         }
 
-        #region Done
         private void ClickButtonColorTeamGuest(object sender, EventArgs e)
         {
             buttonColorTeamGuest.BackColor = (new Color()).ChoseColorDialog();
@@ -1057,7 +647,6 @@ namespace FNL
             buttonColorTeamHome.BackColor = (new Color()).ChoseColorDialog();
             UpdateColorTeams();
         }
-        #endregion
 
         private void buttonMatch_Click(object sender, EventArgs e)
         {
@@ -1146,21 +735,7 @@ namespace FNL
 
         private void ShowHideOfficialFacesMatch()
         {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                if (_caspar_.IsConnected && _caspar_.Channels.Count > 0)
-                {
-                    _caspar_.Channels[Properties.Settings.Default.CasparChannel].CG.Invoke(Properties.Settings.Default.GraphicsLayerClock, "OfficialFacesShowHide");
-                }
-            }
+            CasparFNL.InvokeMethod("OfficialFacesShowHide");
         }
     }
 

@@ -43,7 +43,8 @@ namespace FNL.Presenters
 
             using (var db = new DbFnlContext())
             {
-                var thisMatch = db.Matches.Where(t => t.MatchId == _view.MatchId).FirstOrDefault();
+                var thisMatch = db.Matches.Where(t => t.MatchId == _view.MatchId).FirstOrDefault() ?? new Match();
+                
 
                 if (isGuest)
                 {

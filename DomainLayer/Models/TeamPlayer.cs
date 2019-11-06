@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ModelLayer.Models
 {
-	public class TeamPlayer
+	public class TeamPlayer //: ITeamPlayerModel
 	{
 		public int TeamPlayerId { get; set; }
 		public int? NumberPlayer { get; set; }
