@@ -232,11 +232,11 @@ namespace FNL.Forms
 
             if (_isEdit)
             {
-                presenter.UpdateModelDB();
+                if (!presenter.UpdateModelDB()) MessageBoxFNL.MessageErrorDb();
             }
             else
             {
-                presenter.InsertModelDB();
+                if (!presenter.InsertModelDB()) MessageBoxFNL.MessageErrorDb();
             }
 
             _isBtnOkClicked = true;
@@ -260,7 +260,7 @@ namespace FNL.Forms
         private void buttonDeletePlayer_Click(object sender, EventArgs e)
         {
             PlayerTeamPresenter presenter = new PlayerTeamPresenter(this);
-            presenter.DeleteModelDB();
+            if (!presenter.DeleteModelDB()) MessageBoxFNL.MessageErrorDb();
 
             UpdateTable();
         }

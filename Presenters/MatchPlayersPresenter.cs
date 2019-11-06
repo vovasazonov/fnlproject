@@ -70,73 +70,89 @@ namespace FNL.Presenters
             return playersView;
         }
 
-        internal void DeleteModelDB(PersonCategoryType category, int idMatch)
+        internal bool DeleteModelDB(PersonCategoryType category, int idMatch)
         {
             using (DbFnlContext db = new DbFnlContext())
             {
-                Match currentMatch = db.Matches.Where(i => i.MatchId == idMatch).FirstOrDefault();
-
-                switch (category)
+                try
                 {
-                    case PersonCategoryType.FaceMatch:
-                        var query1 = db.FacesMatches.Where(t => t.MatchId == idMatch && t.PersonId == _view.PersonId);
-                        _ = query1.FirstOrDefault() != null ? db.FacesMatches.Remove(query1.FirstOrDefault()) : null;
-                        break;
-                    case PersonCategoryType.HomeTeam:
-                        var query2 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamOwnerId && t.PersonId == _view.PersonId);
-                        _ = query2.FirstOrDefault() != null ? db.PlayersMatches.Remove(query2.FirstOrDefault()) : null;
-                        break;
-                    case PersonCategoryType.GuestTeam:
-                        var query3 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamGuestId && t.PersonId == _view.PersonId);
-                        _ = query3.FirstOrDefault() != null ? db.PlayersMatches.Remove(query3.FirstOrDefault()) : null;
-                        break;
-                    default:
-                        break;
-                }
+                    Match currentMatch = db.Matches.Where(i => i.MatchId == idMatch).FirstOrDefault();
 
-                db.SaveChanges();
+                    switch (category)
+                    {
+                        case PersonCategoryType.FaceMatch:
+                            var query1 = db.FacesMatches.Where(t => t.MatchId == idMatch && t.PersonId == _view.PersonId);
+                            _ = query1.FirstOrDefault() != null ? db.FacesMatches.Remove(query1.FirstOrDefault()) : null;
+                            break;
+                        case PersonCategoryType.HomeTeam:
+                            var query2 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamOwnerId && t.PersonId == _view.PersonId);
+                            _ = query2.FirstOrDefault() != null ? db.PlayersMatches.Remove(query2.FirstOrDefault()) : null;
+                            break;
+                        case PersonCategoryType.GuestTeam:
+                            var query3 = db.PlayersMatches.Where(t => t.TeamId == currentMatch.TeamGuestId && t.PersonId == _view.PersonId);
+                            _ = query3.FirstOrDefault() != null ? db.PlayersMatches.Remove(query3.FirstOrDefault()) : null;
+                            break;
+                        default:
+                            break;
+                    }
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
 
+            return true;
         }
 
-        internal void InsertModelDB(PersonCategoryType category, int idMatch)
+        internal bool InsertModelDB(PersonCategoryType category, int idMatch)
         {
             using (DbFnlContext db = new DbFnlContext())
             {
-                Match currentMatch = db.Matches.Where(i => i.MatchId == idMatch).FirstOrDefault();
-
-                switch (category)
+                try
                 {
-                    case PersonCategoryType.FaceMatch:
-                        FaceMatch model = new FaceMatch { MatchId = idMatch, PersonId = _view.PersonId };
-                        db.FacesMatches.Add(model);
-                        break;
-                    case PersonCategoryType.HomeTeam:
-                        if (currentMatch.TeamOwnerId != null)
-                        {
-                            PlayerMatch playerHome = new PlayerMatch { MatchId = idMatch, TeamId = (int)currentMatch.TeamOwnerId, PersonId = _view.PersonId, IsSpare = _view.IsSpare };
-                            db.PlayersMatches.Add(playerHome);
+                    Match currentMatch = db.Matches.Where(i => i.MatchId == idMatch).FirstOrDefault();
 
-                        }
+                    switch (category)
+                    {
+                        case PersonCategoryType.FaceMatch:
+                            FaceMatch model = new FaceMatch { MatchId = idMatch, PersonId = _view.PersonId };
+                            db.FacesMatches.Add(model);
+                            break;
+                        case PersonCategoryType.HomeTeam:
+                            if (currentMatch.TeamOwnerId != null)
+                            {
+                                PlayerMatch playerHome = new PlayerMatch { MatchId = idMatch, TeamId = (int)currentMatch.TeamOwnerId, PersonId = _view.PersonId, IsSpare = _view.IsSpare };
+                                db.PlayersMatches.Add(playerHome);
 
-                        break;
-                    case PersonCategoryType.GuestTeam:
-                        if (currentMatch.TeamGuestId != null)
-                        {
-                            PlayerMatch playerGuest = new PlayerMatch { MatchId = idMatch, TeamId = (int)currentMatch.TeamGuestId, PersonId = _view.PersonId, IsSpare = _view.IsSpare };
-                            db.PlayersMatches.Add(playerGuest);
+                            }
 
-                        }
+                            break;
+                        case PersonCategoryType.GuestTeam:
+                            if (currentMatch.TeamGuestId != null)
+                            {
+                                PlayerMatch playerGuest = new PlayerMatch { MatchId = idMatch, TeamId = (int)currentMatch.TeamGuestId, PersonId = _view.PersonId, IsSpare = _view.IsSpare };
+                                db.PlayersMatches.Add(playerGuest);
 
-                        break;
-                    default:
-                        break;
+                            }
+
+                            break;
+                        default:
+                            break;
+                    }
+
+                    db.SaveChanges();
                 }
-
-                db.SaveChanges();
-
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
 
+            return true;
         }
 
     }

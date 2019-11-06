@@ -38,42 +38,77 @@ namespace FNL.Presenters
         /// <summary>
         /// Delete person from database.
         /// </summary>
-        internal void DeleteModelDB()
+        /// <returns>Result operation.</returns>
+        internal bool DeleteModelDB()
         {
             using (var db = new DbFnlContext())
             {
                 Person model = db.People.Where(t => t.PersonId == _view.PersonId).FirstOrDefault();
-                db.People.Remove(model);
-                db.SaveChanges();
+
+                try
+                {
+                    db.People.Remove(model);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
+
+            return true;
         }
         /// <summary>
         /// Update info of player in team.
         /// </summary>
-        internal void UpdateModelDB()
+        /// <returns>Result operation.</returns>
+        internal bool UpdateModelDB()
         {
             using (var db = new DbFnlContext())
             {
-                TeamPlayer model = model = db.TeamPlayers.Where(t => t.TeamId == _view.TeamId && t.PersonId == _view.PersonId).FirstOrDefault();
-                model.NumberPlayer = _view.Number;
-                model.AmpluaId = DictionaryAmpluas.Dic.Keys.Contains((AmpluaType)_view.AmpluaId) ? _view.AmpluaId : DictionaryAmpluas.GetId(AmpluaType.WithoutAmplua);
-                db.Entry(model).State = System.Data.Entity.EntityState.Modified;
 
-                db.SaveChanges();
+                try
+                {
+                    TeamPlayer model = model = db.TeamPlayers.Where(t => t.TeamId == _view.TeamId && t.PersonId == _view.PersonId).FirstOrDefault();
+                    model.NumberPlayer = _view.Number;
+                    model.AmpluaId = DictionaryAmpluas.Dic.Keys.Contains((AmpluaType)_view.AmpluaId) ? _view.AmpluaId : DictionaryAmpluas.GetId(AmpluaType.WithoutAmplua);
+                    db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
+
+            return true;
         }
         /// <summary>
         /// Insert new player to team.
         /// </summary>
-        internal void InsertModelDB()
+        /// <returns>Result operation.</returns>
+        internal bool InsertModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
                 TeamPlayer model = GetModelFromView();
 
-                db.TeamPlayers.Add(model);
-                db.SaveChanges();
+                try
+                {
+                    db.TeamPlayers.Add(model);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
+
+            return true;
         }
 
 

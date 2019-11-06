@@ -59,11 +59,11 @@ namespace FNL.Forms
 
             if (_isEdit)
             {
-                presenter.UpdateModelDB();
+               if(!presenter.UpdateModelDB()) MessageBoxFNL.MessageErrorDb();
             }
             else
             {
-                presenter.InsertModelDB();
+                if(!presenter.InsertModelDB()) MessageBoxFNL.MessageErrorDb();
             }
 
             _isBtnOkClicked = true;

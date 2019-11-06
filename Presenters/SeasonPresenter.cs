@@ -45,21 +45,32 @@ namespace FNL.Presenters
         /// <summary>
         /// Delete record in database.
         /// </summary>
-        internal void DeleteModelDB()
+        internal bool DeleteModelDB()
         {
             int id = _view.SeasonId;
             using (DbFnlContext db = new DbFnlContext())
             {
-                var query = from t in db.Seasons
-                            where t.SeasonId == id
-                            select t;
-                if (query.FirstOrDefault() != null)
+                try
                 {
-                    db.Seasons.Remove(query.FirstOrDefault());
+                    var query = from t in db.Seasons
+                                where t.SeasonId == id
+                                select t;
+                    if (query.FirstOrDefault() != null)
+                    {
+                        db.Seasons.Remove(query.FirstOrDefault());
 
-                    db.SaveChanges();
+                        db.SaveChanges();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
                 }
             }
+
+            return true;
         }
 
     }

@@ -110,6 +110,22 @@ namespace FNL
         public string YellowTicketHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string RedTicketHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string ChangeHome { get => textChangeHome.Text; set => textChangeHome.Text = value; }
+        public string NameMainJudje { get; set; }
+        public string NameHelperJudje1 { get; set; }
+        public string NameHelperJudje2 { get; set; }
+        public string NamePairJudje { get; set; }
+        public string NameInsepcotor { get; set; }
+        public string NameDelegat { get; set; }
+        public string CityMainJudje { get; set; }
+        public string CityHelperJudje1 { get; set; }
+        public string CityHelperJudje2 { get; set; }
+        public string CityPairJudje { get; set; }
+        public string CityInsepcotor { get; set; }
+        public string CityDelegat { get; set; }
+        public string NameCommentator1 { get; set; }
+        public string NameCommentator2 { get; set; }
+        public string CityCommentator1 { get; set; }
+        public string CityCommentator2 { get; set; }
         #endregion
 
         #region Class variables.
@@ -151,7 +167,7 @@ namespace FNL
 
             NetworkEventArgs e = (NetworkEventArgs)param;
             statusStrip1.BackColor = Color.LightGreen;
-            toolStripStatusLabel1.Text = "Connected to " + CasparFNL.Device.Settings.Hostname; 
+            toolStripStatusLabel1.Text = "Connected to " + CasparFNL.Device.Settings.Hostname;
 
             EnableControls();
         }
@@ -228,7 +244,7 @@ namespace FNL
         private void DataGridPlayers_CurrentCellChanged(object sender, EventArgs e)
         {
             MainPresenter presenter = new MainPresenter(this);
-            presenter.UpdateViewEvents();
+            presenter.ShowViewEvents();
         }
 
         private void DisableControls()
@@ -249,7 +265,7 @@ namespace FNL
             }
             else
             {
-                buttonConnect.Text = "Disconnect"; 
+                buttonConnect.Text = "Disconnect";
             }
         }
 
@@ -388,8 +404,8 @@ namespace FNL
 
             // Build title.
             dicCasparData.Add("titleName",
-                accessory == PersonCategoryType.FaceMatch ? 
-                "ОФИЦИАЛЬНЫЕ ЛИЦА МАТЧА" : 
+                accessory == PersonCategoryType.FaceMatch ?
+                "ОФИЦИАЛЬНЫЕ ЛИЦА МАТЧА" :
                 (isPairs ? "ЗАПАСНЫЕ" : "СТАРТОВЫЙ СОСТВА"));
 
             // Build season name.
@@ -397,7 +413,7 @@ namespace FNL
 
             // Set main trainer of team.
             dicCasparData.Add("trainerName",
-                string.Format("Главный тренер - {0} {1}", 
+                string.Format("Главный тренер - {0} {1}",
                 mainTrainer != null ? mainTrainer.FirstName : "", mainTrainer != null ? mainTrainer.LastName : ""));
 
             // Set the amplua of first player goalkeper.
@@ -421,12 +437,12 @@ namespace FNL
                 for (int i = 0; i < 11; i++)
                 {
                     dicCasparData.Add(string.Format("nameSparePlayer{0}", i + 1),
-                        pairsPlayers.Count() > i && accessory != PersonCategoryType.FaceMatch ? 
-                        pairsPlayers[i].FirstName + " " + pairsPlayers[i].LastName : 
+                        pairsPlayers.Count() > i && accessory != PersonCategoryType.FaceMatch ?
+                        pairsPlayers[i].FirstName + " " + pairsPlayers[i].LastName :
                         " ");
                     dicCasparData.Add(string.Format("numSparePlayer{0}", i + 1),
-                        pairsPlayers.Count() > i && accessory != PersonCategoryType.FaceMatch ? 
-                        pairsPlayers[i].N.ToString() : 
+                        pairsPlayers.Count() > i && accessory != PersonCategoryType.FaceMatch ?
+                        pairsPlayers[i].N.ToString() :
                         " ");
                 }
             }
@@ -440,19 +456,19 @@ namespace FNL
             dicCasparData.Add("titleInsepcotor", isFace ? "Инспектор" : "");
             dicCasparData.Add("titleDelegat", isFace ? "Делегат" : "");
 
-            dicCasparData.Add("nameMainJudje", isFace ? "" : "");
-            dicCasparData.Add("nameHelperJudje1", isFace ? "" : "");
-            dicCasparData.Add("nameHelperJudje2", isFace ? "" : "");
-            dicCasparData.Add("namePairJudje", isFace ? "" : "");
-            dicCasparData.Add("nameInsepcotor", isFace ? "" : "");
-            dicCasparData.Add("nameDelegat", isFace ? "" : "");
+            dicCasparData.Add("nameMainJudje", isFace ? NameMainJudje : "");
+            dicCasparData.Add("nameHelperJudje1", isFace ? NameHelperJudje1 : "");
+            dicCasparData.Add("nameHelperJudje2", isFace ? NameHelperJudje2 : "");
+            dicCasparData.Add("namePairJudje", isFace ? NamePairJudje : "");
+            dicCasparData.Add("nameInsepcotor", isFace ? NameInsepcotor : "");
+            dicCasparData.Add("nameDelegat", isFace ? NameDelegat : "");
 
-            dicCasparData.Add("cityMainJudje", isFace ? "" : "");
-            dicCasparData.Add("cityHelperJudje1", isFace ? "" : "");
-            dicCasparData.Add("cityHelperJudje2", isFace ? "" : "");
-            dicCasparData.Add("cityPairJudje", isFace ? "" : "");
-            dicCasparData.Add("cityInsepcotor", isFace ? "" : "");
-            dicCasparData.Add("cityDelegat", isFace ? "" : "");
+            dicCasparData.Add("cityMainJudje", isFace ? CityMainJudje : "");
+            dicCasparData.Add("cityHelperJudje1", isFace ? CityHelperJudje1 : "");
+            dicCasparData.Add("cityHelperJudje2", isFace ? CityHelperJudje2 : "");
+            dicCasparData.Add("cityPairJudje", isFace ? CityPairJudje : "");
+            dicCasparData.Add("cityInsepcotor", isFace ? CityInsepcotor : "");
+            dicCasparData.Add("cityDelegat", isFace ? CityDelegat : "");
 
             CasparFNL.SendData(dicCasparData);
         }

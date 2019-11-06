@@ -45,35 +45,52 @@ namespace FNL.Presenters
         /// <summary>
         /// Add record to database.
         /// </summary>
-        internal void InsertModelDB()
+        /// <returns>Result operation.</returns>
+        internal bool InsertModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
                 Person pernosModel = GetModelFromView();
 
-
-                db.People.Add(pernosModel);
-                db.SaveChanges();
-
+                try
+                {
+                    db.People.Add(pernosModel);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
 
+            return true;
         }
 
         /// <summary>
         /// Update model in database. Take data from view.
         /// </summary>
         /// <param name="idPerson"></param>
-        internal void UpdateModelDB()
+        internal bool UpdateModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
                 var model = GetModelFromView();
 
-                // Say to database that this model is consist and changed.
-                db.Entry(model).State = System.Data.Entity.EntityState.Modified;
-
-                db.SaveChanges();
+                try
+                {
+                    // Say to database that this model is consist and changed.
+                    db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
+
+            return true;
         }
 
         /// <summary>

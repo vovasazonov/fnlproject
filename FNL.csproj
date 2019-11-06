@@ -188,6 +188,7 @@
       <DependentUpon>TeamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Logger.cs" />
+    <Compile Include="MessageBoxFNL.cs" />
     <Compile Include="Presenters\InsertMatchPlayersPresenter.cs" />
     <Compile Include="Presenters\MatchPlayersPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />

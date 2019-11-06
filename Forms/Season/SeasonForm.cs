@@ -102,7 +102,7 @@ namespace FNL.Forms
         private void buttonDeleteSeason_Click(object sender, EventArgs e)
         {
             SeasonPresenter presenter = new SeasonPresenter(this);
-            presenter.DeleteModelDB();
+            if (!presenter.DeleteModelDB()) MessageBoxFNL.MessageErrorDb();
 
             UpdateTable();
         }
@@ -115,7 +115,7 @@ namespace FNL.Forms
                 _settingMatchForm.SeasonId = SeasonId;
             }
 
-            _isBtnOkClicked = true; 
+            _isBtnOkClicked = true;
 
             this.Close();
         }

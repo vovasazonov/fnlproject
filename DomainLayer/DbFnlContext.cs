@@ -10,7 +10,7 @@ namespace ModelLayer
 {
     public class DbFnlContext:DbContext
     {
-		// In string the name of future database.
+		// In string the name of database.
 		public DbFnlContext() : base("DbFnl9")
 		{ }
 

@@ -61,21 +61,31 @@ namespace FNL.Presenters
         /// <summary>
         /// Delete record from database.
         /// </summary>
-        internal void DeleteModelDB()
+        internal bool DeleteModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
-                var query = from m in db.TeamPlayers
-                            where m.PersonId == _view.PersonId && m.TeamId == _view.TeamId
-                            select m;
-
-                if (query.FirstOrDefault() != null)
+                try
                 {
-                    db.TeamPlayers.Remove(query.FirstOrDefault());
+                    var query = from m in db.TeamPlayers
+                                where m.PersonId == _view.PersonId && m.TeamId == _view.TeamId
+                                select m;
 
-                    db.SaveChanges();
+                    if (query.FirstOrDefault() != null)
+                    {
+                        db.TeamPlayers.Remove(query.FirstOrDefault());
+
+                        db.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
                 }
             }
+
+            return true;
         }
 
     }

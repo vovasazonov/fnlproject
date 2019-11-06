@@ -206,10 +206,10 @@ namespace FNL.Forms
 
         private void buttonDeletePerson_Click(object sender, EventArgs e)
         {
-            PersonPresenter person = new PersonPresenter(this);
-            person.DeleteModelDB();
+            PersonPresenter presenter = new PersonPresenter(this);
+            if(!presenter.DeleteModelDB()) MessageBoxFNL.MessageErrorDb();
 
-            dataGridViewPerson.DataSource = person.GetView();
+            dataGridViewPerson.DataSource = presenter.GetView();
         }
 
         private void buttonCancle_Click(object sender, EventArgs e)

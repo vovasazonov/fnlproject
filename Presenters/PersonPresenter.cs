@@ -57,23 +57,31 @@ namespace FNL.Presenters
         /// <summary>
         /// Delete recored from database. 
         /// </summary>
-        /// <param name="idPerson"></param>
-        internal void DeleteModelDB()
+        internal bool DeleteModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
-                var query = from p in db.People
-                            where p.PersonId == _view.PersonId
-                            select p;
-
-                if (query.FirstOrDefault() != null)
+                try
                 {
-                    db.People.Remove(query.FirstOrDefault());
+                    var query = from p in db.People
+                                where p.PersonId == _view.PersonId
+                                select p;
 
-                    db.SaveChanges();
+                    if (query.FirstOrDefault() != null)
+                    {
+                        db.People.Remove(query.FirstOrDefault());
 
+                        db.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
                 }
             }
+
+            return true;
         }
 
     }

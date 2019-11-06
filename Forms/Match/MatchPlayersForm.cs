@@ -83,7 +83,7 @@ namespace FNL.Forms
             PersonId = currentRow != null ? dataSource[currentRow.Index].PersonId : -1;
 
             MatchPlayersPresenter presenter = new MatchPlayersPresenter(this);
-            presenter.DeleteModelDB(PersonCategoryType.HomeTeam, _matchesForm.MatchId);
+            if (!presenter.DeleteModelDB(PersonCategoryType.HomeTeam, _matchesForm.MatchId)) MessageBoxFNL.MessageErrorDb();
 
             UpdateView();
         }
@@ -101,7 +101,7 @@ namespace FNL.Forms
             PersonId = currentRow != null ? dataSource[currentRow.Index].PersonId : -1;
 
             MatchPlayersPresenter presenter = new MatchPlayersPresenter(this);
-            presenter.DeleteModelDB(PersonCategoryType.GuestTeam, _matchesForm.MatchId);
+            if(!presenter.DeleteModelDB(PersonCategoryType.GuestTeam, _matchesForm.MatchId)) MessageBoxFNL.MessageErrorDb();
 
             UpdateView();
         }

@@ -35,6 +35,8 @@ namespace FNL.Presenters
                 //_view.TimeMatch = 
                 //_view.NumberTime = 
             }
+
+            ShowMatchFaces();
         }
 
         internal string GetLogoPathTeam(bool isGuest)
@@ -44,7 +46,7 @@ namespace FNL.Presenters
             using (var db = new DbFnlContext())
             {
                 var thisMatch = db.Matches.Where(t => t.MatchId == _view.MatchId).FirstOrDefault() ?? new Match();
-                
+
 
                 if (isGuest)
                 {
@@ -77,7 +79,7 @@ namespace FNL.Presenters
                     db.StatisticsPlayersMatches.Add(new StatisticPlayerMatch { MatchId = _view.MatchId, PersonId = idPair });
                     db.SaveChanges();
                 }
-                
+
                 // Add statistic about replacement to players.
                 db.EventsStatistics.Add(new EventStatistic
                 {
@@ -107,7 +109,7 @@ namespace FNL.Presenters
             }
         }
 
-        internal void UpdateViewEvents()
+        internal void ShowViewEvents()
         {
             using (var db = new DbFnlContext())
             {
@@ -134,6 +136,85 @@ namespace FNL.Presenters
                 //_view.YellowTicketHome { get; set; }
                 //_view.RedTicketHome { get; set; }
                 _view.ChangeHome = db.EventsStatistics.Where(t => t.EventId == (int)EventMatchType.Replacement && t.StatisticPlayerMatch.PersonId == _view.HomePlayerId).Count().ToString();
+            }
+        }
+
+        /// <summary>
+        /// Show faces in view.
+        /// </summary>
+        /// <returns></returns>
+        private void ShowMatchFaces()
+        {
+            IFacesView view = _view;
+
+            try
+            {
+                using (var db = new DbFnlContext())
+                {
+                    var people = db.FacesMatches.Where(t => t.MatchId == _view.MatchId).Select(t => t.Person);
+
+                    bool settedHelper1 = false;
+                    bool settedComment1 = false;
+
+                    foreach (var person in people)
+                    {
+                        RoleType roleType = (RoleType)((int)person.RoleId);
+
+                        switch (roleType)
+                        {
+                            case RoleType.MainJudje:
+                                view.NameMainJudje = string.Format("{0} {1}", person.FirstName, person.LastName);
+                                view.CityMainJudje = person.Address.City;
+                                break;
+                            case RoleType.HelperJudje:
+                                if (!settedHelper1)
+                                {
+                                    view.NameHelperJudje1 = string.Format("{0} {1}", person.FirstName, person.LastName);
+                                    view.CityHelperJudje1 = person.Address.City;
+
+                                    settedHelper1 = true;
+                                }
+                                else
+                                {
+                                    view.NameHelperJudje2 = string.Format("{0} {1}", person.FirstName, person.LastName);
+                                    view.CityHelperJudje2 = person.Address.City;
+                                }
+                                break;
+                            case RoleType.Commentator:
+                                if (!settedComment1)
+                                {
+                                    view.NameCommentator1 = string.Format("{0} {1}", person.FirstName, person.LastName);
+                                    view.CityCommentator1 = person.Address.City;
+
+                                    settedComment1 = true;
+                                }
+                                else
+                                {
+                                    view.NameCommentator2 = string.Format("{0} {1}", person.FirstName, person.LastName);
+                                    view.CityCommentator2 = person.Address.City;
+                                }
+                                break;
+                            case RoleType.PairJudje:
+                                view.NamePairJudje = string.Format("{0} {1}", person.FirstName, person.LastName);
+                                view.CityPairJudje = person.Address.City;
+                                break;
+                            case RoleType.Inspector:
+                                view.NameInsepcotor = string.Format("{0} {1}", person.FirstName, person.LastName);
+                                view.CityInsepcotor = person.Address.City;
+                                break;
+                            case RoleType.Delegat:
+                                view.NameDelegat = string.Format("{0} {1}", person.FirstName, person.LastName);
+                                view.CityDelegat = person.Address.City;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Log.Error(ex);
             }
         }
     }

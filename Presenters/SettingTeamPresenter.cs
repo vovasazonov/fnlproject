@@ -77,36 +77,56 @@ namespace FNL.Presenters
         /// <summary>
         /// Update record in database. Take data from view.
         /// </summary>
-        public void UpdateModelDB()
+        /// <returns>Restult operation.</returns>
+        public bool UpdateModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
                 Team teamModel = GetModelFromView();
-
-                // Say to database that this model is consist and changed.
-                db.Entry(teamModel).State = System.Data.Entity.EntityState.Modified;
-
-                db.SaveChanges();
+                try
+                {
+                    // Say to database that this model is consist and changed.
+                    db.Entry(teamModel).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
+
+            return true;
         }
 
         /// <summary>
         /// Insert record to Team in database. Take data from view.
         /// </summary>
-        public void InsertModelDB()
+        /// <returns>Restult operation.</returns>
+        public bool InsertModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
                 Team teamModel = GetModelFromView();
-                db.Teams.Add(teamModel);
-                db.SaveChanges();
+
+                try
+                {
+                    db.Teams.Add(teamModel);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
+
+            return true;
         }
 
         /// <summary>
         /// Take record from database and show in view.
         /// </summary>
-        /// <returns></returns>
         public void ShowModelInView()
         {
             using (DbFnlContext db = new DbFnlContext())

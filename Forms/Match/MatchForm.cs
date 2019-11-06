@@ -314,7 +314,7 @@ namespace FNL.Forms
         private void buttonDeleteMatch_Click(object sender, EventArgs e)
         {
             MatchPresenter presenter = new MatchPresenter(this);
-            presenter.DeleteModelDB();
+            if (!presenter.DeleteModelDB()) MessageBoxFNL.MessageErrorDb();
 
             UpdateTable();
         }

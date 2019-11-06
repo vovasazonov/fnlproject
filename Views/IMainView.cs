@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FNL.Views
 {
-    public interface IMainView// : IMatchDataValues, IMatchDataIds
+    public interface IMainView : IFacesView// : IMatchDataValues, IMatchDataIds
     {
         int MatchId { get; set; }
         int GuestPlayerId { get; set; }

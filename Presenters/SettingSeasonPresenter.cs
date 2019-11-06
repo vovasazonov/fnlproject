@@ -38,31 +38,52 @@ namespace FNL.Presenters
         /// <summary>
         /// Update record in database. Take data from view.
         /// </summary>
-        internal void UpdateModelDB()
+        /// <returns>Result operation</returns>
+        internal bool UpdateModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
                 var model = GetModelFromView();
 
-                // Say to database that this model is consist and changed.
-                db.Entry(model).State = System.Data.Entity.EntityState.Modified;
-
-                db.SaveChanges();
+                try
+                {
+                    // Say to database that this model is consist and changed.
+                    db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
+
+            return true;
         }
 
         /// <summary>
         /// Insert record to Team in database. Take data from view.
         /// </summary>
-        internal void InsertModelDB()
+        /// <returns>Result operation</returns>
+        internal bool InsertModelDB()
         {
-
             using (DbFnlContext db = new DbFnlContext())
             {
                 var model = GetModelFromView();
-                db.Seasons.Add(model);
-                db.SaveChanges();
+
+                try
+                {
+                    db.Seasons.Add(model);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
+
+            return true;
         }
 
         /// <summary>
@@ -74,8 +95,8 @@ namespace FNL.Presenters
             using (DbFnlContext db = new DbFnlContext())
             {
                 var season = (from m in db.Seasons
-                             where m.SeasonId == _view.SeasonId
-                             select m).FirstOrDefault();
+                              where m.SeasonId == _view.SeasonId
+                              select m).FirstOrDefault() ?? new Season();
 
                 _view.SeasonId = season.SeasonId;
                 _view.SeasonName = season.Name;

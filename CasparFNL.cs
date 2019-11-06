@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FNL
 {
-    static partial class CasparFNL
+    static internal class CasparFNL
     {
         public static CasparDevice Device { get => _device; private set => _device = value; }
         private static CasparDevice _device = null;

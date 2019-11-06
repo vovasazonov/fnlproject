@@ -87,39 +87,62 @@ namespace FNL.Presenters
         /// <summary>
         /// Insert record to database. Data take from view.
         /// </summary>
-        internal void InserModelDB()
+        internal bool InsertModelDB()
         {
 
             using (DbFnlContext db = new DbFnlContext())
             {
-                // Add model to db.
-                Match matchModel = GetModelFromView();
-                db.Matches.Add(matchModel);
-                db.SaveChanges();
 
-                // Add commentators to match.
-                SetFacesFromView(ref matchModel);
+                try
+                {
+                    // Add model to db.
+                    Match matchModel = GetModelFromView();
+                    db.Matches.Add(matchModel);
+                    db.SaveChanges();
 
-                db.SaveChanges();
+                    // Add commentators to match.
+                    SetFacesFromView(ref matchModel);
+
+                    db.SaveChanges();
+
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
 
+            return true;
         }
         /// <summary>
         /// Update record in databse. Take data from view.
         /// </summary>
-        internal void UpdateModelDB()
+        internal bool UpdateModelDB()
         {
             using (DbFnlContext db = new DbFnlContext())
             {
-                Match matchModel = GetModelFromView();
-                // Add commentators to match.
-                SetFacesFromView(ref matchModel);
 
-                // Say to database that this model is consist and changed.
-                db.Entry(matchModel).State = System.Data.Entity.EntityState.Modified;
+                try
+                {
+                    Match matchModel = GetModelFromView();
+                    // Add commentators to match.
+                    SetFacesFromView(ref matchModel);
 
-                db.SaveChanges();
+                    // Say to database that this model is consist and changed.
+                    db.Entry(matchModel).State = System.Data.Entity.EntityState.Modified;
+
+                    db.SaveChanges();
+
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("Error database operation", ex);
+                    return false;
+                }
             }
+
+            return true;
         }
 
         /// <summary>

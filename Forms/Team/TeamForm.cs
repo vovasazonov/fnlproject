@@ -35,7 +35,7 @@ namespace FNL.Forms
             {
                 var dataSource = (List<ITeamView>)(dataGridViewTeams.DataSource);
                 var currentRow = dataGridViewTeams.CurrentRow;
-                return currentRow != null ?dataSource[currentRow.Index].Color: new Color();
+                return currentRow != null ? dataSource[currentRow.Index].Color : new Color();
             }
             set
             {
@@ -131,7 +131,7 @@ namespace FNL.Forms
         private void buttonDeleteTeam_Click(object sender, EventArgs e)
         {
             TeamPresenter presenter = new TeamPresenter(this);
-            presenter.DeleteModelDB();
+            if (!presenter.DeleteModelDB()) MessageBoxFNL.MessageErrorDb();
 
             UpdateTable();
         }
