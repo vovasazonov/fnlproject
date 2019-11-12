@@ -50,15 +50,14 @@ namespace FNL.Presenters
         /// <param name="matchModel"></param>
         private void SetFacesFromView(ref Match matchModel)
         {
-            if (matchModel.FaceMatch == null)
-            {
-                return;
-            }
-
             using (var db = new DbFnlContext())
             {
-                // Delete old faces.
-                db.FacesMatches.RemoveRange(matchModel.FaceMatch);
+                if (matchModel.FaceMatch != null)
+                {
+                    // Delete old faces.
+                    db.FacesMatches.RemoveRange(matchModel.FaceMatch);
+                    db.SaveChanges();
+                }
 
                 InsertFaceDB(_view.Commentator1Id, matchModel.MatchId);
                 InsertFaceDB(_view.Commentator2Id, matchModel.MatchId);
