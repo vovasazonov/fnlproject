@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace FNL
 {
+    /// <summary>
+    /// Use this static class to manipulate with casparCG.
+    /// This class have extensions functions.
+    /// </summary>
     static internal class CasparFNL
     {
         public static CasparDevice Device { get => _device; private set => _device = value; }

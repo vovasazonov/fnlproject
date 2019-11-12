@@ -249,7 +249,7 @@ namespace FNL
 
         private void DisableControls()
         {
-            tabControl1.Enabled = false;
+            //tabControl1.Enabled = false;
         }
 
         private void EnableControls()
