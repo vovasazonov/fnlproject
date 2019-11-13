@@ -10,12 +10,17 @@
 	import flash.events.IOErrorEvent;
 	import flash.events.Event;
 	import flash.net.URLLoader;
+	import flashx.textLayout.events.ModelChange;
 	
 	public class replacementPlayers extends MovieClip {
 		
 		public var LogoTeam:MovieClip;
 		public var RedLine:MovieClip;
 		public var GreenLine:MovieClip;
+		public var eventName:MovieClip;
+		public var eventValue:MovieClip;
+		public var secondEventName:MovieClip;
+		public var secondEventValue:MovieClip;
 		
 		private var _isLogo:Boolean = false;
 		private var _loaderLogo:Loader=new Loader();
@@ -81,12 +86,39 @@
    			 image.width = 45;
    			 image.height = 45;
 		}
-
+		public function set eventNameLine(value:String):void 
+		{
+			eventName.valueText.text = value;
+		}
+		public function set eventValueLine(value:String):void 
+		{
+			eventValue.valueText.text = value;
+		}
+		public function set secondEventNameLine(value:String):void 
+		{
+			secondEventName.valueText.text = value;
+		}
+		public function set secondsEventValueLine(value:String):void 
+		{
+			secondEventValue.valueText.text = value;
+		}
 		// ----- Set methods. -----
 		
 		public function ReplacementShow():void
 		{
 			this.gotoAndPlay("in");
+		}
+		public function RedCardShow():void
+		{
+			this.gotoAndPlay("inrc");
+		}
+		public function YellowCardShow():void
+		{
+			this.gotoAndPlay("inyc");
+		}
+		public function GoalShow():void
+		{
+			this.gotoAndPlay("ingoals");
 		}
 		
 	}

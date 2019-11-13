@@ -9,6 +9,7 @@
 	import flash.geom.ColorTransform;
 	import flash.geom.Transform;
 	import fl.motion.Color;
+	import flashx.textLayout.events.ModelChange;
 	
 	public class background extends MovieClip {
 		
@@ -18,6 +19,7 @@
 		public var team2:MovieClip;				//Name of team 2
 		public var colorTeam1:MovieClip;
 		public var colorTeam2:MovieClip;
+		public var NamePlayerText:MovieClip;
 		
 		private var _team1Name:String;
 		private var _team2Name:String;
@@ -88,6 +90,31 @@
 			colorTeam2.theColor.transform.colorTransform = obj_color;
 
 		
+		}
+		
+		public function set namePlayerBackround(value:String):void 
+		{
+			NamePlayerText.xtf.text = value;
+		}
+		
+		public function playerRightTeamShow():void
+		{
+			this.gotoAndPlay("inrp");
+		}
+		
+		public function playerLeftTeamShow():void
+		{
+			this.gotoAndPlay("inlp");
+			
+		}
+		public function playerRightTeamHide():void
+		{
+			this.gotoAndPlay("outrp");
+		}
+		
+		public function playerLeftTeamHide():void
+		{
+			this.gotoAndPlay("outlp");
 		}
 		
 	}

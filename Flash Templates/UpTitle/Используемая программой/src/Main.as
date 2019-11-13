@@ -24,6 +24,8 @@
 		private var _playersSpareIsVisible:Boolean = false;
 		private var _playersIsVisible:Boolean = false;
 		private var _officialFacesIsVisible:Boolean = false;
+		private var _isRightTeam:Boolean = false;
+		private var _isPlayerClockVisible:Boolean = false;
 		// ------------------ Booleans ------------------
 		
 		public function Main() {
@@ -368,6 +370,37 @@
 				{
 					replacement.logoTeam = element.data.@value;
 				}
+				if(element.@id == "eventNameLine") 
+				{
+					replacement.eventNameLine = element.data.@value;
+				}
+				if(element.@id == "eventValueLine") 
+				{
+					replacement.eventValueLine = element.data.@value;
+				}
+				if(element.@id == "secondEventNameLine") 
+				{
+					replacement.secondEventName = element.data.@value;
+				}
+				if(element.@id == "secondsEventValueLine") 
+				{
+					replacement.secondEventValue = element.data.@value;
+				}
+				if(element.@id == "namePlayerBackround") 
+				{
+					backround.namePlayerBackround = element.data.@value;
+				}
+				if(element.@id == "isRightTeam") 
+				{
+					if(element.data.@value == 0)
+					{
+						_isRightTeam = false;
+					}
+					else
+					{
+						_isRightTeam = true;
+					}
+				}
 				// ----- replacementPlayers -----
 
 			}
@@ -516,6 +549,86 @@
 		public function ReplacementShowHide():void
 		{
 			replacement.ReplacementShow();
+		}
+		public function RepYellowCardShowHide():void
+		{
+			if(!_clockIsVisible)
+			{
+				return;
+			}
+			PlayerClockShowHide();
+			
+			var timer:Timer = new Timer(3000);
+			timer.addEventListener(TimerEvent.TIMER, replacement.YellowCardShow()); // will call YellowCardShow()
+			timer.start();
+			
+			var timer:Timer = new Timer(2);
+			timer.addEventListener(TimerEvent.TIMER, PlayerClockShowHide());
+			timer.start();
+		
+		}
+		public function RepRedCardShowHide():void
+		{
+			if(!_clockIsVisible)
+			{
+				return;
+			}
+			PlayerClockShowHide();
+			
+			var timer:Timer = new Timer(3000);
+			timer.addEventListener(TimerEvent.TIMER, replacement.RedCardShow()); // will call RedCardShow()
+			timer.start();
+			
+			var timer:Timer = new Timer(2);
+			timer.addEventListener(TimerEvent.TIMER, PlayerClockShowHide());
+			timer.start();
+		}
+		public function RepGoalShowHide():void
+		{
+			if(!_clockIsVisible)
+			{
+				return;
+			}
+			PlayerClockShowHide();
+			
+			var timer:Timer = new Timer(3000);
+			timer.addEventListener(TimerEvent.TIMER, replacement.GoalShow()); // will call GoalShow()
+			timer.start();
+			
+			// Goals starts hide after 2 sec. it is the couse of hide name player.
+			var timer:Timer = new Timer(2000);
+			timer.addEventListener(TimerEvent.TIMER, PlayerClockShowHide());
+			timer.start();
+		}
+		
+		public function PlayerClockShowHide():void
+		{
+			if(_isRightTeam)
+			{
+				if(_isPlayerClockVisible)
+				{
+					up_title.playerRightTeamHide();
+					_isPlayerClockVisible = false;
+				}
+				else
+				{
+					up_title.playerRightTeamShow();
+					_isPlayerClockVisible = true;
+				}
+			}
+			else
+			{
+				if(_isPlayerClockVisible)
+				{
+					up_title.playerLeftTeamHide();
+					_isPlayerClockVisible = false;
+				}
+				else
+				{
+					up_title.up_title.playerLeftTeamShow();
+					_isPlayerClockVisible = true;
+				}
+			}
 		}
 		// ----- replacementPlayers -----
 	}
