@@ -88,6 +88,7 @@ namespace FNL
         public DateTime TimeMatch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int NumberHalfTime { get => (int)numHalfNum.Value; set => numHalfNum.Value = value; }
         public string SeasonName { get; set; }
+        public string StadiumName { get; set; }
         public string GoalsGuest { get => textGoalsGuest.Text; set => textGoalsGuest.Text = value; }
         public string TotalShotGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string ShotTargetGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -356,7 +357,7 @@ namespace FNL
             MainPresenter presenter = new MainPresenter(this);
             if (accessory == PersonCategoryType.FaceMatch)
             {
-                logoPath = "";
+                logoPath = System.IO.Path.GetFullPath(@"Resources\LogoFNL.png");
             }
             else
             {
@@ -429,7 +430,7 @@ namespace FNL
 
             if (isPairs || accessory == PersonCategoryType.FaceMatch)
             {
-                for (int i = 0; i < 11; i++)
+                for (int i = 0; i < 12; i++)
                 {
                     dicCasparData.Add(string.Format("nameSparePlayer{0}", i + 1),
                         pairsPlayers.Count() > i && accessory != PersonCategoryType.FaceMatch ?
@@ -749,8 +750,6 @@ namespace FNL
             CasparFNL.InvokeMethod("OfficialFacesShowHide");
         }
 
-        ///////////////////////////////////////////////////////////////////////
-
         /// <summary>
         /// Update the player name on clock.
         /// </summary>
@@ -948,6 +947,30 @@ namespace FNL
             CasparFNL.InvokeMethod("RedCard1RightOnClockShowHide");
         }
 
+        private void checkBoxWelWin_CheckedChanged(object sender, EventArgs e)
+        {
+            MainPresenter presenter = new MainPresenter(this);
+
+            DateTime date = dtpDateWelWin.Value;
+            DateTime time = dtpTimeWelWin.Value;
+
+            //System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("ru-RU");
+            string valueTime = string.Format("{0}:{1}", time.Hour, time.Minute);
+            string valueData = string.Format("{0} {1} {2}    {3}", date.Day, DictionaryMonths.GetNameMonth(date.Month), date.Year, valueTime);
+
+            CasparFNL.SendData(new Dictionary<string, string>()
+            {
+                {"seasonName", SeasonName },
+                {"dateTimeTitle", valueData},
+                {"nameStadium", "Стадион: " + StadiumName },
+                {"leftNameTeamWelWin", presenter.GetFullNameTeam(true)},
+                {"rightNameTeamWelWin", presenter.GetFullNameTeam(false)},
+                {"logoTeamLeftWelWinPath", presenter.GetLogoPathTeam(true)},
+                {"logoTeamRightWelWinPath", presenter.GetLogoPathTeam(false)},
+            });
+
+            CasparFNL.InvokeMethod("WelWinShowHide");
+        }
     }
 
 }

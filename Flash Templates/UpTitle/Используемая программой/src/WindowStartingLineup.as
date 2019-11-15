@@ -11,6 +11,8 @@
 	import flash.events.Event;
 	import flash.net.URLLoader;
 	import se.svt.caspar.templateHost.LoadedTemplateItem;
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
 	
 	public class WindowStartingLineup extends MovieClip {
 		
@@ -18,10 +20,17 @@
 		public var CenterLine:MovieClip;
 		public var CenterLineSmall:MovieClip;
 		public var DownLine:MovieClip;
+		public var CenterLogos:MovieClip;
+		public var ChapterUpWelWin:MovieClip;
 		
+		private var _valueBetweenTexts:int = 15;
 		// ---- 	Logo&Titles 	----
 		private var _isLogo:Boolean = false;
+		private var _isLogoLeftWelWin:Boolean = false;
+		private var _isLogoRightWelWin:Boolean = false;
 		private var _loaderLogo:Loader=new Loader();
+		private var _loaderLogoLeftWelWin:Loader=new Loader();
+		private var _loaderLogoRightWelWin:Loader=new Loader();
 		private var _logoTeamPath:String;
 		// -----------------------------
 		
@@ -30,6 +39,82 @@
 		}
 		
 		// ----- Set methods. -----
+		public function set dateTimeTitle(value:String):void
+		{
+			ChapterUpWelWin.ChapterUpWelWin.DateAndTimeMatch.text = value;
+		}
+		public function set nameStadium(value:String):void
+		{
+			ChapterUpWelWin.ChapterUpWelWin.NameStadium.text = value;
+		}
+		public function set leftNameTeamWelWin(value:String):void
+		{
+			CenterLogos.CenterLogos.LeftNameTeamWelWin.text = value;
+		}
+		public function set rightNameTeamWelWin(value:String):void
+		{
+			CenterLogos.CenterLogos.RightNameTeamWelWin.text = value;
+		}
+		public function set logoTeamLeftWelWin(value:String):void 
+		{
+			// Remove another logo if exist.
+			if(_isLogoLeftWelWin){
+				CenterLogos.CenterLogos.LeftLogoWelWin.removeChild(_loaderLogoLeftWelWin);
+				_isLogoLeftWelWin = false;
+			}
+			
+			// Create new logo.
+			_logoTeamPath = value;
+
+			
+			_loaderLogoLeftWelWin=new Loader();
+			_loaderLogoLeftWelWin.contentLoaderInfo.addEventListener(Event.COMPLETE, onCompliteLoadLogoWelWin);
+
+			CenterLogos.CenterLogos.LeftLogoWelWin.addChild(_loaderLogoLeftWelWin);
+			_loaderLogoLeftWelWin.load(new URLRequest(_logoTeamPath));
+			_isLogoLeftWelWin = true;
+			
+			// Catch error.
+			_loaderLogoLeftWelWin.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR,ioErrorLogo,false,0,true);
+		}
+		public function set logoTeamRightWelWin(value:String):void 
+		{
+			// Remove another logo if exist.
+			if(_isLogoRightWelWin){
+				CenterLogos.CenterLogos.RightLogoWelWin.removeChild(_loaderLogoRightWelWin);
+				_isLogoRightWelWin = false;
+			}
+			
+			// Create new logo.
+			_logoTeamPath = value;
+
+			
+			_loaderLogoRightWelWin=new Loader();
+			_loaderLogoRightWelWin.contentLoaderInfo.addEventListener(Event.COMPLETE, onCompliteLoadLogoWelWin);
+
+			CenterLogos.CenterLogos.RightLogoWelWin.addChild(_loaderLogoRightWelWin);
+			_loaderLogoRightWelWin.load(new URLRequest(_logoTeamPath));
+			_isLogoRightWelWin = true;
+			
+			// Catch error.
+			_loaderLogoRightWelWin.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR,ioErrorLogo,false,0,true);
+		}
+		function onCompliteLoadLogoWelWin(event:Event):void
+		{
+   			 EventDispatcher(event.target).removeEventListener(event.type, arguments.callee);
+   			 
+			 Bitmap((event.target as LoaderInfo).content).smoothing = true;
+			 var image:DisplayObject = (event.target as LoaderInfo).content;
+			
+   			 image.height = 230;
+			 image.width = 230;
+			 image.x = image.x - image.width/2;
+			 image.y = image.y - image.height/2;
+		}
+		
+		
+		
+		
 		public function set nameTitle(value:String):void 
 		{
 			UpLine.TextUp.text = value;
@@ -52,12 +137,11 @@
 			
 			// Create new logo.
 			_logoTeamPath = value;
-			//var url:URLRequest=new URLRequest(_logoTeamPath);
+
 			
 			_loaderLogo=new Loader();
 			_loaderLogo.contentLoaderInfo.addEventListener(Event.COMPLETE, onCompliteLoadLogo);
-			//var context:JPEGLoaderContext=new JPEGLoaderContext(1);
-			//_loaderLogo.load(url,context);
+
 			UpLine.LogoTeam.addChild(_loaderLogo);
 			_loaderLogo.load(new URLRequest(_logoTeamPath));
 			_isLogo = true;
@@ -71,10 +155,15 @@
 		function onCompliteLoadLogo(event:Event):void
 		{
    			 EventDispatcher(event.target).removeEventListener(event.type, arguments.callee);
-   			 var image:DisplayObject = (event.target as LoaderInfo).content;
-
-   			 image.width = 90;
-   			 image.height = 90;
+			 
+			 Bitmap((event.target as LoaderInfo).content).smoothing = true;
+			 var image:DisplayObject = (event.target as LoaderInfo).content;
+   
+			 // 90 is sum
+   			 image.width = 80;
+   			 image.height = 80;
+			 image.x = image.x+10/2;
+			 image.y = image.y+10/2;
 		}
 		public function set ampluaPlayer1(value:String):void 
 		{
@@ -247,6 +336,11 @@
 			CenterLineSmall.NamePlayer11.text = value;
 			
 		}
+		public function set nameSparePlayer12(value:String):void 
+		{
+			CenterLineSmall.NamePlayer12.text = value;
+			
+		}
 		public function set numSparePlayer1(value:String):void 
 		{
 			CenterLineSmall.NumPlayer1.text = value;
@@ -302,6 +396,11 @@
 			CenterLineSmall.NumPlayer11.text = value;
 
 		}
+		public function set numSparePlayer12(value:String):void 
+		{
+			CenterLineSmall.NumPlayer12.text = value;
+
+		}
 		public function set titleMainJudje(value:String):void
 		{
 			CenterLineSmall.TitleMainJudje.text = value;
@@ -326,37 +425,37 @@
 		{
 			CenterLineSmall.NameMainJudje.text = value;
 			// Move text.
-			CenterLineSmall.CityMainJudje.x = CenterLineSmall.NameMainJudje.x + CenterLineSmall.NameMainJudje.textWidth + 10;
+			CenterLineSmall.CityMainJudje.x = CenterLineSmall.NameMainJudje.x + CenterLineSmall.NameMainJudje.textWidth + _valueBetweenTexts;
 		}
 		public function set nameHelperJudje1(value:String):void
 		{
 			CenterLineSmall.NameHelperJudje1.text = value;
 			// Move text.
-			CenterLineSmall.CityHelperJudje1.x = CenterLineSmall.NameHelperJudje1.x + CenterLineSmall.NameHelperJudje1.textWidth + 10;
+			CenterLineSmall.CityHelperJudje1.x = CenterLineSmall.NameHelperJudje1.x + CenterLineSmall.NameHelperJudje1.textWidth + _valueBetweenTexts;
 		}
 		public function set nameHelperJudje2(value:String):void
 		{
 			CenterLineSmall.NameHelperJudje2.text = value;
 			// Move text.
-			CenterLineSmall.CityHelperJudje2.x = CenterLineSmall.NameHelperJudje2.x + CenterLineSmall.NameHelperJudje2.textWidth + 10;
+			CenterLineSmall.CityHelperJudje2.x = CenterLineSmall.NameHelperJudje2.x + CenterLineSmall.NameHelperJudje2.textWidth + _valueBetweenTexts;
 		}
 		public function set namePairJudje(value:String):void
 		{
 			CenterLineSmall.NamePairJudje.text = value;
 			// Move text.
-			CenterLineSmall.CityPairJudje.x = CenterLineSmall.NamePairJudje.x + CenterLineSmall.NamePairJudje.textWidth + 10;
+			CenterLineSmall.CityPairJudje.x = CenterLineSmall.NamePairJudje.x + CenterLineSmall.NamePairJudje.textWidth + _valueBetweenTexts;
 		}
 		public function set nameInsepcotor(value:String):void
 		{
 			CenterLineSmall.NameInsepcotor.text = value;
 			// Move text.
-			CenterLineSmall.CityInsepcotor.x = CenterLineSmall.NameInsepcotor.x + CenterLineSmall.NameInsepcotor.textWidth + 10;
+			CenterLineSmall.CityInsepcotor.x = CenterLineSmall.NameInsepcotor.x + CenterLineSmall.NameInsepcotor.textWidth + _valueBetweenTexts;
 		}
 		public function set nameDelegat(value:String):void
 		{
 			CenterLineSmall.NameDelegat.text = value;
 			// Move text.
-			CenterLineSmall.CityDelegat.x = CenterLineSmall.NameDelegat.x + CenterLineSmall.NameDelegat.textWidth + 10;
+			CenterLineSmall.CityDelegat.x = CenterLineSmall.NameDelegat.x + CenterLineSmall.NameDelegat.textWidth + _valueBetweenTexts;
 		}
 		public function set cityMainJudje(value:String):void
 		{
@@ -412,6 +511,15 @@
 		public function OfficialFacesHide():void
 		{
 			this.gotoAndPlay("out2");
+		}
+		public function WelWinShow():void
+		{
+			DownLine.Logo.visible = false;
+			this.gotoAndPlay("inwel1");
+		}
+		public function WelWinHide():void
+		{
+			this.gotoAndPlay("outwel1");
 		}
 	}
 	

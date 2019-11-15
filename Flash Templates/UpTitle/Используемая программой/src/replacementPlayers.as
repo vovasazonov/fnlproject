@@ -11,6 +11,7 @@
 	import flash.events.Event;
 	import flash.net.URLLoader;
 	import flashx.textLayout.events.ModelChange;
+	import flash.display.Bitmap;
 	
 	public class replacementPlayers extends MovieClip {
 		private var MainEx:Main;
@@ -82,6 +83,8 @@
 		function onCompliteLoadLogo(event:Event):void
 		{
    			 EventDispatcher(event.target).removeEventListener(event.type, arguments.callee);
+			 
+			 Bitmap((event.target as LoaderInfo).content).smoothing = true;
    			 var image:DisplayObject = (event.target as LoaderInfo).content;
 
    			 image.width = 45;

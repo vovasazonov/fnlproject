@@ -32,6 +32,7 @@
 		private var _isVisibleRedCard2Left:Boolean = false;
 		private var _isVisibleRedCard1Right:Boolean = false;
 		private var _isVisibleRedCard2Right:Boolean = false;
+		private var _welWinIsVisible:Boolean = false;
 		// ------------------ Booleans ------------------
 		
 		public function Main() {
@@ -87,6 +88,32 @@
 				// ----- up_ltimer -----
 	
 				// ----- WindowStartingLineup -----
+				if(element.@id == "dateTimeTitle") 
+				{
+					winStartLineup.dateTimeTitle = element.data.@value;
+				}
+				if(element.@id == "nameStadium") 
+				{
+					winStartLineup.nameStadium = element.data.@value;
+				}
+				if(element.@id == "leftNameTeamWelWin") 
+				{
+					winStartLineup.leftNameTeamWelWin = element.data.@value;
+				}
+				if(element.@id == "rightNameTeamWelWin") 
+				{
+					winStartLineup.rightNameTeamWelWin = element.data.@value;
+				}
+				if(element.@id == "logoTeamLeftWelWinPath") 
+				{
+					winStartLineup.logoTeamLeftWelWin = element.data.@value;
+				}
+				if(element.@id == "logoTeamRightWelWinPath") 
+				{
+					winStartLineup.logoTeamRightWelWin = element.data.@value;
+				}
+				
+				
 				if(element.@id == "titleName") 
 				{
 					winStartLineup.nameTitle = element.data.@value;
@@ -239,6 +266,10 @@
 				{
 					winStartLineup.nameSparePlayer11 = element.data.@value;
 				}
+				if(element.@id == "nameSparePlayer12")
+				{
+					winStartLineup.nameSparePlayer12 = element.data.@value;
+				}
 				if(element.@id == "numSparePlayer1")
 				{
 					winStartLineup.numSparePlayer1 = element.data.@value;
@@ -282,6 +313,10 @@
 				if(element.@id == "numSparePlayer11")
 				{
 					winStartLineup.numSparePlayer11 = element.data.@value;
+				}
+				if(element.@id == "numSparePlayer12")
+				{
+					winStartLineup.numSparePlayer12 = element.data.@value;
 				}
 				if(element.@id == "titleMainJudje")
 				{
@@ -335,7 +370,7 @@
 				}
 				if(element.@id == "cityHelperJudje1")
 				{
-					winStartLineup.nameHelperJudje1 = element.data.@value;
+					winStartLineup.cityHelperJudje1 = element.data.@value;
 				}
 				if(element.@id == "cityHelperJudje2")
 				{
@@ -589,6 +624,21 @@
 				_officialFacesIsVisible = true;
 			}
 		}
+		public function WelWinShowHide():void
+		{
+			if (_welWinIsVisible)
+			{
+				winStartLineup.WelWinHide();
+				_welWinIsVisible = false;
+
+			}
+			else
+			{
+				winStartLineup.WelWinShow();
+				_welWinIsVisible = true;
+			}
+		}
+		
 		// ----- WindowStartingLineup -----
 		// ----- replacementPlayers -----
 		public function ReplacementShowHide():void

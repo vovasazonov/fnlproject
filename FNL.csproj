@@ -92,6 +92,7 @@
     <Compile Include="CasparFNL.cs" />
     <Compile Include="Dictionarys\DictionaryEvents.cs" />
     <Compile Include="Dictionarys\DictionaryAmpluas.cs" />
+    <Compile Include="Dictionarys\DictionaryMonths.cs" />
     <Compile Include="Dictionarys\DictionaryRoles.cs" />
     <Compile Include="Enums\AmpluaType.cs" />
     <Compile Include="Enums\PersonAccessory.cs" />
@@ -199,7 +200,9 @@
     <Compile Include="Presenters\SettingPersonPresenter.cs" />
     <Compile Include="Presenters\SettingPlayerTeamPresenter.cs" />
     <Compile Include="Presenters\SettingSeasonPresenter.cs" />
+    <Compile Include="Presenters\SettingStadiumPresenter.cs" />
     <Compile Include="Presenters\SettingTeamPresenter.cs" />
+    <Compile Include="Presenters\StadiumPresenter.cs" />
     <Compile Include="Presenters\TablePlayersMainPresenter.cs" />
     <Compile Include="Presenters\PlayerTeamPresenter.cs" />
     <Compile Include="Presenters\TeamPresenter.cs" />
@@ -211,6 +214,9 @@
     <Compile Include="Views\ISeasonIds.cs" />
     <Compile Include="Views\ISettingSeasonView.cs" />
     <Compile Include="Views\ISeasonView.cs" />
+    <Compile Include="Views\ISettingStadiumView.cs" />
+    <Compile Include="Views\IStadiumIds.cs" />
+    <Compile Include="Views\IStadiumView.cs" />
     <Compile Include="Views\ITablePlayersMainView.cs" />
     <Compile Include="Views\Match\IMatchIds.cs" />
     <Compile Include="Views\Match\IMatchPlayersIds.cs" />
@@ -333,6 +339,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\LogoFNL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

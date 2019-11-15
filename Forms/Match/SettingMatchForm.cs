@@ -125,16 +125,16 @@ namespace FNL.Forms
 
         private void comboStadium_Click(object sender, EventArgs e)
         {
-            //StadiumForm form = new StadiumForm(this);
-            //form.Show();
-            //form.FormClosing += (s, ev) =>
-            //{
-            //    if (form.IsBtnOkClicked && this != null)
-            //    {
-            //        StadiumId = form.StadiumId;
-            //        NameStadium = form.NameStadium;
-            //    }
-            //};
+            StadiumForm form = new StadiumForm(this);
+            form.Show();
+            form.FormClosing += (s, ev) =>
+            {
+                if (form.IsBtnOkClicked && this != null)
+                {
+                    StadiumId = form.StadiumId;
+                    NameStadium = form.StadiumName;
+                }
+            };
         }
 
         private void comboSeason_Click(object sender, EventArgs e)

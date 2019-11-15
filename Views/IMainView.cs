@@ -23,6 +23,7 @@ namespace FNL.Views
         DateTime TimeMatch { get; set; }
         int NumberHalfTime { get;set; }
         string SeasonName { get; set; }
+        string StadiumName { get; set; }
 
         // Counts of each event
         string GoalsGuest { get; set; }

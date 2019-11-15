@@ -32,11 +32,34 @@ namespace FNL.Presenters
                 _view.ColorGuest = query.TeamGuest != null ? Color.FromArgb(query.TeamGuest.Color) : new Color();
                 _view.ColorHome = query.TeamOwner != null ? Color.FromArgb(query.TeamOwner.Color) : new Color();
                 _view.SeasonName = query.Season != null ? query.Season.Name : "";
+                _view.StadiumName = query.Stadium != null ? query.Stadium.Name : "";
                 //_view.TimeMatch = 
                 //_view.NumberTime = 
             }
 
             ShowMatchFaces();
+        }
+
+        internal string GetFullNameTeam(bool isGuest)
+        {
+            string name = "";
+
+            using (var db = new DbFnlContext())
+            {
+                var thisMatch = db.Matches.Where(t => t.MatchId == _view.MatchId).FirstOrDefault() ?? new Match();
+
+
+                if (isGuest)
+                {
+                    name = thisMatch.TeamGuest != null ? thisMatch.TeamGuest.NameFull : "";
+                }
+                else
+                {
+                    name = thisMatch.TeamOwner != null ? thisMatch.TeamOwner.NameFull : "";
+                }
+            }
+
+            return name;
         }
 
         internal string GetLogoPathTeam(bool isGuest)
