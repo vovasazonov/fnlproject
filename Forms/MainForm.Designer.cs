@@ -44,6 +44,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkBoxOfficialFaces = new System.Windows.Forms.CheckBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.checkBoxListPairsPlayers = new System.Windows.Forms.CheckBox();
             this.checkBoxListPlayers = new System.Windows.Forms.CheckBox();
@@ -188,13 +191,14 @@
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.colorDialog3 = new System.Windows.Forms.ColorDialog();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.checkBoxOfficialFaces = new System.Windows.Forms.CheckBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.checkBoxGuestClockRedCard1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxHomeClockRedCard1 = new System.Windows.Forms.CheckBox();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel18.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -225,7 +229,7 @@
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbCasparServer
@@ -263,7 +267,7 @@
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 630);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1083, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1088, 22);
             this.statusStrip1.TabIndex = 17;
             this.statusStrip1.TabStop = true;
             this.statusStrip1.Text = "statusStrip1";
@@ -283,7 +287,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 40);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1155, 587);
+            this.tabControl1.Size = new System.Drawing.Size(1160, 587);
             this.tabControl1.TabIndex = 18;
             // 
             // tabPage1
@@ -293,7 +297,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1147, 561);
+            this.tabPage1.Size = new System.Drawing.Size(1152, 561);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Матч";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -311,10 +315,42 @@
             this.panel18.Controls.Add(this.panel13);
             this.panel18.Controls.Add(this.panel17);
             this.panel18.Controls.Add(this.panel9);
-            this.panel18.Location = new System.Drawing.Point(3, 3);
+            this.panel18.Location = new System.Drawing.Point(6, 3);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(1076, 558);
             this.panel18.TabIndex = 23;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Location = new System.Drawing.Point(834, 590);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(200, 100);
+            this.groupBox9.TabIndex = 25;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "groupBox9";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.Bisque;
+            this.groupBox5.Controls.Add(this.checkBoxOfficialFaces);
+            this.groupBox5.Controls.Add(this.groupBox8);
+            this.groupBox5.Location = new System.Drawing.Point(646, 488);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(184, 98);
+            this.groupBox5.TabIndex = 24;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Титр информирования";
+            // 
+            // checkBoxOfficialFaces
+            // 
+            this.checkBoxOfficialFaces.AutoSize = true;
+            this.checkBoxOfficialFaces.Location = new System.Drawing.Point(12, 82);
+            this.checkBoxOfficialFaces.Name = "checkBoxOfficialFaces";
+            this.checkBoxOfficialFaces.Size = new System.Drawing.Size(166, 17);
+            this.checkBoxOfficialFaces.TabIndex = 24;
+            this.checkBoxOfficialFaces.Text = "Оффициальные лица матча";
+            this.checkBoxOfficialFaces.UseVisualStyleBackColor = true;
+            this.checkBoxOfficialFaces.CheckedChanged += new System.EventHandler(this.checkBoxOfficialFaces_CheckedChanged);
             // 
             // groupBox8
             // 
@@ -377,13 +413,14 @@
             // groupBox7
             // 
             this.groupBox7.BackColor = System.Drawing.Color.MistyRose;
+            this.groupBox7.Controls.Add(this.groupBox10);
             this.groupBox7.Controls.Add(this.groupBox6);
             this.groupBox7.Controls.Add(this.groupBox4);
             this.groupBox7.Controls.Add(this.groupBox3);
             this.groupBox7.Controls.Add(this.groupBox1);
             this.groupBox7.Location = new System.Drawing.Point(79, 487);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(443, 98);
+            this.groupBox7.Size = new System.Drawing.Size(561, 98);
             this.groupBox7.TabIndex = 22;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Верхний титр";
@@ -1038,7 +1075,6 @@
             this.panel1.Controls.Add(this.btnMinGoalHome);
             this.panel1.Controls.Add(this.btnAddGoalHome);
             this.panel1.Controls.Add(this.btnAddGoalGuest);
-            this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
@@ -1114,6 +1150,7 @@
             this.btnAddGoalHome.TabIndex = 3;
             this.btnAddGoalHome.Text = "+";
             this.btnAddGoalHome.UseVisualStyleBackColor = true;
+            this.btnAddGoalHome.Click += new System.EventHandler(this.btnAddGoalHome_Click);
             // 
             // btnAddGoalGuest
             // 
@@ -1126,6 +1163,7 @@
             this.btnAddGoalGuest.TabIndex = 1;
             this.btnAddGoalGuest.Text = "+";
             this.btnAddGoalGuest.UseVisualStyleBackColor = true;
+            this.btnAddGoalGuest.Click += new System.EventHandler(this.btnAddGoalGuest_Click);
             // 
             // panel11
             // 
@@ -1200,6 +1238,7 @@
             this.btnAddRedTicketHome.TabIndex = 3;
             this.btnAddRedTicketHome.Text = "+";
             this.btnAddRedTicketHome.UseVisualStyleBackColor = true;
+            this.btnAddRedTicketHome.Click += new System.EventHandler(this.btnAddRedTicketHome_Click);
             // 
             // btnMinRedTicketGuest
             // 
@@ -1224,6 +1263,7 @@
             this.btnAddRedTicketGuest.TabIndex = 1;
             this.btnAddRedTicketGuest.Text = "+";
             this.btnAddRedTicketGuest.UseVisualStyleBackColor = true;
+            this.btnAddRedTicketGuest.Click += new System.EventHandler(this.btnAddRedTicketGuest_Click);
             // 
             // panel2
             // 
@@ -1397,6 +1437,7 @@
             this.btnAddYellowTicketHome.TabIndex = 3;
             this.btnAddYellowTicketHome.Text = "+";
             this.btnAddYellowTicketHome.UseVisualStyleBackColor = true;
+            this.btnAddYellowTicketHome.Click += new System.EventHandler(this.btnAddYellowTicketHome_Click);
             // 
             // btnMinYellowTicketGuest
             // 
@@ -1421,6 +1462,7 @@
             this.btnAddYellowTicketGuest.TabIndex = 1;
             this.btnAddYellowTicketGuest.Text = "+";
             this.btnAddYellowTicketGuest.UseVisualStyleBackColor = true;
+            this.btnAddYellowTicketGuest.Click += new System.EventHandler(this.btnAddYellowTicketGuest_Click);
             // 
             // panel4
             // 
@@ -1531,6 +1573,7 @@
             this.panel5.Controls.Add(this.btnAddFoulHome);
             this.panel5.Controls.Add(this.btnMinFoulGuest);
             this.panel5.Controls.Add(this.btnAddFoulGuest);
+            this.panel5.Enabled = false;
             this.panel5.Location = new System.Drawing.Point(0, 238);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
@@ -2033,37 +2076,39 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
-            // groupBox5
+            // groupBox10
             // 
-            this.groupBox5.BackColor = System.Drawing.Color.Bisque;
-            this.groupBox5.Controls.Add(this.checkBoxOfficialFaces);
-            this.groupBox5.Controls.Add(this.groupBox8);
-            this.groupBox5.Location = new System.Drawing.Point(532, 487);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(184, 98);
-            this.groupBox5.TabIndex = 24;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Титр информирования";
+            this.groupBox10.BackColor = System.Drawing.Color.LightCoral;
+            this.groupBox10.Controls.Add(this.checkBoxHomeClockRedCard1);
+            this.groupBox10.Controls.Add(this.checkBoxGuestClockRedCard1);
+            this.groupBox10.Location = new System.Drawing.Point(441, 20);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(114, 74);
+            this.groupBox10.TabIndex = 21;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Red cards";
             // 
-            // checkBoxOfficialFaces
+            // checkBoxGuestClockRedCard1
             // 
-            this.checkBoxOfficialFaces.AutoSize = true;
-            this.checkBoxOfficialFaces.Location = new System.Drawing.Point(12, 82);
-            this.checkBoxOfficialFaces.Name = "checkBoxOfficialFaces";
-            this.checkBoxOfficialFaces.Size = new System.Drawing.Size(166, 17);
-            this.checkBoxOfficialFaces.TabIndex = 24;
-            this.checkBoxOfficialFaces.Text = "Оффициальные лица матча";
-            this.checkBoxOfficialFaces.UseVisualStyleBackColor = true;
-            this.checkBoxOfficialFaces.CheckedChanged += new System.EventHandler(this.checkBoxOfficialFaces_CheckedChanged);
+            this.checkBoxGuestClockRedCard1.AutoSize = true;
+            this.checkBoxGuestClockRedCard1.Location = new System.Drawing.Point(7, 12);
+            this.checkBoxGuestClockRedCard1.Name = "checkBoxGuestClockRedCard1";
+            this.checkBoxGuestClockRedCard1.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxGuestClockRedCard1.TabIndex = 0;
+            this.checkBoxGuestClockRedCard1.Text = "У гостей 1-ая";
+            this.checkBoxGuestClockRedCard1.UseVisualStyleBackColor = true;
+            this.checkBoxGuestClockRedCard1.CheckedChanged += new System.EventHandler(this.checkBoxGuestClockRedCard1_CheckedChanged);
             // 
-            // groupBox9
+            // checkBoxHomeClockRedCard1
             // 
-            this.groupBox9.Location = new System.Drawing.Point(834, 590);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(200, 100);
-            this.groupBox9.TabIndex = 25;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "groupBox9";
+            this.checkBoxHomeClockRedCard1.AutoSize = true;
+            this.checkBoxHomeClockRedCard1.Location = new System.Drawing.Point(7, 30);
+            this.checkBoxHomeClockRedCard1.Name = "checkBoxHomeClockRedCard1";
+            this.checkBoxHomeClockRedCard1.Size = new System.Drawing.Size(87, 17);
+            this.checkBoxHomeClockRedCard1.TabIndex = 1;
+            this.checkBoxHomeClockRedCard1.Text = "У дома 1-ая";
+            this.checkBoxHomeClockRedCard1.UseVisualStyleBackColor = true;
+            this.checkBoxHomeClockRedCard1.CheckedChanged += new System.EventHandler(this.checkBoxHomeClockRedCard1_CheckedChanged);
             // 
             // MainForm
             // 
@@ -2071,7 +2116,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(1083, 652);
+            this.ClientSize = new System.Drawing.Size(1088, 652);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnClearGraphics);
@@ -2086,6 +2131,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -2134,8 +2181,8 @@
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2298,6 +2345,9 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox checkBoxOfficialFaces;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.CheckBox checkBoxHomeClockRedCard1;
+        private System.Windows.Forms.CheckBox checkBoxGuestClockRedCard1;
     }
 }
 

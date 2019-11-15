@@ -109,11 +109,101 @@ namespace FNL.Presenters
             }
         }
 
+        internal void YellowCardEvent(bool isGuest)
+        {
+            SetEventToDb(isGuest, EventMatchType.YellowCard);
+        }
+
+        internal void RedCardEvent(bool isGuest)
+        {
+            SetEventToDb(isGuest, EventMatchType.RedCard);
+        }
+
+        internal void GoalEvent(bool isGuest)
+        {
+            SetEventToDb(isGuest, EventMatchType.Goal);
+        }
+
+        private void SetEventToDb(bool isGuest, EventMatchType eventMatch)
+        {
+            var idPlayer = isGuest ? _view.GuestPlayerId : _view.HomePlayerId;
+
+            using (var db = new DbFnlContext())
+            {
+                // Check if the players have own statistic current match. If not, create.
+                if (!db.StatisticsPlayersMatches.Where(t => t.MatchId == _view.MatchId && t.PersonId == idPlayer).Any())
+                {
+                    db.StatisticsPlayersMatches.Add(new StatisticPlayerMatch { MatchId = _view.MatchId, PersonId = idPlayer });
+                    db.SaveChanges();
+                }
+
+                // Add statistic about replacement to players.
+                db.EventsStatistics.Add(new EventStatistic
+                {
+                    HalfMatch = _view.NumberHalfTime,
+                    Time = DateTime.Now,
+                    StatisticPlayerMatchId = db.StatisticsPlayersMatches.Where(t => t.MatchId == _view.MatchId && t.PersonId == idPlayer).FirstOrDefault().StatisticPlayerMatchId,
+                    EventId = DictionaryEvents.GetEventId(eventMatch)
+                }); ;
+
+                db.SaveChanges();
+            }
+        }
+
+       
+        internal int GetEventInSeason(int idPlayer, EventMatchType eventMatch)
+        {
+            int amount = 0;
+            int idEvent = DictionaryEvents.GetEventId(eventMatch);
+
+            try
+            {
+                using (var db = new DbFnlContext())
+                {
+
+                    var matches = db.Matches.
+                        Where(t => t.MatchId == _view.MatchId).
+                        Select(t => t.Season).FirstOrDefault().Matches;
+
+                    List<StatisticPlayerMatch> statistics = new List<StatisticPlayerMatch>();
+
+                    foreach (var match in matches)
+                    {
+                        statistics.AddRange(match.Statistics.Where(t => t.PersonId == idPlayer));
+                    }
+
+                    foreach (var statistc in statistics)
+                    {
+                        foreach (var eventP in statistc.EventStatistics)
+                        {
+                            if (eventP.EventId == idEvent)
+                            {
+                                amount++;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#endif
+                Logger.Log.Error(ex);
+                amount = 0;
+            }
+
+            return amount;
+        }
+
+
         internal void ShowViewEvents()
         {
             using (var db = new DbFnlContext())
             {
-                //_view.GoalsGuest { get; set; }
+                _view.GoalsGuest = GetEventInSeason(_view.GuestPlayerId, EventMatchType.Goal).ToString();
                 //_view.TotalShotGuest { get; set; }
                 //_view.ShotTargetGuest { get; set; }
                 //_view.CornerGuest { get; set; }
@@ -121,11 +211,11 @@ namespace FNL.Presenters
                 //_view.PassGuest { get; set; }
                 //_view.AccuratePassGuest { get; set; }
                 //_view.FoulGuest { get; set; }
-                //_view.YellowTicketGuest { get; set; }
-                //_view.RedTicketGuest { get; set; }
+                _view.YellowTicketGuest = GetEventInSeason(_view.GuestPlayerId,EventMatchType.YellowCard).ToString();
+                _view.RedTicketGuest = GetEventInSeason(_view.GuestPlayerId, EventMatchType.RedCard).ToString();
                 _view.ChangeGuest = db.EventsStatistics.Where(t => t.EventId == (int)EventMatchType.Replacement && t.StatisticPlayerMatch.PersonId == _view.GuestPlayerId).Count().ToString();
 
-                //_view.GoalsHome { get; set; }
+                _view.GoalsHome = GetEventInSeason(_view.HomePlayerId, EventMatchType.Goal).ToString();
                 //_view.TotalShotHome { get; set; }
                 //_view.ShotTargetHome { get; set; }
                 //_view.CornerHome { get; set; }
@@ -133,8 +223,8 @@ namespace FNL.Presenters
                 //_view.PassHome { get; set; }
                 //_view.AccuratePassHome { get; set; }
                 //_view.FoulHome { get; set; }
-                //_view.YellowTicketHome { get; set; }
-                //_view.RedTicketHome { get; set; }
+                _view.YellowTicketHome = GetEventInSeason(_view.HomePlayerId, EventMatchType.YellowCard).ToString();
+                _view.RedTicketHome = GetEventInSeason(_view.HomePlayerId, EventMatchType.RedCard).ToString();
                 _view.ChangeHome = db.EventsStatistics.Where(t => t.EventId == (int)EventMatchType.Replacement && t.StatisticPlayerMatch.PersonId == _view.HomePlayerId).Count().ToString();
             }
         }

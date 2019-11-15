@@ -16,7 +16,10 @@ namespace FNL.Dictionarys
     {
         static internal readonly Dictionary<EventMatchType, string> Dic = new Dictionary<EventMatchType, string>
         {
-            {EventMatchType.Replacement,"Замена" }
+            {EventMatchType.Replacement,"Замена" },
+            {EventMatchType.YellowCard,"Желтая карточка" },
+            {EventMatchType.RedCard,"Красная карточка" },
+            {EventMatchType.Goal,"Гол" },
         };
 
         /// <summary>

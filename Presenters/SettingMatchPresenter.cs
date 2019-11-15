@@ -21,7 +21,7 @@ namespace FNL.Presenters
         }
 
         /// <summary>
-        /// Convert view to model WITHOUT commentators.
+        /// Convert view to model WITHOUT faces match.
         /// </summary>
         /// <returns></returns>
         private Match GetModelFromView()

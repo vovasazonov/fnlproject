@@ -20,6 +20,8 @@
 		public var colorTeam1:MovieClip;
 		public var colorTeam2:MovieClip;
 		public var NamePlayerText:MovieClip;
+		public var backNameTeamLeft:MovieClip;
+		public var backNameTeamRight:MovieClip;
 		
 		private var _team1Name:String;
 		private var _team2Name:String;
@@ -115,6 +117,40 @@
 		public function playerLeftTeamHide():void
 		{
 			this.gotoAndPlay("outlp");
+		}
+		
+		public function ShowLeftRedCard1():void
+		{
+			backNameTeamLeft.redCard1.visible = true;
+		}
+		public function HideLeftRedCard1():void
+		{
+			backNameTeamLeft.redCard1.visible = false;
+		}
+		
+		public function ShowRightRedCard1():void
+		{
+			backNameTeamRight.redCard1.visible = true;
+		}
+		public function HideRightRedCard1():void
+		{
+			backNameTeamRight.redCard1.visible = false;
+		}
+		public function ShowLeftRedCard2():void
+		{
+			
+		}
+		public function HideLeftRedCard2():void
+		{
+			
+		}
+		public function ShowRightRedCard2():void
+		{
+			
+		}
+		public function HideRightRedCard2():void
+		{
+			
 		}
 		
 	}

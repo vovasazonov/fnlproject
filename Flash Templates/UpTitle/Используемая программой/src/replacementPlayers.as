@@ -13,6 +13,7 @@
 	import flashx.textLayout.events.ModelChange;
 	
 	public class replacementPlayers extends MovieClip {
+		private var MainEx:Main;
 		
 		public var LogoTeam:MovieClip;
 		public var RedLine:MovieClip;
@@ -108,17 +109,38 @@
 		{
 			this.gotoAndPlay("in");
 		}
-		public function RedCardShow():void
+		
+		public function RedCardShow(mainExamp:Main):void
 		{
+			MainEx = mainExamp;
+			
 			this.gotoAndPlay("inrc");
+			
+			this.addEventListener(Event.ENTER_FRAME,HideNamePlayer);
 		}
-		public function YellowCardShow():void
+		public function YellowCardShow(mainExamp:Main):void
 		{
+			MainEx = mainExamp;
+			
 			this.gotoAndPlay("inyc");
+			
+			this.addEventListener(Event.ENTER_FRAME,HideNamePlayer);
 		}
-		public function GoalShow():void
+		public function GoalShow(mainExamp:Main):void
 		{
+			MainEx = mainExamp;
+			
 			this.gotoAndPlay("ingoals");
+			
+			this.addEventListener(Event.ENTER_FRAME,HideNamePlayer);
+		}
+		private function HideNamePlayer(e:Event):void
+		{
+			if(this.currentFrameLabel == "stop1" || this.currentFrameLabel == "stop2" || this.currentFrameLabel == "stop3")
+			{
+				MainEx.PlayerClockShowHide();
+				this.removeEventListener(Event.ENTER_FRAME,HideNamePlayer);
+			}
 		}
 		
 	}

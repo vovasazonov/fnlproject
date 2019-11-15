@@ -88,7 +88,7 @@ namespace FNL
         public DateTime TimeMatch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int NumberHalfTime { get => (int)numHalfNum.Value; set => numHalfNum.Value = value; }
         public string SeasonName { get; set; }
-        public string GoalsGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string GoalsGuest { get => textGoalsGuest.Text; set => textGoalsGuest.Text = value; }
         public string TotalShotGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string ShotTargetGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string CornerGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -96,10 +96,10 @@ namespace FNL
         public string PassGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string AccuratePassGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string FoulGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string YellowTicketGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string RedTicketGuest { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string YellowTicketGuest { get => textYellowTicketGuest.Text; set => textYellowTicketGuest.Text = value; }
+        public string RedTicketGuest { get => textRedTicketGuest.Text; set => textRedTicketGuest.Text = value; }
         public string ChangeGuest { get => textChangeGuest.Text; set => textChangeGuest.Text = value; }
-        public string GoalsHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string GoalsHome { get => textGoalsHome.Text; set => textGoalsHome.Text = value; }
         public string TotalShotHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string ShotTargetHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string CornerHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -107,8 +107,8 @@ namespace FNL
         public string PassHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string AccuratePassHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string FoulHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string YellowTicketHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string RedTicketHome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string YellowTicketHome { get => textYellowTicketHome.Text; set => textYellowTicketHome.Text = value; }
+        public string RedTicketHome { get => textRedTicketHome.Text; set => textRedTicketHome.Text = value; }
         public string ChangeHome { get => textChangeHome.Text; set => textChangeHome.Text = value; }
         public string NameMainJudje { get; set; }
         public string NameHelperJudje1 { get; set; }
@@ -338,11 +338,6 @@ namespace FNL
                 {"nameGreenLine", string.Format("{0} {1}", pairPlayer.FirstName, pairPlayer.LastName)},
                 {"numberGreenLine", pairPlayer.N.ToString()},
             });
-        }
-
-        private void ShowHideReplacementCG()
-        {
-            CasparFNL.InvokeMethod("ReplacementShowHide");
         }
 
         /// <summary>
@@ -722,7 +717,7 @@ namespace FNL
             presenter.Replacement(true);
 
             UpdateReplacementCG(true);
-            ShowHideReplacementCG();
+            ShowHideEventCG(EventMatchType.Replacement);
 
             UpdateView();
         }
@@ -733,7 +728,7 @@ namespace FNL
             presenter.Replacement(false);
 
             UpdateReplacementCG(false);
-            ShowHideReplacementCG();
+            ShowHideEventCG(EventMatchType.Replacement);
 
             UpdateView();
         }
@@ -753,6 +748,206 @@ namespace FNL
         {
             CasparFNL.InvokeMethod("OfficialFacesShowHide");
         }
+
+        ///////////////////////////////////////////////////////////////////////
+
+        /// <summary>
+        /// Update the player name on clock.
+        /// </summary>
+        /// <param name="isGuest"></param>
+        /// <param name="isRedCard"></param>
+        private void UpdatePlayerBackRoundCG(bool isGuest)
+        {
+            MainPresenter presenter = new MainPresenter(this);
+
+            ITablePlayersMainView player = null;
+
+            if (isGuest)
+            {
+                player = ((List<ITablePlayersMainView>)dataGridPlayersGuest.DataSource)[dataGridPlayersGuest.CurrentRow.Index];
+            }
+            else
+            {
+                player = ((List<ITablePlayersMainView>)dataGridPlayersHome.DataSource)[dataGridPlayersHome.CurrentRow.Index];
+            }
+
+            CasparFNL.SendData(new Dictionary<string, string>()
+            {
+                {"isRightTeam", isGuest?"0":"1"},   // Guest in left place.
+                {"namePlayerBackround", string.Format("{0} {1}", player.FirstName, player.LastName)},
+            });
+        }
+
+        private void ShowHideEventCG(EventMatchType emType)
+        {
+            DialogResult result = MessageBox.Show(
+                "Показать событие в эфир?",
+                "Показ события",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+
+            if (result == DialogResult.Yes)
+            {
+                switch (emType)
+                {
+                    case EventMatchType.Replacement:
+                        CasparFNL.InvokeMethod("ReplacementShowHide");
+                        break;
+                    case EventMatchType.YellowCard:
+                        CasparFNL.InvokeMethod("RepYellowCardShowHide");
+                        break;
+                    case EventMatchType.RedCard:
+                        CasparFNL.InvokeMethod("RepRedCardShowHide");
+                        break;
+                    case EventMatchType.Goal:
+                        CasparFNL.InvokeMethod("RepGoalShowHide");
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void btnAddRedTicketGuest_Click(object sender, EventArgs e)
+        {
+            bool isGuest = true;
+
+            MainPresenter presenter = new MainPresenter(this);
+            presenter.YellowCardEvent(isGuest);
+
+            UpdatePlayerBackRoundCG(isGuest);
+
+            CasparFNL.SendData(new Dictionary<string, string>()
+            {
+                {"eventNameLine", "Удаление"},
+                {"eventValueLine", ""},
+            });
+
+            ShowHideEventCG(EventMatchType.RedCard);
+
+            presenter.ShowViewEvents();
+        }
+
+        private void btnAddRedTicketHome_Click(object sender, EventArgs e)
+        {
+            bool isGuest = false;
+
+            MainPresenter presenter = new MainPresenter(this);
+            presenter.YellowCardEvent(isGuest);
+
+            UpdatePlayerBackRoundCG(isGuest);
+
+            CasparFNL.SendData(new Dictionary<string, string>()
+            {
+                {"eventNameLine", "Удаление"},
+                {"eventValueLine", ""},
+            });
+
+            ShowHideEventCG(EventMatchType.RedCard);
+
+            presenter.ShowViewEvents();
+        }
+
+        private void btnAddYellowTicketGuest_Click(object sender, EventArgs e)
+        {
+            bool isGuest = true;
+
+            MainPresenter presenter = new MainPresenter(this);
+            presenter.YellowCardEvent(isGuest);
+
+            UpdatePlayerBackRoundCG(isGuest);
+
+            CasparFNL.SendData(new Dictionary<string, string>()
+            {
+                {"eventNameLine", "Предупреждение"},
+                {"eventValueLine", ""},
+                {"secondEventNameLine", "в сезоне"},
+                {"secondsEventValueLine", string.Format("{0}",presenter.GetEventInSeason(GuestPlayerId,EventMatchType.YellowCard))},
+            });
+
+            ShowHideEventCG(EventMatchType.YellowCard);
+
+            presenter.ShowViewEvents();
+        }
+
+        private void btnAddYellowTicketHome_Click(object sender, EventArgs e)
+        {
+            bool isGuest = false;
+
+            MainPresenter presenter = new MainPresenter(this);
+            presenter.YellowCardEvent(isGuest);
+
+            UpdatePlayerBackRoundCG(isGuest);
+
+            CasparFNL.SendData(new Dictionary<string, string>()
+            {
+                {"eventNameLine", "Предупреждение"},
+                {"eventValueLine", ""},
+                {"secondEventNameLine", "в сезоне"},
+                {"secondsEventValueLine", string.Format("{0}",presenter.GetEventInSeason(HomePlayerId,EventMatchType.YellowCard))},
+            });
+
+            ShowHideEventCG(EventMatchType.YellowCard);
+
+            presenter.ShowViewEvents();
+        }
+
+        private void btnAddGoalGuest_Click(object sender, EventArgs e)
+        {
+            bool isGuest = true;
+
+            MainPresenter presenter = new MainPresenter(this);
+            presenter.GoalEvent(isGuest);
+
+            UpdatePlayerBackRoundCG(isGuest);
+
+            CasparFNL.SendData(new Dictionary<string, string>()
+            {
+                {"eventNameLine", "Гол"},
+                {"eventValueLine", "1"},
+                {"secondEventNameLine", "в сезоне"},
+                {"secondsEventValueLine", string.Format("{0}",presenter.GetEventInSeason(GuestPlayerId,EventMatchType.Goal))},
+            });
+
+            ShowHideEventCG(EventMatchType.Goal);
+
+            presenter.ShowViewEvents();
+        }
+
+        private void btnAddGoalHome_Click(object sender, EventArgs e)
+        {
+            bool isGuest = false;
+
+            MainPresenter presenter = new MainPresenter(this);
+            presenter.GoalEvent(isGuest);
+
+            UpdatePlayerBackRoundCG(isGuest);
+
+            CasparFNL.SendData(new Dictionary<string, string>()
+            {
+                {"eventNameLine", "Гол"},
+                {"eventValueLine", "1"},
+                {"secondEventNameLine", "в сезоне"},
+                {"secondsEventValueLine", string.Format("{0}",presenter.GetEventInSeason(HomePlayerId,EventMatchType.Goal))},
+            });
+
+            ShowHideEventCG(EventMatchType.Goal);
+
+            presenter.ShowViewEvents();
+        }
+
+        private void checkBoxGuestClockRedCard1_CheckedChanged(object sender, EventArgs e)
+        {
+            CasparFNL.InvokeMethod("RedCard1LeftOnClockShowHide");
+        }
+
+        private void checkBoxHomeClockRedCard1_CheckedChanged(object sender, EventArgs e)
+        {
+            CasparFNL.InvokeMethod("RedCard1RightOnClockShowHide");
+        }
+
     }
 
 }

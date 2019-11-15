@@ -11,6 +11,9 @@ namespace FNL.Enums
     /// </summary>
     public enum EventMatchType : uint
     {
-        Replacement = 32432423
+        Replacement = 32432423,
+        YellowCard = 234432543,
+        RedCard = 433523443,
+        Goal = 432432423
     }
 }
