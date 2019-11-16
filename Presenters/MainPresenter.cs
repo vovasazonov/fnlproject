@@ -132,22 +132,60 @@ namespace FNL.Presenters
             }
         }
 
-        internal void YellowCardEvent(bool isGuest)
+        /// <summary>
+        /// Delete one event from season current player.
+        /// </summary>
+        /// <param name="isGuest"></param>
+        /// <param name="typeEvent"></param>
+        internal void MinEventSeasonDb(bool isGuest, EventMatchType typeEvent)
         {
-            SetEventToDb(isGuest, EventMatchType.YellowCard);
-        }
+            var idPlayer = isGuest ? _view.GuestPlayerId : _view.HomePlayerId;
 
-        internal void RedCardEvent(bool isGuest)
-        {
-            SetEventToDb(isGuest, EventMatchType.RedCard);
-        }
+            int idEvent = DictionaryEvents.GetEventId(typeEvent);
 
-        internal void GoalEvent(bool isGuest)
-        {
-            SetEventToDb(isGuest, EventMatchType.Goal);
-        }
+            try
+            {
+                using (var db = new DbFnlContext())
+                {
 
-        private void SetEventToDb(bool isGuest, EventMatchType eventMatch)
+                    var matches = db.Matches.
+                        Where(t => t.MatchId == _view.MatchId).
+                        Select(t => t.Season).FirstOrDefault().Matches;
+
+                    List<StatisticPlayerMatch> statistics = new List<StatisticPlayerMatch>();
+
+                    foreach (var match in matches)
+                    {
+                        statistics.AddRange(match.Statistics.Where(t => t.PersonId == idPlayer));
+                    }
+
+                    foreach (var statistc in statistics)
+                    {
+                        foreach (var eventP in statistc.EventStatistics)
+                        {
+                            if (eventP.EventId == idEvent)
+                            {
+                                var es = db.EventsStatistics.Where(t => t.EventStatisticId == eventP.EventStatisticId).FirstOrDefault();
+                                db.EventsStatistics.Remove(es);
+                                db.SaveChanges();
+
+                                return;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#endif
+                Logger.Log.Error(ex);
+            }
+        }
+        internal void AddEventToDb(bool isGuest, EventMatchType eventMatch)
         {
             var idPlayer = isGuest ? _view.GuestPlayerId : _view.HomePlayerId;
 

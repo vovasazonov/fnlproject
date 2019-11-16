@@ -814,7 +814,7 @@ namespace FNL
             bool isGuest = true;
 
             MainPresenter presenter = new MainPresenter(this);
-            presenter.YellowCardEvent(isGuest);
+            presenter.AddEventToDb(isGuest,EventMatchType.RedCard);
 
             UpdatePlayerBackRoundCG(isGuest);
 
@@ -834,7 +834,7 @@ namespace FNL
             bool isGuest = false;
 
             MainPresenter presenter = new MainPresenter(this);
-            presenter.YellowCardEvent(isGuest);
+            presenter.AddEventToDb(isGuest,EventMatchType.RedCard);
 
             UpdatePlayerBackRoundCG(isGuest);
 
@@ -854,7 +854,7 @@ namespace FNL
             bool isGuest = true;
 
             MainPresenter presenter = new MainPresenter(this);
-            presenter.YellowCardEvent(isGuest);
+            presenter.AddEventToDb(isGuest,EventMatchType.YellowCard);
 
             UpdatePlayerBackRoundCG(isGuest);
 
@@ -876,7 +876,7 @@ namespace FNL
             bool isGuest = false;
 
             MainPresenter presenter = new MainPresenter(this);
-            presenter.YellowCardEvent(isGuest);
+            presenter.AddEventToDb(isGuest,EventMatchType.YellowCard);
 
             UpdatePlayerBackRoundCG(isGuest);
 
@@ -898,7 +898,7 @@ namespace FNL
             bool isGuest = true;
 
             MainPresenter presenter = new MainPresenter(this);
-            presenter.GoalEvent(isGuest);
+            presenter.AddEventToDb(isGuest,EventMatchType.Goal);
 
             UpdatePlayerBackRoundCG(isGuest);
 
@@ -920,7 +920,7 @@ namespace FNL
             bool isGuest = false;
 
             MainPresenter presenter = new MainPresenter(this);
-            presenter.GoalEvent(isGuest);
+            presenter.AddEventToDb(isGuest, EventMatchType.Goal);
 
             UpdatePlayerBackRoundCG(isGuest);
 
@@ -970,6 +970,66 @@ namespace FNL
             });
 
             CasparFNL.InvokeMethod("WelWinShowHide");
+        }
+
+        private void btnMinRedTicketGuest_Click(object sender, EventArgs e)
+        {
+            bool isGuest = true;
+
+            MainPresenter presenter = new MainPresenter(this);
+            presenter.MinEventSeasonDb(isGuest, EventMatchType.RedCard);
+
+            presenter.ShowViewEvents();
+        }
+
+        private void btnMinRedTicketHome_Click(object sender, EventArgs e)
+        {
+            bool isGuest = true;
+
+            MainPresenter presenter = new MainPresenter(this);
+            presenter.MinEventSeasonDb(isGuest, EventMatchType.RedCard);
+
+            presenter.ShowViewEvents();
+        }
+
+        private void btnMinYellowTicketGuest_Click(object sender, EventArgs e)
+        {
+            bool isGuest = true;
+
+            MainPresenter presenter = new MainPresenter(this);
+            presenter.MinEventSeasonDb(isGuest, EventMatchType.YellowCard);
+
+            presenter.ShowViewEvents();
+        }
+
+        private void btnMinYellowTicketHome_Click(object sender, EventArgs e)
+        {
+            bool isGuest = false;
+
+            MainPresenter presenter = new MainPresenter(this);
+            presenter.MinEventSeasonDb(isGuest, EventMatchType.YellowCard);
+
+            presenter.ShowViewEvents();
+        }
+
+        private void btnMinGoalGuest_Click(object sender, EventArgs e)
+        {
+            bool isGuest = true;
+
+            MainPresenter presenter = new MainPresenter(this);
+            presenter.MinEventSeasonDb(isGuest, EventMatchType.Goal);
+
+            presenter.ShowViewEvents();
+        }
+
+        private void btnMinGoalHome_Click(object sender, EventArgs e)
+        {
+            bool isGuest = false;
+
+            MainPresenter presenter = new MainPresenter(this);
+            presenter.MinEventSeasonDb(isGuest,EventMatchType.Goal);
+
+            presenter.ShowViewEvents();
         }
     }
 
