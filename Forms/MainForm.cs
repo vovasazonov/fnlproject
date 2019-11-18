@@ -402,7 +402,7 @@ namespace FNL
             dicCasparData.Add("titleName",
                 accessory == PersonCategoryType.FaceMatch ?
                 "ОФИЦИАЛЬНЫЕ ЛИЦА МАТЧА" :
-                (isPairs ? "ЗАПАСНЫЕ" : "СТАРТОВЫЙ СОСТВА"));
+                (isPairs ? "ЗАПАСНЫЕ" : "СТАРТОВЫЙ СОСТАВ"));
 
             // Build season name.
             dicCasparData.Add("seasonName", SeasonName);
@@ -962,7 +962,7 @@ namespace FNL
             {
                 {"seasonName", SeasonName },
                 {"dateTimeTitle", valueData},
-                {"nameStadium", "Стадион: " + StadiumName },
+                {"nameStadium", StadiumName },
                 {"leftNameTeamWelWin", presenter.GetFullNameTeam(true)},
                 {"rightNameTeamWelWin", presenter.GetFullNameTeam(false)},
                 {"logoTeamLeftWelWinPath", presenter.GetLogoPathTeam(true)},

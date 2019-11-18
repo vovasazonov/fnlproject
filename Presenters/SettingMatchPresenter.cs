@@ -167,28 +167,29 @@ namespace FNL.Presenters
                 if (faces != null)
                 {
                     _view.Commentator1Id = SetIdOfFaceToView(RoleType.Commentator);
-                    _view.Commentator2Id = SetIdOfFaceToView(RoleType.Commentator);
+                    _view.Commentator2Id = SetIdOfFaceToView(RoleType.Commentator, _view.Commentator1Id);
                     _view.DelegatId = SetIdOfFaceToView(RoleType.Delegat);
                     _view.HelperJudje1Id = SetIdOfFaceToView(RoleType.HelperJudje);
-                    _view.HelperJudje2Id = SetIdOfFaceToView(RoleType.HelperJudje);
+                    _view.HelperJudje2Id = SetIdOfFaceToView(RoleType.HelperJudje, _view.HelperJudje1Id);
                     _view.InspectorId = SetIdOfFaceToView(RoleType.Inspector);
                     _view.MainJudjeId = SetIdOfFaceToView(RoleType.MainJudje);
                     _view.PairJudjeId = SetIdOfFaceToView(RoleType.PairJudje);
 
-                    int SetIdOfFaceToView(RoleType roleType)
+                    int SetIdOfFaceToView(RoleType roleType, int ignoreId = -1)
                     {
                         int varToSet;
                         int idRole = DictionaryRoles.GetId(roleType);
                         try
                         {
                             varToSet = faces.Select(t => t.Person).
-                            Where(t => t.RoleId == idRole).
+                            Where(t => t.RoleId == idRole && t.PersonId != ignoreId).
                             Select(t => t.PersonId).FirstOrDefault();
                         }
                         catch (Exception)
                         {
-
+#if DEBUG
                             throw;
+#endif
                         }
                         return varToSet;
                     }
@@ -220,7 +221,7 @@ namespace FNL.Presenters
                         try
                         {
                             varToSet = faces.Where(t => t.PersonId == idPerson).
-                        Select(s => s.Person.FirstName + " " + s.Person.FirstName + " " + s.Person.MiddleName).
+                        Select(s => s.Person.FirstName + " " + s.Person.LastName + " " + s.Person.MiddleName).
                         FirstOrDefault();
                         }
                         catch (Exception)
