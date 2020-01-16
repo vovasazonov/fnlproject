@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbCasparServer = new System.Windows.Forms.TextBox();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.btnClearGraphics = new System.Windows.Forms.Button();
@@ -723,9 +723,9 @@
             // panel15
             // 
             this.panel15.Controls.Add(this.panel16);
-            this.panel15.Controls.Add(this.dataGridPlayersHome);
+            this.panel15.Controls.Add(this.dataGridPlayersGuest);
             this.panel15.Controls.Add(this.label4);
-            this.panel15.Controls.Add(this.dataGridPlayersPairsHome);
+            this.panel15.Controls.Add(this.dataGridPlayersPairsGuest);
             this.panel15.Location = new System.Drawing.Point(735, 6);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(315, 406);
@@ -733,12 +733,12 @@
             // 
             // panel16
             // 
-            this.panel16.Controls.Add(this.btnTeam2AddScore);
-            this.panel16.Controls.Add(this.label6);
-            this.panel16.Controls.Add(this.btnTeam2MinusScore);
-            this.panel16.Controls.Add(this.tBScoreTeam2);
-            this.panel16.Controls.Add(this.textNameHome);
-            this.panel16.Controls.Add(this.buttonColorTeamHome);
+            this.panel16.Controls.Add(this.buttonColorTeamGuest);
+            this.panel16.Controls.Add(this.label5);
+            this.panel16.Controls.Add(this.btnTeam1AddScore);
+            this.panel16.Controls.Add(this.btnTeam1MinusScore);
+            this.panel16.Controls.Add(this.textNameGuest);
+            this.panel16.Controls.Add(this.tBScoreTeam1);
             this.panel16.Location = new System.Drawing.Point(3, 2);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(309, 26);
@@ -747,7 +747,7 @@
             // btnTeam2AddScore
             // 
             this.btnTeam2AddScore.BackColor = System.Drawing.Color.Honeydew;
-            this.btnTeam2AddScore.Location = new System.Drawing.Point(213, 0);
+            this.btnTeam2AddScore.Location = new System.Drawing.Point(217, 4);
             this.btnTeam2AddScore.Name = "btnTeam2AddScore";
             this.btnTeam2AddScore.Size = new System.Drawing.Size(26, 23);
             this.btnTeam2AddScore.TabIndex = 3;
@@ -759,7 +759,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(3, 7);
+            this.label6.Location = new System.Drawing.Point(4, 6);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 16);
             this.label6.TabIndex = 8;
@@ -769,7 +769,7 @@
             // btnTeam2MinusScore
             // 
             this.btnTeam2MinusScore.BackColor = System.Drawing.Color.Salmon;
-            this.btnTeam2MinusScore.Location = new System.Drawing.Point(160, 0);
+            this.btnTeam2MinusScore.Location = new System.Drawing.Point(164, 4);
             this.btnTeam2MinusScore.Name = "btnTeam2MinusScore";
             this.btnTeam2MinusScore.Size = new System.Drawing.Size(26, 23);
             this.btnTeam2MinusScore.TabIndex = 2;
@@ -780,7 +780,7 @@
             // tBScoreTeam2
             // 
             this.tBScoreTeam2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBScoreTeam2.Location = new System.Drawing.Point(187, 1);
+            this.tBScoreTeam2.Location = new System.Drawing.Point(191, 5);
             this.tBScoreTeam2.Name = "tBScoreTeam2";
             this.tBScoreTeam2.Size = new System.Drawing.Size(26, 22);
             this.tBScoreTeam2.TabIndex = 3;
@@ -791,7 +791,7 @@
             // 
             // textNameHome
             // 
-            this.textNameHome.Location = new System.Drawing.Point(43, 5);
+            this.textNameHome.Location = new System.Drawing.Point(44, 4);
             this.textNameHome.Name = "textNameHome";
             this.textNameHome.ReadOnly = true;
             this.textNameHome.Size = new System.Drawing.Size(100, 20);
@@ -802,7 +802,7 @@
             // buttonColorTeamHome
             // 
             this.buttonColorTeamHome.BackColor = System.Drawing.Color.Gold;
-            this.buttonColorTeamHome.Location = new System.Drawing.Point(270, 3);
+            this.buttonColorTeamHome.Location = new System.Drawing.Point(270, 1);
             this.buttonColorTeamHome.Name = "buttonColorTeamHome";
             this.buttonColorTeamHome.Size = new System.Drawing.Size(36, 23);
             this.buttonColorTeamHome.TabIndex = 6;
@@ -811,19 +811,19 @@
             // 
             // dataGridPlayersHome
             // 
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridPlayersHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridPlayersHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPlayersHome.Location = new System.Drawing.Point(2, 33);
+            this.dataGridPlayersHome.Location = new System.Drawing.Point(-1, 38);
             this.dataGridPlayersHome.Name = "dataGridPlayersHome";
             this.dataGridPlayersHome.Size = new System.Drawing.Size(313, 202);
             this.dataGridPlayersHome.TabIndex = 0;
@@ -841,17 +841,17 @@
             // 
             // dataGridPlayersPairsHome
             // 
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersPairsHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersPairsHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridPlayersPairsHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridPlayersPairsHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersPairsHome.Location = new System.Drawing.Point(0, 259);
             this.dataGridPlayersPairsHome.Name = "dataGridPlayersPairsHome";
@@ -861,9 +861,9 @@
             // panel13
             // 
             this.panel13.Controls.Add(this.panel14);
-            this.panel13.Controls.Add(this.dataGridPlayersGuest);
+            this.panel13.Controls.Add(this.dataGridPlayersHome);
+            this.panel13.Controls.Add(this.dataGridPlayersPairsHome);
             this.panel13.Controls.Add(this.label1);
-            this.panel13.Controls.Add(this.dataGridPlayersPairsGuest);
             this.panel13.Location = new System.Drawing.Point(5, 3);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(315, 406);
@@ -871,12 +871,12 @@
             // 
             // panel14
             // 
-            this.panel14.Controls.Add(this.label5);
-            this.panel14.Controls.Add(this.textNameGuest);
-            this.panel14.Controls.Add(this.btnTeam1AddScore);
-            this.panel14.Controls.Add(this.buttonColorTeamGuest);
-            this.panel14.Controls.Add(this.btnTeam1MinusScore);
-            this.panel14.Controls.Add(this.tBScoreTeam1);
+            this.panel14.Controls.Add(this.label6);
+            this.panel14.Controls.Add(this.btnTeam2AddScore);
+            this.panel14.Controls.Add(this.btnTeam2MinusScore);
+            this.panel14.Controls.Add(this.buttonColorTeamHome);
+            this.panel14.Controls.Add(this.tBScoreTeam2);
+            this.panel14.Controls.Add(this.textNameHome);
             this.panel14.Location = new System.Drawing.Point(3, 2);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(309, 26);
@@ -886,7 +886,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(1, 2);
+            this.label5.Location = new System.Drawing.Point(-1, 4);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 16);
             this.label5.TabIndex = 7;
@@ -894,7 +894,7 @@
             // 
             // textNameGuest
             // 
-            this.textNameGuest.Location = new System.Drawing.Point(57, 2);
+            this.textNameGuest.Location = new System.Drawing.Point(55, 4);
             this.textNameGuest.Name = "textNameGuest";
             this.textNameGuest.ReadOnly = true;
             this.textNameGuest.Size = new System.Drawing.Size(85, 20);
@@ -905,7 +905,7 @@
             // btnTeam1AddScore
             // 
             this.btnTeam1AddScore.BackColor = System.Drawing.Color.Honeydew;
-            this.btnTeam1AddScore.Location = new System.Drawing.Point(201, 0);
+            this.btnTeam1AddScore.Location = new System.Drawing.Point(209, 1);
             this.btnTeam1AddScore.Name = "btnTeam1AddScore";
             this.btnTeam1AddScore.Size = new System.Drawing.Size(26, 23);
             this.btnTeam1AddScore.TabIndex = 1;
@@ -916,7 +916,7 @@
             // buttonColorTeamGuest
             // 
             this.buttonColorTeamGuest.BackColor = System.Drawing.Color.Maroon;
-            this.buttonColorTeamGuest.Location = new System.Drawing.Point(267, 3);
+            this.buttonColorTeamGuest.Location = new System.Drawing.Point(267, 1);
             this.buttonColorTeamGuest.Name = "buttonColorTeamGuest";
             this.buttonColorTeamGuest.Size = new System.Drawing.Size(39, 20);
             this.buttonColorTeamGuest.TabIndex = 5;
@@ -926,7 +926,7 @@
             // btnTeam1MinusScore
             // 
             this.btnTeam1MinusScore.BackColor = System.Drawing.Color.Salmon;
-            this.btnTeam1MinusScore.Location = new System.Drawing.Point(148, 0);
+            this.btnTeam1MinusScore.Location = new System.Drawing.Point(156, 1);
             this.btnTeam1MinusScore.Name = "btnTeam1MinusScore";
             this.btnTeam1MinusScore.Size = new System.Drawing.Size(26, 23);
             this.btnTeam1MinusScore.TabIndex = 0;
@@ -937,7 +937,7 @@
             // tBScoreTeam1
             // 
             this.tBScoreTeam1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBScoreTeam1.Location = new System.Drawing.Point(175, 1);
+            this.tBScoreTeam1.Location = new System.Drawing.Point(183, 2);
             this.tBScoreTeam1.Name = "tBScoreTeam1";
             this.tBScoreTeam1.Size = new System.Drawing.Size(25, 22);
             this.tBScoreTeam1.TabIndex = 99;
@@ -948,19 +948,19 @@
             // 
             // dataGridPlayersGuest
             // 
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridPlayersGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridPlayersGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPlayersGuest.Location = new System.Drawing.Point(0, 33);
+            this.dataGridPlayersGuest.Location = new System.Drawing.Point(3, 31);
             this.dataGridPlayersGuest.Name = "dataGridPlayersGuest";
             this.dataGridPlayersGuest.Size = new System.Drawing.Size(312, 202);
             this.dataGridPlayersGuest.TabIndex = 0;
@@ -978,19 +978,19 @@
             // 
             // dataGridPlayersPairsGuest
             // 
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersPairsGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersPairsGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridPlayersPairsGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridPlayersPairsGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPlayersPairsGuest.Location = new System.Drawing.Point(0, 259);
+            this.dataGridPlayersPairsGuest.Location = new System.Drawing.Point(3, 256);
             this.dataGridPlayersPairsGuest.Name = "dataGridPlayersPairsGuest";
             this.dataGridPlayersPairsGuest.Size = new System.Drawing.Size(315, 147);
             this.dataGridPlayersPairsGuest.TabIndex = 7;
@@ -1050,8 +1050,8 @@
             this.panel10.Controls.Add(this.textBox30);
             this.panel10.Controls.Add(this.btnMinChangeHome);
             this.panel10.Controls.Add(this.btnAddChangeHome);
-            this.panel10.Controls.Add(this.btnMinChangeGuest);
             this.panel10.Controls.Add(this.btnAddChangeGuest);
+            this.panel10.Controls.Add(this.btnMinChangeGuest);
             this.panel10.Location = new System.Drawing.Point(0, 340);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
@@ -1061,7 +1061,7 @@
             // textChangeHome
             // 
             this.textChangeHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textChangeHome.Location = new System.Drawing.Point(323, 4);
+            this.textChangeHome.Location = new System.Drawing.Point(51, 4);
             this.textChangeHome.Margin = new System.Windows.Forms.Padding(1);
             this.textChangeHome.Multiline = true;
             this.textChangeHome.Name = "textChangeHome";
@@ -1073,7 +1073,7 @@
             // textChangeGuest
             // 
             this.textChangeGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textChangeGuest.Location = new System.Drawing.Point(51, 4);
+            this.textChangeGuest.Location = new System.Drawing.Point(323, 4);
             this.textChangeGuest.Margin = new System.Windows.Forms.Padding(1);
             this.textChangeGuest.Multiline = true;
             this.textChangeGuest.Name = "textChangeGuest";
@@ -1097,7 +1097,7 @@
             this.btnMinChangeHome.Enabled = false;
             this.btnMinChangeHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinChangeHome.ForeColor = System.Drawing.Color.Red;
-            this.btnMinChangeHome.Location = new System.Drawing.Point(382, -1);
+            this.btnMinChangeHome.Location = new System.Drawing.Point(-1, -4);
             this.btnMinChangeHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinChangeHome.Name = "btnMinChangeHome";
             this.btnMinChangeHome.Size = new System.Drawing.Size(27, 36);
@@ -1110,7 +1110,7 @@
             // 
             this.btnAddChangeHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddChangeHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddChangeHome.Location = new System.Drawing.Point(357, -1);
+            this.btnAddChangeHome.Location = new System.Drawing.Point(24, -4);
             this.btnAddChangeHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddChangeHome.Name = "btnAddChangeHome";
             this.btnAddChangeHome.Size = new System.Drawing.Size(27, 36);
@@ -1124,7 +1124,7 @@
             this.btnMinChangeGuest.Enabled = false;
             this.btnMinChangeGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinChangeGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinChangeGuest.Location = new System.Drawing.Point(-1, -1);
+            this.btnMinChangeGuest.Location = new System.Drawing.Point(384, -1);
             this.btnMinChangeGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinChangeGuest.Name = "btnMinChangeGuest";
             this.btnMinChangeGuest.Size = new System.Drawing.Size(27, 36);
@@ -1137,7 +1137,7 @@
             // 
             this.btnAddChangeGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddChangeGuest.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddChangeGuest.Location = new System.Drawing.Point(24, -1);
+            this.btnAddChangeGuest.Location = new System.Drawing.Point(357, 0);
             this.btnAddChangeGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddChangeGuest.Name = "btnAddChangeGuest";
             this.btnAddChangeGuest.Size = new System.Drawing.Size(27, 36);
@@ -1166,7 +1166,7 @@
             // 
             this.btnMinGoalGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinGoalGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinGoalGuest.Location = new System.Drawing.Point(-1, -1);
+            this.btnMinGoalGuest.Location = new System.Drawing.Point(382, -1);
             this.btnMinGoalGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinGoalGuest.Name = "btnMinGoalGuest";
             this.btnMinGoalGuest.Size = new System.Drawing.Size(27, 36);
@@ -1178,7 +1178,7 @@
             // textGoalsHome
             // 
             this.textGoalsHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textGoalsHome.Location = new System.Drawing.Point(323, 4);
+            this.textGoalsHome.Location = new System.Drawing.Point(51, 4);
             this.textGoalsHome.Margin = new System.Windows.Forms.Padding(1);
             this.textGoalsHome.Multiline = true;
             this.textGoalsHome.Name = "textGoalsHome";
@@ -1190,7 +1190,7 @@
             // textGoalsGuest
             // 
             this.textGoalsGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textGoalsGuest.Location = new System.Drawing.Point(51, 4);
+            this.textGoalsGuest.Location = new System.Drawing.Point(323, 4);
             this.textGoalsGuest.Margin = new System.Windows.Forms.Padding(1);
             this.textGoalsGuest.Multiline = true;
             this.textGoalsGuest.Name = "textGoalsGuest";
@@ -1213,7 +1213,7 @@
             // 
             this.btnMinGoalHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinGoalHome.ForeColor = System.Drawing.Color.Red;
-            this.btnMinGoalHome.Location = new System.Drawing.Point(382, -1);
+            this.btnMinGoalHome.Location = new System.Drawing.Point(-1, -2);
             this.btnMinGoalHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinGoalHome.Name = "btnMinGoalHome";
             this.btnMinGoalHome.Size = new System.Drawing.Size(27, 36);
@@ -1226,7 +1226,7 @@
             // 
             this.btnAddGoalHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddGoalHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddGoalHome.Location = new System.Drawing.Point(357, -1);
+            this.btnAddGoalHome.Location = new System.Drawing.Point(24, -2);
             this.btnAddGoalHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddGoalHome.Name = "btnAddGoalHome";
             this.btnAddGoalHome.Size = new System.Drawing.Size(27, 36);
@@ -1239,7 +1239,7 @@
             // 
             this.btnAddGoalGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddGoalGuest.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddGoalGuest.Location = new System.Drawing.Point(24, -1);
+            this.btnAddGoalGuest.Location = new System.Drawing.Point(357, -1);
             this.btnAddGoalGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddGoalGuest.Name = "btnAddGoalGuest";
             this.btnAddGoalGuest.Size = new System.Drawing.Size(27, 36);
@@ -1267,7 +1267,7 @@
             // textRedTicketHome
             // 
             this.textRedTicketHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textRedTicketHome.Location = new System.Drawing.Point(323, 4);
+            this.textRedTicketHome.Location = new System.Drawing.Point(51, 4);
             this.textRedTicketHome.Margin = new System.Windows.Forms.Padding(1);
             this.textRedTicketHome.Multiline = true;
             this.textRedTicketHome.Name = "textRedTicketHome";
@@ -1279,7 +1279,7 @@
             // textRedTicketGuest
             // 
             this.textRedTicketGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textRedTicketGuest.Location = new System.Drawing.Point(51, 4);
+            this.textRedTicketGuest.Location = new System.Drawing.Point(323, 4);
             this.textRedTicketGuest.Margin = new System.Windows.Forms.Padding(1);
             this.textRedTicketGuest.Multiline = true;
             this.textRedTicketGuest.Name = "textRedTicketGuest";
@@ -1302,7 +1302,7 @@
             // 
             this.btnMinRedTicketHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinRedTicketHome.ForeColor = System.Drawing.Color.Red;
-            this.btnMinRedTicketHome.Location = new System.Drawing.Point(382, -1);
+            this.btnMinRedTicketHome.Location = new System.Drawing.Point(0, -3);
             this.btnMinRedTicketHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinRedTicketHome.Name = "btnMinRedTicketHome";
             this.btnMinRedTicketHome.Size = new System.Drawing.Size(27, 36);
@@ -1315,7 +1315,7 @@
             // 
             this.btnAddRedTicketHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddRedTicketHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddRedTicketHome.Location = new System.Drawing.Point(357, -1);
+            this.btnAddRedTicketHome.Location = new System.Drawing.Point(23, -3);
             this.btnAddRedTicketHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddRedTicketHome.Name = "btnAddRedTicketHome";
             this.btnAddRedTicketHome.Size = new System.Drawing.Size(27, 36);
@@ -1328,7 +1328,7 @@
             // 
             this.btnMinRedTicketGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinRedTicketGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinRedTicketGuest.Location = new System.Drawing.Point(-1, -1);
+            this.btnMinRedTicketGuest.Location = new System.Drawing.Point(383, 0);
             this.btnMinRedTicketGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinRedTicketGuest.Name = "btnMinRedTicketGuest";
             this.btnMinRedTicketGuest.Size = new System.Drawing.Size(27, 36);
@@ -1341,7 +1341,7 @@
             // 
             this.btnAddRedTicketGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddRedTicketGuest.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddRedTicketGuest.Location = new System.Drawing.Point(24, -1);
+            this.btnAddRedTicketGuest.Location = new System.Drawing.Point(357, 0);
             this.btnAddRedTicketGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddRedTicketGuest.Name = "btnAddRedTicketGuest";
             this.btnAddRedTicketGuest.Size = new System.Drawing.Size(27, 36);
@@ -1370,7 +1370,7 @@
             // textTotalShotHome
             // 
             this.textTotalShotHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textTotalShotHome.Location = new System.Drawing.Point(323, 4);
+            this.textTotalShotHome.Location = new System.Drawing.Point(51, 4);
             this.textTotalShotHome.Margin = new System.Windows.Forms.Padding(1);
             this.textTotalShotHome.Multiline = true;
             this.textTotalShotHome.Name = "textTotalShotHome";
@@ -1382,7 +1382,7 @@
             // textTotalShotGuest
             // 
             this.textTotalShotGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textTotalShotGuest.Location = new System.Drawing.Point(51, 4);
+            this.textTotalShotGuest.Location = new System.Drawing.Point(323, 4);
             this.textTotalShotGuest.Margin = new System.Windows.Forms.Padding(1);
             this.textTotalShotGuest.Multiline = true;
             this.textTotalShotGuest.Name = "textTotalShotGuest";
@@ -1405,7 +1405,7 @@
             // 
             this.btnMinTotalShotHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinTotalShotHome.ForeColor = System.Drawing.Color.Red;
-            this.btnMinTotalShotHome.Location = new System.Drawing.Point(382, -1);
+            this.btnMinTotalShotHome.Location = new System.Drawing.Point(-1, -2);
             this.btnMinTotalShotHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinTotalShotHome.Name = "btnMinTotalShotHome";
             this.btnMinTotalShotHome.Size = new System.Drawing.Size(27, 36);
@@ -1417,7 +1417,7 @@
             // 
             this.btnAddTotalShotHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddTotalShotHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddTotalShotHome.Location = new System.Drawing.Point(357, -1);
+            this.btnAddTotalShotHome.Location = new System.Drawing.Point(23, -2);
             this.btnAddTotalShotHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddTotalShotHome.Name = "btnAddTotalShotHome";
             this.btnAddTotalShotHome.Size = new System.Drawing.Size(27, 36);
@@ -1429,7 +1429,7 @@
             // 
             this.btnMinTotalShotGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinTotalShotGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinTotalShotGuest.Location = new System.Drawing.Point(-1, -1);
+            this.btnMinTotalShotGuest.Location = new System.Drawing.Point(382, -2);
             this.btnMinTotalShotGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinTotalShotGuest.Name = "btnMinTotalShotGuest";
             this.btnMinTotalShotGuest.Size = new System.Drawing.Size(27, 36);
@@ -1441,7 +1441,7 @@
             // 
             this.btnAddTotalShotGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddTotalShotGuest.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddTotalShotGuest.Location = new System.Drawing.Point(24, -1);
+            this.btnAddTotalShotGuest.Location = new System.Drawing.Point(357, -2);
             this.btnAddTotalShotGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddTotalShotGuest.Name = "btnAddTotalShotGuest";
             this.btnAddTotalShotGuest.Size = new System.Drawing.Size(27, 36);
@@ -1457,8 +1457,8 @@
             this.panel12.Controls.Add(this.textBox36);
             this.panel12.Controls.Add(this.btnMinYellowTicketHome);
             this.panel12.Controls.Add(this.btnAddYellowTicketHome);
-            this.panel12.Controls.Add(this.btnMinYellowTicketGuest);
             this.panel12.Controls.Add(this.btnAddYellowTicketGuest);
+            this.panel12.Controls.Add(this.btnMinYellowTicketGuest);
             this.panel12.Location = new System.Drawing.Point(0, 272);
             this.panel12.Margin = new System.Windows.Forms.Padding(0);
             this.panel12.Name = "panel12";
@@ -1468,7 +1468,7 @@
             // textYellowTicketHome
             // 
             this.textYellowTicketHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textYellowTicketHome.Location = new System.Drawing.Point(323, 4);
+            this.textYellowTicketHome.Location = new System.Drawing.Point(51, 4);
             this.textYellowTicketHome.Margin = new System.Windows.Forms.Padding(1);
             this.textYellowTicketHome.Multiline = true;
             this.textYellowTicketHome.Name = "textYellowTicketHome";
@@ -1480,7 +1480,7 @@
             // textYellowTicketGuest
             // 
             this.textYellowTicketGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textYellowTicketGuest.Location = new System.Drawing.Point(51, 4);
+            this.textYellowTicketGuest.Location = new System.Drawing.Point(323, 4);
             this.textYellowTicketGuest.Margin = new System.Windows.Forms.Padding(1);
             this.textYellowTicketGuest.Multiline = true;
             this.textYellowTicketGuest.Name = "textYellowTicketGuest";
@@ -1503,7 +1503,7 @@
             // 
             this.btnMinYellowTicketHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinYellowTicketHome.ForeColor = System.Drawing.Color.Red;
-            this.btnMinYellowTicketHome.Location = new System.Drawing.Point(382, -1);
+            this.btnMinYellowTicketHome.Location = new System.Drawing.Point(0, -2);
             this.btnMinYellowTicketHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinYellowTicketHome.Name = "btnMinYellowTicketHome";
             this.btnMinYellowTicketHome.Size = new System.Drawing.Size(27, 36);
@@ -1516,7 +1516,7 @@
             // 
             this.btnAddYellowTicketHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddYellowTicketHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddYellowTicketHome.Location = new System.Drawing.Point(357, -1);
+            this.btnAddYellowTicketHome.Location = new System.Drawing.Point(24, -1);
             this.btnAddYellowTicketHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddYellowTicketHome.Name = "btnAddYellowTicketHome";
             this.btnAddYellowTicketHome.Size = new System.Drawing.Size(27, 36);
@@ -1529,7 +1529,7 @@
             // 
             this.btnMinYellowTicketGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinYellowTicketGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinYellowTicketGuest.Location = new System.Drawing.Point(-1, -1);
+            this.btnMinYellowTicketGuest.Location = new System.Drawing.Point(382, -2);
             this.btnMinYellowTicketGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinYellowTicketGuest.Name = "btnMinYellowTicketGuest";
             this.btnMinYellowTicketGuest.Size = new System.Drawing.Size(27, 36);
@@ -1542,7 +1542,7 @@
             // 
             this.btnAddYellowTicketGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddYellowTicketGuest.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddYellowTicketGuest.Location = new System.Drawing.Point(24, -1);
+            this.btnAddYellowTicketGuest.Location = new System.Drawing.Point(356, -1);
             this.btnAddYellowTicketGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddYellowTicketGuest.Name = "btnAddYellowTicketGuest";
             this.btnAddYellowTicketGuest.Size = new System.Drawing.Size(27, 36);
@@ -1559,8 +1559,8 @@
             this.panel4.Controls.Add(this.textBox12);
             this.panel4.Controls.Add(this.btnMinShotTargetHome);
             this.panel4.Controls.Add(this.btnAddShotTargetHome);
-            this.panel4.Controls.Add(this.btnMinShotTargetGuest);
             this.panel4.Controls.Add(this.btnAddShotTargetGuest);
+            this.panel4.Controls.Add(this.btnMinShotTargetGuest);
             this.panel4.Enabled = false;
             this.panel4.Location = new System.Drawing.Point(0, 68);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
@@ -1571,7 +1571,7 @@
             // textShotTargetHome
             // 
             this.textShotTargetHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textShotTargetHome.Location = new System.Drawing.Point(323, 4);
+            this.textShotTargetHome.Location = new System.Drawing.Point(51, 4);
             this.textShotTargetHome.Margin = new System.Windows.Forms.Padding(1);
             this.textShotTargetHome.Multiline = true;
             this.textShotTargetHome.Name = "textShotTargetHome";
@@ -1583,7 +1583,7 @@
             // textShotTargetGuest
             // 
             this.textShotTargetGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textShotTargetGuest.Location = new System.Drawing.Point(51, 4);
+            this.textShotTargetGuest.Location = new System.Drawing.Point(323, 4);
             this.textShotTargetGuest.Margin = new System.Windows.Forms.Padding(1);
             this.textShotTargetGuest.Multiline = true;
             this.textShotTargetGuest.Name = "textShotTargetGuest";
@@ -1606,7 +1606,7 @@
             // 
             this.btnMinShotTargetHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinShotTargetHome.ForeColor = System.Drawing.Color.Red;
-            this.btnMinShotTargetHome.Location = new System.Drawing.Point(382, -1);
+            this.btnMinShotTargetHome.Location = new System.Drawing.Point(-1, -3);
             this.btnMinShotTargetHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinShotTargetHome.Name = "btnMinShotTargetHome";
             this.btnMinShotTargetHome.Size = new System.Drawing.Size(27, 36);
@@ -1618,7 +1618,7 @@
             // 
             this.btnAddShotTargetHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddShotTargetHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddShotTargetHome.Location = new System.Drawing.Point(357, -1);
+            this.btnAddShotTargetHome.Location = new System.Drawing.Point(23, -2);
             this.btnAddShotTargetHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddShotTargetHome.Name = "btnAddShotTargetHome";
             this.btnAddShotTargetHome.Size = new System.Drawing.Size(27, 36);
@@ -1630,7 +1630,7 @@
             // 
             this.btnMinShotTargetGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinShotTargetGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinShotTargetGuest.Location = new System.Drawing.Point(-1, -1);
+            this.btnMinShotTargetGuest.Location = new System.Drawing.Point(382, -2);
             this.btnMinShotTargetGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinShotTargetGuest.Name = "btnMinShotTargetGuest";
             this.btnMinShotTargetGuest.Size = new System.Drawing.Size(27, 36);
@@ -1642,7 +1642,7 @@
             // 
             this.btnAddShotTargetGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddShotTargetGuest.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddShotTargetGuest.Location = new System.Drawing.Point(24, -1);
+            this.btnAddShotTargetGuest.Location = new System.Drawing.Point(357, -2);
             this.btnAddShotTargetGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddShotTargetGuest.Name = "btnAddShotTargetGuest";
             this.btnAddShotTargetGuest.Size = new System.Drawing.Size(27, 36);
@@ -1670,7 +1670,7 @@
             // textFoulHome
             // 
             this.textFoulHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textFoulHome.Location = new System.Drawing.Point(323, 4);
+            this.textFoulHome.Location = new System.Drawing.Point(51, 4);
             this.textFoulHome.Margin = new System.Windows.Forms.Padding(1);
             this.textFoulHome.Multiline = true;
             this.textFoulHome.Name = "textFoulHome";
@@ -1682,7 +1682,7 @@
             // textFoulGuest
             // 
             this.textFoulGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textFoulGuest.Location = new System.Drawing.Point(51, 4);
+            this.textFoulGuest.Location = new System.Drawing.Point(323, 4);
             this.textFoulGuest.Margin = new System.Windows.Forms.Padding(1);
             this.textFoulGuest.Multiline = true;
             this.textFoulGuest.Name = "textFoulGuest";
@@ -1705,7 +1705,7 @@
             // 
             this.btnMinFoulHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinFoulHome.ForeColor = System.Drawing.Color.Red;
-            this.btnMinFoulHome.Location = new System.Drawing.Point(382, -1);
+            this.btnMinFoulHome.Location = new System.Drawing.Point(0, 0);
             this.btnMinFoulHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinFoulHome.Name = "btnMinFoulHome";
             this.btnMinFoulHome.Size = new System.Drawing.Size(27, 36);
@@ -1717,7 +1717,7 @@
             // 
             this.btnAddFoulHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddFoulHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddFoulHome.Location = new System.Drawing.Point(357, -1);
+            this.btnAddFoulHome.Location = new System.Drawing.Point(23, -1);
             this.btnAddFoulHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddFoulHome.Name = "btnAddFoulHome";
             this.btnAddFoulHome.Size = new System.Drawing.Size(27, 36);
@@ -1729,7 +1729,7 @@
             // 
             this.btnMinFoulGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinFoulGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinFoulGuest.Location = new System.Drawing.Point(-1, -1);
+            this.btnMinFoulGuest.Location = new System.Drawing.Point(383, -1);
             this.btnMinFoulGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinFoulGuest.Name = "btnMinFoulGuest";
             this.btnMinFoulGuest.Size = new System.Drawing.Size(27, 36);
@@ -1741,7 +1741,7 @@
             // 
             this.btnAddFoulGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddFoulGuest.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddFoulGuest.Location = new System.Drawing.Point(24, -1);
+            this.btnAddFoulGuest.Location = new System.Drawing.Point(357, 0);
             this.btnAddFoulGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddFoulGuest.Name = "btnAddFoulGuest";
             this.btnAddFoulGuest.Size = new System.Drawing.Size(27, 36);
@@ -1769,7 +1769,7 @@
             // textCornerHome
             // 
             this.textCornerHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textCornerHome.Location = new System.Drawing.Point(323, 4);
+            this.textCornerHome.Location = new System.Drawing.Point(51, 4);
             this.textCornerHome.Margin = new System.Windows.Forms.Padding(1);
             this.textCornerHome.Multiline = true;
             this.textCornerHome.Name = "textCornerHome";
@@ -1781,7 +1781,7 @@
             // textCornerGuest
             // 
             this.textCornerGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textCornerGuest.Location = new System.Drawing.Point(51, 4);
+            this.textCornerGuest.Location = new System.Drawing.Point(323, 4);
             this.textCornerGuest.Margin = new System.Windows.Forms.Padding(1);
             this.textCornerGuest.Multiline = true;
             this.textCornerGuest.Name = "textCornerGuest";
@@ -1804,7 +1804,7 @@
             // 
             this.btnMinCornerHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinCornerHome.ForeColor = System.Drawing.Color.Red;
-            this.btnMinCornerHome.Location = new System.Drawing.Point(382, -1);
+            this.btnMinCornerHome.Location = new System.Drawing.Point(-1, -3);
             this.btnMinCornerHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinCornerHome.Name = "btnMinCornerHome";
             this.btnMinCornerHome.Size = new System.Drawing.Size(27, 36);
@@ -1816,7 +1816,7 @@
             // 
             this.btnAddCornerHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddCornerHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddCornerHome.Location = new System.Drawing.Point(357, -1);
+            this.btnAddCornerHome.Location = new System.Drawing.Point(23, -2);
             this.btnAddCornerHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddCornerHome.Name = "btnAddCornerHome";
             this.btnAddCornerHome.Size = new System.Drawing.Size(27, 36);
@@ -1828,7 +1828,7 @@
             // 
             this.btnMinCornerGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinCornerGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinCornerGuest.Location = new System.Drawing.Point(-1, -1);
+            this.btnMinCornerGuest.Location = new System.Drawing.Point(382, -3);
             this.btnMinCornerGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinCornerGuest.Name = "btnMinCornerGuest";
             this.btnMinCornerGuest.Size = new System.Drawing.Size(27, 36);
@@ -1840,7 +1840,7 @@
             // 
             this.btnAddCornerGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddCornerGuest.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddCornerGuest.Location = new System.Drawing.Point(24, -1);
+            this.btnAddCornerGuest.Location = new System.Drawing.Point(357, -1);
             this.btnAddCornerGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddCornerGuest.Name = "btnAddCornerGuest";
             this.btnAddCornerGuest.Size = new System.Drawing.Size(27, 36);
@@ -1856,8 +1856,8 @@
             this.panel6.Controls.Add(this.textBox18);
             this.panel6.Controls.Add(this.btnMinAccuratePassHome);
             this.panel6.Controls.Add(this.btnAddAccuratePassHome);
-            this.panel6.Controls.Add(this.btnMinAccuratePassGuest);
             this.panel6.Controls.Add(this.btnAddAccuratePassGuest);
+            this.panel6.Controls.Add(this.btnMinAccuratePassGuest);
             this.panel6.Enabled = false;
             this.panel6.Location = new System.Drawing.Point(0, 204);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
@@ -1868,7 +1868,7 @@
             // textAccuratePassHome
             // 
             this.textAccuratePassHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textAccuratePassHome.Location = new System.Drawing.Point(323, 4);
+            this.textAccuratePassHome.Location = new System.Drawing.Point(51, 4);
             this.textAccuratePassHome.Margin = new System.Windows.Forms.Padding(1);
             this.textAccuratePassHome.Multiline = true;
             this.textAccuratePassHome.Name = "textAccuratePassHome";
@@ -1880,7 +1880,7 @@
             // textAccuratePassGuest
             // 
             this.textAccuratePassGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textAccuratePassGuest.Location = new System.Drawing.Point(51, 4);
+            this.textAccuratePassGuest.Location = new System.Drawing.Point(323, 4);
             this.textAccuratePassGuest.Margin = new System.Windows.Forms.Padding(1);
             this.textAccuratePassGuest.Multiline = true;
             this.textAccuratePassGuest.Name = "textAccuratePassGuest";
@@ -1903,7 +1903,7 @@
             // 
             this.btnMinAccuratePassHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinAccuratePassHome.ForeColor = System.Drawing.Color.Red;
-            this.btnMinAccuratePassHome.Location = new System.Drawing.Point(382, -1);
+            this.btnMinAccuratePassHome.Location = new System.Drawing.Point(0, -1);
             this.btnMinAccuratePassHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinAccuratePassHome.Name = "btnMinAccuratePassHome";
             this.btnMinAccuratePassHome.Size = new System.Drawing.Size(27, 36);
@@ -1915,7 +1915,7 @@
             // 
             this.btnAddAccuratePassHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddAccuratePassHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddAccuratePassHome.Location = new System.Drawing.Point(357, -1);
+            this.btnAddAccuratePassHome.Location = new System.Drawing.Point(26, -1);
             this.btnAddAccuratePassHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddAccuratePassHome.Name = "btnAddAccuratePassHome";
             this.btnAddAccuratePassHome.Size = new System.Drawing.Size(27, 36);
@@ -1927,7 +1927,7 @@
             // 
             this.btnMinAccuratePassGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinAccuratePassGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinAccuratePassGuest.Location = new System.Drawing.Point(-1, -1);
+            this.btnMinAccuratePassGuest.Location = new System.Drawing.Point(383, -2);
             this.btnMinAccuratePassGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinAccuratePassGuest.Name = "btnMinAccuratePassGuest";
             this.btnMinAccuratePassGuest.Size = new System.Drawing.Size(27, 36);
@@ -1939,7 +1939,7 @@
             // 
             this.btnAddAccuratePassGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddAccuratePassGuest.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddAccuratePassGuest.Location = new System.Drawing.Point(24, -1);
+            this.btnAddAccuratePassGuest.Location = new System.Drawing.Point(357, 0);
             this.btnAddAccuratePassGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddAccuratePassGuest.Name = "btnAddAccuratePassGuest";
             this.btnAddAccuratePassGuest.Size = new System.Drawing.Size(27, 36);
@@ -1967,7 +1967,7 @@
             // textOffsideHome
             // 
             this.textOffsideHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textOffsideHome.Location = new System.Drawing.Point(323, 4);
+            this.textOffsideHome.Location = new System.Drawing.Point(51, 4);
             this.textOffsideHome.Margin = new System.Windows.Forms.Padding(1);
             this.textOffsideHome.Multiline = true;
             this.textOffsideHome.Name = "textOffsideHome";
@@ -1979,7 +1979,7 @@
             // textOffsideGuest
             // 
             this.textOffsideGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textOffsideGuest.Location = new System.Drawing.Point(51, 4);
+            this.textOffsideGuest.Location = new System.Drawing.Point(323, 4);
             this.textOffsideGuest.Margin = new System.Windows.Forms.Padding(1);
             this.textOffsideGuest.Multiline = true;
             this.textOffsideGuest.Name = "textOffsideGuest";
@@ -2002,7 +2002,7 @@
             // 
             this.btnMinOffsideHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinOffsideHome.ForeColor = System.Drawing.Color.Red;
-            this.btnMinOffsideHome.Location = new System.Drawing.Point(382, -1);
+            this.btnMinOffsideHome.Location = new System.Drawing.Point(-3, -3);
             this.btnMinOffsideHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinOffsideHome.Name = "btnMinOffsideHome";
             this.btnMinOffsideHome.Size = new System.Drawing.Size(27, 36);
@@ -2014,7 +2014,7 @@
             // 
             this.btnAddOffsideHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddOffsideHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddOffsideHome.Location = new System.Drawing.Point(357, -1);
+            this.btnAddOffsideHome.Location = new System.Drawing.Point(23, -2);
             this.btnAddOffsideHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddOffsideHome.Name = "btnAddOffsideHome";
             this.btnAddOffsideHome.Size = new System.Drawing.Size(27, 36);
@@ -2026,7 +2026,7 @@
             // 
             this.btnMinOffsideGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinOffsideGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinOffsideGuest.Location = new System.Drawing.Point(-1, -1);
+            this.btnMinOffsideGuest.Location = new System.Drawing.Point(382, 1);
             this.btnMinOffsideGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinOffsideGuest.Name = "btnMinOffsideGuest";
             this.btnMinOffsideGuest.Size = new System.Drawing.Size(27, 36);
@@ -2038,7 +2038,7 @@
             // 
             this.btnAddOffsideGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddOffsideGuest.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddOffsideGuest.Location = new System.Drawing.Point(24, -1);
+            this.btnAddOffsideGuest.Location = new System.Drawing.Point(357, 0);
             this.btnAddOffsideGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddOffsideGuest.Name = "btnAddOffsideGuest";
             this.btnAddOffsideGuest.Size = new System.Drawing.Size(27, 36);
@@ -2066,7 +2066,7 @@
             // textPassHome
             // 
             this.textPassHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textPassHome.Location = new System.Drawing.Point(323, 4);
+            this.textPassHome.Location = new System.Drawing.Point(51, 4);
             this.textPassHome.Margin = new System.Windows.Forms.Padding(1);
             this.textPassHome.Multiline = true;
             this.textPassHome.Name = "textPassHome";
@@ -2078,7 +2078,7 @@
             // textPassGuest
             // 
             this.textPassGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textPassGuest.Location = new System.Drawing.Point(51, 4);
+            this.textPassGuest.Location = new System.Drawing.Point(323, 4);
             this.textPassGuest.Margin = new System.Windows.Forms.Padding(1);
             this.textPassGuest.Multiline = true;
             this.textPassGuest.Name = "textPassGuest";
@@ -2101,7 +2101,7 @@
             // 
             this.btnMinPassHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinPassHome.ForeColor = System.Drawing.Color.Red;
-            this.btnMinPassHome.Location = new System.Drawing.Point(382, -1);
+            this.btnMinPassHome.Location = new System.Drawing.Point(0, -1);
             this.btnMinPassHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinPassHome.Name = "btnMinPassHome";
             this.btnMinPassHome.Size = new System.Drawing.Size(27, 36);
@@ -2113,7 +2113,7 @@
             // 
             this.btnAddPassHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddPassHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddPassHome.Location = new System.Drawing.Point(357, -1);
+            this.btnAddPassHome.Location = new System.Drawing.Point(23, 0);
             this.btnAddPassHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddPassHome.Name = "btnAddPassHome";
             this.btnAddPassHome.Size = new System.Drawing.Size(27, 36);
@@ -2125,7 +2125,7 @@
             // 
             this.btnMinPassGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinPassGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinPassGuest.Location = new System.Drawing.Point(-1, -1);
+            this.btnMinPassGuest.Location = new System.Drawing.Point(383, -2);
             this.btnMinPassGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinPassGuest.Name = "btnMinPassGuest";
             this.btnMinPassGuest.Size = new System.Drawing.Size(27, 36);
@@ -2137,7 +2137,7 @@
             // 
             this.btnAddPassGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddPassGuest.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddPassGuest.Location = new System.Drawing.Point(24, -1);
+            this.btnAddPassGuest.Location = new System.Drawing.Point(357, 0);
             this.btnAddPassGuest.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddPassGuest.Name = "btnAddPassGuest";
             this.btnAddPassGuest.Size = new System.Drawing.Size(27, 36);

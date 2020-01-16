@@ -48,27 +48,33 @@
 				// ----- up_title -----
 				if(element.@id == "team1Name")
 				{
-					 up_title.team1Name = element.data.@value;
+					// Here is guest
+					 up_title.team2Name = element.data.@value;
 				}
 				if(element.@id == "team2Name")
 				{
-					 up_title.team2Name = element.data.@value;
+					// Here is home
+					 up_title.team1Name = element.data.@value;
 				}
 				if(element.@id == "team1Color")
 				{
-					up_title.team1Color = element.data.@value;
+					//Here is guest
+					up_title.team2Color = element.data.@value;
 				}
 				if(element.@id == "team2Color")
 				{
-					up_title.team2Color = element.data.@value;
+					// Here is home
+					up_title.team1Color = element.data.@value;
 				}
 				if(element.@id == "team1Score")
 				{
-					 up_title.team1Score = element.data.@value;
+					// Here is guest
+					 up_title.team2Score = element.data.@value;
 				}
 				if(element.@id == "team2Score")
 				{
-					 up_title.team2Score = element.data.@value;
+					// Here is home
+					 up_title.team1Score = element.data.@value;
 				}
 				// ----- up_title -----
 				
@@ -450,25 +456,6 @@
 		public function RedCard1LeftOnClockShowHide():void
 		{
 			// Hide Card
-			if (_isVisibleRedCard1Left)
-			{
-				up_title.HideLeftRedCard1();
-				_isVisibleRedCard1Left = false;
-			}
-			// Show
-			else
-			{
-				up_title.ShowLeftRedCard1();
-				_isVisibleRedCard1Left = true;
-			}
-		}
-		public function RedCard2LeftOnClockShowHide():void
-		{
-			
-		}
-		public function RedCard1RightOnClockShowHide():void
-		{
-			// Hide Card
 			if (_isVisibleRedCard1Right)
 			{
 				up_title.HideRightRedCard1();
@@ -479,6 +466,26 @@
 			{
 				up_title.ShowRightRedCard1();
 				_isVisibleRedCard1Right = true;
+			}
+		}
+		public function RedCard2LeftOnClockShowHide():void
+		{
+			
+		}
+		public function RedCard1RightOnClockShowHide():void
+		{
+			
+						// Hide Card
+			if (_isVisibleRedCard1Left)
+			{
+				up_title.HideLeftRedCard1();
+				_isVisibleRedCard1Left = false;
+			}
+			// Show
+			else
+			{
+				up_title.ShowLeftRedCard1();
+				_isVisibleRedCard1Left = true;
 			}
 		}
 		public function RedCard2RightOnClockShowHide():void
@@ -698,7 +705,7 @@
 		
 		public function PlayerClockShowHide():void
 		{
-			if(_isRightTeam)
+			if(!_isRightTeam)
 			{
 				if(_isPlayerClockVisible)
 				{
