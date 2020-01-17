@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbCasparServer = new System.Windows.Forms.TextBox();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.btnClearGraphics = new System.Windows.Forms.Button();
@@ -44,7 +44,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.dtpTimeWelWin = new System.Windows.Forms.DateTimePicker();
@@ -78,29 +77,28 @@
             this.gpStartStopTemplate = new System.Windows.Forms.GroupBox();
             this.btnStartGraphics = new System.Windows.Forms.Button();
             this.btnStopGraphics = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.btnTeam2AddScore = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnTeam2MinusScore = new System.Windows.Forms.Button();
-            this.tBScoreTeam2 = new System.Windows.Forms.TextBox();
-            this.textNameHome = new System.Windows.Forms.TextBox();
-            this.buttonColorTeamHome = new System.Windows.Forms.Button();
-            this.dataGridPlayersHome = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridPlayersPairsHome = new System.Windows.Forms.DataGridView();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textNameGuest = new System.Windows.Forms.TextBox();
-            this.btnTeam1AddScore = new System.Windows.Forms.Button();
             this.buttonColorTeamGuest = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnTeam1AddScore = new System.Windows.Forms.Button();
             this.btnTeam1MinusScore = new System.Windows.Forms.Button();
+            this.textNameGuest = new System.Windows.Forms.TextBox();
             this.tBScoreTeam1 = new System.Windows.Forms.TextBox();
             this.dataGridPlayersGuest = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.dataGridPlayersPairsGuest = new System.Windows.Forms.DataGridView();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnTeam2AddScore = new System.Windows.Forms.Button();
+            this.btnTeam2MinusScore = new System.Windows.Forms.Button();
+            this.buttonColorTeamHome = new System.Windows.Forms.Button();
+            this.tBScoreTeam2 = new System.Windows.Forms.TextBox();
+            this.textNameHome = new System.Windows.Forms.TextBox();
+            this.dataGridPlayersHome = new System.Windows.Forms.DataGridView();
+            this.dataGridPlayersPairsHome = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.textNameMatch = new System.Windows.Forms.TextBox();
             this.buttonMatch = new System.Windows.Forms.Button();
@@ -111,8 +109,8 @@
             this.textBox30 = new System.Windows.Forms.TextBox();
             this.btnMinChangeHome = new System.Windows.Forms.Button();
             this.btnAddChangeHome = new System.Windows.Forms.Button();
-            this.btnMinChangeGuest = new System.Windows.Forms.Button();
             this.btnAddChangeGuest = new System.Windows.Forms.Button();
+            this.btnMinChangeGuest = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinGoalGuest = new System.Windows.Forms.Button();
             this.textGoalsHome = new System.Windows.Forms.TextBox();
@@ -143,16 +141,16 @@
             this.textBox36 = new System.Windows.Forms.TextBox();
             this.btnMinYellowTicketHome = new System.Windows.Forms.Button();
             this.btnAddYellowTicketHome = new System.Windows.Forms.Button();
-            this.btnMinYellowTicketGuest = new System.Windows.Forms.Button();
             this.btnAddYellowTicketGuest = new System.Windows.Forms.Button();
+            this.btnMinYellowTicketGuest = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textShotTargetHome = new System.Windows.Forms.TextBox();
             this.textShotTargetGuest = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.btnMinShotTargetHome = new System.Windows.Forms.Button();
             this.btnAddShotTargetHome = new System.Windows.Forms.Button();
-            this.btnMinShotTargetGuest = new System.Windows.Forms.Button();
             this.btnAddShotTargetGuest = new System.Windows.Forms.Button();
+            this.btnMinShotTargetGuest = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.textFoulHome = new System.Windows.Forms.TextBox();
             this.textFoulGuest = new System.Windows.Forms.TextBox();
@@ -175,8 +173,8 @@
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.btnMinAccuratePassHome = new System.Windows.Forms.Button();
             this.btnAddAccuratePassHome = new System.Windows.Forms.Button();
-            this.btnMinAccuratePassGuest = new System.Windows.Forms.Button();
             this.btnAddAccuratePassGuest = new System.Windows.Forms.Button();
+            this.btnMinAccuratePassGuest = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.textOffsideHome = new System.Windows.Forms.TextBox();
             this.textOffsideGuest = new System.Windows.Forms.TextBox();
@@ -193,7 +191,6 @@
             this.btnAddPassHome = new System.Windows.Forms.Button();
             this.btnMinPassGuest = new System.Windows.Forms.Button();
             this.btnAddPassGuest = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.colorDialog3 = new System.Windows.Forms.ColorDialog();
@@ -216,12 +213,12 @@
             this.gpStartStopTemplate.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersHome)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersPairsHome)).BeginInit();
-            this.panel13.SuspendLayout();
-            this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersGuest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersPairsGuest)).BeginInit();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersPairsHome)).BeginInit();
             this.panel17.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -288,7 +285,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(0, 40);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -311,11 +307,9 @@
             // 
             this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel18.AutoScroll = true;
-            this.panel18.Controls.Add(this.groupBox9);
             this.panel18.Controls.Add(this.groupBox5);
             this.panel18.Controls.Add(this.groupBox7);
             this.panel18.Controls.Add(this.gpStartStopTemplate);
-            this.panel18.Controls.Add(this.groupBox2);
             this.panel18.Controls.Add(this.panel15);
             this.panel18.Controls.Add(this.panel13);
             this.panel18.Controls.Add(this.panel17);
@@ -325,22 +319,13 @@
             this.panel18.Size = new System.Drawing.Size(1076, 558);
             this.panel18.TabIndex = 23;
             // 
-            // groupBox9
-            // 
-            this.groupBox9.Location = new System.Drawing.Point(834, 590);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(200, 100);
-            this.groupBox9.TabIndex = 25;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "groupBox9";
-            // 
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.Bisque;
             this.groupBox5.Controls.Add(this.groupBox11);
             this.groupBox5.Controls.Add(this.checkBoxOfficialFaces);
             this.groupBox5.Controls.Add(this.groupBox8);
-            this.groupBox5.Location = new System.Drawing.Point(646, 488);
+            this.groupBox5.Location = new System.Drawing.Point(641, 419);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(406, 98);
             this.groupBox5.TabIndex = 24;
@@ -465,7 +450,7 @@
             this.groupBox7.Controls.Add(this.groupBox4);
             this.groupBox7.Controls.Add(this.groupBox3);
             this.groupBox7.Controls.Add(this.groupBox1);
-            this.groupBox7.Location = new System.Drawing.Point(79, 487);
+            this.groupBox7.Location = new System.Drawing.Point(79, 419);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(561, 98);
             this.groupBox7.TabIndex = 22;
@@ -678,7 +663,7 @@
             // 
             this.gpStartStopTemplate.Controls.Add(this.btnStartGraphics);
             this.gpStartStopTemplate.Controls.Add(this.btnStopGraphics);
-            this.gpStartStopTemplate.Location = new System.Drawing.Point(8, 484);
+            this.gpStartStopTemplate.Location = new System.Drawing.Point(8, 415);
             this.gpStartStopTemplate.Name = "gpStartStopTemplate";
             this.gpStartStopTemplate.Size = new System.Drawing.Size(65, 102);
             this.gpStartStopTemplate.TabIndex = 21;
@@ -711,15 +696,6 @@
             this.btnStopGraphics.UseVisualStyleBackColor = false;
             this.btnStopGraphics.Click += new System.EventHandler(this.BtnStopGraphics_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(8, 415);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1044, 66);
-            this.groupBox2.TabIndex = 16;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Настройки события (показывается при нажатии + или -)";
-            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.panel16);
@@ -744,89 +720,88 @@
             this.panel16.Size = new System.Drawing.Size(309, 26);
             this.panel16.TabIndex = 8;
             // 
-            // btnTeam2AddScore
+            // buttonColorTeamGuest
             // 
-            this.btnTeam2AddScore.BackColor = System.Drawing.Color.Honeydew;
-            this.btnTeam2AddScore.Location = new System.Drawing.Point(217, 4);
-            this.btnTeam2AddScore.Name = "btnTeam2AddScore";
-            this.btnTeam2AddScore.Size = new System.Drawing.Size(26, 23);
-            this.btnTeam2AddScore.TabIndex = 3;
-            this.btnTeam2AddScore.Text = "+";
-            this.btnTeam2AddScore.UseVisualStyleBackColor = false;
-            this.btnTeam2AddScore.Click += new System.EventHandler(this.BtnTeam2AddScore_Click);
+            this.buttonColorTeamGuest.BackColor = System.Drawing.Color.Maroon;
+            this.buttonColorTeamGuest.Location = new System.Drawing.Point(267, 1);
+            this.buttonColorTeamGuest.Name = "buttonColorTeamGuest";
+            this.buttonColorTeamGuest.Size = new System.Drawing.Size(39, 20);
+            this.buttonColorTeamGuest.TabIndex = 5;
+            this.buttonColorTeamGuest.UseVisualStyleBackColor = false;
+            this.buttonColorTeamGuest.Click += new System.EventHandler(this.ClickButtonColorTeamGuest);
             // 
-            // label6
+            // label5
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(4, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 16);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Дом";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(-1, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 16);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Гости";
             // 
-            // btnTeam2MinusScore
+            // btnTeam1AddScore
             // 
-            this.btnTeam2MinusScore.BackColor = System.Drawing.Color.Salmon;
-            this.btnTeam2MinusScore.Location = new System.Drawing.Point(164, 4);
-            this.btnTeam2MinusScore.Name = "btnTeam2MinusScore";
-            this.btnTeam2MinusScore.Size = new System.Drawing.Size(26, 23);
-            this.btnTeam2MinusScore.TabIndex = 2;
-            this.btnTeam2MinusScore.Text = "-";
-            this.btnTeam2MinusScore.UseVisualStyleBackColor = false;
-            this.btnTeam2MinusScore.Click += new System.EventHandler(this.BtnTeam2MinusScore_Click);
+            this.btnTeam1AddScore.BackColor = System.Drawing.Color.Honeydew;
+            this.btnTeam1AddScore.Location = new System.Drawing.Point(209, 1);
+            this.btnTeam1AddScore.Name = "btnTeam1AddScore";
+            this.btnTeam1AddScore.Size = new System.Drawing.Size(26, 23);
+            this.btnTeam1AddScore.TabIndex = 1;
+            this.btnTeam1AddScore.Text = "+";
+            this.btnTeam1AddScore.UseVisualStyleBackColor = false;
+            this.btnTeam1AddScore.Click += new System.EventHandler(this.BtnTeam1AddScore_Click);
             // 
-            // tBScoreTeam2
+            // btnTeam1MinusScore
             // 
-            this.tBScoreTeam2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBScoreTeam2.Location = new System.Drawing.Point(191, 5);
-            this.tBScoreTeam2.Name = "tBScoreTeam2";
-            this.tBScoreTeam2.Size = new System.Drawing.Size(26, 22);
-            this.tBScoreTeam2.TabIndex = 3;
-            this.tBScoreTeam2.TabStop = false;
-            this.tBScoreTeam2.Text = "0";
-            this.tBScoreTeam2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tBScoreTeam2.TextChanged += new System.EventHandler(this.UpdateScoresCG);
+            this.btnTeam1MinusScore.BackColor = System.Drawing.Color.Salmon;
+            this.btnTeam1MinusScore.Location = new System.Drawing.Point(156, 1);
+            this.btnTeam1MinusScore.Name = "btnTeam1MinusScore";
+            this.btnTeam1MinusScore.Size = new System.Drawing.Size(26, 23);
+            this.btnTeam1MinusScore.TabIndex = 0;
+            this.btnTeam1MinusScore.Text = "-";
+            this.btnTeam1MinusScore.UseVisualStyleBackColor = false;
+            this.btnTeam1MinusScore.Click += new System.EventHandler(this.BtnTeam1MinusScore_Click);
             // 
-            // textNameHome
+            // textNameGuest
             // 
-            this.textNameHome.Location = new System.Drawing.Point(44, 4);
-            this.textNameHome.Name = "textNameHome";
-            this.textNameHome.ReadOnly = true;
-            this.textNameHome.Size = new System.Drawing.Size(100, 20);
-            this.textNameHome.TabIndex = 6;
-            this.textNameHome.Text = "РОТ";
-            this.textNameHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textNameGuest.Location = new System.Drawing.Point(55, 4);
+            this.textNameGuest.Name = "textNameGuest";
+            this.textNameGuest.ReadOnly = true;
+            this.textNameGuest.Size = new System.Drawing.Size(85, 20);
+            this.textNameGuest.TabIndex = 6;
+            this.textNameGuest.Text = "РОТ";
+            this.textNameGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // buttonColorTeamHome
+            // tBScoreTeam1
             // 
-            this.buttonColorTeamHome.BackColor = System.Drawing.Color.Gold;
-            this.buttonColorTeamHome.Location = new System.Drawing.Point(270, 1);
-            this.buttonColorTeamHome.Name = "buttonColorTeamHome";
-            this.buttonColorTeamHome.Size = new System.Drawing.Size(36, 23);
-            this.buttonColorTeamHome.TabIndex = 6;
-            this.buttonColorTeamHome.UseVisualStyleBackColor = false;
-            this.buttonColorTeamHome.Click += new System.EventHandler(this.ClickButtonColorTeamHome);
+            this.tBScoreTeam1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBScoreTeam1.Location = new System.Drawing.Point(183, 2);
+            this.tBScoreTeam1.Name = "tBScoreTeam1";
+            this.tBScoreTeam1.Size = new System.Drawing.Size(25, 22);
+            this.tBScoreTeam1.TabIndex = 99;
+            this.tBScoreTeam1.TabStop = false;
+            this.tBScoreTeam1.Text = "0";
+            this.tBScoreTeam1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBScoreTeam1.TextChanged += new System.EventHandler(this.UpdateScoresCG);
             // 
-            // dataGridPlayersHome
+            // dataGridPlayersGuest
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridPlayersHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridPlayersHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPlayersHome.Location = new System.Drawing.Point(-1, 38);
-            this.dataGridPlayersHome.Name = "dataGridPlayersHome";
-            this.dataGridPlayersHome.Size = new System.Drawing.Size(313, 202);
-            this.dataGridPlayersHome.TabIndex = 0;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            this.dataGridPlayersGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            this.dataGridPlayersGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPlayersGuest.Location = new System.Drawing.Point(3, 31);
+            this.dataGridPlayersGuest.Name = "dataGridPlayersGuest";
+            this.dataGridPlayersGuest.Size = new System.Drawing.Size(312, 202);
+            this.dataGridPlayersGuest.TabIndex = 0;
             // 
             // label4
             // 
@@ -839,24 +814,24 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Запасные";
             // 
-            // dataGridPlayersPairsHome
+            // dataGridPlayersPairsGuest
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersPairsHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridPlayersPairsHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridPlayersPairsHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPlayersPairsHome.Location = new System.Drawing.Point(0, 259);
-            this.dataGridPlayersPairsHome.Name = "dataGridPlayersPairsHome";
-            this.dataGridPlayersPairsHome.Size = new System.Drawing.Size(315, 147);
-            this.dataGridPlayersPairsHome.TabIndex = 7;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersPairsGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridPlayersPairsGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridPlayersPairsGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPlayersPairsGuest.Location = new System.Drawing.Point(3, 256);
+            this.dataGridPlayersPairsGuest.Name = "dataGridPlayersPairsGuest";
+            this.dataGridPlayersPairsGuest.Size = new System.Drawing.Size(315, 147);
+            this.dataGridPlayersPairsGuest.TabIndex = 7;
             // 
             // panel13
             // 
@@ -882,88 +857,108 @@
             this.panel14.Size = new System.Drawing.Size(309, 26);
             this.panel14.TabIndex = 8;
             // 
-            // label5
+            // label6
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(-1, 4);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 16);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Гости";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(4, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 16);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Дом";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // textNameGuest
+            // btnTeam2AddScore
             // 
-            this.textNameGuest.Location = new System.Drawing.Point(55, 4);
-            this.textNameGuest.Name = "textNameGuest";
-            this.textNameGuest.ReadOnly = true;
-            this.textNameGuest.Size = new System.Drawing.Size(85, 20);
-            this.textNameGuest.TabIndex = 6;
-            this.textNameGuest.Text = "РОТ";
-            this.textNameGuest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnTeam2AddScore.BackColor = System.Drawing.Color.Honeydew;
+            this.btnTeam2AddScore.Location = new System.Drawing.Point(217, 4);
+            this.btnTeam2AddScore.Name = "btnTeam2AddScore";
+            this.btnTeam2AddScore.Size = new System.Drawing.Size(26, 23);
+            this.btnTeam2AddScore.TabIndex = 3;
+            this.btnTeam2AddScore.Text = "+";
+            this.btnTeam2AddScore.UseVisualStyleBackColor = false;
+            this.btnTeam2AddScore.Click += new System.EventHandler(this.BtnTeam2AddScore_Click);
             // 
-            // btnTeam1AddScore
+            // btnTeam2MinusScore
             // 
-            this.btnTeam1AddScore.BackColor = System.Drawing.Color.Honeydew;
-            this.btnTeam1AddScore.Location = new System.Drawing.Point(209, 1);
-            this.btnTeam1AddScore.Name = "btnTeam1AddScore";
-            this.btnTeam1AddScore.Size = new System.Drawing.Size(26, 23);
-            this.btnTeam1AddScore.TabIndex = 1;
-            this.btnTeam1AddScore.Text = "+";
-            this.btnTeam1AddScore.UseVisualStyleBackColor = false;
-            this.btnTeam1AddScore.Click += new System.EventHandler(this.BtnTeam1AddScore_Click);
+            this.btnTeam2MinusScore.BackColor = System.Drawing.Color.Salmon;
+            this.btnTeam2MinusScore.Location = new System.Drawing.Point(164, 4);
+            this.btnTeam2MinusScore.Name = "btnTeam2MinusScore";
+            this.btnTeam2MinusScore.Size = new System.Drawing.Size(26, 23);
+            this.btnTeam2MinusScore.TabIndex = 2;
+            this.btnTeam2MinusScore.Text = "-";
+            this.btnTeam2MinusScore.UseVisualStyleBackColor = false;
+            this.btnTeam2MinusScore.Click += new System.EventHandler(this.BtnTeam2MinusScore_Click);
             // 
-            // buttonColorTeamGuest
+            // buttonColorTeamHome
             // 
-            this.buttonColorTeamGuest.BackColor = System.Drawing.Color.Maroon;
-            this.buttonColorTeamGuest.Location = new System.Drawing.Point(267, 1);
-            this.buttonColorTeamGuest.Name = "buttonColorTeamGuest";
-            this.buttonColorTeamGuest.Size = new System.Drawing.Size(39, 20);
-            this.buttonColorTeamGuest.TabIndex = 5;
-            this.buttonColorTeamGuest.UseVisualStyleBackColor = false;
-            this.buttonColorTeamGuest.Click += new System.EventHandler(this.ClickButtonColorTeamGuest);
+            this.buttonColorTeamHome.BackColor = System.Drawing.Color.Gold;
+            this.buttonColorTeamHome.Location = new System.Drawing.Point(270, 1);
+            this.buttonColorTeamHome.Name = "buttonColorTeamHome";
+            this.buttonColorTeamHome.Size = new System.Drawing.Size(36, 23);
+            this.buttonColorTeamHome.TabIndex = 6;
+            this.buttonColorTeamHome.UseVisualStyleBackColor = false;
+            this.buttonColorTeamHome.Click += new System.EventHandler(this.ClickButtonColorTeamHome);
             // 
-            // btnTeam1MinusScore
+            // tBScoreTeam2
             // 
-            this.btnTeam1MinusScore.BackColor = System.Drawing.Color.Salmon;
-            this.btnTeam1MinusScore.Location = new System.Drawing.Point(156, 1);
-            this.btnTeam1MinusScore.Name = "btnTeam1MinusScore";
-            this.btnTeam1MinusScore.Size = new System.Drawing.Size(26, 23);
-            this.btnTeam1MinusScore.TabIndex = 0;
-            this.btnTeam1MinusScore.Text = "-";
-            this.btnTeam1MinusScore.UseVisualStyleBackColor = false;
-            this.btnTeam1MinusScore.Click += new System.EventHandler(this.BtnTeam1MinusScore_Click);
+            this.tBScoreTeam2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBScoreTeam2.Location = new System.Drawing.Point(191, 5);
+            this.tBScoreTeam2.Name = "tBScoreTeam2";
+            this.tBScoreTeam2.Size = new System.Drawing.Size(26, 22);
+            this.tBScoreTeam2.TabIndex = 3;
+            this.tBScoreTeam2.TabStop = false;
+            this.tBScoreTeam2.Text = "0";
+            this.tBScoreTeam2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBScoreTeam2.TextChanged += new System.EventHandler(this.UpdateScoresCG);
             // 
-            // tBScoreTeam1
+            // textNameHome
             // 
-            this.tBScoreTeam1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBScoreTeam1.Location = new System.Drawing.Point(183, 2);
-            this.tBScoreTeam1.Name = "tBScoreTeam1";
-            this.tBScoreTeam1.Size = new System.Drawing.Size(25, 22);
-            this.tBScoreTeam1.TabIndex = 99;
-            this.tBScoreTeam1.TabStop = false;
-            this.tBScoreTeam1.Text = "0";
-            this.tBScoreTeam1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tBScoreTeam1.TextChanged += new System.EventHandler(this.UpdateScoresCG);
+            this.textNameHome.Location = new System.Drawing.Point(44, 4);
+            this.textNameHome.Name = "textNameHome";
+            this.textNameHome.ReadOnly = true;
+            this.textNameHome.Size = new System.Drawing.Size(100, 20);
+            this.textNameHome.TabIndex = 6;
+            this.textNameHome.Text = "РОТ";
+            this.textNameHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // dataGridPlayersGuest
+            // dataGridPlayersHome
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridPlayersGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridPlayersGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPlayersGuest.Location = new System.Drawing.Point(3, 31);
-            this.dataGridPlayersGuest.Name = "dataGridPlayersGuest";
-            this.dataGridPlayersGuest.Size = new System.Drawing.Size(312, 202);
-            this.dataGridPlayersGuest.TabIndex = 0;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            this.dataGridPlayersHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            this.dataGridPlayersHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPlayersHome.Location = new System.Drawing.Point(-1, 38);
+            this.dataGridPlayersHome.Name = "dataGridPlayersHome";
+            this.dataGridPlayersHome.Size = new System.Drawing.Size(313, 202);
+            this.dataGridPlayersHome.TabIndex = 0;
+            // 
+            // dataGridPlayersPairsHome
+            // 
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersPairsHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
+            this.dataGridPlayersPairsHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            this.dataGridPlayersPairsHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPlayersPairsHome.Location = new System.Drawing.Point(0, 259);
+            this.dataGridPlayersPairsHome.Name = "dataGridPlayersPairsHome";
+            this.dataGridPlayersPairsHome.Size = new System.Drawing.Size(315, 147);
+            this.dataGridPlayersPairsHome.TabIndex = 7;
             // 
             // label1
             // 
@@ -975,25 +970,6 @@
             this.label1.Size = new System.Drawing.Size(81, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "Запасные";
-            // 
-            // dataGridPlayersPairsGuest
-            // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersPairsGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridPlayersPairsGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridPlayersPairsGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPlayersPairsGuest.Location = new System.Drawing.Point(3, 256);
-            this.dataGridPlayersPairsGuest.Name = "dataGridPlayersPairsGuest";
-            this.dataGridPlayersPairsGuest.Size = new System.Drawing.Size(315, 147);
-            this.dataGridPlayersPairsGuest.TabIndex = 7;
             // 
             // panel17
             // 
@@ -1039,7 +1015,7 @@
             this.panel9.Controls.Add(this.panel7);
             this.panel9.Location = new System.Drawing.Point(323, 37);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(409, 394);
+            this.panel9.Size = new System.Drawing.Size(410, 376);
             this.panel9.TabIndex = 11;
             // 
             // panel10
@@ -1119,6 +1095,19 @@
             this.btnAddChangeHome.UseVisualStyleBackColor = true;
             this.btnAddChangeHome.Click += new System.EventHandler(this.btnAddChangeHome_Click);
             // 
+            // btnAddChangeGuest
+            // 
+            this.btnAddChangeGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddChangeGuest.ForeColor = System.Drawing.Color.DarkGreen;
+            this.btnAddChangeGuest.Location = new System.Drawing.Point(357, 0);
+            this.btnAddChangeGuest.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAddChangeGuest.Name = "btnAddChangeGuest";
+            this.btnAddChangeGuest.Size = new System.Drawing.Size(27, 36);
+            this.btnAddChangeGuest.TabIndex = 1;
+            this.btnAddChangeGuest.Text = "+";
+            this.btnAddChangeGuest.UseVisualStyleBackColor = true;
+            this.btnAddChangeGuest.Click += new System.EventHandler(this.btnAddChangeGuest_Click);
+            // 
             // btnMinChangeGuest
             // 
             this.btnMinChangeGuest.Enabled = false;
@@ -1132,19 +1121,6 @@
             this.btnMinChangeGuest.Text = "-";
             this.btnMinChangeGuest.UseVisualStyleBackColor = true;
             this.btnMinChangeGuest.Click += new System.EventHandler(this.btnMinChangeGuest_Click);
-            // 
-            // btnAddChangeGuest
-            // 
-            this.btnAddChangeGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddChangeGuest.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddChangeGuest.Location = new System.Drawing.Point(357, 0);
-            this.btnAddChangeGuest.Margin = new System.Windows.Forms.Padding(0);
-            this.btnAddChangeGuest.Name = "btnAddChangeGuest";
-            this.btnAddChangeGuest.Size = new System.Drawing.Size(27, 36);
-            this.btnAddChangeGuest.TabIndex = 1;
-            this.btnAddChangeGuest.Text = "+";
-            this.btnAddChangeGuest.UseVisualStyleBackColor = true;
-            this.btnAddChangeGuest.Click += new System.EventHandler(this.btnAddChangeGuest_Click);
             // 
             // panel1
             // 
@@ -1417,7 +1393,7 @@
             // 
             this.btnAddTotalShotHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddTotalShotHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddTotalShotHome.Location = new System.Drawing.Point(23, -2);
+            this.btnAddTotalShotHome.Location = new System.Drawing.Point(24, -2);
             this.btnAddTotalShotHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddTotalShotHome.Name = "btnAddTotalShotHome";
             this.btnAddTotalShotHome.Size = new System.Drawing.Size(27, 36);
@@ -1525,19 +1501,6 @@
             this.btnAddYellowTicketHome.UseVisualStyleBackColor = true;
             this.btnAddYellowTicketHome.Click += new System.EventHandler(this.btnAddYellowTicketHome_Click);
             // 
-            // btnMinYellowTicketGuest
-            // 
-            this.btnMinYellowTicketGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnMinYellowTicketGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinYellowTicketGuest.Location = new System.Drawing.Point(382, -2);
-            this.btnMinYellowTicketGuest.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMinYellowTicketGuest.Name = "btnMinYellowTicketGuest";
-            this.btnMinYellowTicketGuest.Size = new System.Drawing.Size(27, 36);
-            this.btnMinYellowTicketGuest.TabIndex = 0;
-            this.btnMinYellowTicketGuest.Text = "-";
-            this.btnMinYellowTicketGuest.UseVisualStyleBackColor = true;
-            this.btnMinYellowTicketGuest.Click += new System.EventHandler(this.btnMinYellowTicketGuest_Click);
-            // 
             // btnAddYellowTicketGuest
             // 
             this.btnAddYellowTicketGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -1550,6 +1513,19 @@
             this.btnAddYellowTicketGuest.Text = "+";
             this.btnAddYellowTicketGuest.UseVisualStyleBackColor = true;
             this.btnAddYellowTicketGuest.Click += new System.EventHandler(this.btnAddYellowTicketGuest_Click);
+            // 
+            // btnMinYellowTicketGuest
+            // 
+            this.btnMinYellowTicketGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMinYellowTicketGuest.ForeColor = System.Drawing.Color.Red;
+            this.btnMinYellowTicketGuest.Location = new System.Drawing.Point(382, -2);
+            this.btnMinYellowTicketGuest.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMinYellowTicketGuest.Name = "btnMinYellowTicketGuest";
+            this.btnMinYellowTicketGuest.Size = new System.Drawing.Size(27, 36);
+            this.btnMinYellowTicketGuest.TabIndex = 0;
+            this.btnMinYellowTicketGuest.Text = "-";
+            this.btnMinYellowTicketGuest.UseVisualStyleBackColor = true;
+            this.btnMinYellowTicketGuest.Click += new System.EventHandler(this.btnMinYellowTicketGuest_Click);
             // 
             // panel4
             // 
@@ -1618,25 +1594,13 @@
             // 
             this.btnAddShotTargetHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddShotTargetHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddShotTargetHome.Location = new System.Drawing.Point(23, -2);
+            this.btnAddShotTargetHome.Location = new System.Drawing.Point(26, 0);
             this.btnAddShotTargetHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddShotTargetHome.Name = "btnAddShotTargetHome";
             this.btnAddShotTargetHome.Size = new System.Drawing.Size(27, 36);
             this.btnAddShotTargetHome.TabIndex = 3;
             this.btnAddShotTargetHome.Text = "+";
             this.btnAddShotTargetHome.UseVisualStyleBackColor = true;
-            // 
-            // btnMinShotTargetGuest
-            // 
-            this.btnMinShotTargetGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnMinShotTargetGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinShotTargetGuest.Location = new System.Drawing.Point(382, -2);
-            this.btnMinShotTargetGuest.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMinShotTargetGuest.Name = "btnMinShotTargetGuest";
-            this.btnMinShotTargetGuest.Size = new System.Drawing.Size(27, 36);
-            this.btnMinShotTargetGuest.TabIndex = 0;
-            this.btnMinShotTargetGuest.Text = "-";
-            this.btnMinShotTargetGuest.UseVisualStyleBackColor = true;
             // 
             // btnAddShotTargetGuest
             // 
@@ -1649,6 +1613,18 @@
             this.btnAddShotTargetGuest.TabIndex = 1;
             this.btnAddShotTargetGuest.Text = "+";
             this.btnAddShotTargetGuest.UseVisualStyleBackColor = true;
+            // 
+            // btnMinShotTargetGuest
+            // 
+            this.btnMinShotTargetGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMinShotTargetGuest.ForeColor = System.Drawing.Color.Red;
+            this.btnMinShotTargetGuest.Location = new System.Drawing.Point(382, -2);
+            this.btnMinShotTargetGuest.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMinShotTargetGuest.Name = "btnMinShotTargetGuest";
+            this.btnMinShotTargetGuest.Size = new System.Drawing.Size(27, 36);
+            this.btnMinShotTargetGuest.TabIndex = 0;
+            this.btnMinShotTargetGuest.Text = "-";
+            this.btnMinShotTargetGuest.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -1804,7 +1780,7 @@
             // 
             this.btnMinCornerHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinCornerHome.ForeColor = System.Drawing.Color.Red;
-            this.btnMinCornerHome.Location = new System.Drawing.Point(-1, -3);
+            this.btnMinCornerHome.Location = new System.Drawing.Point(-1, -2);
             this.btnMinCornerHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinCornerHome.Name = "btnMinCornerHome";
             this.btnMinCornerHome.Size = new System.Drawing.Size(27, 36);
@@ -1816,7 +1792,7 @@
             // 
             this.btnAddCornerHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddCornerHome.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnAddCornerHome.Location = new System.Drawing.Point(23, -2);
+            this.btnAddCornerHome.Location = new System.Drawing.Point(24, 0);
             this.btnAddCornerHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddCornerHome.Name = "btnAddCornerHome";
             this.btnAddCornerHome.Size = new System.Drawing.Size(27, 36);
@@ -1923,18 +1899,6 @@
             this.btnAddAccuratePassHome.Text = "+";
             this.btnAddAccuratePassHome.UseVisualStyleBackColor = true;
             // 
-            // btnMinAccuratePassGuest
-            // 
-            this.btnMinAccuratePassGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnMinAccuratePassGuest.ForeColor = System.Drawing.Color.Red;
-            this.btnMinAccuratePassGuest.Location = new System.Drawing.Point(383, -2);
-            this.btnMinAccuratePassGuest.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMinAccuratePassGuest.Name = "btnMinAccuratePassGuest";
-            this.btnMinAccuratePassGuest.Size = new System.Drawing.Size(27, 36);
-            this.btnMinAccuratePassGuest.TabIndex = 0;
-            this.btnMinAccuratePassGuest.Text = "-";
-            this.btnMinAccuratePassGuest.UseVisualStyleBackColor = true;
-            // 
             // btnAddAccuratePassGuest
             // 
             this.btnAddAccuratePassGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -1946,6 +1910,18 @@
             this.btnAddAccuratePassGuest.TabIndex = 1;
             this.btnAddAccuratePassGuest.Text = "+";
             this.btnAddAccuratePassGuest.UseVisualStyleBackColor = true;
+            // 
+            // btnMinAccuratePassGuest
+            // 
+            this.btnMinAccuratePassGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMinAccuratePassGuest.ForeColor = System.Drawing.Color.Red;
+            this.btnMinAccuratePassGuest.Location = new System.Drawing.Point(383, -2);
+            this.btnMinAccuratePassGuest.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMinAccuratePassGuest.Name = "btnMinAccuratePassGuest";
+            this.btnMinAccuratePassGuest.Size = new System.Drawing.Size(27, 36);
+            this.btnMinAccuratePassGuest.TabIndex = 0;
+            this.btnMinAccuratePassGuest.Text = "-";
+            this.btnMinAccuratePassGuest.UseVisualStyleBackColor = true;
             // 
             // panel8
             // 
@@ -2145,16 +2121,6 @@
             this.btnAddPassGuest.Text = "+";
             this.btnAddPassGuest.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1152, 561);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "players";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // entityCommand1
             // 
             this.entityCommand1.CommandTimeout = 0;
@@ -2205,14 +2171,14 @@
             this.panel15.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersHome)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersPairsHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersGuest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersPairsGuest)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersGuest)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersPairsGuest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlayersPairsHome)).EndInit();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -2251,7 +2217,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ColorDialog colorDialog2;
         private System.Windows.Forms.ColorDialog colorDialog3;
@@ -2386,7 +2351,6 @@
 		private System.Windows.Forms.DataGridView dataGridPlayersHome;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.DataGridView dataGridPlayersPairsHome;
-		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Panel panel18;
 		private System.Windows.Forms.GroupBox groupBox7;
 		private System.Windows.Forms.Label label6;
@@ -2397,7 +2361,6 @@
         private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
         private System.Windows.Forms.CheckBox checkBoxListPairsPlayers;
         private System.Windows.Forms.CheckBox checkBoxListPlayers;
-        private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox checkBoxOfficialFaces;
         private System.Windows.Forms.GroupBox groupBox10;
