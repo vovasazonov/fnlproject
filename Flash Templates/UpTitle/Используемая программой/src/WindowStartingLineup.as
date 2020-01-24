@@ -47,15 +47,15 @@
 		{
 			ChapterUpWelWin.ChapterUpWelWin.NameStadium.text = value;
 		}
-		public function set leftNameTeamWelWin(value:String):void
+		public function set rightNameTeamWelWin(value:String):void
 		{
 			CenterLogos.CenterLogos.LeftNameTeamWelWin.text = value;
 		}
-		public function set rightNameTeamWelWin(value:String):void
+		public function set leftNameTeamWelWin(value:String):void
 		{
 			CenterLogos.CenterLogos.RightNameTeamWelWin.text = value;
 		}
-		public function set logoTeamLeftWelWin(value:String):void 
+		public function set logoTeamRightWelWin(value:String):void 
 		{
 			// Remove another logo if exist.
 			if(_isLogoLeftWelWin){
@@ -77,7 +77,7 @@
 			// Catch error.
 			_loaderLogoLeftWelWin.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR,ioErrorLogo,false,0,true);
 		}
-		public function set logoTeamRightWelWin(value:String):void 
+		public function set logoTeamLeftWelWin(value:String):void 
 		{
 			// Remove another logo if exist.
 			if(_isLogoRightWelWin){

@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbCasparServer = new System.Windows.Forms.TextBox();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.btnClearGraphics = new System.Windows.Forms.Button();
@@ -49,9 +49,9 @@
             this.dtpTimeWelWin = new System.Windows.Forms.DateTimePicker();
             this.dtpDateWelWin = new System.Windows.Forms.DateTimePicker();
             this.checkBoxWelWin = new System.Windows.Forms.CheckBox();
-            this.checkBoxOfficialFaces = new System.Windows.Forms.CheckBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.checkBoxListPairsPlayers = new System.Windows.Forms.CheckBox();
+            this.checkBoxOfficialFaces = new System.Windows.Forms.CheckBox();
             this.checkBoxListPlayers = new System.Windows.Forms.CheckBox();
             this.radioButtonHome = new System.Windows.Forms.RadioButton();
             this.radioButtonGuest = new System.Windows.Forms.RadioButton();
@@ -103,6 +103,10 @@
             this.textNameMatch = new System.Windows.Forms.TextBox();
             this.buttonMatch = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.textChangeHome = new System.Windows.Forms.TextBox();
             this.textChangeGuest = new System.Windows.Forms.TextBox();
@@ -127,7 +131,6 @@
             this.btnAddRedTicketHome = new System.Windows.Forms.Button();
             this.btnMinRedTicketGuest = new System.Windows.Forms.Button();
             this.btnAddRedTicketGuest = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.textYellowTicketHome = new System.Windows.Forms.TextBox();
             this.textYellowTicketGuest = new System.Windows.Forms.TextBox();
@@ -136,16 +139,13 @@
             this.btnAddYellowTicketHome = new System.Windows.Forms.Button();
             this.btnAddYellowTicketGuest = new System.Windows.Forms.Button();
             this.btnMinYellowTicketGuest = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.colorDialog3 = new System.Windows.Forms.ColorDialog();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -190,7 +190,7 @@
             // 
             this.buttonConnect.Location = new System.Drawing.Point(115, 14);
             this.buttonConnect.Name = "buttonConnect";
-            this.buttonConnect.Size = new System.Drawing.Size(71, 20);
+            this.buttonConnect.Size = new System.Drawing.Size(88, 20);
             this.buttonConnect.TabIndex = 12;
             this.buttonConnect.Text = "Соединить";
             this.buttonConnect.UseVisualStyleBackColor = true;
@@ -199,7 +199,7 @@
             // btnClearGraphics
             // 
             this.btnClearGraphics.BackColor = System.Drawing.Color.LightSalmon;
-            this.btnClearGraphics.Location = new System.Drawing.Point(192, 14);
+            this.btnClearGraphics.Location = new System.Drawing.Point(209, 14);
             this.btnClearGraphics.Name = "btnClearGraphics";
             this.btnClearGraphics.Size = new System.Drawing.Size(99, 20);
             this.btnClearGraphics.TabIndex = 16;
@@ -267,11 +267,10 @@
             // 
             this.groupBox5.BackColor = System.Drawing.Color.Bisque;
             this.groupBox5.Controls.Add(this.groupBox11);
-            this.groupBox5.Controls.Add(this.checkBoxOfficialFaces);
             this.groupBox5.Controls.Add(this.groupBox8);
             this.groupBox5.Location = new System.Drawing.Point(641, 419);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(406, 98);
+            this.groupBox5.Size = new System.Drawing.Size(406, 122);
             this.groupBox5.TabIndex = 24;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Титр информирования";
@@ -282,9 +281,9 @@
             this.groupBox11.Controls.Add(this.dtpTimeWelWin);
             this.groupBox11.Controls.Add(this.dtpDateWelWin);
             this.groupBox11.Controls.Add(this.checkBoxWelWin);
-            this.groupBox11.Location = new System.Drawing.Point(181, 15);
+            this.groupBox11.Location = new System.Drawing.Point(181, 19);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(219, 77);
+            this.groupBox11.Size = new System.Drawing.Size(219, 67);
             this.groupBox11.TabIndex = 25;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Вступительные титры";
@@ -317,27 +316,17 @@
             this.checkBoxWelWin.UseVisualStyleBackColor = true;
             this.checkBoxWelWin.CheckedChanged += new System.EventHandler(this.checkBoxWelWin_CheckedChanged);
             // 
-            // checkBoxOfficialFaces
-            // 
-            this.checkBoxOfficialFaces.AutoSize = true;
-            this.checkBoxOfficialFaces.Location = new System.Drawing.Point(12, 82);
-            this.checkBoxOfficialFaces.Name = "checkBoxOfficialFaces";
-            this.checkBoxOfficialFaces.Size = new System.Drawing.Size(166, 17);
-            this.checkBoxOfficialFaces.TabIndex = 24;
-            this.checkBoxOfficialFaces.Text = "Оффициальные лица матча";
-            this.checkBoxOfficialFaces.UseVisualStyleBackColor = true;
-            this.checkBoxOfficialFaces.CheckedChanged += new System.EventHandler(this.checkBoxOfficialFaces_CheckedChanged);
-            // 
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox8.Controls.Add(this.checkBoxListPairsPlayers);
+            this.groupBox8.Controls.Add(this.checkBoxOfficialFaces);
             this.groupBox8.Controls.Add(this.checkBoxListPlayers);
             this.groupBox8.Controls.Add(this.radioButtonHome);
             this.groupBox8.Controls.Add(this.radioButtonGuest);
-            this.groupBox8.Location = new System.Drawing.Point(6, 16);
+            this.groupBox8.Location = new System.Drawing.Point(6, 20);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(169, 66);
+            this.groupBox8.Size = new System.Drawing.Size(169, 96);
             this.groupBox8.TabIndex = 23;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Показ игроков";
@@ -352,6 +341,17 @@
             this.checkBoxListPairsPlayers.Text = "Запасные";
             this.checkBoxListPairsPlayers.UseVisualStyleBackColor = true;
             this.checkBoxListPairsPlayers.CheckedChanged += new System.EventHandler(this.checkBoxListPairsPlayers_CheckedChanged);
+            // 
+            // checkBoxOfficialFaces
+            // 
+            this.checkBoxOfficialFaces.AutoSize = true;
+            this.checkBoxOfficialFaces.Location = new System.Drawing.Point(6, 65);
+            this.checkBoxOfficialFaces.Name = "checkBoxOfficialFaces";
+            this.checkBoxOfficialFaces.Size = new System.Drawing.Size(158, 17);
+            this.checkBoxOfficialFaces.TabIndex = 24;
+            this.checkBoxOfficialFaces.Text = "Официальные лица матча";
+            this.checkBoxOfficialFaces.UseVisualStyleBackColor = true;
+            this.checkBoxOfficialFaces.CheckedChanged += new System.EventHandler(this.checkBoxOfficialFaces_CheckedChanged);
             // 
             // checkBoxListPlayers
             // 
@@ -396,7 +396,7 @@
             this.groupBox7.Controls.Add(this.groupBox1);
             this.groupBox7.Location = new System.Drawing.Point(79, 419);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(561, 98);
+            this.groupBox7.Size = new System.Drawing.Size(561, 122);
             this.groupBox7.TabIndex = 22;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Верхний титр";
@@ -408,10 +408,10 @@
             this.groupBox10.Controls.Add(this.checkBoxGuestClockRedCard1);
             this.groupBox10.Location = new System.Drawing.Point(441, 20);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(114, 74);
+            this.groupBox10.Size = new System.Drawing.Size(114, 96);
             this.groupBox10.TabIndex = 21;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Red cards";
+            this.groupBox10.Text = "Красные карточк";
             // 
             // checkBoxHomeClockRedCard1
             // 
@@ -439,26 +439,26 @@
             // 
             this.groupBox6.Controls.Add(this.button10);
             this.groupBox6.Controls.Add(this.numHalfNum);
-            this.groupBox6.Location = new System.Drawing.Point(366, 19);
+            this.groupBox6.Location = new System.Drawing.Point(268, 67);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(68, 75);
+            this.groupBox6.Size = new System.Drawing.Size(167, 49);
             this.groupBox6.TabIndex = 20;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "№ тайма";
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(7, 41);
+            this.button10.Location = new System.Drawing.Point(51, 21);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(54, 25);
+            this.button10.Size = new System.Drawing.Size(110, 20);
             this.button10.TabIndex = 1;
-            this.button10.Text = "Set";
+            this.button10.Text = "Установить";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.BtnHalfSet);
             // 
             // numHalfNum
             // 
-            this.numHalfNum.Location = new System.Drawing.Point(8, 15);
+            this.numHalfNum.Location = new System.Drawing.Point(3, 21);
             this.numHalfNum.Maximum = new decimal(new int[] {
             4,
             0,
@@ -470,7 +470,7 @@
             0,
             0});
             this.numHalfNum.Name = "numHalfNum";
-            this.numHalfNum.Size = new System.Drawing.Size(53, 20);
+            this.numHalfNum.Size = new System.Drawing.Size(42, 20);
             this.numHalfNum.TabIndex = 0;
             this.numHalfNum.Value = new decimal(new int[] {
             1,
@@ -488,18 +488,18 @@
             this.groupBox4.Controls.Add(this.tbTimeMin);
             this.groupBox4.Location = new System.Drawing.Point(103, 19);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(161, 75);
+            this.groupBox4.Size = new System.Drawing.Size(161, 97);
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Таймер";
             // 
             // btnShowHideTimer
             // 
-            this.btnShowHideTimer.Location = new System.Drawing.Point(81, 45);
+            this.btnShowHideTimer.Location = new System.Drawing.Point(9, 73);
             this.btnShowHideTimer.Name = "btnShowHideTimer";
-            this.btnShowHideTimer.Size = new System.Drawing.Size(74, 24);
+            this.btnShowHideTimer.Size = new System.Drawing.Size(146, 24);
             this.btnShowHideTimer.TabIndex = 14;
-            this.btnShowHideTimer.Text = "Show/hide";
+            this.btnShowHideTimer.Text = "Показать/скрыть";
             this.btnShowHideTimer.UseVisualStyleBackColor = true;
             this.btnShowHideTimer.Click += new System.EventHandler(this.ButtonShowHideTimer_Click);
             // 
@@ -507,19 +507,19 @@
             // 
             this.button4.Location = new System.Drawing.Point(9, 45);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(66, 23);
+            this.button4.Size = new System.Drawing.Size(146, 23);
             this.button4.TabIndex = 3;
-            this.button4.Text = "Start/Stop";
+            this.button4.Text = "Старт / Стоп";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.BtnTimeStartStop_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(81, 15);
+            this.button5.Location = new System.Drawing.Point(75, 15);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(74, 23);
+            this.button5.Size = new System.Drawing.Size(80, 23);
             this.button5.TabIndex = 2;
-            this.button5.Text = "Set";
+            this.button5.Text = "Установить";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.BtnSetGameTime_Click);
             // 
@@ -527,7 +527,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(40, 20);
+            this.label8.Location = new System.Drawing.Point(35, 19);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(12, 16);
             this.label8.TabIndex = 12;
@@ -535,7 +535,7 @@
             // 
             // tbTimeSec
             // 
-            this.tbTimeSec.Location = new System.Drawing.Point(53, 18);
+            this.tbTimeSec.Location = new System.Drawing.Point(49, 17);
             this.tbTimeSec.MaxLength = 2;
             this.tbTimeSec.Name = "tbTimeSec";
             this.tbTimeSec.Size = new System.Drawing.Size(20, 20);
@@ -557,18 +557,18 @@
             this.groupBox3.Controls.Add(this.numOvertime);
             this.groupBox3.Location = new System.Drawing.Point(264, 18);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(92, 76);
+            this.groupBox3.Size = new System.Drawing.Size(171, 48);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Доп. мин.";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(7, 46);
+            this.button3.Location = new System.Drawing.Point(55, 19);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(79, 23);
+            this.button3.Size = new System.Drawing.Size(110, 21);
             this.button3.TabIndex = 1;
-            this.button3.Text = "Show/hide";
+            this.button3.Text = "Показать/Скрыть";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.ButtonShowAddMinutes);
             // 
@@ -576,7 +576,7 @@
             // 
             this.numOvertime.Location = new System.Drawing.Point(7, 19);
             this.numOvertime.Name = "numOvertime";
-            this.numOvertime.Size = new System.Drawing.Size(79, 20);
+            this.numOvertime.Size = new System.Drawing.Size(42, 20);
             this.numOvertime.TabIndex = 0;
             this.numOvertime.ValueChanged += new System.EventHandler(this.BtnAdditionalTime);
             // 
@@ -585,10 +585,10 @@
             this.groupBox1.Controls.Add(this.btnShowMain);
             this.groupBox1.Location = new System.Drawing.Point(6, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(91, 75);
+            this.groupBox1.Size = new System.Drawing.Size(91, 103);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "На экране";
+            this.groupBox1.Text = "Отоброжение";
             // 
             // btnShowMain
             // 
@@ -597,9 +597,9 @@
             this.btnShowMain.ForeColor = System.Drawing.Color.Black;
             this.btnShowMain.Location = new System.Drawing.Point(6, 15);
             this.btnShowMain.Name = "btnShowMain";
-            this.btnShowMain.Size = new System.Drawing.Size(76, 53);
+            this.btnShowMain.Size = new System.Drawing.Size(76, 82);
             this.btnShowMain.TabIndex = 0;
-            this.btnShowMain.Text = "Show/hide";
+            this.btnShowMain.Text = "Показать / скрыть";
             this.btnShowMain.UseVisualStyleBackColor = false;
             this.btnShowMain.Click += new System.EventHandler(this.BtnShowMain_Click);
             // 
@@ -609,7 +609,7 @@
             this.gpStartStopTemplate.Controls.Add(this.btnStopGraphics);
             this.gpStartStopTemplate.Location = new System.Drawing.Point(8, 415);
             this.gpStartStopTemplate.Name = "gpStartStopTemplate";
-            this.gpStartStopTemplate.Size = new System.Drawing.Size(65, 102);
+            this.gpStartStopTemplate.Size = new System.Drawing.Size(65, 126);
             this.gpStartStopTemplate.TabIndex = 21;
             this.gpStartStopTemplate.TabStop = false;
             this.gpStartStopTemplate.Text = "Графика";
@@ -623,7 +623,7 @@
             this.btnStartGraphics.Name = "btnStartGraphics";
             this.btnStartGraphics.Size = new System.Drawing.Size(50, 38);
             this.btnStartGraphics.TabIndex = 1;
-            this.btnStartGraphics.Text = "Start";
+            this.btnStartGraphics.Text = "Старт";
             this.btnStartGraphics.UseVisualStyleBackColor = false;
             this.btnStartGraphics.Click += new System.EventHandler(this.BtnStartGraphics_Click);
             // 
@@ -636,7 +636,7 @@
             this.btnStopGraphics.Name = "btnStopGraphics";
             this.btnStopGraphics.Size = new System.Drawing.Size(50, 38);
             this.btnStopGraphics.TabIndex = 0;
-            this.btnStopGraphics.Text = "Stop";
+            this.btnStopGraphics.Text = "Стоп";
             this.btnStopGraphics.UseVisualStyleBackColor = false;
             this.btnStopGraphics.Click += new System.EventHandler(this.BtnStopGraphics_Click);
             // 
@@ -730,17 +730,17 @@
             // 
             // dataGridPlayersGuest
             // 
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridPlayersGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridPlayersGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersGuest.Location = new System.Drawing.Point(3, 31);
             this.dataGridPlayersGuest.Name = "dataGridPlayersGuest";
@@ -760,17 +760,17 @@
             // 
             // dataGridPlayersPairsGuest
             // 
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersPairsGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersPairsGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridPlayersPairsGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridPlayersPairsGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersPairsGuest.Location = new System.Drawing.Point(3, 256);
             this.dataGridPlayersPairsGuest.Name = "dataGridPlayersPairsGuest";
@@ -868,17 +868,17 @@
             // 
             // dataGridPlayersHome
             // 
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridPlayersHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridPlayersHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersHome.Location = new System.Drawing.Point(-1, 38);
             this.dataGridPlayersHome.Name = "dataGridPlayersHome";
@@ -887,17 +887,17 @@
             // 
             // dataGridPlayersPairsHome
             // 
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersPairsHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersPairsHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridPlayersPairsHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridPlayersPairsHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersPairsHome.Location = new System.Drawing.Point(0, 259);
             this.dataGridPlayersPairsHome.Name = "dataGridPlayersPairsHome";
@@ -961,6 +961,46 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(410, 376);
             this.panel9.TabIndex = 11;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Enabled = false;
+            this.panel2.Location = new System.Drawing.Point(1, 340);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(408, 34);
+            this.panel2.TabIndex = 9;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Silver;
+            this.panel4.Enabled = false;
+            this.panel4.Location = new System.Drawing.Point(0, 306);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(408, 34);
+            this.panel4.TabIndex = 10;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Silver;
+            this.panel3.Enabled = false;
+            this.panel3.Location = new System.Drawing.Point(0, 136);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(408, 34);
+            this.panel3.TabIndex = 11;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Silver;
+            this.panel5.Enabled = false;
+            this.panel5.Location = new System.Drawing.Point(1, 238);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(408, 34);
+            this.panel5.TabIndex = 15;
             // 
             // panel10
             // 
@@ -1270,16 +1310,6 @@
             this.btnAddRedTicketGuest.UseVisualStyleBackColor = true;
             this.btnAddRedTicketGuest.Click += new System.EventHandler(this.btnAddRedTicketGuest_Click);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Enabled = false;
-            this.panel2.Location = new System.Drawing.Point(1, 340);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(408, 34);
-            this.panel2.TabIndex = 9;
-            // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.Yellow;
@@ -1382,25 +1412,15 @@
             this.btnMinYellowTicketGuest.UseVisualStyleBackColor = true;
             this.btnMinYellowTicketGuest.Click += new System.EventHandler(this.btnMinYellowTicketGuest_Click);
             // 
-            // panel4
+            // panel8
             // 
-            this.panel4.BackColor = System.Drawing.Color.Silver;
-            this.panel4.Enabled = false;
-            this.panel4.Location = new System.Drawing.Point(0, 306);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(408, 34);
-            this.panel4.TabIndex = 10;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Silver;
-            this.panel3.Enabled = false;
-            this.panel3.Location = new System.Drawing.Point(0, 136);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(408, 34);
-            this.panel3.TabIndex = 11;
+            this.panel8.BackColor = System.Drawing.Color.Silver;
+            this.panel8.Enabled = false;
+            this.panel8.Location = new System.Drawing.Point(1, 272);
+            this.panel8.Margin = new System.Windows.Forms.Padding(0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(408, 34);
+            this.panel8.TabIndex = 12;
             // 
             // panel6
             // 
@@ -1411,16 +1431,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(408, 34);
             this.panel6.TabIndex = 14;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Silver;
-            this.panel8.Enabled = false;
-            this.panel8.Location = new System.Drawing.Point(1, 272);
-            this.panel8.Margin = new System.Windows.Forms.Padding(0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(408, 34);
-            this.panel8.TabIndex = 12;
             // 
             // panel7
             // 
@@ -1439,16 +1449,6 @@
             this.entityCommand1.Connection = null;
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Silver;
-            this.panel5.Enabled = false;
-            this.panel5.Location = new System.Drawing.Point(1, 238);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(408, 34);
-            this.panel5.TabIndex = 15;
             // 
             // MainForm
             // 
@@ -1472,7 +1472,6 @@
             this.tabPage1.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.groupBox8.ResumeLayout(false);

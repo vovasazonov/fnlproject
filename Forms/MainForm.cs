@@ -168,7 +168,7 @@ namespace FNL
 
             NetworkEventArgs e = (NetworkEventArgs)param;
             statusStrip1.BackColor = Color.LightGreen;
-            toolStripStatusLabel1.Text = "Connected to " + CasparFNL.Device.Settings.Hostname;
+            toolStripStatusLabel1.Text = "Соединен к серверу: " + CasparFNL.Device.Settings.Hostname;
 
             EnableControls();
         }
@@ -188,7 +188,7 @@ namespace FNL
 
             NetworkEventArgs e = (NetworkEventArgs)param;
             statusStrip1.BackColor = Color.LightCoral;
-            toolStripStatusLabel1.Text = "Failed to connect to " + CasparFNL.Device.Settings.Hostname;
+            toolStripStatusLabel1.Text = "Не удалось соединиться с сервером: " + CasparFNL.Device.Settings.Hostname;
 
             DisableControls();
         }
@@ -208,7 +208,7 @@ namespace FNL
 
             NetworkEventArgs e = (NetworkEventArgs)param;
             statusStrip1.BackColor = Color.LightCoral;
-            toolStripStatusLabel1.Text = "Disconnected from " + CasparFNL.Device.Settings.Hostname;
+            toolStripStatusLabel1.Text = "Отсоединен от сервера: " + CasparFNL.Device.Settings.Hostname;
 
             DisableControls();
         }
@@ -262,11 +262,11 @@ namespace FNL
         {
             if (!CasparFNL.Device.IsConnected)
             {
-                buttonConnect.Text = "Connect";
+                buttonConnect.Text = "Соединить";
             }
             else
             {
-                buttonConnect.Text = "Disconnect";
+                buttonConnect.Text = "Отсоединить";
             }
         }
 
@@ -583,10 +583,10 @@ namespace FNL
 
         private void BtnTeam2AddScore_Click(object sender, EventArgs e)
         {
-            /// get score
+            // Get current score team home.
             int currentScore = Convert.ToInt16(tBScoreTeam2.Text);
 
-            /// update score
+            // Update score team home.
             currentScore++;
             tBScoreTeam2.Text = Convert.ToString(currentScore);
         }
