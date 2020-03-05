@@ -1,8 +1,14 @@
-﻿using System;
+﻿/*  Файл описывает реализацию словаря значений:
+ *  ключ - enum переменная, значение - строка, которая
+ *  соответствует значению в базе данных.
+ *  Сазонов Владимир Сергеевич.
+ *  ©.
+ *  Дата создания: 2019, дата последнего изменения: 2020.
+ *  Контактная информация: vova.sazonovvv@gmail.com.
+ */
+
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ModelLayer;
 using ModelLayer.Models;
 using FNL.Enums;
@@ -14,6 +20,9 @@ namespace FNL.Dictionarys
     /// </summary>
     static public class DictionaryEvents
     {
+        /// <summary>
+        /// Dictionary that key is the uniq id of elemnt and value is string name of element.
+        /// </summary>
         static internal readonly Dictionary<EventMatchType, string> Dic = new Dictionary<EventMatchType, string>
         {
             {EventMatchType.Replacement,"Замена" },

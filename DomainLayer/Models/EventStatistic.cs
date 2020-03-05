@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
+﻿/*  Файл описывает сущность базы данных в виде класса.
+ *  Сазонов Владимир Сергеевич.
+ *  ©.
+ *  Дата создания: 2019, дата последнего изменения: 2020.
+ *  Контактная информация: vova.sazonovvv@gmail.com.
+ */
+
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ModelLayer.Models
 {
 	/// <summary>
+    /// Entity.
 	/// Concret event that appear in concret time.
 	/// </summary>
 	public class EventStatistic

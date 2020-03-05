@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*  Файл окна интерфейса.
+ *  ©.
+ *  Дата создания: 2019, дата последнего изменения: 2020.
+ *  Контактная информация: vova.sazonovvv@gmail.com.
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -955,7 +960,7 @@ namespace FNL
             DateTime time = dtpTimeWelWin.Value;
 
             //System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("ru-RU");
-            string valueTime = string.Format("{0}:{1}", time.Hour, time.Minute);
+            string valueTime = string.Format("{0}:{1}", time.Hour.ToString("00"), time.Minute.ToString("00"));
             string valueData = string.Format("{0} {1} {2}    {3}", date.Day, DictionaryMonths.GetNameMonth(date.Month), date.Year, valueTime);
 
             CasparFNL.SendData(new Dictionary<string, string>()

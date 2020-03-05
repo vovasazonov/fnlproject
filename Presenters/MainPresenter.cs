@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*  Файл представителя (паттерн Model View Presenter).
+ *  ©.
+ *  Дата создания: 2019, дата последнего изменения: 2020.
+ *  Контактная информация: vova.sazonovvv@gmail.com.
+ */
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ModelLayer.Models.Address" Collapsed="true">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.Amplua" Collapsed="true">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Amplua.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.Event" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAQAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Event.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.EventStatistic" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgEAAAAAAAAAACAAAEAgAAAAAAQAAAAAAAAQA=</HashCode>
+      <FileName>Models\EventStatistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.FaceMatch" Collapsed="true">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJAgAAAAAAAAAAAEAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FaceMatch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.Match" Collapsed="true">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAgIAAAAQAAACAEAACAABwAAAABAAABEgAAAAAAAAA=</HashCode>
+      <FileName>Models\Match.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.Person" Collapsed="true">
+    <Position X="6" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIAAAAAAAQEEAASAAAgAAAAAAACAAAAAAAEAAg=</HashCode>
+      <FileName>Models\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.PlayerMatch" Collapsed="true">
+    <Position X="7.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAgAAAAAAAAAEABAAAAACAAAAAAAAEAAAgAAAAAA=</HashCode>
+      <FileName>Models\PlayerMatch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.Role" Collapsed="true">
+    <Position X="2.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.Season" Collapsed="true">
+    <Position X="4.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAIAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Season.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.Stadium" Collapsed="true">
+    <Position X="6" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Stadium.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.StatisticPlayerMatch" Collapsed="true">
+    <Position X="7.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAgAAAAAAAAAEAAAAAAAEAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\StatisticPlayerMatch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.Team" Collapsed="true">
+    <Position X="2.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBAAIAQAAAAAAAABAAACAAACAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\Team.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.Models.TeamPlayer" Collapsed="true">
+    <Position X="4.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAEAAAEAAAAAACCAAIAAAAAEAAAAAAQAAA=</HashCode>
+      <FileName>Models\TeamPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelLayer.DbFnlContext" Collapsed="true">
+    <Position X="2.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAKAIAQIAAAAAAAAACAAAgAgAAIAAAAAAAAAAAAIA=</HashCode>
+      <FileName>DbFnlContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

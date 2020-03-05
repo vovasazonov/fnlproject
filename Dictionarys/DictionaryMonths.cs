@@ -1,11 +1,20 @@
-﻿using System;
+﻿/*  Файл описывает реализацию словаря значений:
+ *  ключ - enum переменная, значение - строка, которая
+ *  соответствует значению в базе данных.
+ *  Сазонов Владимир Сергеевич.
+ *  ©.
+ *  Дата создания: 2019, дата последнего изменения: 2020.
+ *  Контактная информация: vova.sazonovvv@gmail.com.
+ */
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FNL.Dictionarys
 {
+    /// <summary>
+    /// Dictionary that key is the uniq number month of elemnt and value is string word russin of element.
+    /// </summary>
     static public class DictionaryMonths
     {
         static private readonly Dictionary<int, string> Dic = new Dictionary<int, string>
@@ -24,6 +33,11 @@ namespace FNL.Dictionarys
             {12,"Декабря" }
         };
 
+        /// <summary>
+        /// Get month in word russian notation instead number month.
+        /// </summary>
+        /// <param name="m">Number month.</param>
+        /// <returns>Value word month.</returns>
         static internal string GetNameMonth(int m)
         {
             string month = "";

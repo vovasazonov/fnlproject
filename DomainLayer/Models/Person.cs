@@ -1,13 +1,16 @@
-﻿using System;
+﻿/*  Файл описывает сущность базы данных в виде класса.
+ *  Сазонов Владимир Сергеевич.
+ *  ©.
+ *  Дата создания: 2019, дата последнего изменения: 2020.
+ *  Контактная информация: vova.sazonovvv@gmail.com.
+ */
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 namespace ModelLayer.Models
 {
 	/// <summary>
+    /// Entity.
 	/// Say what is the role of person in position value.
 	/// It can be like commentator, judje, attcker, defender and etc.
 	/// </summary>

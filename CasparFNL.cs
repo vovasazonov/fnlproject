@@ -1,4 +1,9 @@
-﻿using Svt.Caspar;
+﻿/*  Файл расширения функций библиотеки casparcg.
+ *  ©.
+ *  Дата создания: 2019, дата последнего изменения: 2020.
+ *  Контактная информация: vova.sazonovvv@gmail.com.
+ */
+using Svt.Caspar;
 using Svt.Network;
 using System;
 using System.Collections.Generic;

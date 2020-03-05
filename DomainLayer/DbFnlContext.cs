@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*  Файл описывает контекст данных базы данных.
+ *  Сазонов Владимир Сергеевич.
+ *  ©.
+ *  Дата создания: 2019, дата последнего изменения: 2020.
+ *  Контактная информация: vova.sazonovvv@gmail.com.
+ */
+
 using System.Data.Entity;
 using ModelLayer.Models;
 
 namespace ModelLayer
 {
+    /// <summary>
+    /// Class context data base.
+    /// </summary>
     public class DbFnlContext:DbContext
     {
 		// In string the name of database.

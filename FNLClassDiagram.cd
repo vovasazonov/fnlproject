@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FNL.Dictionarys.DictionaryAmpluas" Collapsed="true">
+    <Position X="22.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Dictionarys\DictionaryAmpluas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Dictionarys.DictionaryEvents" Collapsed="true">
+    <Position X="24.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dictionarys\DictionaryEvents.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Dictionarys.DictionaryMonths" Collapsed="true">
+    <Position X="26" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dictionarys\DictionaryMonths.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Dictionarys.DictionaryRoles" Collapsed="true">
+    <Position X="27.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Dictionarys\DictionaryRoles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Extensions.ColorExtension" Collapsed="true">
+    <Position X="24.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\ColorExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.MainForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>22B/H2T3kqsbsV1MtIKLQH/2+81+ORhVCbhY22v/xz0=</HashCode>
+      <FileName>Forms\MainForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.InsertMatchPlayersForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAIQIAACAAABAEQACgAEQCAAAEARAAACEAARBgQAA=</HashCode>
+      <FileName>Forms\Match\InsertMatchPlayersForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.MatchForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UBAoMAAkBGAAACAIAADLAEQCoAQEAgABCRgBhSBgAAA=</HashCode>
+      <FileName>Forms\Match\MatchForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.MatchPlayersForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACUYgACAEABSMEFCwAACiQAIAAAQCACAQARAACAk=</HashCode>
+      <FileName>Forms\Match\MatchPlayersForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.SettingMatchForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>8RAwMWGmBGFQADUoAAD7BEAC8AQEggAhIRgBASJgCAA=</HashCode>
+      <FileName>Forms\Match\SettingMatchForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.PersonForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIAEIgIKAAACQMkACQoCQCAAIAAIAAIQgAgYAACAg=</HashCode>
+      <FileName>Forms\Person\PersonForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.SettingPersonForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAACQEIACCAAADQMEACQQgACAAICAiEAACgAAYAACAk=</HashCode>
+      <FileName>Forms\Person\SettingPersonForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.SeasonForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIIAABACAAADAAgECAIAQGAAABCAAAAQgQIWAEAAA=</HashCode>
+      <FileName>Forms\Season\SeasonForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.SettingSeasonForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAACCAAADAIAACAAgCGAAAAAAAAAAgQAQAACAA=</HashCode>
+      <FileName>Forms\Season\SettingSeasonForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.SettingStadium" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IRACAAAAICAAADAIAACABAACEAAAAAFgAQgAAQAACAA=</HashCode>
+      <FileName>Forms\Stadium\SettingStadium.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.StadiumForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBAKAAAAICgABCAIAACAIAQCAAgAAQAAAQgAgYAEIAA=</HashCode>
+      <FileName>Forms\Stadium\StadiumForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.SettingPlayerTeamForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAEIiACAEQDQMMECQhDQCAEIAAEIAMSgAgQAACAw=</HashCode>
+      <FileName>Forms\Team\SettingPlayerTeamForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.SettingTeamForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAIAAEIAICQGEDQNnECRAAQCAAYEQAAABCgAgQAACAg=</HashCode>
+      <FileName>Forms\Team\SettingTeamForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Forms.TeamForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAALAAAACAAgGEBCACgIAwCACAIIAgABCgAgQAAAEA=</HashCode>
+      <FileName>Forms\Team\TeamForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Presenters.InsertMatchPlayersPresenter" Collapsed="true">
+    <Position X="19" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACABAAAAAAA=</HashCode>
+      <FileName>Presenters\InsertMatchPlayersPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.MainPresenter" Collapsed="true">
+    <Position X="22.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAGAACAQAAQAAAAAAAAAAAAEBICAAAAAAAAE=</HashCode>
+      <FileName>Presenters\MainPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.MatchPlayersPresenter" Collapsed="true">
+    <Position X="27.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAIACAAACAAAAA=</HashCode>
+      <FileName>Presenters\MatchPlayersPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.MatchPresenter" Collapsed="true">
+    <Position X="29.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAACAAAAA=</HashCode>
+      <FileName>Presenters\MatchPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.PersonPresenter" Collapsed="true">
+    <Position X="20.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACABAAAAAAA=</HashCode>
+      <FileName>Presenters\PersonPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.PlayerTeamPresenter" Collapsed="true">
+    <Position X="22.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACABACAAAAA=</HashCode>
+      <FileName>Presenters\PlayerTeamPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.SeasonPresenter" Collapsed="true">
+    <Position X="26" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAACAAAAA=</HashCode>
+      <FileName>Presenters\SeasonPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.SettingMatchPresenter" Collapsed="true">
+    <Position X="29.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABAAAAAAAAAAAAAAAAAAEAAAIACAACAAAAAA=</HashCode>
+      <FileName>Presenters\SettingMatchPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.SettingPersonPresenter" Collapsed="true">
+    <Position X="20.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAIAAAAAAAIACAACAAAAAA=</HashCode>
+      <FileName>Presenters\SettingPersonPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.SettingPlayerTeamPresenter" Collapsed="true">
+    <Position X="24.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAACAAAAAAAAAAAAAAAAAAAIACAACAAAAAI=</HashCode>
+      <FileName>Presenters\SettingPlayerTeamPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.SettingSeasonPresenter" Collapsed="true">
+    <Position X="27.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAIAAAAAAAIACAACAAAAAA=</HashCode>
+      <FileName>Presenters\SettingSeasonPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.SettingStadiumPresenter" Collapsed="true">
+    <Position X="19" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAIAAAAAAAIACAACAAAAAA=</HashCode>
+      <FileName>Presenters\SettingStadiumPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.SettingTeamPresenter" Collapsed="true">
+    <Position X="22.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAIAAAAAAAIACAACCAAAAA=</HashCode>
+      <FileName>Presenters\SettingTeamPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.StadiumPresenter" Collapsed="true">
+    <Position X="26" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAACAAAAA=</HashCode>
+      <FileName>Presenters\StadiumPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.TablePlayersMainPresenter" Collapsed="true">
+    <Position X="27.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAGAAAAA=</HashCode>
+      <FileName>Presenters\TablePlayersMainPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Presenters.TeamPresenter" Collapsed="true">
+    <Position X="19" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAACAAAAA=</HashCode>
+      <FileName>Presenters\TeamPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Views.CSeasonView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Views\ISeasonView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Views.CStadiumView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBACAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\IStadiumView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Views.ClassTablePlayersMainView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIAAAAEAAQMEEAQAAACAAIAAAAAAAAAIJAAAQg=</HashCode>
+      <FileName>Views\ITablePlayersMainView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Views.CMatchPlayersView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIAAAAEAAQMEFAQAAACAAIAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Views\Match\IMatchPlayersView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Views.CMatchTableView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UBAgIAAkAEAAAAAAAABLAEAAoAQEAgABABABACBgAAA=</HashCode>
+      <FileName>Views\Match\IMatchView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Views.CPersonView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIAAAAAAAQMEAAQAAAAAAIAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Views\Person\IPersonView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Views.CSettingPlayerTeamView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIAAAAEAAQMEEAQAAACAAIAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Views\PlayersTeam\IPlayerTeamView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.Views.CTeamView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAABCAAAAAACAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Views\Team\ITeamView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FNL.CasparFNL" Collapsed="true">
+    <Position X="19" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABIAIAgAAAAEAAIAAAAAAgBAQAAAAgAAAAAA=</HashCode>
+      <FileName>CasparFNL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Logger" Collapsed="true">
+    <Position X="20.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAEAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.MessageBoxFNL" Collapsed="true">
+    <Position X="22.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MessageBoxFNL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FNL.Program" Collapsed="true">
+    <Position X="24.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="FNL.Views.IFacesView">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAABAAAAoEIAAAAAAAAAAAAwABAAAAAAAAAAQAABgk=</HashCode>
+      <FileName>Views\IFacesView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IInsertMatchPlayersView" Collapsed="true">
+    <Position X="19" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAIAAAAAAAAEAAAAAAAAAAAAAQAAAAEAAAAAAAA=</HashCode>
+      <FileName>Views\IInsertMatchPlayersView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IMainView">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAyACACAAABgAhAIAABQCAEGAEgAABBCLBYAiIgACA=</HashCode>
+      <FileName>Views\IMainView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.ISeasonIds">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ISeasonIds.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.ISeasonView">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Views\ISeasonView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.ISettingSeasonView">
+    <Position X="4.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ISettingSeasonView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.ISettingStadiumView">
+    <Position X="6.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ISettingStadiumView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IStadiumIds">
+    <Position X="6.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\IStadiumIds.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IStadiumView">
+    <Position X="6.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\IStadiumView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.ITablePlayersMainView">
+    <Position X="4.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIJAAAQg=</HashCode>
+      <FileName>Views\ITablePlayersMainView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IMatchIds">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UBAgIAAEAEAAAAAAAABCAAAAoAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Match\IMatchIds.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IMatchPlayersIds" Collapsed="true">
+    <Position X="20.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Match\IMatchPlayersIds.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IMatchPlayersView">
+    <Position X="1.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAFAQAAAAAAIAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Views\Match\IMatchPlayersView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IMatchView">
+    <Position X="10.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAkAAAAAAAAAAAJAEAAAAQEAgABABABACBgAAA=</HashCode>
+      <FileName>Views\Match\IMatchView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.ISettingMatchView">
+    <Position X="10.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Match\ISettingMatchView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.ISettingPlayerTeamView">
+    <Position X="4.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Views\Match\ISettingPlayerTeamView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IPersonIds">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Person\IPersonIds.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IPersonView">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAQIEAAQAAAAAAIAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Views\Person\IPersonView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.ISettingPersonView">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Person\ISettingPersonView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IPlayerId">
+    <Position X="4.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\PlayersTeam\IPlayersId.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IPlayerTeamView">
+    <Position X="3" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAEAQAAAAAAIAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Views\PlayersTeam\IPlayerTeamView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.IPlayerView">
+    <Position X="3" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\PlayersTeam\IPlayerView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.ISettingTeamView">
+    <Position X="1.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Team\ISettingTeamView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.ITeamIds">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Team\ITeamIds.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FNL.Views.ITeamView">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAABCAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Views\Team\ITeamView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="FNL.Enums.AmpluaType" Collapsed="true">
+    <Position X="19" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\AmpluaType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FNL.Enums.EventMatchType" Collapsed="true">
+    <Position X="20.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQgAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAE=</HashCode>
+      <FileName>Enums\EventMatchType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FNL.Enums.PersonCategoryType" Collapsed="true">
+    <Position X="22.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAAAAABAAA=</HashCode>
+      <FileName>Enums\PersonAccessory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FNL.Enums.RoleType" Collapsed="true">
+    <Position X="24.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAhAkAAAAAAAAAAAIAAAAAAQAAgAAAAAABQAAAAA=</HashCode>
+      <FileName>Enums\RoleType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

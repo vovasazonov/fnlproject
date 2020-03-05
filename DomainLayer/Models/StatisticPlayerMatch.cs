@@ -1,15 +1,17 @@
-﻿using System;
+﻿/*  Файл описывает сущность базы данных в виде класса.
+ *  Сазонов Владимир Сергеевич.
+ *  ©.
+ *  Дата создания: 2019, дата последнего изменения: 2020.
+ *  Контактная информация: vova.sazonovvv@gmail.com.
+ */
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
-using System.ComponentModel.DataAnnotations;
 
 namespace ModelLayer.Models
 {
 	/// <summary>
-	/// Statistic of player in current match
+    /// Entity.
+	/// Statistic of player in current match.
 	/// </summary>
 	public class StatisticPlayerMatch
 	{
