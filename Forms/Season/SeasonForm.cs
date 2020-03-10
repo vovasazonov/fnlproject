@@ -57,6 +57,7 @@ namespace FNL.Forms
         public SeasonForm()
         {
             InitializeComponent();
+            UpdateTable();
         }
 
         public SeasonForm(SettingMatchForm settingMatchForm)

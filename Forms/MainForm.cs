@@ -1036,6 +1036,30 @@ namespace FNL
 
             presenter.ShowViewEvents();
         }
+
+        private void btnPeopleDBSetting_Click(object sender, EventArgs e)
+        {
+            PersonForm form = new PersonForm();
+            form.Show();
+        }
+
+        private void btnStadiumsDBSetting_Click(object sender, EventArgs e)
+        {
+            StadiumForm form = new StadiumForm();
+            form.Show();
+        }
+
+        private void btnSeasonsDBSetting_Click(object sender, EventArgs e)
+        {
+            SeasonForm form = new SeasonForm();
+            form.Show();
+        }
+
+        private void btnTeamsDBSetting_Click(object sender, EventArgs e)
+        {
+            TeamForm form = new TeamForm();
+            form.Show();
+        }
     }
 
 }

@@ -84,6 +84,7 @@ namespace FNL.Forms
         public StadiumForm()
         {
             InitializeComponent();
+            UpdateTable();
         }
 
         public StadiumForm(SettingMatchForm settingMatchForm)
