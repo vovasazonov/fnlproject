@@ -89,6 +89,18 @@ namespace FNL.Presenters
             return logoPath;
         }
 
+        internal void SetPlayerPair(bool isGuest)
+        {
+            var idPlayer = isGuest ? _view.GuestPlayerId : _view.HomePlayerId;
+
+            using (var db = new DbFnlContext())
+            {
+                db.PlayersMatches.Where(t => t.MatchId == _view.MatchId && t.PersonId == idPlayer).FirstOrDefault().IsSpare = true;
+                db.SaveChanges();
+            }
+
+        }
+
         internal void Replacement(bool isGuest)
         {
             var idPlayer = isGuest ? _view.GuestPlayerId : _view.HomePlayerId;
@@ -216,7 +228,7 @@ namespace FNL.Presenters
             }
         }
 
-       
+
         internal int GetEventInSeason(int idPlayer, EventMatchType eventMatch)
         {
             int amount = 0;
@@ -277,7 +289,7 @@ namespace FNL.Presenters
                 //_view.PassGuest { get; set; }
                 //_view.AccuratePassGuest { get; set; }
                 //_view.FoulGuest { get; set; }
-                _view.YellowTicketGuest = GetEventInSeason(_view.GuestPlayerId,EventMatchType.YellowCard).ToString();
+                _view.YellowTicketGuest = GetEventInSeason(_view.GuestPlayerId, EventMatchType.YellowCard).ToString();
                 _view.RedTicketGuest = GetEventInSeason(_view.GuestPlayerId, EventMatchType.RedCard).ToString();
                 _view.ChangeGuest = db.EventsStatistics.Where(t => t.EventId == (int)EventMatchType.Replacement && t.StatisticPlayerMatch.PersonId == _view.GuestPlayerId).Count().ToString();
 

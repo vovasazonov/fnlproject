@@ -1,0 +1,111 @@
+﻿package src
+{
+
+	import flash.display.MovieClip;
+	import flash.net.URLRequest;
+	import flash.display.DisplayObject;
+	import flash.display.Loader;
+	import flash.display.LoaderInfo;
+	import flash.system.JPEGLoaderContext;
+	import flash.events.EventDispatcher;
+	import flash.events.IOErrorEvent;
+	import flash.events.Event;
+	import flash.net.URLLoader;
+	import flashx.textLayout.events.ModelChange;
+	import flash.display.Bitmap;
+
+
+	public class LowerWindow extends MovieClip
+	{
+		private var MainEx:Main;
+
+		public var Up:MovieClip;
+		public var Down:MovieClip;
+
+		private var _loaderLogoHome:Loader=new Loader();
+		private var _loaderLogoGuest:Loader=new Loader();
+		private var _isLogoHome:Boolean=false;
+		private var _isLogoGuest:Boolean=false;
+		private var _logoTeamPath:String;
+		
+		public function LowerWindow()
+		{
+			// constructor code
+		}
+
+		// ----- Set methods. -----
+		public function set titleName(value:String):void
+		{
+			Up.Title.text = value;
+		}
+		public function set scoreHomeTeam(value:String):void
+		{
+			Down.ScoreHome.text = value;
+		}
+		public function set scoreGuestTeam(value:String):void
+		{
+			Down.ScoreGuest.text = value;
+		}
+		public function set nameHomeTeam(value:String):void
+		{
+			Down.NameHome.text = value;
+		}
+		public function set nameGuestTeam(value:String):void
+		{
+			Down.NameGuest.text = value;
+		}
+		
+		public function set logoHomeTeam(value:String):void
+		{
+			setLogo(_isLogoHome,value,_loaderLogoHome,Down.LogoHome);
+		}
+
+		public function set logoGuestTeam(value:String):void
+		{
+			setLogo(_isLogoGuest,value,_loaderLogoGuest,Down.LogoGuest);
+		}
+		// ----- Set methods. -----
+		
+		public function WindowShow():void
+		{
+			this.gotoAndPlay("in");
+		}
+		public function WindowHide():void
+		{
+			this.gotoAndPlay("out");
+		}
+		
+		private function setLogo(isLogo:Boolean,logoTeamPath:String,loaderLogo:Loader,movieLogo:MovieClip):void
+		{
+			// Remove another logo if exist.
+			if(isLogo){
+				movieLogo.removeChild(loaderLogo);
+				isLogo = false;
+			}
+			
+			loaderLogo=new Loader();
+			loaderLogo.contentLoaderInfo.addEventListener(Event.COMPLETE, onCompliteLoadLogo);
+			movieLogo.addChild(loaderLogo);
+			loaderLogo.load(new URLRequest(logoTeamPath));
+			isLogo = true;
+			
+			// Catch error.
+			loaderLogo.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR,ioErrorLogo,false,0,true);
+		}
+		private function ioErrorLogo(evt:IOErrorEvent):void{
+			trace("Error input output of logo!!!");
+		}
+		private function onCompliteLoadLogo(event:Event):void
+		{
+   			 EventDispatcher(event.target).removeEventListener(event.type, arguments.callee);
+			 
+			 Bitmap((event.target as LoaderInfo).content).smoothing = true;
+   			 var image:DisplayObject = (event.target as LoaderInfo).content;
+
+   			 image.width = 101;
+   			 image.height = 101;
+		}
+
+	}
+
+}

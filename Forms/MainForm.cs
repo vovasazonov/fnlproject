@@ -817,29 +817,34 @@ namespace FNL
         private void btnAddRedTicketGuest_Click(object sender, EventArgs e)
         {
             bool isGuest = true;
+            RedCardEvent(isGuest);
 
-            MainPresenter presenter = new MainPresenter(this);
-            presenter.AddEventToDb(isGuest,EventMatchType.RedCard);
-
-            UpdatePlayerBackRoundCG(isGuest);
-
-            CasparFNL.SendData(new Dictionary<string, string>()
-            {
-                {"eventNameLine", "Удаление"},
-                {"eventValueLine", ""},
-            });
-
-            ShowHideEventCG(EventMatchType.RedCard);
-
-            presenter.ShowViewEvents();
         }
 
         private void btnAddRedTicketHome_Click(object sender, EventArgs e)
         {
             bool isGuest = false;
+            RedCardEvent(isGuest);
+
+        }
+
+        private void RedCardEvent(bool isGuest)
+        {
+            DialogResult result = MessageBox.Show(
+                "Удалить игрока из матча?",
+                "Удаление игрока",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
 
             MainPresenter presenter = new MainPresenter(this);
-            presenter.AddEventToDb(isGuest,EventMatchType.RedCard);
+            presenter.AddEventToDb(isGuest, EventMatchType.RedCard);
 
             UpdatePlayerBackRoundCG(isGuest);
 
@@ -852,8 +857,10 @@ namespace FNL
             ShowHideEventCG(EventMatchType.RedCard);
 
             presenter.ShowViewEvents();
-        }
 
+            presenter.SetPlayerPair(isGuest);
+            UpdateView();
+        }
         private void btnAddYellowTicketGuest_Click(object sender, EventArgs e)
         {
             bool isGuest = true;
@@ -954,6 +961,19 @@ namespace FNL
 
         private void checkBoxWelWin_CheckedChanged(object sender, EventArgs e)
         {
+            // Match didnt start
+            BigWindowEntranceTitr("Матч не начался");
+        }
+
+        private void checkBoxWelWin2_CheckedChanged(object sender, EventArgs e)
+        {
+            // Match finished.
+            BigWindowEntranceTitr("Матч окончен");
+
+        }
+
+        private void BigWindowEntranceTitr(string title)
+        {
             MainPresenter presenter = new MainPresenter(this);
 
             DateTime date = dtpDateWelWin.Value;
@@ -962,7 +982,7 @@ namespace FNL
             //System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("ru-RU");
             string valueTime = string.Format("{0}:{1}", time.Hour.ToString("00"), time.Minute.ToString("00"));
             string valueData = string.Format("{0} {1} {2}    {3}", date.Day, DictionaryMonths.GetNameMonth(date.Month), date.Year, valueTime);
-
+            string scoreHome_Team = $"{tBScoreTeam2.Text}:{tBScoreTeam1.Text}";
             CasparFNL.SendData(new Dictionary<string, string>()
             {
                 {"seasonName", SeasonName },
@@ -972,6 +992,9 @@ namespace FNL
                 {"rightNameTeamWelWin", presenter.GetFullNameTeam(false)},
                 {"logoTeamLeftWelWinPath", presenter.GetLogoPathTeam(true)},
                 {"logoTeamRightWelWinPath", presenter.GetLogoPathTeam(false)},
+                {"scoreTeamsWelWinPath", scoreHome_Team},
+                {"titleWindowWelWinPath", title},
+
             });
 
             CasparFNL.InvokeMethod("WelWinShowHide");
@@ -1059,6 +1082,52 @@ namespace FNL
         {
             TeamForm form = new TeamForm();
             form.Show();
+        }
+
+        private void checkBoxFirstTimeInfoWinDown_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowDownTitrInfo("Первый тайм");
+        }
+
+        private void checkBoxSecondTimeInfoWinDown_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowDownTitrInfo("Второй тайм");
+        }
+
+        private void checkBoxBreakInfoWinDown_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowDownTitrInfo("Перерыв");
+
+        }
+
+        private void checkBoxMatchFinishedInfoWinDown_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowDownTitrInfo("Матч окончен");
+
+        }
+
+        private void checkBoxMatchDidntStartInfoWinDown_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowDownTitrInfo("Матч не начался");
+        }
+
+        private void ShowDownTitrInfo(string title)
+        {
+            MainPresenter presenter = new MainPresenter(this);
+
+            CasparFNL.SendData(new Dictionary<string, string>()
+            {          
+                {"LowerWindow_titleName", title},
+                {"LowerWindow_scoreHome", tBScoreTeam2.Text},
+                {"LowerWindow_scoreGuest", tBScoreTeam1.Text},
+                {"LowerWindow_nameHome", presenter.GetFullNameTeam(false)},
+                {"LowerWindow_nameGuest", presenter.GetFullNameTeam(true)},
+                {"LowerWindow_logoHomePath", presenter.GetLogoPathTeam(false)},
+                {"LowerWindow_logoGuestPath", presenter.GetLogoPathTeam(true)},
+
+            });
+
+            CasparFNL.InvokeMethod("LowerWindowShowHide");
         }
     }
 

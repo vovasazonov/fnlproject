@@ -143,17 +143,24 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnTeamsDBSetting = new System.Windows.Forms.Button();
+            this.btnSeasonsDBSetting = new System.Windows.Forms.Button();
+            this.btnStadiumsDBSetting = new System.Windows.Forms.Button();
+            this.btnPeopleDBSetting = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.colorDialog3 = new System.Windows.Forms.ColorDialog();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnPeopleDBSetting = new System.Windows.Forms.Button();
-            this.btnStadiumsDBSetting = new System.Windows.Forms.Button();
-            this.btnSeasonsDBSetting = new System.Windows.Forms.Button();
-            this.btnTeamsDBSetting = new System.Windows.Forms.Button();
+            this.checkBoxWelWin2 = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxFirstTimeInfoWinDown = new System.Windows.Forms.CheckBox();
+            this.checkBoxSecondTimeInfoWinDown = new System.Windows.Forms.CheckBox();
+            this.checkBoxBreakInfoWinDown = new System.Windows.Forms.CheckBox();
+            this.checkBoxMatchFinishedInfoWinDown = new System.Windows.Forms.CheckBox();
+            this.checkBoxMatchDidntStartInfoWinDown = new System.Windows.Forms.CheckBox();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -184,8 +191,9 @@
             this.panel1.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbCasparServer
@@ -277,11 +285,12 @@
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.Bisque;
+            this.groupBox5.Controls.Add(this.groupBox2);
             this.groupBox5.Controls.Add(this.groupBox11);
             this.groupBox5.Controls.Add(this.groupBox8);
             this.groupBox5.Location = new System.Drawing.Point(641, 419);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(406, 122);
+            this.groupBox5.Size = new System.Drawing.Size(406, 133);
             this.groupBox5.TabIndex = 24;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Титр информирования";
@@ -289,37 +298,38 @@
             // groupBox11
             // 
             this.groupBox11.BackColor = System.Drawing.Color.Gold;
+            this.groupBox11.Controls.Add(this.checkBoxWelWin2);
             this.groupBox11.Controls.Add(this.dtpTimeWelWin);
             this.groupBox11.Controls.Add(this.dtpDateWelWin);
             this.groupBox11.Controls.Add(this.checkBoxWelWin);
-            this.groupBox11.Location = new System.Drawing.Point(181, 19);
+            this.groupBox11.Location = new System.Drawing.Point(166, 15);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(219, 67);
+            this.groupBox11.Size = new System.Drawing.Size(114, 107);
             this.groupBox11.TabIndex = 25;
             this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Вступительные титры";
+            this.groupBox11.Text = "Центральный";
             // 
             // dtpTimeWelWin
             // 
             this.dtpTimeWelWin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpTimeWelWin.Location = new System.Drawing.Point(130, 34);
+            this.dtpTimeWelWin.Location = new System.Drawing.Point(3, 78);
             this.dtpTimeWelWin.Name = "dtpTimeWelWin";
-            this.dtpTimeWelWin.Size = new System.Drawing.Size(83, 20);
+            this.dtpTimeWelWin.Size = new System.Drawing.Size(110, 20);
             this.dtpTimeWelWin.TabIndex = 2;
             this.dtpTimeWelWin.Value = new System.DateTime(2019, 11, 15, 12, 22, 57, 0);
             // 
             // dtpDateWelWin
             // 
-            this.dtpDateWelWin.Location = new System.Drawing.Point(7, 34);
+            this.dtpDateWelWin.Location = new System.Drawing.Point(3, 51);
             this.dtpDateWelWin.Name = "dtpDateWelWin";
-            this.dtpDateWelWin.Size = new System.Drawing.Size(117, 20);
+            this.dtpDateWelWin.Size = new System.Drawing.Size(110, 20);
             this.dtpDateWelWin.TabIndex = 1;
             this.dtpDateWelWin.Value = new System.DateTime(2019, 11, 15, 12, 22, 57, 0);
             // 
             // checkBoxWelWin
             // 
             this.checkBoxWelWin.AutoSize = true;
-            this.checkBoxWelWin.Location = new System.Drawing.Point(7, 16);
+            this.checkBoxWelWin.Location = new System.Drawing.Point(3, 14);
             this.checkBoxWelWin.Name = "checkBoxWelWin";
             this.checkBoxWelWin.Size = new System.Drawing.Size(110, 17);
             this.checkBoxWelWin.TabIndex = 0;
@@ -335,9 +345,9 @@
             this.groupBox8.Controls.Add(this.checkBoxListPlayers);
             this.groupBox8.Controls.Add(this.radioButtonHome);
             this.groupBox8.Controls.Add(this.radioButtonGuest);
-            this.groupBox8.Location = new System.Drawing.Point(6, 20);
+            this.groupBox8.Location = new System.Drawing.Point(6, 15);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(169, 96);
+            this.groupBox8.Size = new System.Drawing.Size(165, 107);
             this.groupBox8.TabIndex = 23;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Показ игроков";
@@ -407,7 +417,7 @@
             this.groupBox7.Controls.Add(this.groupBox1);
             this.groupBox7.Location = new System.Drawing.Point(79, 419);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(561, 122);
+            this.groupBox7.Size = new System.Drawing.Size(561, 133);
             this.groupBox7.TabIndex = 22;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Верхний титр";
@@ -419,10 +429,10 @@
             this.groupBox10.Controls.Add(this.checkBoxGuestClockRedCard1);
             this.groupBox10.Location = new System.Drawing.Point(441, 20);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(114, 96);
+            this.groupBox10.Size = new System.Drawing.Size(115, 102);
             this.groupBox10.TabIndex = 21;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Красные карточк";
+            this.groupBox10.Text = "Красные карточки";
             // 
             // checkBoxHomeClockRedCard1
             // 
@@ -620,7 +630,7 @@
             this.gpStartStopTemplate.Controls.Add(this.btnStopGraphics);
             this.gpStartStopTemplate.Location = new System.Drawing.Point(8, 415);
             this.gpStartStopTemplate.Name = "gpStartStopTemplate";
-            this.gpStartStopTemplate.Size = new System.Drawing.Size(65, 126);
+            this.gpStartStopTemplate.Size = new System.Drawing.Size(65, 99);
             this.gpStartStopTemplate.TabIndex = 21;
             this.gpStartStopTemplate.TabStop = false;
             this.gpStartStopTemplate.Text = "Графика";
@@ -1453,6 +1463,60 @@
             this.panel7.Size = new System.Drawing.Size(408, 34);
             this.panel7.TabIndex = 13;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.btnTeamsDBSetting);
+            this.tabPage2.Controls.Add(this.btnSeasonsDBSetting);
+            this.tabPage2.Controls.Add(this.btnStadiumsDBSetting);
+            this.tabPage2.Controls.Add(this.btnPeopleDBSetting);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1152, 561);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Сформировать чемпионат";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnTeamsDBSetting
+            // 
+            this.btnTeamsDBSetting.Location = new System.Drawing.Point(3, 90);
+            this.btnTeamsDBSetting.Name = "btnTeamsDBSetting";
+            this.btnTeamsDBSetting.Size = new System.Drawing.Size(214, 23);
+            this.btnTeamsDBSetting.TabIndex = 3;
+            this.btnTeamsDBSetting.Text = "Команды";
+            this.btnTeamsDBSetting.UseVisualStyleBackColor = true;
+            this.btnTeamsDBSetting.Click += new System.EventHandler(this.btnTeamsDBSetting_Click);
+            // 
+            // btnSeasonsDBSetting
+            // 
+            this.btnSeasonsDBSetting.Location = new System.Drawing.Point(3, 61);
+            this.btnSeasonsDBSetting.Name = "btnSeasonsDBSetting";
+            this.btnSeasonsDBSetting.Size = new System.Drawing.Size(214, 23);
+            this.btnSeasonsDBSetting.TabIndex = 2;
+            this.btnSeasonsDBSetting.Text = "Сезоны";
+            this.btnSeasonsDBSetting.UseVisualStyleBackColor = true;
+            this.btnSeasonsDBSetting.Click += new System.EventHandler(this.btnSeasonsDBSetting_Click);
+            // 
+            // btnStadiumsDBSetting
+            // 
+            this.btnStadiumsDBSetting.Location = new System.Drawing.Point(3, 32);
+            this.btnStadiumsDBSetting.Name = "btnStadiumsDBSetting";
+            this.btnStadiumsDBSetting.Size = new System.Drawing.Size(214, 23);
+            this.btnStadiumsDBSetting.TabIndex = 1;
+            this.btnStadiumsDBSetting.Text = "Стадионы";
+            this.btnStadiumsDBSetting.UseVisualStyleBackColor = true;
+            this.btnStadiumsDBSetting.Click += new System.EventHandler(this.btnStadiumsDBSetting_Click);
+            // 
+            // btnPeopleDBSetting
+            // 
+            this.btnPeopleDBSetting.Location = new System.Drawing.Point(3, 3);
+            this.btnPeopleDBSetting.Name = "btnPeopleDBSetting";
+            this.btnPeopleDBSetting.Size = new System.Drawing.Size(214, 23);
+            this.btnPeopleDBSetting.TabIndex = 0;
+            this.btnPeopleDBSetting.Text = "Персоны";
+            this.btnPeopleDBSetting.UseVisualStyleBackColor = true;
+            this.btnPeopleDBSetting.Click += new System.EventHandler(this.btnPeopleDBSetting_Click);
+            // 
             // entityCommand1
             // 
             this.entityCommand1.CommandTimeout = 0;
@@ -1470,62 +1534,91 @@
             // 
             // toolStripTextBox1
             // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             // 
-            // tabPage2
+            // checkBoxWelWin2
             // 
-            this.tabPage2.Controls.Add(this.btnTeamsDBSetting);
-            this.tabPage2.Controls.Add(this.btnSeasonsDBSetting);
-            this.tabPage2.Controls.Add(this.btnStadiumsDBSetting);
-            this.tabPage2.Controls.Add(this.btnPeopleDBSetting);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1152, 561);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Сформировать чемпионат";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.checkBoxWelWin2.AutoSize = true;
+            this.checkBoxWelWin2.Location = new System.Drawing.Point(3, 32);
+            this.checkBoxWelWin2.Name = "checkBoxWelWin2";
+            this.checkBoxWelWin2.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxWelWin2.TabIndex = 3;
+            this.checkBoxWelWin2.Text = "Матч окончен";
+            this.checkBoxWelWin2.UseVisualStyleBackColor = true;
+            this.checkBoxWelWin2.CheckedChanged += new System.EventHandler(this.checkBoxWelWin2_CheckedChanged);
             // 
-            // btnPeopleDBSetting
+            // groupBox2
             // 
-            this.btnPeopleDBSetting.Location = new System.Drawing.Point(3, 3);
-            this.btnPeopleDBSetting.Name = "btnPeopleDBSetting";
-            this.btnPeopleDBSetting.Size = new System.Drawing.Size(214, 23);
-            this.btnPeopleDBSetting.TabIndex = 0;
-            this.btnPeopleDBSetting.Text = "Персоны";
-            this.btnPeopleDBSetting.UseVisualStyleBackColor = true;
-            this.btnPeopleDBSetting.Click += new System.EventHandler(this.btnPeopleDBSetting_Click);
+            this.groupBox2.BackColor = System.Drawing.Color.DarkSalmon;
+            this.groupBox2.Controls.Add(this.checkBoxMatchDidntStartInfoWinDown);
+            this.groupBox2.Controls.Add(this.checkBoxMatchFinishedInfoWinDown);
+            this.groupBox2.Controls.Add(this.checkBoxBreakInfoWinDown);
+            this.groupBox2.Controls.Add(this.checkBoxSecondTimeInfoWinDown);
+            this.groupBox2.Controls.Add(this.checkBoxFirstTimeInfoWinDown);
+            this.groupBox2.ForeColor = System.Drawing.Color.Black;
+            this.groupBox2.Location = new System.Drawing.Point(280, 15);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(120, 107);
+            this.groupBox2.TabIndex = 26;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Нижний";
             // 
-            // btnStadiumsDBSetting
+            // checkBoxFirstTimeInfoWinDown
             // 
-            this.btnStadiumsDBSetting.Location = new System.Drawing.Point(3, 32);
-            this.btnStadiumsDBSetting.Name = "btnStadiumsDBSetting";
-            this.btnStadiumsDBSetting.Size = new System.Drawing.Size(214, 23);
-            this.btnStadiumsDBSetting.TabIndex = 1;
-            this.btnStadiumsDBSetting.Text = "Стадионы";
-            this.btnStadiumsDBSetting.UseVisualStyleBackColor = true;
-            this.btnStadiumsDBSetting.Click += new System.EventHandler(this.btnStadiumsDBSetting_Click);
+            this.checkBoxFirstTimeInfoWinDown.AutoSize = true;
+            this.checkBoxFirstTimeInfoWinDown.Location = new System.Drawing.Point(6, 17);
+            this.checkBoxFirstTimeInfoWinDown.Name = "checkBoxFirstTimeInfoWinDown";
+            this.checkBoxFirstTimeInfoWinDown.Size = new System.Drawing.Size(94, 17);
+            this.checkBoxFirstTimeInfoWinDown.TabIndex = 0;
+            this.checkBoxFirstTimeInfoWinDown.Text = "Первый тайм";
+            this.checkBoxFirstTimeInfoWinDown.UseVisualStyleBackColor = true;
+            this.checkBoxFirstTimeInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxFirstTimeInfoWinDown_CheckedChanged);
             // 
-            // btnSeasonsDBSetting
+            // checkBoxSecondTimeInfoWinDown
             // 
-            this.btnSeasonsDBSetting.Location = new System.Drawing.Point(3, 61);
-            this.btnSeasonsDBSetting.Name = "btnSeasonsDBSetting";
-            this.btnSeasonsDBSetting.Size = new System.Drawing.Size(214, 23);
-            this.btnSeasonsDBSetting.TabIndex = 2;
-            this.btnSeasonsDBSetting.Text = "Сезоны";
-            this.btnSeasonsDBSetting.UseVisualStyleBackColor = true;
-            this.btnSeasonsDBSetting.Click += new System.EventHandler(this.btnSeasonsDBSetting_Click);
+            this.checkBoxSecondTimeInfoWinDown.AutoSize = true;
+            this.checkBoxSecondTimeInfoWinDown.Location = new System.Drawing.Point(6, 35);
+            this.checkBoxSecondTimeInfoWinDown.Name = "checkBoxSecondTimeInfoWinDown";
+            this.checkBoxSecondTimeInfoWinDown.Size = new System.Drawing.Size(90, 17);
+            this.checkBoxSecondTimeInfoWinDown.TabIndex = 1;
+            this.checkBoxSecondTimeInfoWinDown.Text = "Второй тайм";
+            this.checkBoxSecondTimeInfoWinDown.UseVisualStyleBackColor = true;
+            this.checkBoxSecondTimeInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxSecondTimeInfoWinDown_CheckedChanged);
             // 
-            // btnTeamsDBSetting
+            // checkBoxBreakInfoWinDown
             // 
-            this.btnTeamsDBSetting.Location = new System.Drawing.Point(3, 90);
-            this.btnTeamsDBSetting.Name = "btnTeamsDBSetting";
-            this.btnTeamsDBSetting.Size = new System.Drawing.Size(214, 23);
-            this.btnTeamsDBSetting.TabIndex = 3;
-            this.btnTeamsDBSetting.Text = "Команды";
-            this.btnTeamsDBSetting.UseVisualStyleBackColor = true;
-            this.btnTeamsDBSetting.Click += new System.EventHandler(this.btnTeamsDBSetting_Click);
+            this.checkBoxBreakInfoWinDown.AutoSize = true;
+            this.checkBoxBreakInfoWinDown.Location = new System.Drawing.Point(6, 53);
+            this.checkBoxBreakInfoWinDown.Name = "checkBoxBreakInfoWinDown";
+            this.checkBoxBreakInfoWinDown.Size = new System.Drawing.Size(72, 17);
+            this.checkBoxBreakInfoWinDown.TabIndex = 2;
+            this.checkBoxBreakInfoWinDown.Text = "Перерыв";
+            this.checkBoxBreakInfoWinDown.UseVisualStyleBackColor = true;
+            this.checkBoxBreakInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxBreakInfoWinDown_CheckedChanged);
+            // 
+            // checkBoxMatchFinishedInfoWinDown
+            // 
+            this.checkBoxMatchFinishedInfoWinDown.AutoSize = true;
+            this.checkBoxMatchFinishedInfoWinDown.Location = new System.Drawing.Point(6, 70);
+            this.checkBoxMatchFinishedInfoWinDown.Name = "checkBoxMatchFinishedInfoWinDown";
+            this.checkBoxMatchFinishedInfoWinDown.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxMatchFinishedInfoWinDown.TabIndex = 3;
+            this.checkBoxMatchFinishedInfoWinDown.Text = "Матч окончен";
+            this.checkBoxMatchFinishedInfoWinDown.UseVisualStyleBackColor = true;
+            this.checkBoxMatchFinishedInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxMatchFinishedInfoWinDown_CheckedChanged);
+            // 
+            // checkBoxMatchDidntStartInfoWinDown
+            // 
+            this.checkBoxMatchDidntStartInfoWinDown.AutoSize = true;
+            this.checkBoxMatchDidntStartInfoWinDown.Location = new System.Drawing.Point(6, 88);
+            this.checkBoxMatchDidntStartInfoWinDown.Name = "checkBoxMatchDidntStartInfoWinDown";
+            this.checkBoxMatchDidntStartInfoWinDown.Size = new System.Drawing.Size(110, 17);
+            this.checkBoxMatchDidntStartInfoWinDown.TabIndex = 4;
+            this.checkBoxMatchDidntStartInfoWinDown.Text = "Матч не начался";
+            this.checkBoxMatchDidntStartInfoWinDown.UseVisualStyleBackColor = true;
+            this.checkBoxMatchDidntStartInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxMatchDidntStartInfoWinDown_CheckedChanged);
             // 
             // MainForm
             // 
@@ -1587,9 +1680,11 @@
             this.panel11.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1714,6 +1809,13 @@
         private System.Windows.Forms.Button btnSeasonsDBSetting;
         private System.Windows.Forms.Button btnStadiumsDBSetting;
         private System.Windows.Forms.Button btnPeopleDBSetting;
+        private System.Windows.Forms.CheckBox checkBoxWelWin2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox checkBoxMatchDidntStartInfoWinDown;
+        private System.Windows.Forms.CheckBox checkBoxMatchFinishedInfoWinDown;
+        private System.Windows.Forms.CheckBox checkBoxBreakInfoWinDown;
+        private System.Windows.Forms.CheckBox checkBoxSecondTimeInfoWinDown;
+        private System.Windows.Forms.CheckBox checkBoxFirstTimeInfoWinDown;
     }
 }
 

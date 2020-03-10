@@ -16,6 +16,7 @@
 		public var up_change:change;
 		public var winStartLineup:WindowStartingLineup;
 		public var replacement:replacementPlayers;
+		public var lowerWin:LowerWindow;
 		// ------------------ Layers ------------------
 		
 		// ------------------ Booleans ------------------
@@ -33,6 +34,7 @@
 		private var _isVisibleRedCard1Right:Boolean = false;
 		private var _isVisibleRedCard2Right:Boolean = false;
 		private var _welWinIsVisible:Boolean = false;
+		private var _lowerWindowIsVisible:Boolean = false;
 		// ------------------ Booleans ------------------
 		
 		public function Main() {
@@ -117,6 +119,14 @@
 				if(element.@id == "logoTeamRightWelWinPath") 
 				{
 					winStartLineup.logoTeamRightWelWin = element.data.@value;
+				}
+				if(element.@id == "scoreTeamsWelWinPath") 
+				{
+					winStartLineup.scoreMatch = element.data.@value;
+				}
+				if(element.@id == "titleWindowWelWinPath") 
+				{
+					winStartLineup.chapterMatch = element.data.@value;
 				}
 				
 				
@@ -449,7 +459,36 @@
 					}
 				}
 				// ----- replacementPlayers -----
-
+				// ----- LowerWindow -----
+				if(element.@id == "LowerWindow_titleName") 
+				{
+					lowerWin.titleName = element.data.@value;
+				}
+				if(element.@id == "LowerWindow_scoreHome") 
+				{
+					lowerWin.scoreHomeTeam = element.data.@value;
+				}
+				if(element.@id == "LowerWindow_scoreGuest") 
+				{
+					lowerWin.scoreGuestTeam = element.data.@value;
+				}
+				if(element.@id == "LowerWindow_nameHome") 
+				{
+					lowerWin.nameHomeTeam = element.data.@value;
+				}
+				if(element.@id == "LowerWindow_nameGuest") 
+				{
+					lowerWin.nameGuestTeam = element.data.@value;
+				}
+				if(element.@id == "LowerWindow_logoHomePath") 
+				{
+					lowerWin.logoHomeTeam = element.data.@value;
+				}
+				if(element.@id == "LowerWindow_logoGuestPath") 
+				{
+					lowerWin.logoGuestTeam = element.data.@value;
+				}
+				// ----- LowerWindow -----
 			}
 		}
 		
@@ -733,6 +772,22 @@
 			}
 		}
 		// ----- replacementPlayers -----
+		// ----- lowerWindow -----
+		public function LowerWindowShowHide():void
+		{
+			if (_lowerWindowIsVisible)
+			{
+				lowerWin.WindowHide();
+				_lowerWindowIsVisible = false;
+
+			}
+			else
+			{
+				lowerWin.WindowShow();
+				_lowerWindowIsVisible = true;
+			}
+		}
+		// ----- lowerWindow -----
 	}
 	
 }

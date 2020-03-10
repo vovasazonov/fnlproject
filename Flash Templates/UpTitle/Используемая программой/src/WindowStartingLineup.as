@@ -22,6 +22,7 @@
 		public var DownLine:MovieClip;
 		public var CenterLogos:MovieClip;
 		public var ChapterUpWelWin:MovieClip;
+		public var TitleAndScore:MovieClip;
 		
 		private var _valueBetweenTexts:int = 15;
 		// ---- 	Logo&Titles 	----
@@ -54,6 +55,14 @@
 		public function set leftNameTeamWelWin(value:String):void
 		{
 			CenterLogos.CenterLogos.RightNameTeamWelWin.text = value;
+		}
+		public function set scoreMatch(value:String):void
+		{
+			TitleAndScore.ScoreMatch.text = value;
+		}
+		public function set chapterMatch(value:String):void
+		{
+			TitleAndScore.ChapterMatch.text = value;
 		}
 		public function set logoTeamRightWelWin(value:String):void 
 		{
