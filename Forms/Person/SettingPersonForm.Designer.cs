@@ -91,6 +91,7 @@
             this.buttonChoseFotoPerson.TabIndex = 21;
             this.buttonChoseFotoPerson.Text = "1 фото большое ...";
             this.buttonChoseFotoPerson.UseVisualStyleBackColor = true;
+            this.buttonChoseFotoPerson.Visible = false;
             // 
             // textPathFotoPerson
             // 
@@ -98,6 +99,7 @@
             this.textPathFotoPerson.Name = "textPathFotoPerson";
             this.textPathFotoPerson.Size = new System.Drawing.Size(210, 20);
             this.textPathFotoPerson.TabIndex = 20;
+            this.textPathFotoPerson.Visible = false;
             // 
             // textCityPerson
             // 
@@ -217,13 +219,13 @@
             this.buttonOkPerson.UseVisualStyleBackColor = true;
             this.buttonOkPerson.Click += new System.EventHandler(this.buttonOkPerson_Click);
             // 
-            // SettingPerson
+            // SettingPersonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 250);
             this.Controls.Add(this.panel1);
-            this.Name = "SettingPerson";
+            this.Name = "SettingPersonForm";
             this.Text = "SettingPerson";
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
