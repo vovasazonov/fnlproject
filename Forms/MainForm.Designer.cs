@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbCasparServer = new System.Windows.Forms.TextBox();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.btnClearGraphics = new System.Windows.Forms.Button();
@@ -46,7 +46,14 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxMatchDidntStartInfoWinDown = new System.Windows.Forms.CheckBox();
+            this.checkBoxMatchFinishedInfoWinDown = new System.Windows.Forms.CheckBox();
+            this.checkBoxBreakInfoWinDown = new System.Windows.Forms.CheckBox();
+            this.checkBoxSecondTimeInfoWinDown = new System.Windows.Forms.CheckBox();
+            this.checkBoxFirstTimeInfoWinDown = new System.Windows.Forms.CheckBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.checkBoxWelWin2 = new System.Windows.Forms.CheckBox();
             this.dtpTimeWelWin = new System.Windows.Forms.DateTimePicker();
             this.dtpDateWelWin = new System.Windows.Forms.DateTimePicker();
             this.checkBoxWelWin = new System.Windows.Forms.CheckBox();
@@ -154,18 +161,13 @@
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.checkBoxWelWin2 = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBoxFirstTimeInfoWinDown = new System.Windows.Forms.CheckBox();
-            this.checkBoxSecondTimeInfoWinDown = new System.Windows.Forms.CheckBox();
-            this.checkBoxBreakInfoWinDown = new System.Windows.Forms.CheckBox();
-            this.checkBoxMatchFinishedInfoWinDown = new System.Windows.Forms.CheckBox();
-            this.checkBoxMatchDidntStartInfoWinDown = new System.Windows.Forms.CheckBox();
+            this.checkBoxTestImage = new System.Windows.Forms.CheckBox();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel18.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -193,7 +195,6 @@
             this.panel12.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbCasparServer
@@ -295,6 +296,77 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Титр информирования";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.DarkSalmon;
+            this.groupBox2.Controls.Add(this.checkBoxMatchDidntStartInfoWinDown);
+            this.groupBox2.Controls.Add(this.checkBoxMatchFinishedInfoWinDown);
+            this.groupBox2.Controls.Add(this.checkBoxBreakInfoWinDown);
+            this.groupBox2.Controls.Add(this.checkBoxSecondTimeInfoWinDown);
+            this.groupBox2.Controls.Add(this.checkBoxFirstTimeInfoWinDown);
+            this.groupBox2.ForeColor = System.Drawing.Color.Black;
+            this.groupBox2.Location = new System.Drawing.Point(280, 15);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(120, 107);
+            this.groupBox2.TabIndex = 26;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Нижний";
+            // 
+            // checkBoxMatchDidntStartInfoWinDown
+            // 
+            this.checkBoxMatchDidntStartInfoWinDown.AutoSize = true;
+            this.checkBoxMatchDidntStartInfoWinDown.Location = new System.Drawing.Point(6, 88);
+            this.checkBoxMatchDidntStartInfoWinDown.Name = "checkBoxMatchDidntStartInfoWinDown";
+            this.checkBoxMatchDidntStartInfoWinDown.Size = new System.Drawing.Size(110, 17);
+            this.checkBoxMatchDidntStartInfoWinDown.TabIndex = 4;
+            this.checkBoxMatchDidntStartInfoWinDown.Text = "Матч не начался";
+            this.checkBoxMatchDidntStartInfoWinDown.UseVisualStyleBackColor = true;
+            this.checkBoxMatchDidntStartInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxMatchDidntStartInfoWinDown_CheckedChanged);
+            // 
+            // checkBoxMatchFinishedInfoWinDown
+            // 
+            this.checkBoxMatchFinishedInfoWinDown.AutoSize = true;
+            this.checkBoxMatchFinishedInfoWinDown.Location = new System.Drawing.Point(6, 70);
+            this.checkBoxMatchFinishedInfoWinDown.Name = "checkBoxMatchFinishedInfoWinDown";
+            this.checkBoxMatchFinishedInfoWinDown.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxMatchFinishedInfoWinDown.TabIndex = 3;
+            this.checkBoxMatchFinishedInfoWinDown.Text = "Матч окончен";
+            this.checkBoxMatchFinishedInfoWinDown.UseVisualStyleBackColor = true;
+            this.checkBoxMatchFinishedInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxMatchFinishedInfoWinDown_CheckedChanged);
+            // 
+            // checkBoxBreakInfoWinDown
+            // 
+            this.checkBoxBreakInfoWinDown.AutoSize = true;
+            this.checkBoxBreakInfoWinDown.Location = new System.Drawing.Point(6, 53);
+            this.checkBoxBreakInfoWinDown.Name = "checkBoxBreakInfoWinDown";
+            this.checkBoxBreakInfoWinDown.Size = new System.Drawing.Size(72, 17);
+            this.checkBoxBreakInfoWinDown.TabIndex = 2;
+            this.checkBoxBreakInfoWinDown.Text = "Перерыв";
+            this.checkBoxBreakInfoWinDown.UseVisualStyleBackColor = true;
+            this.checkBoxBreakInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxBreakInfoWinDown_CheckedChanged);
+            // 
+            // checkBoxSecondTimeInfoWinDown
+            // 
+            this.checkBoxSecondTimeInfoWinDown.AutoSize = true;
+            this.checkBoxSecondTimeInfoWinDown.Location = new System.Drawing.Point(6, 35);
+            this.checkBoxSecondTimeInfoWinDown.Name = "checkBoxSecondTimeInfoWinDown";
+            this.checkBoxSecondTimeInfoWinDown.Size = new System.Drawing.Size(90, 17);
+            this.checkBoxSecondTimeInfoWinDown.TabIndex = 1;
+            this.checkBoxSecondTimeInfoWinDown.Text = "Второй тайм";
+            this.checkBoxSecondTimeInfoWinDown.UseVisualStyleBackColor = true;
+            this.checkBoxSecondTimeInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxSecondTimeInfoWinDown_CheckedChanged);
+            // 
+            // checkBoxFirstTimeInfoWinDown
+            // 
+            this.checkBoxFirstTimeInfoWinDown.AutoSize = true;
+            this.checkBoxFirstTimeInfoWinDown.Location = new System.Drawing.Point(6, 17);
+            this.checkBoxFirstTimeInfoWinDown.Name = "checkBoxFirstTimeInfoWinDown";
+            this.checkBoxFirstTimeInfoWinDown.Size = new System.Drawing.Size(94, 17);
+            this.checkBoxFirstTimeInfoWinDown.TabIndex = 0;
+            this.checkBoxFirstTimeInfoWinDown.Text = "Первый тайм";
+            this.checkBoxFirstTimeInfoWinDown.UseVisualStyleBackColor = true;
+            this.checkBoxFirstTimeInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxFirstTimeInfoWinDown_CheckedChanged);
+            // 
             // groupBox11
             // 
             this.groupBox11.BackColor = System.Drawing.Color.Gold;
@@ -308,6 +380,17 @@
             this.groupBox11.TabIndex = 25;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Центральный";
+            // 
+            // checkBoxWelWin2
+            // 
+            this.checkBoxWelWin2.AutoSize = true;
+            this.checkBoxWelWin2.Location = new System.Drawing.Point(3, 32);
+            this.checkBoxWelWin2.Name = "checkBoxWelWin2";
+            this.checkBoxWelWin2.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxWelWin2.TabIndex = 3;
+            this.checkBoxWelWin2.Text = "Матч окончен";
+            this.checkBoxWelWin2.UseVisualStyleBackColor = true;
+            this.checkBoxWelWin2.CheckedChanged += new System.EventHandler(this.checkBoxWelWin2_CheckedChanged);
             // 
             // dtpTimeWelWin
             // 
@@ -751,17 +834,17 @@
             // 
             // dataGridPlayersGuest
             // 
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridPlayersGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridPlayersGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersGuest.Location = new System.Drawing.Point(3, 31);
             this.dataGridPlayersGuest.Name = "dataGridPlayersGuest";
@@ -781,17 +864,17 @@
             // 
             // dataGridPlayersPairsGuest
             // 
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersPairsGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersPairsGuest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridPlayersPairsGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersPairsGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridPlayersPairsGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersPairsGuest.Location = new System.Drawing.Point(3, 256);
             this.dataGridPlayersPairsGuest.Name = "dataGridPlayersPairsGuest";
@@ -889,17 +972,17 @@
             // 
             // dataGridPlayersHome
             // 
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridPlayersHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridPlayersHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersHome.Location = new System.Drawing.Point(-1, 38);
             this.dataGridPlayersHome.Name = "dataGridPlayersHome";
@@ -908,17 +991,17 @@
             // 
             // dataGridPlayersPairsHome
             // 
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridPlayersPairsHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridPlayersPairsHome.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridPlayersPairsHome.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlayersPairsHome.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridPlayersPairsHome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPlayersPairsHome.Location = new System.Drawing.Point(0, 259);
             this.dataGridPlayersPairsHome.Name = "dataGridPlayersPairsHome";
@@ -1465,6 +1548,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.checkBoxTestImage);
             this.tabPage2.Controls.Add(this.btnTeamsDBSetting);
             this.tabPage2.Controls.Add(this.btnSeasonsDBSetting);
             this.tabPage2.Controls.Add(this.btnStadiumsDBSetting);
@@ -1538,87 +1622,16 @@
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             // 
-            // checkBoxWelWin2
+            // checkBoxTestImage
             // 
-            this.checkBoxWelWin2.AutoSize = true;
-            this.checkBoxWelWin2.Location = new System.Drawing.Point(3, 32);
-            this.checkBoxWelWin2.Name = "checkBoxWelWin2";
-            this.checkBoxWelWin2.Size = new System.Drawing.Size(95, 17);
-            this.checkBoxWelWin2.TabIndex = 3;
-            this.checkBoxWelWin2.Text = "Матч окончен";
-            this.checkBoxWelWin2.UseVisualStyleBackColor = true;
-            this.checkBoxWelWin2.CheckedChanged += new System.EventHandler(this.checkBoxWelWin2_CheckedChanged);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.DarkSalmon;
-            this.groupBox2.Controls.Add(this.checkBoxMatchDidntStartInfoWinDown);
-            this.groupBox2.Controls.Add(this.checkBoxMatchFinishedInfoWinDown);
-            this.groupBox2.Controls.Add(this.checkBoxBreakInfoWinDown);
-            this.groupBox2.Controls.Add(this.checkBoxSecondTimeInfoWinDown);
-            this.groupBox2.Controls.Add(this.checkBoxFirstTimeInfoWinDown);
-            this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(280, 15);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(120, 107);
-            this.groupBox2.TabIndex = 26;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Нижний";
-            // 
-            // checkBoxFirstTimeInfoWinDown
-            // 
-            this.checkBoxFirstTimeInfoWinDown.AutoSize = true;
-            this.checkBoxFirstTimeInfoWinDown.Location = new System.Drawing.Point(6, 17);
-            this.checkBoxFirstTimeInfoWinDown.Name = "checkBoxFirstTimeInfoWinDown";
-            this.checkBoxFirstTimeInfoWinDown.Size = new System.Drawing.Size(94, 17);
-            this.checkBoxFirstTimeInfoWinDown.TabIndex = 0;
-            this.checkBoxFirstTimeInfoWinDown.Text = "Первый тайм";
-            this.checkBoxFirstTimeInfoWinDown.UseVisualStyleBackColor = true;
-            this.checkBoxFirstTimeInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxFirstTimeInfoWinDown_CheckedChanged);
-            // 
-            // checkBoxSecondTimeInfoWinDown
-            // 
-            this.checkBoxSecondTimeInfoWinDown.AutoSize = true;
-            this.checkBoxSecondTimeInfoWinDown.Location = new System.Drawing.Point(6, 35);
-            this.checkBoxSecondTimeInfoWinDown.Name = "checkBoxSecondTimeInfoWinDown";
-            this.checkBoxSecondTimeInfoWinDown.Size = new System.Drawing.Size(90, 17);
-            this.checkBoxSecondTimeInfoWinDown.TabIndex = 1;
-            this.checkBoxSecondTimeInfoWinDown.Text = "Второй тайм";
-            this.checkBoxSecondTimeInfoWinDown.UseVisualStyleBackColor = true;
-            this.checkBoxSecondTimeInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxSecondTimeInfoWinDown_CheckedChanged);
-            // 
-            // checkBoxBreakInfoWinDown
-            // 
-            this.checkBoxBreakInfoWinDown.AutoSize = true;
-            this.checkBoxBreakInfoWinDown.Location = new System.Drawing.Point(6, 53);
-            this.checkBoxBreakInfoWinDown.Name = "checkBoxBreakInfoWinDown";
-            this.checkBoxBreakInfoWinDown.Size = new System.Drawing.Size(72, 17);
-            this.checkBoxBreakInfoWinDown.TabIndex = 2;
-            this.checkBoxBreakInfoWinDown.Text = "Перерыв";
-            this.checkBoxBreakInfoWinDown.UseVisualStyleBackColor = true;
-            this.checkBoxBreakInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxBreakInfoWinDown_CheckedChanged);
-            // 
-            // checkBoxMatchFinishedInfoWinDown
-            // 
-            this.checkBoxMatchFinishedInfoWinDown.AutoSize = true;
-            this.checkBoxMatchFinishedInfoWinDown.Location = new System.Drawing.Point(6, 70);
-            this.checkBoxMatchFinishedInfoWinDown.Name = "checkBoxMatchFinishedInfoWinDown";
-            this.checkBoxMatchFinishedInfoWinDown.Size = new System.Drawing.Size(95, 17);
-            this.checkBoxMatchFinishedInfoWinDown.TabIndex = 3;
-            this.checkBoxMatchFinishedInfoWinDown.Text = "Матч окончен";
-            this.checkBoxMatchFinishedInfoWinDown.UseVisualStyleBackColor = true;
-            this.checkBoxMatchFinishedInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxMatchFinishedInfoWinDown_CheckedChanged);
-            // 
-            // checkBoxMatchDidntStartInfoWinDown
-            // 
-            this.checkBoxMatchDidntStartInfoWinDown.AutoSize = true;
-            this.checkBoxMatchDidntStartInfoWinDown.Location = new System.Drawing.Point(6, 88);
-            this.checkBoxMatchDidntStartInfoWinDown.Name = "checkBoxMatchDidntStartInfoWinDown";
-            this.checkBoxMatchDidntStartInfoWinDown.Size = new System.Drawing.Size(110, 17);
-            this.checkBoxMatchDidntStartInfoWinDown.TabIndex = 4;
-            this.checkBoxMatchDidntStartInfoWinDown.Text = "Матч не начался";
-            this.checkBoxMatchDidntStartInfoWinDown.UseVisualStyleBackColor = true;
-            this.checkBoxMatchDidntStartInfoWinDown.CheckedChanged += new System.EventHandler(this.checkBoxMatchDidntStartInfoWinDown_CheckedChanged);
+            this.checkBoxTestImage.AutoSize = true;
+            this.checkBoxTestImage.Location = new System.Drawing.Point(7, 271);
+            this.checkBoxTestImage.Name = "checkBoxTestImage";
+            this.checkBoxTestImage.Size = new System.Drawing.Size(193, 17);
+            this.checkBoxTestImage.TabIndex = 4;
+            this.checkBoxTestImage.Text = "Тестовое изображение на экран";
+            this.checkBoxTestImage.UseVisualStyleBackColor = true;
+            this.checkBoxTestImage.CheckedChanged += new System.EventHandler(this.checkBoxTestImage_CheckedChanged);
             // 
             // MainForm
             // 
@@ -1642,6 +1655,8 @@
             this.tabPage1.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -1681,10 +1696,9 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1816,6 +1830,7 @@
         private System.Windows.Forms.CheckBox checkBoxBreakInfoWinDown;
         private System.Windows.Forms.CheckBox checkBoxSecondTimeInfoWinDown;
         private System.Windows.Forms.CheckBox checkBoxFirstTimeInfoWinDown;
+        private System.Windows.Forms.CheckBox checkBoxTestImage;
     }
 }
 

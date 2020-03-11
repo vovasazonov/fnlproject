@@ -182,7 +182,7 @@ namespace FNL.Presenters
 
                     int SetIdOfFaceToView(RoleType roleType, int ignoreId = -1)
                     {
-                        int varToSet;
+                        int varToSet = 0;
                         int idRole = DictionaryRoles.GetId(roleType);
                         try
                         {

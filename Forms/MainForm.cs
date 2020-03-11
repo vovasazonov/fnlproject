@@ -1129,6 +1129,11 @@ namespace FNL
 
             CasparFNL.InvokeMethod("LowerWindowShowHide");
         }
+
+        private void checkBoxTestImage_CheckedChanged(object sender, EventArgs e)
+        {
+            CasparFNL.InvokeMethod("ShowHideTempImage");
+        }
     }
 
 }

@@ -37,6 +37,8 @@
 		private var _lowerWindowIsVisible:Boolean = false;
 		// ------------------ Booleans ------------------
 		
+		public var TempIMAGE:MovieClip;
+		
 		public function Main() {
 			// constructor code
 			
@@ -788,6 +790,11 @@
 			}
 		}
 		// ----- lowerWindow -----
+		
+		public function ShowHideTempImage():void
+		{
+			TempIMAGE.visible = !TempIMAGE.visible;
+		}
 	}
 	
 }
