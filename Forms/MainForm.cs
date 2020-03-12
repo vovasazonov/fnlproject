@@ -858,7 +858,8 @@ namespace FNL
 
             presenter.ShowViewEvents();
 
-            presenter.SetPlayerPair(isGuest);
+            // presenter.SetPlayerPair(isGuest);
+            presenter.DeletePlayerFromMatch(isGuest);
             UpdateView();
         }
         private void btnAddYellowTicketGuest_Click(object sender, EventArgs e)

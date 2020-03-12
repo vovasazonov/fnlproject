@@ -100,6 +100,17 @@ namespace FNL.Presenters
             }
 
         }
+        internal void DeletePlayerFromMatch(bool isGuest)
+        {
+            var idPlayer = isGuest ? _view.GuestPlayerId : _view.HomePlayerId;
+
+            using (var db = new DbFnlContext())
+            {
+                var playerMatch = db.PlayersMatches.Where(t => t.MatchId == _view.MatchId && t.PersonId == idPlayer).FirstOrDefault();
+                db.PlayersMatches.Remove(playerMatch);
+                db.SaveChanges();
+            }
+        }
 
         internal void Replacement(bool isGuest)
         {
