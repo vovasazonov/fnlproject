@@ -12,7 +12,7 @@ namespace FNL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -47,26 +47,6 @@ namespace FNL.Properties {
         public string TemplateNameClock {
             get {
                 return ((string)(this["TemplateNameClock"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>РОТ#Ротор</string>
-  <string>ФАК#Факел</string>
-  <string>СКА#СКА-Хабаровск</string>
-  <string>НН#Нижний Новгород</string>
-  <string>ЧЕР#Чертаново</string>
-  <string>ТОМ#Томь</string>
-  <string>ТОР#Торпедо</string>
-  <string>ЛУЧ#Луч</string>
-  <string>АРМ#Армавир</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection Teams {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Teams"]));
             }
         }
     }

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*  Класс запуска программы.
+ *  ©.
+ *  Дата создания: 2019, дата последнего изменения: 2020.
+ *  Контактная информация: vova.sazonovvv@gmail.com.
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +21,7 @@ namespace FNL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }

@@ -11,19 +11,5 @@
     <Setting Name="TemplateNameClock" Type="System.String" Scope="Application">
       <Value Profile="(Default)">FNL/up_title</Value>
     </Setting>
-    <Setting Name="Teams" Type="System.Collections.Specialized.StringCollection" Scope="Application">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;РОТ#Ротор&lt;/string&gt;
-  &lt;string&gt;ФАК#Факел&lt;/string&gt;
-  &lt;string&gt;СКА#СКА-Хабаровск&lt;/string&gt;
-  &lt;string&gt;НН#Нижний Новгород&lt;/string&gt;
-  &lt;string&gt;ЧЕР#Чертаново&lt;/string&gt;
-  &lt;string&gt;ТОМ#Томь&lt;/string&gt;
-  &lt;string&gt;ТОР#Торпедо&lt;/string&gt;
-  &lt;string&gt;ЛУЧ#Луч&lt;/string&gt;
-  &lt;string&gt;АРМ#Армавир&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

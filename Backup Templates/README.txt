@@ -1,1 +1,0 @@
-Here are templates from animate studio and its scripts. It needs for save it pn github.
