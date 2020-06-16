@@ -15,7 +15,7 @@ namespace FNL.Extensions
     public static class ColorExtension
     {
         /// <summary>
-        /// Chose color via dialog form.
+        /// Choose color via dialog form.
         /// </summary>
         /// <param name="color"></param>
         /// <returns></returns>

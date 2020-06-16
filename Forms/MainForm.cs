@@ -830,19 +830,6 @@ namespace FNL
 
         private void RedCardEvent(bool isGuest)
         {
-            DialogResult result = MessageBox.Show(
-                "Удалить игрока из матча?",
-                "Удаление игрока",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Information,
-                MessageBoxDefaultButton.Button1,
-                MessageBoxOptions.DefaultDesktopOnly);
-
-            if (result == DialogResult.No)
-            {
-                return;
-            }
-
             MainPresenter presenter = new MainPresenter(this);
             presenter.AddEventToDb(isGuest, EventMatchType.RedCard);
 

@@ -23,7 +23,7 @@ namespace FNL
         private static CasparDevice _device = null;
         public static CasparCGDataCollection Data { get => _data; private set => _data = value; }
         private static CasparCGDataCollection _data = null;
-
+        
         static CasparFNL()
         {
             _device = new CasparDevice();
