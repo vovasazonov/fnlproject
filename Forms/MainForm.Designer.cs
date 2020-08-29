@@ -151,6 +151,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBoxTestImage = new System.Windows.Forms.CheckBox();
             this.btnTeamsDBSetting = new System.Windows.Forms.Button();
             this.btnSeasonsDBSetting = new System.Windows.Forms.Button();
             this.btnStadiumsDBSetting = new System.Windows.Forms.Button();
@@ -161,7 +162,6 @@
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.checkBoxTestImage = new System.Windows.Forms.CheckBox();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -440,16 +440,16 @@
             this.checkBoxListPairsPlayers.AutoSize = true;
             this.checkBoxListPairsPlayers.Location = new System.Drawing.Point(6, 49);
             this.checkBoxListPairsPlayers.Name = "checkBoxListPairsPlayers";
-            this.checkBoxListPairsPlayers.Size = new System.Drawing.Size(77, 17);
+            this.checkBoxListPairsPlayers.Size = new System.Drawing.Size(113, 17);
             this.checkBoxListPairsPlayers.TabIndex = 5;
-            this.checkBoxListPairsPlayers.Text = "Запасные";
+            this.checkBoxListPairsPlayers.Text = "Запасной состав";
             this.checkBoxListPairsPlayers.UseVisualStyleBackColor = true;
             this.checkBoxListPairsPlayers.CheckedChanged += new System.EventHandler(this.checkBoxListPairsPlayers_CheckedChanged);
             // 
             // checkBoxOfficialFaces
             // 
             this.checkBoxOfficialFaces.AutoSize = true;
-            this.checkBoxOfficialFaces.Location = new System.Drawing.Point(6, 65);
+            this.checkBoxOfficialFaces.Location = new System.Drawing.Point(6, 83);
             this.checkBoxOfficialFaces.Name = "checkBoxOfficialFaces";
             this.checkBoxOfficialFaces.Size = new System.Drawing.Size(158, 17);
             this.checkBoxOfficialFaces.TabIndex = 24;
@@ -515,16 +515,16 @@
             this.groupBox10.Size = new System.Drawing.Size(115, 102);
             this.groupBox10.TabIndex = 21;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Красные карточки";
+            this.groupBox10.Text = "Красная карточка";
             // 
             // checkBoxHomeClockRedCard1
             // 
             this.checkBoxHomeClockRedCard1.AutoSize = true;
             this.checkBoxHomeClockRedCard1.Location = new System.Drawing.Point(7, 30);
             this.checkBoxHomeClockRedCard1.Name = "checkBoxHomeClockRedCard1";
-            this.checkBoxHomeClockRedCard1.Size = new System.Drawing.Size(87, 17);
+            this.checkBoxHomeClockRedCard1.Size = new System.Drawing.Size(63, 17);
             this.checkBoxHomeClockRedCard1.TabIndex = 1;
-            this.checkBoxHomeClockRedCard1.Text = "У дома 1-ая";
+            this.checkBoxHomeClockRedCard1.Text = "У дома";
             this.checkBoxHomeClockRedCard1.UseVisualStyleBackColor = true;
             this.checkBoxHomeClockRedCard1.CheckedChanged += new System.EventHandler(this.checkBoxHomeClockRedCard1_CheckedChanged);
             // 
@@ -533,9 +533,9 @@
             this.checkBoxGuestClockRedCard1.AutoSize = true;
             this.checkBoxGuestClockRedCard1.Location = new System.Drawing.Point(7, 12);
             this.checkBoxGuestClockRedCard1.Name = "checkBoxGuestClockRedCard1";
-            this.checkBoxGuestClockRedCard1.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxGuestClockRedCard1.Size = new System.Drawing.Size(71, 17);
             this.checkBoxGuestClockRedCard1.TabIndex = 0;
-            this.checkBoxGuestClockRedCard1.Text = "У гостей 1-ая";
+            this.checkBoxGuestClockRedCard1.Text = "У гостей";
             this.checkBoxGuestClockRedCard1.UseVisualStyleBackColor = true;
             this.checkBoxGuestClockRedCard1.CheckedChanged += new System.EventHandler(this.checkBoxGuestClockRedCard1_CheckedChanged);
             // 
@@ -692,7 +692,7 @@
             this.groupBox1.Size = new System.Drawing.Size(91, 103);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Отоброжение";
+            this.groupBox1.Text = "Отображение";
             // 
             // btnShowMain
             // 
@@ -1561,6 +1561,17 @@
             this.tabPage2.Text = "Сформировать чемпионат";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // checkBoxTestImage
+            // 
+            this.checkBoxTestImage.AutoSize = true;
+            this.checkBoxTestImage.Location = new System.Drawing.Point(7, 271);
+            this.checkBoxTestImage.Name = "checkBoxTestImage";
+            this.checkBoxTestImage.Size = new System.Drawing.Size(197, 17);
+            this.checkBoxTestImage.TabIndex = 4;
+            this.checkBoxTestImage.Text = "Показать тестовый фон на экран";
+            this.checkBoxTestImage.UseVisualStyleBackColor = true;
+            this.checkBoxTestImage.CheckedChanged += new System.EventHandler(this.checkBoxTestImage_CheckedChanged);
+            // 
             // btnTeamsDBSetting
             // 
             this.btnTeamsDBSetting.Location = new System.Drawing.Point(3, 90);
@@ -1618,20 +1629,8 @@
             // 
             // toolStripTextBox1
             // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
-            // 
-            // checkBoxTestImage
-            // 
-            this.checkBoxTestImage.AutoSize = true;
-            this.checkBoxTestImage.Location = new System.Drawing.Point(7, 271);
-            this.checkBoxTestImage.Name = "checkBoxTestImage";
-            this.checkBoxTestImage.Size = new System.Drawing.Size(193, 17);
-            this.checkBoxTestImage.TabIndex = 4;
-            this.checkBoxTestImage.Text = "Тестовое изображение на экран";
-            this.checkBoxTestImage.UseVisualStyleBackColor = true;
-            this.checkBoxTestImage.CheckedChanged += new System.EventHandler(this.checkBoxTestImage_CheckedChanged);
             // 
             // MainForm
             // 

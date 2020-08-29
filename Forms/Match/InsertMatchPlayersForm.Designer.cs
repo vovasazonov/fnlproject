@@ -87,9 +87,9 @@
             this.groupBox2.Controls.Add(this.textBoxNotPairs);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.textBoxTrainers);
-            this.groupBox2.Location = new System.Drawing.Point(213, 32);
+            this.groupBox2.Location = new System.Drawing.Point(213, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(446, 44);
+            this.groupBox2.Size = new System.Drawing.Size(443, 64);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Выбрано";
@@ -98,15 +98,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(204, 23);
+            this.label3.Location = new System.Drawing.Point(6, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.Size = new System.Drawing.Size(150, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Запасные";
+            this.label3.Text = "Игроков запасного состава";
             // 
             // textBoxPairs
             // 
-            this.textBoxPairs.Location = new System.Drawing.Point(266, 18);
+            this.textBoxPairs.Location = new System.Drawing.Point(162, 40);
             this.textBoxPairs.Name = "textBoxPairs";
             this.textBoxPairs.ReadOnly = true;
             this.textBoxPairs.Size = new System.Drawing.Size(37, 20);
@@ -115,15 +115,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(99, 21);
+            this.label2.Location = new System.Drawing.Point(6, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(150, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Основные";
+            this.label2.Text = "Игроков основного состава";
             // 
             // textBoxNotPairs
             // 
-            this.textBoxNotPairs.Location = new System.Drawing.Point(161, 16);
+            this.textBoxNotPairs.Location = new System.Drawing.Point(162, 16);
             this.textBoxNotPairs.Name = "textBoxNotPairs";
             this.textBoxNotPairs.ReadOnly = true;
             this.textBoxNotPairs.Size = new System.Drawing.Size(37, 20);
@@ -132,15 +132,15 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 21);
+            this.label1.Location = new System.Drawing.Point(203, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Тренер";
+            this.label1.Text = "Тренеров";
             // 
             // textBoxTrainers
             // 
-            this.textBoxTrainers.Location = new System.Drawing.Point(56, 16);
+            this.textBoxTrainers.Location = new System.Drawing.Point(265, 17);
             this.textBoxTrainers.Name = "textBoxTrainers";
             this.textBoxTrainers.ReadOnly = true;
             this.textBoxTrainers.Size = new System.Drawing.Size(37, 20);
@@ -189,13 +189,13 @@
             this.buttonAddPlayerTeam.UseVisualStyleBackColor = true;
             this.buttonAddPlayerTeam.Click += new System.EventHandler(this.buttonAddPlayerTeam_Click);
             // 
-            // InsertMatchPlayers
+            // InsertMatchPlayersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(663, 422);
             this.Controls.Add(this.panel1);
-            this.Name = "InsertMatchPlayers";
+            this.Name = "InsertMatchPlayersForm";
             this.Text = "InsertMatchPlayers";
             this.panel1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);

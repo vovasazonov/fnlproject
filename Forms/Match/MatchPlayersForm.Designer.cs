@@ -75,7 +75,7 @@
             this.groupBox2.Size = new System.Drawing.Size(718, 201);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Гости";
+            this.groupBox2.Text = "Гостевая команда";
             // 
             // dataGridGuestPlayers
             // 
@@ -93,6 +93,7 @@
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Команда";
+            this.label3.Visible = false;
             // 
             // textNameGuest
             // 
@@ -101,6 +102,7 @@
             this.textNameGuest.ReadOnly = true;
             this.textNameGuest.Size = new System.Drawing.Size(151, 20);
             this.textNameGuest.TabIndex = 7;
+            this.textNameGuest.Visible = false;
             // 
             // buttonAddPlayerGuest
             // 
@@ -134,7 +136,7 @@
             this.groupBox1.Size = new System.Drawing.Size(718, 201);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Дом";
+            this.groupBox1.Text = "Домашняя команда";
             // 
             // dataGridHomePlayers
             // 
@@ -152,6 +154,7 @@
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Команда";
+            this.label2.Visible = false;
             // 
             // textNameHome
             // 
@@ -160,6 +163,7 @@
             this.textNameHome.ReadOnly = true;
             this.textNameHome.Size = new System.Drawing.Size(151, 20);
             this.textNameHome.TabIndex = 7;
+            this.textNameHome.Visible = false;
             // 
             // buttonAddPlayerHome
             // 
@@ -189,6 +193,7 @@
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Матч";
+            this.label1.Visible = false;
             // 
             // comboBoxNameMatch
             // 
@@ -197,6 +202,7 @@
             this.comboBoxNameMatch.Name = "comboBoxNameMatch";
             this.comboBoxNameMatch.Size = new System.Drawing.Size(390, 21);
             this.comboBoxNameMatch.TabIndex = 0;
+            this.comboBoxNameMatch.Visible = false;
             // 
             // MatchPlayersForm
             // 
