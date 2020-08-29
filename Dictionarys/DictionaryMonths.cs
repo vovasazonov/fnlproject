@@ -19,7 +19,7 @@ namespace FNL.Dictionarys
     {
         static private readonly Dictionary<int, string> Dic = new Dictionary<int, string>
         {
-            {1,"Янаваря" },
+            {1,"Января" },
             {2,"Февраля" },
             {3,"Марта" },
             {4,"Апреля" },

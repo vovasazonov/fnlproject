@@ -227,9 +227,9 @@ namespace FNL.Forms
             if (_settingMatchForm != null && (int)_roleType != RoleId)
             {
                 MessageBox.Show(
-                    "Выберите человека, соответствующий роли " +
+                    "Выберите человека, который соответствует роли " +
                     DictionaryRoles.Dic[_roleType] +
-                    " Если его нету, добавьте человека с токой ролью.",
+                    " Если его нету, добавьте человека с необходимой ролью.",
                     "Ошибка",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
