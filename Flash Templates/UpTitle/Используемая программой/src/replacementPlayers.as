@@ -11,6 +11,7 @@
 	import flash.events.Event;
 	import flash.net.URLLoader;
 	import flashx.textLayout.events.ModelChange;
+	import flash.events.Event;
 	import flash.display.Bitmap;
 	
 	public class replacementPlayers extends MovieClip {
@@ -21,6 +22,7 @@
 		public var GreenLine:MovieClip;
 		public var eventName:MovieClip;
 		public var eventValue:MovieClip;
+		public var eventCard:MovieClip;
 		public var secondEventName:MovieClip;
 		public var secondEventValue:MovieClip;
 		
@@ -32,8 +34,33 @@
 		private var _nameGreenLine:String;
 		private var _numberGreenLine:String;
 		
+		private function SetVisibleMovieClips(isVisible:Boolean):void{
+			SetVisibleReplacement(isVisible);
+			SetVisibleEvent(isVisible);
+		}
+		
+		private function SetVisibleReplacement(isVisible:Boolean):void{
+			LogoTeam.visible = isVisible;
+			RedLine.visible = isVisible;
+			GreenLine.visible = isVisible;
+		}
+		
+		private function SetVisibleEvent(isVisible:Boolean):void{
+			eventName.visible = isVisible;
+			eventValue.visible = isVisible;
+			eventCard.visible = isVisible;
+		}
+		
+		private function OnEnterFrame(e:Event):void
+		{
+			if(this.currentFrameLabel == "finishout"){
+				SetVisibleMovieClips(false);
+			}
+		}
+		
 		public function replacementPlayers() {
 			// constructor code
+			SetVisibleMovieClips(false);
 		}
 		
 		// ----- Set methods. -----
@@ -110,30 +137,39 @@
 		
 		public function ReplacementShow():void
 		{
+			SetVisibleMovieClips(false);
+			
 			this.gotoAndPlay("in");
+			SetVisibleReplacement(true);
 		}
 		
 		public function RedCardShow(mainExamp:Main):void
 		{
+			SetVisibleMovieClips(false);
 			MainEx = mainExamp;
 			
 			this.gotoAndPlay("inrc");
+			SetVisibleEvent(true);
 			
 			this.addEventListener(Event.ENTER_FRAME,HideNamePlayer);
 		}
 		public function YellowCardShow(mainExamp:Main):void
 		{
+			SetVisibleMovieClips(false);
 			MainEx = mainExamp;
 			
 			this.gotoAndPlay("inyc");
+			SetVisibleEvent(true);
 			
 			this.addEventListener(Event.ENTER_FRAME,HideNamePlayer);
 		}
 		public function GoalShow(mainExamp:Main):void
 		{
+			SetVisibleMovieClips(false);
 			MainEx = mainExamp;
 			
 			this.gotoAndPlay("ingoals");
+			SetVisibleEvent(true);
 			
 			this.addEventListener(Event.ENTER_FRAME,HideNamePlayer);
 		}

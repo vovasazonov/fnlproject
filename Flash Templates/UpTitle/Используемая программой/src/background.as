@@ -54,10 +54,6 @@
 		
 		private function OnEnterFrame(e:Event):void
 		{
-			if(this.currentFrameLabel == "in"){
-				SetVisibleMovieClips(true);
-			}
-			
 			if(this.currentFrameLabel == "finish"){
 				SetVisibleMovieClips(false);
 			}
