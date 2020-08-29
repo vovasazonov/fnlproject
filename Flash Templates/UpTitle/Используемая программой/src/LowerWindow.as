@@ -28,9 +28,15 @@
 		private var _isLogoGuest:Boolean=false;
 		private var _logoTeamPath:String;
 		
+		private function SetVisibleMovieClips(isVisible:Boolean):void{
+			Up.visible = isVisible;
+			Down.visible = isVisible;
+		}
+		
 		public function LowerWindow()
 		{
 			// constructor code
+			SetVisibleMovieClips(false);
 		}
 
 		// ----- Set methods. -----
@@ -69,10 +75,12 @@
 		public function WindowShow():void
 		{
 			this.gotoAndPlay("in");
+			SetVisibleMovieClips(true);
 		}
 		public function WindowHide():void
 		{
 			this.gotoAndPlay("out");
+			SetVisibleMovieClips(false);
 		}
 		
 		private function setLogo(isLogo:Boolean,logoTeamPath:String,loaderLogo:Loader,movieLogo:MovieClip):void
