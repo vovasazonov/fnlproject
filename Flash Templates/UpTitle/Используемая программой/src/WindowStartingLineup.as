@@ -12,7 +12,9 @@
 	import flash.net.URLLoader;
 	import se.svt.caspar.templateHost.LoadedTemplateItem;
 	import flash.display.Bitmap;
+	import flash.events.Event;
 	import flash.display.BitmapData;
+	import flashx.textLayout.events.ModelChange;
 	
 	public class WindowStartingLineup extends MovieClip {
 		
@@ -23,6 +25,7 @@
 		public var CenterLogos:MovieClip;
 		public var ChapterUpWelWin:MovieClip;
 		public var TitleAndScore:MovieClip;
+		public var CenterWelWin:MovieClip;
 		
 		private var _valueBetweenTexts:int = 15;
 		// ---- 	Logo&Titles 	----
@@ -35,8 +38,45 @@
 		private var _logoTeamPath:String;
 		// -----------------------------
 		
+		private function SetVisibleMovieClips(isVisible:Boolean):void{
+			SetVisiblePlayerAndFaceIn1(isVisible);
+			SetVisibleWelcomeWindow(isVisible);
+		}
+		
+		private function SetVisiblePlayerAndFaceIn1(isVisible:Boolean):void{
+			DownLine.visible = isVisible;
+			UpLine.visible = isVisible;
+			CenterLine.visible = isVisible;
+		}
+		
+		private function SetVisiblePlayerAndFaceIn2(isVisible:Boolean):void{
+			UpLine.visible = isVisible;
+			CenterLineSmall.visible = isVisible;
+			DownLine.visible = isVisible;
+		}
+		
+		private function SetVisibleWelcomeWindow(isVisible:Boolean):void{
+			CenterWelWin.visible = isVisible;
+			ChapterUpWelWin.visible = isVisible;
+			CenterLogos.visible = isVisible;
+			TitleAndScore.visible = isVisible;
+			DownLine.visible = isVisible;
+		}
+		
+		private function OnEnterFrame(e:Event):void
+		{
+			if(this.currentFrameLabel == "finishout1" || 
+			   this.currentFrameLabel == "finishout2" ||
+			   this.currentFrameLabel == "finishoutwel1"){
+				SetVisibleMovieClips(false);
+			}
+
+		}
+		
 		public function WindowStartingLineup() {
 			// constructor code
+			SetVisibleMovieClips(false);
+			this.addEventListener(Event.ENTER_FRAME,OnEnterFrame);
 		}
 		
 		// ----- Set methods. -----
@@ -494,8 +534,11 @@
 		
 		public function PlayersShow():void
 		{
+			SetVisibleMovieClips(false);
+			
 			DownLine.Logo.visible = true;
 			this.gotoAndPlay("in1");
+			SetVisiblePlayerAndFaceIn1(true);
 		}
 		
 		public function PlayersHide():void
@@ -505,8 +548,11 @@
 		
 		public function SparePlayersShow():void
 		{
+			SetVisibleMovieClips(false);
+			
 			DownLine.Logo.visible = true;
 			this.gotoAndPlay("in2");
+			SetVisiblePlayerAndFaceIn2(true);
 		}
 		public function SparePlayersHide():void
 		{
@@ -514,8 +560,11 @@
 		}
 		public function OfficialFacesShow():void
 		{
+			SetVisibleMovieClips(false);
+			
 			DownLine.Logo.visible = false;
 			this.gotoAndPlay("in2");
+			SetVisiblePlayerAndFaceIn2(true);
 		}
 		public function OfficialFacesHide():void
 		{
@@ -523,8 +572,11 @@
 		}
 		public function WelWinShow():void
 		{
+			SetVisibleMovieClips(false);
+			
 			DownLine.Logo.visible = false;
 			this.gotoAndPlay("inwel1");
+			SetVisibleWelcomeWindow(true);
 		}
 		public function WelWinHide():void
 		{
