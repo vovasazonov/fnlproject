@@ -5,14 +5,19 @@
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
 	import caurina.transitions.Tweener;
+	import flash.events.Event;
 	import flash.geom.ColorTransform;
+	import flashx.textLayout.events.ModelChange;
 	
 	
 	public class AddTimeMin extends MovieClip {
 		
 		public var extraTime:MovieClip; //Time after 45 min 90 and etc.
+		public var rectangleExtraTime:MovieClip;
 		public var time:MovieClip;
+		public var rectangleTime:MovieClip;
 		public var extraTimeLeft:MovieClip;// It is additional minutes
+		public var squareAddMin:MovieClip;
 		
 		private var _timer:Timer;
 		private var _timeMinutes:int = 0;
@@ -31,12 +36,39 @@
 		// Extra timer that go after 45 min and after 90 min.
 		public var _clockTimerExtraIsHidden:Boolean = true;
 		
+		private function SetVisibleMovieClips(isVisible:Boolean):void{
+			SetVisibleTimer(isVisible);
+			SetVisibleExtraTimer(isVisible);
+			SetVisibleAdditionalMin(isVisible);
+		}
 		
+		private function SetVisibleTimer(isVisible:Boolean):void{
+			time.visible = isVisible;
+			rectangleTime.visible = isVisible;
+		}
+		
+		private function SetVisibleExtraTimer(isVisible:Boolean):void{
+			rectangleExtraTime.visible = isVisible;
+			extraTime.visible = isVisible;
+		}
+		private function SetVisibleAdditionalMin(isVisible:Boolean):void{
+			extraTimeLeft.visible = isVisible;
+			squareAddMin.visible = isVisible;
+		}
+		
+		private function OnEnterFrame(e:Event):void
+		{
+			if(this.currentFrameLabel == "finish"){
+				SetVisibleMovieClips(false);
+			}
+		}
 		
 		public function AddTimeMin() {
 			// constructor code
 			_timer = new Timer(1000);
 			_timer.addEventListener(TimerEvent.TIMER, onTimer);
+			hideAllTimers();
+			this.addEventListener(Event.ENTER_FRAME,OnEnterFrame);
 		}
 		
 		private function onTimer(e:TimerEvent):void 
@@ -219,6 +251,7 @@
 				_clockTimerExtraIsHidden = false;
 				
 				this.gotoAndPlay("in3");
+				SetVisibleAdditionalMin(true);
 			}
 		}
 		// Hide additional minutes.
@@ -227,6 +260,7 @@
 			_clockAddIsHidden = true;
 			
 			this.gotoAndStop("in3");
+			SetVisibleAdditionalMin(false);
 		}
 		// Hide timer.
 		public function clockHideTimer():void
@@ -238,6 +272,8 @@
 		{
 			_clockTimerIsHidden = true;
 			this.gotoAndPlay("in1");
+			SetVisibleTimer(true);
+			
 		}
 		// Show extra timer.
 		public function clockShowExtraTimer():void
@@ -246,6 +282,7 @@
 			_clockTimerIsHidden = false;
 			
 			this.gotoAndPlay("in2");
+			SetVisibleExtraTimer(true);
 		}
 		// Hide extra timer.
 		public function clockHideExtraTimer():void
@@ -254,6 +291,8 @@
 			_clockAddIsHidden = true;
 			
 			this.gotoAndStop("in2");
+			SetVisibleExtraTimer(false);
+			SetVisibleAdditionalMin(false);
 		}
 		// Hide all timers.
 		public function hideAllTimers():void
@@ -263,6 +302,7 @@
 			_clockTimerExtraIsHidden = true;
 			
 			this.gotoAndStop("in1");
+			SetVisibleMovieClips(false);
 		}
 		
 		
