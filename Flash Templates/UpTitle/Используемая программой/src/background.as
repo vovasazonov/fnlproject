@@ -27,6 +27,7 @@
 		public var squareRedRight:MovieClip;
 		public var logoFNL:MovieClip;
 		
+		
 		private var _team1Name:String;
 		private var _team2Name:String;
 		private var _team1Score:String;
