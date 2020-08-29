@@ -61,6 +61,7 @@
 		public function replacementPlayers() {
 			// constructor code
 			SetVisibleMovieClips(false);
+			this.addEventListener(Event.ENTER_FRAME,OnEnterFrame);
 		}
 		
 		// ----- Set methods. -----
