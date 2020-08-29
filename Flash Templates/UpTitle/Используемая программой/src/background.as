@@ -9,6 +9,7 @@
 	import flash.geom.ColorTransform;
 	import flash.geom.Transform;
 	import fl.motion.Color;
+	import flash.events.Event;
 	import flashx.textLayout.events.ModelChange;
 	
 	public class background extends MovieClip {
@@ -22,6 +23,9 @@
 		public var NamePlayerText:MovieClip;
 		public var backNameTeamLeft:MovieClip;
 		public var backNameTeamRight:MovieClip;
+		public var squareRedLeft:MovieClip;
+		public var squareRedRight:MovieClip;
+		public var logoFNL:MovieClip;
 		
 		private var _team1Name:String;
 		private var _team2Name:String;
@@ -30,14 +34,44 @@
 		private var _team1Color:String;
 		private var _team2Color:String;
 		
+		
+		private function SetVisibleMovieClips(isVisible:Boolean):void
+		{
+			scoreTeam1.visible = isVisible;
+		  	scoreTeam2.visible = isVisible;
+		  	team1.visible = isVisible;				
+		  	team2.visible = isVisible;				
+		  	colorTeam1.visible = isVisible;
+		  	colorTeam2.visible = isVisible;
+		  	NamePlayerText.visible = isVisible;
+		  	backNameTeamLeft.visible = isVisible;
+		  	backNameTeamRight.visible = isVisible;
+			squareRedLeft.visible = isVisible;
+			squareRedRight.visible = isVisible;
+			logoFNL.visible = isVisible;
+		}
+		
+		private function OnEnterFrame(e:Event):void
+		{
+			if(this.currentFrameLabel == "in"){
+				SetVisibleMovieClips(true);
+			}
+			
+			if(this.currentFrameLabel == "finish"){
+				SetVisibleMovieClips(false);
+			}
+		}
+		
 		public function background() {
 			// constructor code
-			
+			SetVisibleMovieClips(false);
+			this.addEventListener(Event.ENTER_FRAME,OnEnterFrame);
 		}
 		
 		public function clockShow():void
 		{
 			this.gotoAndPlay("in");
+			SetVisibleMovieClips(true);
 		}
 		
 		public function clockHide():void
