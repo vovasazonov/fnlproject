@@ -40,6 +40,7 @@
 		
 		private function SetVisibleMovieClips(isVisible:Boolean):void{
 			SetVisiblePlayerAndFaceIn1(isVisible);
+			SetVisiblePlayerAndFaceIn2(isVisible);
 			SetVisibleWelcomeWindow(isVisible);
 		}
 		
