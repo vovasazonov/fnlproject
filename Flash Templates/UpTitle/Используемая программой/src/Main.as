@@ -36,6 +36,7 @@
 		private var _welWinIsVisible:Boolean = false;
 		private var _lowerWindowIsVisible:Boolean = false;
 		// ------------------ Booleans ------------------
+		private var _logoTeamStringPath:String;
 		
 		public var TempIMAGE:MovieClip;
 		
@@ -114,11 +115,11 @@
 				{
 					winStartLineup.rightNameTeamWelWin = element.data.@value;
 				}
-				if(element.@id == "logoTeamLeftWelWinPath") 
+				if(element.@id == "logoTeamLeftWelWinPath"  && !_welWinIsVisible) 
 				{
 					winStartLineup.logoTeamLeftWelWin = element.data.@value;
 				}
-				if(element.@id == "logoTeamRightWelWinPath") 
+				if(element.@id == "logoTeamRightWelWinPath" && !_welWinIsVisible) 
 				{
 					winStartLineup.logoTeamRightWelWin = element.data.@value;
 				}
@@ -144,9 +145,9 @@
 				{
 					winStartLineup.nameTrainer = element.data.@value;
 				}
-				if(element.@id == "teamLogoPath") 
+				if(element.@id == "teamLogoPath")
 				{
-					winStartLineup.logoTeam = element.data.@value;
+					_logoTeamStringPath = element.data.@value;
 				}
 				if(element.@id == "ampluaPlayer1") 
 				{
@@ -630,6 +631,16 @@
 		// ----- WindowStartingLineup -----
 		public function PlayersShowHide():void
 		{
+			// if(_officialFacesIsVisible)
+			// {
+				// OfficialFacesShowHide();
+			// }
+			
+			// if(_playersSpareIsVisible)
+			// {
+				// PlayersSpareShowHide();
+			// }
+			
 			if (_playersIsVisible)
 			{
 				winStartLineup.PlayersHide();
@@ -639,6 +650,7 @@
 			}
 			else
 			{
+				winStartLineup.logoTeam = _logoTeamStringPath;
 				winStartLineup.PlayersShow();
 				_playersIsVisible = true;
 			}
@@ -646,6 +658,16 @@
 		
 		public function PlayersSpareShowHide():void
 		{
+			// if(_officialFacesIsVisible)
+			// {
+				// OfficialFacesShowHide();
+			// }
+			
+			// if(_playersIsVisible)
+			// {
+				// PlayersShowHide();
+			// }
+			
 			if (_playersSpareIsVisible)
 			{
 				winStartLineup.SparePlayersHide();
@@ -654,12 +676,23 @@
 			}
 			else
 			{
+				winStartLineup.logoTeam = _logoTeamStringPath;
 				winStartLineup.SparePlayersShow();
 				_playersSpareIsVisible = true;
 			}
 		}
 		public function OfficialFacesShowHide():void
 		{
+			// if(_playersSpareIsVisible)
+			// {
+				// PlayersSpareShowHide();
+			// }
+			
+			// if(_playersIsVisible)
+			// {
+				// PlayersShowHide();
+			// }
+		
 			if (_officialFacesIsVisible)
 			{
 				winStartLineup.OfficialFacesHide();
@@ -668,6 +701,7 @@
 			}
 			else
 			{
+				winStartLineup.logoTeam = _logoTeamStringPath;
 				winStartLineup.OfficialFacesShow();
 				_officialFacesIsVisible = true;
 			}
