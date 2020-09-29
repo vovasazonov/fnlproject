@@ -63,12 +63,24 @@
 		
 		public function set logoHomeTeam(value:String):void
 		{
-			setLogo(_isLogoHome,value,_loaderLogoHome,Down.LogoHome);
+			if(_isLogoHome)
+			{
+				Down.LogoHome.removeChild(_loaderLogoHome);
+				_isLogoHome = false;
+			}
+			setLogo(value,_loaderLogoHome,Down.LogoHome);
+			_isLogoHome = true;
 		}
 
 		public function set logoGuestTeam(value:String):void
 		{
-			setLogo(_isLogoGuest,value,_loaderLogoGuest,Down.LogoGuest);
+			if(_isLogoGuest)
+			{
+				Down.LogoGuest.removeChild(_loaderLogoGuest);
+				_isLogoGuest = false;
+			}
+			setLogo(value,_loaderLogoGuest,Down.LogoGuest);
+			_isLogoGuest = true;
 		}
 		// ----- Set methods. -----
 		
@@ -83,20 +95,13 @@
 			SetVisibleMovieClips(false);
 		}
 		
-		private function setLogo(isLogo:Boolean,logoTeamPath:String,loaderLogo:Loader,movieLogo:MovieClip):void
-		{
-			// Remove another logo if exist.
-			if(isLogo){
-				movieLogo.removeChild(loaderLogo);
-				isLogo = false;
-			}
-			
+		private function setLogo(logoTeamPath:String,loaderLogo:Loader,movieLogo:MovieClip):void
+		{		
 			loaderLogo=new Loader();
 			loaderLogo.contentLoaderInfo.addEventListener(Event.COMPLETE, onCompliteLoadLogo);
 			movieLogo.addChild(loaderLogo);
 			loaderLogo.load(new URLRequest(logoTeamPath));
-			isLogo = true;
-			
+
 			// Catch error.
 			loaderLogo.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR,ioErrorLogo,false,0,true);
 		}
@@ -106,14 +111,12 @@
 		private function onCompliteLoadLogo(event:Event):void
 		{
    			 EventDispatcher(event.target).removeEventListener(event.type, arguments.callee);
-			 
+
 			 Bitmap((event.target as LoaderInfo).content).smoothing = true;
    			 var image:DisplayObject = (event.target as LoaderInfo).content;
 
    			 image.width = 101;
    			 image.height = 101;
 		}
-
 	}
-
 }
